@@ -13669,7 +13669,6 @@ class BookCtrlBase(Control,WithImages):
     CurrentPage = property(GetCurrentPage,doc="See `GetCurrentPage`") 
     FitToCurrentPage = property(GetFitToCurrentPage,SetFitToCurrentPage,doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`") 
     InternalBorder = property(GetInternalBorder,SetInternalBorder,doc="See `GetInternalBorder` and `SetInternalBorder`") 
-    Page = property(GetPage,doc="See `GetPage`") 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     PageImage = property(GetPageImage,SetPageImage,doc="See `GetPageImage` and `SetPageImage`") 
     PageText = property(GetPageText,SetPageText,doc="See `GetPageText` and `SetPageText`") 

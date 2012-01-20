@@ -98,6 +98,7 @@ TEXT_BOX_ATTR_FLOAT = _richtext.TEXT_BOX_ATTR_FLOAT
 TEXT_BOX_ATTR_CLEAR = _richtext.TEXT_BOX_ATTR_CLEAR
 TEXT_BOX_ATTR_COLLAPSE_BORDERS = _richtext.TEXT_BOX_ATTR_COLLAPSE_BORDERS
 TEXT_BOX_ATTR_VERTICAL_ALIGNMENT = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT
+TEXT_BOX_ATTR_BOX_STYLE_NAME = _richtext.TEXT_BOX_ATTR_BOX_STYLE_NAME
 TEXT_ATTR_UNITS_TENTHS_MM = _richtext.TEXT_ATTR_UNITS_TENTHS_MM
 TEXT_ATTR_UNITS_PIXELS = _richtext.TEXT_ATTR_UNITS_PIXELS
 TEXT_ATTR_UNITS_PERCENTAGE = _richtext.TEXT_ATTR_UNITS_PERCENTAGE
@@ -243,6 +244,10 @@ class TextAttrDimensions(object):
     def GetBottom(*args, **kwargs):
         """GetBottom(self) -> TextAttrDimension"""
         return _richtext.TextAttrDimensions_GetBottom(*args, **kwargs)
+
+    def IsValid(*args, **kwargs):
+        """IsValid(self) -> bool"""
+        return _richtext.TextAttrDimensions_IsValid(*args, **kwargs)
 
     m_left = property(_richtext.TextAttrDimensions_m_left_get, _richtext.TextAttrDimensions_m_left_set)
     m_top = property(_richtext.TextAttrDimensions_m_top_get, _richtext.TextAttrDimensions_m_top_set)
@@ -820,6 +825,18 @@ class TextBoxAttr(object):
         """
         return _richtext.TextBoxAttr_GetHeight(*args)
 
+    def GetBoxStyleName(*args, **kwargs):
+        """GetBoxStyleName(self) -> String"""
+        return _richtext.TextBoxAttr_GetBoxStyleName(*args, **kwargs)
+
+    def SetBoxStyleName(*args, **kwargs):
+        """SetBoxStyleName(self, String name)"""
+        return _richtext.TextBoxAttr_SetBoxStyleName(*args, **kwargs)
+
+    def HasBoxStyleName(*args, **kwargs):
+        """HasBoxStyleName(self) -> bool"""
+        return _richtext.TextBoxAttr_HasBoxStyleName(*args, **kwargs)
+
     m_flags = property(_richtext.TextBoxAttr_m_flags_get, _richtext.TextBoxAttr_m_flags_set)
     m_margins = property(_richtext.TextBoxAttr_m_margins_get, _richtext.TextBoxAttr_m_margins_set)
     m_padding = property(_richtext.TextBoxAttr_m_padding_get, _richtext.TextBoxAttr_m_padding_set)
@@ -831,6 +848,7 @@ class TextBoxAttr(object):
     m_clearMode = property(_richtext.TextBoxAttr_m_clearMode_get, _richtext.TextBoxAttr_m_clearMode_set)
     m_collapseMode = property(_richtext.TextBoxAttr_m_collapseMode_get, _richtext.TextBoxAttr_m_collapseMode_set)
     m_verticalAlignment = property(_richtext.TextBoxAttr_m_verticalAlignment_get, _richtext.TextBoxAttr_m_verticalAlignment_set)
+    m_boxStyleName = property(_richtext.TextBoxAttr_m_boxStyleName_get, _richtext.TextBoxAttr_m_boxStyleName_set)
 _richtext.TextBoxAttr_swigregister(TextBoxAttr)
 
 #---------------------------------------------------------------------------
@@ -2984,13 +3002,29 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """SetDragging(self, bool dragging)"""
         return _richtext.RichTextCtrl_SetDragging(*args, **kwargs)
 
-    def GetDragStart(*args, **kwargs):
-        """GetDragStart(self) -> Point"""
-        return _richtext.RichTextCtrl_GetDragStart(*args, **kwargs)
+    def GetPreDrag(*args, **kwargs):
+        """GetPreDrag(self) -> bool"""
+        return _richtext.RichTextCtrl_GetPreDrag(*args, **kwargs)
 
-    def SetDragStart(*args, **kwargs):
-        """SetDragStart(self, Point pt)"""
-        return _richtext.RichTextCtrl_SetDragStart(*args, **kwargs)
+    def SetPreDrag(*args, **kwargs):
+        """SetPreDrag(self, bool pd)"""
+        return _richtext.RichTextCtrl_SetPreDrag(*args, **kwargs)
+
+    def GetDragStartPoint(*args, **kwargs):
+        """GetDragStartPoint(self) -> Point"""
+        return _richtext.RichTextCtrl_GetDragStartPoint(*args, **kwargs)
+
+    def SetDragStartPoint(*args, **kwargs):
+        """SetDragStartPoint(self, Point sp)"""
+        return _richtext.RichTextCtrl_SetDragStartPoint(*args, **kwargs)
+
+    def GetDragStartTime(*args, **kwargs):
+        """GetDragStartTime(self) -> DateTime"""
+        return _richtext.RichTextCtrl_GetDragStartTime(*args, **kwargs)
+
+    def SetDragStartTime(*args, **kwargs):
+        """SetDragStartTime(self, DateTime st)"""
+        return _richtext.RichTextCtrl_SetDragStartTime(*args, **kwargs)
 
     def GetContextMenu(*args, **kwargs):
         """GetContextMenu(self) -> Menu"""
@@ -3151,6 +3185,13 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         of the hit test result and the column and row values.
         """
         return _richtext.RichTextCtrl_HitTestXY(*args, **kwargs)
+
+    def FindContainerAtPoint(*args, **kwargs):
+        """
+        FindContainerAtPoint(self, Point pt, long position, int hit, RichTextObject hitObj, 
+            int flags=0) -> RichTextParagraphLayoutBox
+        """
+        return _richtext.RichTextCtrl_FindContainerAtPoint(*args, **kwargs)
 
     def DeleteSelection(*args, **kwargs):
         """
@@ -3955,6 +3996,14 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         changed.
         """
         return _richtext.RichTextCtrl_ApplyStyleSheet(*args, **kwargs)
+
+    def ShowContextMenu(*args, **kwargs):
+        """ShowContextMenu(self, Menu menu, Point pt, bool addPropertyCommands=True) -> bool"""
+        return _richtext.RichTextCtrl_ShowContextMenu(*args, **kwargs)
+
+    def PrepareContextMenu(*args, **kwargs):
+        """PrepareContextMenu(self, Menu menu, Point pt, bool addPropertyCommands=True) -> int"""
+        return _richtext.RichTextCtrl_PrepareContextMenu(*args, **kwargs)
 
     Buffer = property(GetBuffer) 
     DelayedLayoutThreshold = property(GetDelayedLayoutThreshold,SetDelayedLayoutThreshold) 
