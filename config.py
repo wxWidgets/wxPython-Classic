@@ -328,7 +328,7 @@ def Verify_WX_CONFIG():
 
 
 def getWxConfigValue(flag):
-    cmd = "%s %s" % (WX_CONFIG, flag)
+    cmd = "%s --version=%s.%s  %s" % (WX_CONFIG, VER_MAJOR, VER_MINOR, flag)
     value = os.popen(cmd, 'r').read()[:-1]
     return value
 
