@@ -201,10 +201,38 @@ during sizing.", "");
     bool GetDragging() const;
     void SetDragging(bool dragging);
 
-    /// Get/set drag start position
-    const wxPoint& GetDragStart() const;
-    void SetDragStart(const wxPoint& pt);
+    /**
+        Are we trying to start Drag'n'Drop?
+    */
+    bool GetPreDrag() const { return m_preDrag; }
 
+    /**
+        Set if we're trying to start Drag'n'Drop
+    */
+    void SetPreDrag(bool pd) { m_preDrag = pd; }
+
+    /**
+        Get the possible Drag'n'Drop start point
+    */
+    const wxPoint GetDragStartPoint() const { return m_dragStartPoint; }
+
+    /**
+        Set the possible Drag'n'Drop start point
+    */
+    void SetDragStartPoint(wxPoint sp) { m_dragStartPoint = sp; }
+
+    /**
+        Get the possible Drag'n'Drop start time
+    */
+    const wxDateTime GetDragStartTime() const { return m_dragStartTime; }
+
+    /**
+        Set the possible Drag'n'Drop start time
+    */
+    void SetDragStartTime(wxDateTime st) { m_dragStartTime = st; }
+
+
+    
 #ifdef __WXMSW__
     /// Get the buffer bitmap
     wxBitmap& GetBufferBitmap();
@@ -414,6 +442,10 @@ of the hit test result and the column and row values.", "
 :see: `HitTest`",
         HitTestXY);
 
+    /**
+        Finds the container at the given point, which is in screen coordinates.
+    */
+    wxRichTextParagraphLayoutBox* FindContainerAtPoint(const wxPoint pt, long& position, int& hit, wxRichTextObject* hitObj, int flags = 0);
 
     // Clipboard operations
     DocDeclStr(
@@ -1028,7 +1060,18 @@ of interest.
 changed.", "");
 
 
+    /**
+        Shows the given context menu, optionally adding appropriate property-editing commands for the current position in the object hierarchy.
+    */
+    virtual bool ShowContextMenu(wxMenu* menu, const wxPoint& pt, bool addPropertyCommands = true);
 
+    /**
+        Prepares the context menu, optionally adding appropriate property-editing commands.
+        Returns the number of property commands added.
+    */
+    virtual int PrepareContextMenu(wxMenu* menu, const wxPoint& pt, bool addPropertyCommands = true);
+
+    
     %property(Buffer, GetBuffer);
     %property(DelayedLayoutThreshold, GetDelayedLayoutThreshold, SetDelayedLayoutThreshold);
     %property(Filename, GetFilename, SetFilename);

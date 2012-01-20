@@ -157,7 +157,6 @@ wx.NB_HITTEST flags.", "");
     %property(CurrentPage, GetCurrentPage, doc="See `GetCurrentPage`");
     %property(FitToCurrentPage, GetFitToCurrentPage, SetFitToCurrentPage, doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`");
     %property(InternalBorder, GetInternalBorder, SetInternalBorder, doc="See `GetInternalBorder` and `SetInternalBorder`");
-    %property(Page, GetPage, doc="See `GetPage`");
     %property(PageCount, GetPageCount, doc="See `GetPageCount`");
     %property(PageImage, GetPageImage, SetPageImage, doc="See `GetPageImage` and `SetPageImage`");
     %property(PageText, GetPageText, SetPageText, doc="See `GetPageText` and `SetPageText`");
