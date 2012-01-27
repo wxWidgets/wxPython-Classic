@@ -1377,6 +1377,9 @@ class IconBundle(object):
     """Proxy of C++ IconBundle class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
+    FALLBACK_NONE = _gdi_.IconBundle_FALLBACK_NONE
+    FALLBACK_SYSTEM = _gdi_.IconBundle_FALLBACK_SYSTEM
+    FALLBACK_NEAREST_LARGER = _gdi_.IconBundle_FALLBACK_NEAREST_LARGER
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> IconBundle"""
         _gdi_.IconBundle_swiginit(self,_gdi_.new_IconBundle(*args, **kwargs))
@@ -1416,7 +1419,7 @@ class IconBundle(object):
 
     def GetIcon(*args, **kwargs):
         """
-        GetIcon(self, Size size) -> Icon
+        GetIcon(self, Size size, int flags=FALLBACK_SYSTEM) -> Icon
 
         Returns the icon with the given size; if no such icon exists, returns
         the icon with size wxSYS_ICON_[XY]; if no such icon exists, returns
@@ -1887,6 +1890,10 @@ class NativeFontInfo(object):
         """GetUnderlined(self) -> bool"""
         return _gdi_.NativeFontInfo_GetUnderlined(*args, **kwargs)
 
+    def GetStrikethrough(*args, **kwargs):
+        """GetStrikethrough(self) -> bool"""
+        return _gdi_.NativeFontInfo_GetStrikethrough(*args, **kwargs)
+
     def GetFaceName(*args, **kwargs):
         """GetFaceName(self) -> String"""
         return _gdi_.NativeFontInfo_GetFaceName(*args, **kwargs)
@@ -1914,6 +1921,10 @@ class NativeFontInfo(object):
     def SetUnderlined(*args, **kwargs):
         """SetUnderlined(self, bool underlined)"""
         return _gdi_.NativeFontInfo_SetUnderlined(*args, **kwargs)
+
+    def SetStrikethrough(*args, **kwargs):
+        """SetStrikethrough(self, bool strikethrough)"""
+        return _gdi_.NativeFontInfo_SetStrikethrough(*args, **kwargs)
 
     def SetFaceName(*args, **kwargs):
         """SetFaceName(self, String facename) -> bool"""
@@ -2220,6 +2231,10 @@ class Font(GDIObject):
         """
         return _gdi_.Font_GetUnderlined(*args, **kwargs)
 
+    def GetStrikethrough(*args, **kwargs):
+        """GetStrikethrough(self) -> bool"""
+        return _gdi_.Font_GetStrikethrough(*args, **kwargs)
+
     def GetFaceName(*args, **kwargs):
         """
         GetFaceName(self) -> String
@@ -2336,6 +2351,10 @@ class Font(GDIObject):
         """
         return _gdi_.Font_SetUnderlined(*args, **kwargs)
 
+    def SetStrikethrough(*args, **kwargs):
+        """SetStrikethrough(self, bool strikethrough)"""
+        return _gdi_.Font_SetStrikethrough(*args, **kwargs)
+
     def SetEncoding(*args, **kwargs):
         """
         SetEncoding(self, int encoding)
@@ -2430,6 +2449,10 @@ class Font(GDIObject):
         """MakeUnderlined(self) -> Font"""
         return _gdi_.Font_MakeUnderlined(*args, **kwargs)
 
+    def MakeStrikethrough(*args, **kwargs):
+        """MakeStrikethrough(self) -> Font"""
+        return _gdi_.Font_MakeStrikethrough(*args, **kwargs)
+
     def MakeLarger(*args, **kwargs):
         """MakeLarger(self) -> Font"""
         return _gdi_.Font_MakeLarger(*args, **kwargs)
@@ -2453,6 +2476,10 @@ class Font(GDIObject):
     def Underlined(*args, **kwargs):
         """Underlined(self) -> Font"""
         return _gdi_.Font_Underlined(*args, **kwargs)
+
+    def Strikethrough(*args, **kwargs):
+        """Strikethrough(self) -> Font"""
+        return _gdi_.Font_Strikethrough(*args, **kwargs)
 
     def Larger(*args, **kwargs):
         """Larger(self) -> Font"""
@@ -2501,7 +2528,6 @@ class Font(GDIObject):
     PointSize = property(GetPointSize,SetPointSize,doc="See `GetPointSize` and `SetPointSize`") 
     Style = property(GetStyle,SetStyle,doc="See `GetStyle` and `SetStyle`") 
     StyleString = property(GetStyleString,doc="See `GetStyleString`") 
-    Underlined = property(GetUnderlined,SetUnderlined,doc="See `GetUnderlined` and `SetUnderlined`") 
     Weight = property(GetWeight,SetWeight,doc="See `GetWeight` and `SetWeight`") 
     WeightString = property(GetWeightString,doc="See `GetWeightString`") 
 _gdi_.Font_swigregister(Font)

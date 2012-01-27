@@ -6875,6 +6875,51 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TopLevelWindow_SetRepresentedFilename(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTopLevelWindow *arg1 = (wxTopLevelWindow *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "filename", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TopLevelWindow_SetRepresentedFilename",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTopLevelWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TopLevelWindow_SetRepresentedFilename" "', expected argument " "1"" of type '" "wxTopLevelWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetRepresentedFilename((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *TopLevelWindow_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -37805,6 +37850,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TopLevelWindow_GetTmpDefaultItem", (PyCFunction)_wrap_TopLevelWindow_GetTmpDefaultItem, METH_O, NULL},
 	 { (char *)"TopLevelWindow_OSXIsModified", (PyCFunction)_wrap_TopLevelWindow_OSXIsModified, METH_O, NULL},
 	 { (char *)"TopLevelWindow_OSXSetModified", (PyCFunction) _wrap_TopLevelWindow_OSXSetModified, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TopLevelWindow_SetRepresentedFilename", (PyCFunction) _wrap_TopLevelWindow_SetRepresentedFilename, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_swigregister", TopLevelWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_Frame", (PyCFunction) _wrap_new_Frame, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PreFrame", (PyCFunction)_wrap_new_PreFrame, METH_NOARGS, NULL},

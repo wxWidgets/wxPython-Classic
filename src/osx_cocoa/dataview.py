@@ -1734,6 +1734,10 @@ class DataViewCtrl(_core.Control):
         """SetCurrentItem(self, DataViewItem item)"""
         return _dataview.DataViewCtrl_SetCurrentItem(*args, **kwargs)
 
+    def GetCurrentColumn(*args, **kwargs):
+        """GetCurrentColumn(self) -> DataViewColumn"""
+        return _dataview.DataViewCtrl_GetCurrentColumn(*args, **kwargs)
+
     def GetSelectedItemsCount(*args, **kwargs):
         """GetSelectedItemsCount(self) -> int"""
         return _dataview.DataViewCtrl_GetSelectedItemsCount(*args, **kwargs)
@@ -1806,9 +1810,9 @@ class DataViewCtrl(_core.Control):
         """SetRowHeight(self, int rowHeight) -> bool"""
         return _dataview.DataViewCtrl_SetRowHeight(*args, **kwargs)
 
-    def StartEditor(*args, **kwargs):
-        """StartEditor(self, DataViewItem item, unsigned int column)"""
-        return _dataview.DataViewCtrl_StartEditor(*args, **kwargs)
+    def EditItem(*args, **kwargs):
+        """EditItem(self, DataViewItem item, DataViewColumn column)"""
+        return _dataview.DataViewCtrl_EditItem(*args, **kwargs)
 
     def EnableDragSource(*args, **kwargs):
         """EnableDragSource(self, wxDataFormat format) -> bool"""

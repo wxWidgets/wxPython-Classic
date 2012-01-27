@@ -74948,12 +74948,10 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RA_VERTICAL",SWIG_From_int(static_cast< int >(wxRA_VERTICAL)));
   SWIG_Python_SetConstant(d, "RA_SPECIFY_ROWS",SWIG_From_int(static_cast< int >(wxRA_SPECIFY_ROWS)));
   SWIG_Python_SetConstant(d, "RA_SPECIFY_COLS",SWIG_From_int(static_cast< int >(wxRA_SPECIFY_COLS)));
-  SWIG_Python_SetConstant(d, "RA_USE_CHECKBOX",SWIG_From_int(static_cast< int >(wxRA_USE_CHECKBOX)));
   SWIG_Python_SetConstant(d, "RB_GROUP",SWIG_From_int(static_cast< int >(wxRB_GROUP)));
   SWIG_Python_SetConstant(d, "RB_SINGLE",SWIG_From_int(static_cast< int >(wxRB_SINGLE)));
   SWIG_Python_SetConstant(d, "SB_HORIZONTAL",SWIG_From_int(static_cast< int >(wxSB_HORIZONTAL)));
   SWIG_Python_SetConstant(d, "SB_VERTICAL",SWIG_From_int(static_cast< int >(wxSB_VERTICAL)));
-  SWIG_Python_SetConstant(d, "RB_USE_CHECKBOX",SWIG_From_int(static_cast< int >(wxRB_USE_CHECKBOX)));
   SWIG_Python_SetConstant(d, "TOOL_TOP",SWIG_From_int(static_cast< int >(wxTOOL_TOP)));
   SWIG_Python_SetConstant(d, "TOOL_BOTTOM",SWIG_From_int(static_cast< int >(wxTOOL_BOTTOM)));
   SWIG_Python_SetConstant(d, "TOOL_LEFT",SWIG_From_int(static_cast< int >(wxTOOL_LEFT)));

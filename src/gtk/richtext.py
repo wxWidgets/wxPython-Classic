@@ -1076,6 +1076,35 @@ class RichTextRange(object):
     Start = property(GetStart,SetStart,doc="See `GetStart` and `SetStart`") 
 _richtext.RichTextRange_swigregister(RichTextRange)
 
+class RichTextDrawingContext(_core.Object):
+    """Proxy of C++ RichTextDrawingContext class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, RichTextBuffer buffer) -> RichTextDrawingContext"""
+        _richtext.RichTextDrawingContext_swiginit(self,_richtext.new_RichTextDrawingContext(*args, **kwargs))
+    def Init(*args, **kwargs):
+        """Init(self)"""
+        return _richtext.RichTextDrawingContext_Init(*args, **kwargs)
+
+    def HasVirtualAttributes(*args, **kwargs):
+        """HasVirtualAttributes(self, RichTextObject obj) -> bool"""
+        return _richtext.RichTextDrawingContext_HasVirtualAttributes(*args, **kwargs)
+
+    def GetVirtualAttributes(*args, **kwargs):
+        """GetVirtualAttributes(self, RichTextObject obj) -> RichTextAttr"""
+        return _richtext.RichTextDrawingContext_GetVirtualAttributes(*args, **kwargs)
+
+    def ApplyVirtualAttributes(*args, **kwargs):
+        """ApplyVirtualAttributes(self, RichTextAttr attr, RichTextObject obj) -> bool"""
+        return _richtext.RichTextDrawingContext_ApplyVirtualAttributes(*args, **kwargs)
+
+    m_buffer = property(_richtext.RichTextDrawingContext_m_buffer_get, _richtext.RichTextDrawingContext_m_buffer_set)
+_richtext.RichTextDrawingContext_swigregister(RichTextDrawingContext)
+cvar = _richtext.cvar
+RICHTEXT_ALL = cvar.RICHTEXT_ALL
+RICHTEXT_NONE = cvar.RICHTEXT_NONE
+
 class RichTextObject(_core.Object):
     """
     This is the base class for all drawable objects in a `RichTextCtrl`.
@@ -1134,24 +1163,32 @@ class RichTextObject(_core.Object):
     __del__ = lambda self : None;
     def Draw(*args, **kwargs):
         """
-        Draw(self, DC dc, RichTextRange range, wxRichTextSelection selection, 
-            Rect rect, int descent, int style) -> bool
+        Draw(self, DC dc, RichTextDrawingContext context, RichTextRange range, 
+            wxRichTextSelection selection, Rect rect, 
+            int descent, int style) -> bool
         """
         return _richtext.RichTextObject_Draw(*args, **kwargs)
 
     def Layout(*args, **kwargs):
-        """Layout(self, DC dc, Rect rect, int style) -> bool"""
+        """
+        Layout(self, DC dc, RichTextDrawingContext context, Rect rect, Rect parentRect, 
+            int style) -> bool
+        """
         return _richtext.RichTextObject_Layout(*args, **kwargs)
 
     def HitTest(*args, **kwargs):
         """
-        HitTest(self, DC dc, Point pt, long OUTPUT, RichTextObject obj, RichTextObject contextObj, 
+        HitTest(self, DC dc, RichTextDrawingContext context, Point pt, long OUTPUT, 
+            RichTextObject obj, RichTextObject contextObj, 
             int flags=0) -> int
         """
         return _richtext.RichTextObject_HitTest(*args, **kwargs)
 
     def FindPosition(*args, **kwargs):
-        """FindPosition(self, DC dc, long index, Point OUTPUT, int OUTPUT, bool forceLineStart) -> bool"""
+        """
+        FindPosition(self, DC dc, RichTextDrawingContext context, long index, 
+            Point OUTPUT, int OUTPUT, bool forceLineStart) -> bool
+        """
         return _richtext.RichTextObject_FindPosition(*args, **kwargs)
 
     def GetBestSize(*args, **kwargs):
@@ -1161,7 +1198,8 @@ class RichTextObject(_core.Object):
     def GetRangeSize(*args, **kwargs):
         """
         GetRangeSize(self, RichTextRange range, Size OUTPUT, int OUTPUT, DC dc, 
-            int flags, Point position=wxPoint(0,0)) -> bool
+            RichTextDrawingContext context, int flags, 
+            Point position=wxPoint(0,0)) -> bool
         """
         return _richtext.RichTextObject_GetRangeSize(*args, **kwargs)
 
@@ -1404,15 +1442,13 @@ class RichTextObject(_core.Object):
     def AdjustAvailableSpace(*args, **kwargs):
         """
         AdjustAvailableSpace(DC dc, RichTextBuffer buffer, RichTextAttr parentAttr, 
-            RichTextAttr childAttr, Rect availableParentSpace) -> Rect
+            RichTextAttr childAttr, Rect availableParentSpace, 
+            Rect availableContainerSpace) -> Rect
         """
         return _richtext.RichTextObject_AdjustAvailableSpace(*args, **kwargs)
 
     AdjustAvailableSpace = staticmethod(AdjustAvailableSpace)
 _richtext.RichTextObject_swigregister(RichTextObject)
-cvar = _richtext.cvar
-RICHTEXT_ALL = cvar.RICHTEXT_ALL
-RICHTEXT_NONE = cvar.RICHTEXT_NONE
 
 def RichTextObject_ConvertTenthsMMToPixels(*args, **kwargs):
   """RichTextObject_ConvertTenthsMMToPixels(int ppi, int units, double scale=1.0) -> int"""
@@ -1458,7 +1494,8 @@ def RichTextObject_GetTotalMargin(*args, **kwargs):
 def RichTextObject_AdjustAvailableSpace(*args, **kwargs):
   """
     RichTextObject_AdjustAvailableSpace(DC dc, RichTextBuffer buffer, RichTextAttr parentAttr, 
-        RichTextAttr childAttr, Rect availableParentSpace) -> Rect
+        RichTextAttr childAttr, Rect availableParentSpace, 
+        Rect availableContainerSpace) -> Rect
     """
   return _richtext.RichTextObject_AdjustAvailableSpace(*args, **kwargs)
 
@@ -1572,13 +1609,6 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
         _richtext.RichTextParagraphLayoutBox_swiginit(self,_richtext.new_RichTextParagraphLayoutBox(*args))
     __swig_destroy__ = _richtext.delete_RichTextParagraphLayoutBox
     __del__ = lambda self : None;
-    def GetRangeSize(*args, **kwargs):
-        """
-        GetRangeSize(self, RichTextRange range, Size size, int descent, DC dc, 
-            int flags, Point position=wxPoint(0,0), wxArrayInt partialExtents=None) -> bool
-        """
-        return _richtext.RichTextParagraphLayoutBox_GetRangeSize(*args, **kwargs)
-
     def SetRichTextCtrl(*args, **kwargs):
         """SetRichTextCtrl(self, RichTextCtrl ctrl)"""
         return _richtext.RichTextParagraphLayoutBox_SetRichTextCtrl(*args, **kwargs)
@@ -1601,8 +1631,9 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
 
     def DrawFloats(*args, **kwargs):
         """
-        DrawFloats(self, DC dc, RichTextRange range, wxRichTextSelection selection, 
-            Rect rect, int descent, int style)
+        DrawFloats(self, DC dc, RichTextDrawingContext context, RichTextRange range, 
+            wxRichTextSelection selection, Rect rect, 
+            int descent, int style)
         """
         return _richtext.RichTextParagraphLayoutBox_DrawFloats(*args, **kwargs)
 
@@ -1844,13 +1875,6 @@ class RichTextBox(RichTextCompositeObject):
         __init__(self, RichTextBox obj) -> RichTextBox
         """
         _richtext.RichTextBox_swiginit(self,_richtext.new_RichTextBox(*args))
-    def GetRangeSize(*args, **kwargs):
-        """
-        GetRangeSize(self, RichTextRange range, Size size, int descent, DC dc, 
-            int flags, Point position=wxPoint(0,0), wxArrayInt partialExtents=None) -> bool
-        """
-        return _richtext.RichTextBox_GetRangeSize(*args, **kwargs)
-
     def Copy(*args, **kwargs):
         """Copy(self, RichTextBox obj)"""
         return _richtext.RichTextBox_Copy(*args, **kwargs)
@@ -1994,7 +2018,8 @@ class RichTextParagraph(RichTextBox):
 
     def FindWrapPosition(*args, **kwargs):
         """
-        FindWrapPosition(self, RichTextRange range, DC dc, int availableSpace, long wrapPosition, 
+        FindWrapPosition(self, RichTextRange range, DC dc, RichTextDrawingContext context, 
+            int availableSpace, long wrapPosition, 
             wxArrayInt partialExtents) -> bool
         """
         return _richtext.RichTextParagraph_FindWrapPosition(*args, **kwargs)
@@ -2038,10 +2063,6 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_GetDefaultTabs(*args, **kwargs)
 
     GetDefaultTabs = staticmethod(GetDefaultTabs)
-    def LayoutFloat(*args, **kwargs):
-        """LayoutFloat(self, DC dc, Rect rect, int style, wxRichTextFloatCollector floatCollector)"""
-        return _richtext.RichTextParagraph_LayoutFloat(*args, **kwargs)
-
 _richtext.RichTextParagraph_swigregister(RichTextParagraph)
 
 def RichTextParagraph_InitDefaultTabs(*args):
@@ -2101,13 +2122,6 @@ class RichTextImage(RichTextObject):
         This object represents an image.
         """
         _richtext.RichTextImage_swiginit(self,_richtext.new_RichTextImage(*args))
-    def GetRangeSize(*args, **kwargs):
-        """
-        GetRangeSize(self, RichTextRange range, Size size, int descent, DC dc, 
-            int flags, Point position=wxPoint(0,0), wxArrayInt partialExtents=None) -> bool
-        """
-        return _richtext.RichTextImage_GetRangeSize(*args, **kwargs)
-
     def GetImageCache(*args, **kwargs):
         """GetImageCache(self) -> Bitmap"""
         return _richtext.RichTextImage_GetImageCache(*args, **kwargs)

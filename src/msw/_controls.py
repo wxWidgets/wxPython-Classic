@@ -1422,6 +1422,7 @@ TEXT_ATTR_FONT_SIZE = _controls_.TEXT_ATTR_FONT_SIZE
 TEXT_ATTR_FONT_WEIGHT = _controls_.TEXT_ATTR_FONT_WEIGHT
 TEXT_ATTR_FONT_ITALIC = _controls_.TEXT_ATTR_FONT_ITALIC
 TEXT_ATTR_FONT_UNDERLINE = _controls_.TEXT_ATTR_FONT_UNDERLINE
+TEXT_ATTR_FONT_STRIKETHROUGH = _controls_.TEXT_ATTR_FONT_STRIKETHROUGH
 TEXT_ATTR_FONT_ENCODING = _controls_.TEXT_ATTR_FONT_ENCODING
 TEXT_ATTR_FONT_FAMILY = _controls_.TEXT_ATTR_FONT_FAMILY
 TEXT_ATTR_FONT = _controls_.TEXT_ATTR_FONT
@@ -1551,6 +1552,10 @@ class TextAttr(object):
         """SetFontUnderlined(self, bool underlined)"""
         return _controls_.TextAttr_SetFontUnderlined(*args, **kwargs)
 
+    def SetFontStrikethrough(*args, **kwargs):
+        """SetFontStrikethrough(self, bool strikethrough)"""
+        return _controls_.TextAttr_SetFontStrikethrough(*args, **kwargs)
+
     def SetFontEncoding(*args, **kwargs):
         """SetFontEncoding(self, int encoding)"""
         return _controls_.TextAttr_SetFontEncoding(*args, **kwargs)
@@ -1679,6 +1684,10 @@ class TextAttr(object):
         """GetFontUnderlined(self) -> bool"""
         return _controls_.TextAttr_GetFontUnderlined(*args, **kwargs)
 
+    def GetFontStrikethrough(*args, **kwargs):
+        """GetFontStrikethrough(self) -> bool"""
+        return _controls_.TextAttr_GetFontStrikethrough(*args, **kwargs)
+
     def GetFontFaceName(*args, **kwargs):
         """GetFontFaceName(self) -> String"""
         return _controls_.TextAttr_GetFontFaceName(*args, **kwargs)
@@ -1795,6 +1804,10 @@ class TextAttr(object):
     def HasFontUnderlined(*args, **kwargs):
         """HasFontUnderlined(self) -> bool"""
         return _controls_.TextAttr_HasFontUnderlined(*args, **kwargs)
+
+    def HasFontStrikethrough(*args, **kwargs):
+        """HasFontStrikethrough(self) -> bool"""
+        return _controls_.TextAttr_HasFontStrikethrough(*args, **kwargs)
 
     def HasFontFaceName(*args, **kwargs):
         """HasFontFaceName(self) -> bool"""

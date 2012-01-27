@@ -45178,14 +45178,12 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PORT_MSW",SWIG_From_int(static_cast< int >(wxPORT_MSW)));
   SWIG_Python_SetConstant(d, "PORT_MOTIF",SWIG_From_int(static_cast< int >(wxPORT_MOTIF)));
   SWIG_Python_SetConstant(d, "PORT_GTK",SWIG_From_int(static_cast< int >(wxPORT_GTK)));
-  SWIG_Python_SetConstant(d, "PORT_MGL",SWIG_From_int(static_cast< int >(wxPORT_MGL)));
   SWIG_Python_SetConstant(d, "PORT_X11",SWIG_From_int(static_cast< int >(wxPORT_X11)));
   SWIG_Python_SetConstant(d, "PORT_PM",SWIG_From_int(static_cast< int >(wxPORT_PM)));
   SWIG_Python_SetConstant(d, "PORT_OS2",SWIG_From_int(static_cast< int >(wxPORT_OS2)));
   SWIG_Python_SetConstant(d, "PORT_MAC",SWIG_From_int(static_cast< int >(wxPORT_MAC)));
   SWIG_Python_SetConstant(d, "PORT_COCOA",SWIG_From_int(static_cast< int >(wxPORT_COCOA)));
   SWIG_Python_SetConstant(d, "PORT_WINCE",SWIG_From_int(static_cast< int >(wxPORT_WINCE)));
-  SWIG_Python_SetConstant(d, "PORT_PALMOS",SWIG_From_int(static_cast< int >(wxPORT_PALMOS)));
   SWIG_Python_SetConstant(d, "PORT_DFB",SWIG_From_int(static_cast< int >(wxPORT_DFB)));
   SWIG_Python_SetConstant(d, "ARCH_INVALID",SWIG_From_int(static_cast< int >(wxARCH_INVALID)));
   SWIG_Python_SetConstant(d, "ARCH_32",SWIG_From_int(static_cast< int >(wxARCH_32)));

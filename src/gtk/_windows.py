@@ -545,6 +545,10 @@ class TopLevelWindow(_core.Window):
         """OSXSetModified(self, bool modified)"""
         return _windows_.TopLevelWindow_OSXSetModified(*args, **kwargs)
 
+    def SetRepresentedFilename(*args, **kwargs):
+        """SetRepresentedFilename(self, String filename)"""
+        return _windows_.TopLevelWindow_SetRepresentedFilename(*args, **kwargs)
+
     DefaultItem = property(GetDefaultItem,SetDefaultItem,doc="See `GetDefaultItem` and `SetDefaultItem`") 
     Icon = property(GetIcon,SetIcon,doc="See `GetIcon` and `SetIcon`") 
     Title = property(GetTitle,SetTitle,doc="See `GetTitle` and `SetTitle`") 

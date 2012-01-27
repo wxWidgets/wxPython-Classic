@@ -11572,17 +11572,21 @@ SWIGINTERN PyObject *_wrap_IconBundle_GetIcon(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   wxIconBundle *arg1 = (wxIconBundle *) 0 ;
   wxSize *arg2 = 0 ;
+  int arg3 = (int) wxIconBundle::FALLBACK_SYSTEM ;
   wxIcon *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   wxSize temp2 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "size", NULL 
+    (char *) "self",(char *) "size",(char *) "flags", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:IconBundle_GetIcon",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:IconBundle_GetIcon",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxIconBundle, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IconBundle_GetIcon" "', expected argument " "1"" of type '" "wxIconBundle const *""'"); 
@@ -11592,10 +11596,17 @@ SWIGINTERN PyObject *_wrap_IconBundle_GetIcon(PyObject *SWIGUNUSEDPARM(self), Py
     arg2 = &temp2;
     if ( ! wxSize_helper(obj1, &arg2)) SWIG_fail;
   }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_GetIcon" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     {
-      wxIcon const &_result_ref = ((wxIconBundle const *)arg1)->GetIcon((wxSize const &)*arg2);
+      wxIcon const &_result_ref = ((wxIconBundle const *)arg1)->GetIcon((wxSize const &)*arg2,arg3);
       result = (wxIcon *) &_result_ref;
     }
     wxPyEndAllowThreads(__tstate);
@@ -14240,6 +14251,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NativeFontInfo_GetStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxNativeFontInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NativeFontInfo_GetStrikethrough" "', expected argument " "1"" of type '" "wxNativeFontInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxNativeFontInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxNativeFontInfo const *)arg1)->GetStrikethrough();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NativeFontInfo_GetFaceName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
@@ -14508,6 +14549,44 @@ SWIGINTERN PyObject *_wrap_NativeFontInfo_SetUnderlined(PyObject *SWIGUNUSEDPARM
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetUnderlined(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NativeFontInfo_SetStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "strikethrough", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:NativeFontInfo_SetStrikethrough",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxNativeFontInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NativeFontInfo_SetStrikethrough" "', expected argument " "1"" of type '" "wxNativeFontInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxNativeFontInfo * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "NativeFontInfo_SetStrikethrough" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetStrikethrough(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16534,6 +16613,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Font_GetStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_GetStrikethrough" "', expected argument " "1"" of type '" "wxFont const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxFont const *)arg1)->GetStrikethrough();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Font_GetFaceName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFont *arg1 = (wxFont *) 0 ;
@@ -16986,6 +17095,44 @@ SWIGINTERN PyObject *_wrap_Font_SetUnderlined(PyObject *SWIGUNUSEDPARM(self), Py
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetUnderlined(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_SetStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "strikethrough", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Font_SetStrikethrough",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_SetStrikethrough" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Font_SetStrikethrough" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetStrikethrough(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17566,6 +17713,39 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Font_MakeStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  wxFont *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_MakeStrikethrough" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxFont &_result_ref = (arg1)->MakeStrikethrough();
+      result = (wxFont *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Font_MakeLarger(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFont *arg1 = (wxFont *) 0 ;
@@ -17750,6 +17930,34 @@ SWIGINTERN PyObject *_wrap_Font_Underlined(PyObject *SWIGUNUSEDPARM(self), PyObj
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = ((wxFont const *)arg1)->Underlined();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_Strikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  SwigValueWrapper<wxFont > result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_Strikethrough" "', expected argument " "1"" of type '" "wxFont const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxFont const *)arg1)->Strikethrough();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -45073,6 +45281,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NativeFontInfo_GetStyle", (PyCFunction)_wrap_NativeFontInfo_GetStyle, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetWeight", (PyCFunction)_wrap_NativeFontInfo_GetWeight, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetUnderlined", (PyCFunction)_wrap_NativeFontInfo_GetUnderlined, METH_O, NULL},
+	 { (char *)"NativeFontInfo_GetStrikethrough", (PyCFunction)_wrap_NativeFontInfo_GetStrikethrough, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetFaceName", (PyCFunction)_wrap_NativeFontInfo_GetFaceName, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetFamily", (PyCFunction)_wrap_NativeFontInfo_GetFamily, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetEncoding", (PyCFunction)_wrap_NativeFontInfo_GetEncoding, METH_O, NULL},
@@ -45081,6 +45290,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NativeFontInfo_SetStyle", (PyCFunction) _wrap_NativeFontInfo_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetWeight", (PyCFunction) _wrap_NativeFontInfo_SetWeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetUnderlined", (PyCFunction) _wrap_NativeFontInfo_SetUnderlined, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"NativeFontInfo_SetStrikethrough", (PyCFunction) _wrap_NativeFontInfo_SetStrikethrough, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetFaceName", (PyCFunction) _wrap_NativeFontInfo_SetFaceName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetFamily", (PyCFunction) _wrap_NativeFontInfo_SetFamily, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetEncoding", (PyCFunction) _wrap_NativeFontInfo_SetEncoding, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -45138,6 +45348,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_GetStyle", (PyCFunction)_wrap_Font_GetStyle, METH_O, NULL},
 	 { (char *)"Font_GetWeight", (PyCFunction)_wrap_Font_GetWeight, METH_O, NULL},
 	 { (char *)"Font_GetUnderlined", (PyCFunction)_wrap_Font_GetUnderlined, METH_O, NULL},
+	 { (char *)"Font_GetStrikethrough", (PyCFunction)_wrap_Font_GetStrikethrough, METH_O, NULL},
 	 { (char *)"Font_GetFaceName", (PyCFunction)_wrap_Font_GetFaceName, METH_O, NULL},
 	 { (char *)"Font_GetEncoding", (PyCFunction)_wrap_Font_GetEncoding, METH_O, NULL},
 	 { (char *)"Font_GetNativeFontInfo", (PyCFunction)_wrap_Font_GetNativeFontInfo, METH_O, NULL},
@@ -45151,6 +45362,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_SetWeight", (PyCFunction) _wrap_Font_SetWeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetFaceName", (PyCFunction) _wrap_Font_SetFaceName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetUnderlined", (PyCFunction) _wrap_Font_SetUnderlined, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Font_SetStrikethrough", (PyCFunction) _wrap_Font_SetStrikethrough, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetEncoding", (PyCFunction) _wrap_Font_SetEncoding, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetNativeFontInfo", (PyCFunction) _wrap_Font_SetNativeFontInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetNativeFontInfoFromString", (PyCFunction) _wrap_Font_SetNativeFontInfoFromString, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -45166,12 +45378,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_MakeBold", (PyCFunction)_wrap_Font_MakeBold, METH_O, NULL},
 	 { (char *)"Font_MakeItalic", (PyCFunction)_wrap_Font_MakeItalic, METH_O, NULL},
 	 { (char *)"Font_MakeUnderlined", (PyCFunction)_wrap_Font_MakeUnderlined, METH_O, NULL},
+	 { (char *)"Font_MakeStrikethrough", (PyCFunction)_wrap_Font_MakeStrikethrough, METH_O, NULL},
 	 { (char *)"Font_MakeLarger", (PyCFunction)_wrap_Font_MakeLarger, METH_O, NULL},
 	 { (char *)"Font_MakeSmaller", (PyCFunction)_wrap_Font_MakeSmaller, METH_O, NULL},
 	 { (char *)"Font_Scale", (PyCFunction) _wrap_Font_Scale, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_Bold", (PyCFunction)_wrap_Font_Bold, METH_O, NULL},
 	 { (char *)"Font_Italic", (PyCFunction)_wrap_Font_Italic, METH_O, NULL},
 	 { (char *)"Font_Underlined", (PyCFunction)_wrap_Font_Underlined, METH_O, NULL},
+	 { (char *)"Font_Strikethrough", (PyCFunction)_wrap_Font_Strikethrough, METH_O, NULL},
 	 { (char *)"Font_Larger", (PyCFunction)_wrap_Font_Larger, METH_O, NULL},
 	 { (char *)"Font_Smaller", (PyCFunction)_wrap_Font_Smaller, METH_O, NULL},
 	 { (char *)"Font_Scaled", (PyCFunction) _wrap_Font_Scaled, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -47664,6 +47878,9 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BitmapBufferFormat_RGB32",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_RGB32)));
   SWIG_Python_SetConstant(d, "BitmapBufferFormat_ARGB32",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_ARGB32)));
   SWIG_Python_SetConstant(d, "BITMAP_SCREEN_DEPTH",SWIG_From_int(static_cast< int >(wxBITMAP_SCREEN_DEPTH)));
+  SWIG_Python_SetConstant(d, "IconBundle_FALLBACK_NONE",SWIG_From_int(static_cast< int >(wxIconBundle::FALLBACK_NONE)));
+  SWIG_Python_SetConstant(d, "IconBundle_FALLBACK_SYSTEM",SWIG_From_int(static_cast< int >(wxIconBundle::FALLBACK_SYSTEM)));
+  SWIG_Python_SetConstant(d, "IconBundle_FALLBACK_NEAREST_LARGER",SWIG_From_int(static_cast< int >(wxIconBundle::FALLBACK_NEAREST_LARGER)));
   SWIG_Python_SetConstant(d, "OutRegion",SWIG_From_int(static_cast< int >(wxOutRegion)));
   SWIG_Python_SetConstant(d, "PartRegion",SWIG_From_int(static_cast< int >(wxPartRegion)));
   SWIG_Python_SetConstant(d, "InRegion",SWIG_From_int(static_cast< int >(wxInRegion)));

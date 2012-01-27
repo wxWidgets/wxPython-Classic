@@ -11189,6 +11189,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TextAttr_SetFontStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttr *arg1 = (wxTextAttr *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "strikethrough", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttr_SetFontStrikethrough",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttr_SetFontStrikethrough" "', expected argument " "1"" of type '" "wxTextAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttr * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttr_SetFontStrikethrough" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFontStrikethrough(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TextAttr_SetFontEncoding(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextAttr *arg1 = (wxTextAttr *) 0 ;
@@ -12363,6 +12401,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TextAttr_GetFontStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextAttr *arg1 = (wxTextAttr *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttr_GetFontStrikethrough" "', expected argument " "1"" of type '" "wxTextAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxTextAttr const *)arg1)->GetFontStrikethrough();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TextAttr_GetFontFaceName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextAttr *arg1 = (wxTextAttr *) 0 ;
@@ -13255,6 +13323,36 @@ SWIGINTERN PyObject *_wrap_TextAttr_HasFontUnderlined(PyObject *SWIGUNUSEDPARM(s
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)((wxTextAttr const *)arg1)->HasFontUnderlined();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttr_HasFontStrikethrough(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextAttr *arg1 = (wxTextAttr *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttr_HasFontStrikethrough" "', expected argument " "1"" of type '" "wxTextAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxTextAttr const *)arg1)->HasFontStrikethrough();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -51431,6 +51529,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttr_SetFontWeight", (PyCFunction) _wrap_TextAttr_SetFontWeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetFontFaceName", (PyCFunction) _wrap_TextAttr_SetFontFaceName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetFontUnderlined", (PyCFunction) _wrap_TextAttr_SetFontUnderlined, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttr_SetFontStrikethrough", (PyCFunction) _wrap_TextAttr_SetFontStrikethrough, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetFontEncoding", (PyCFunction) _wrap_TextAttr_SetFontEncoding, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetFontFamily", (PyCFunction) _wrap_TextAttr_SetFontFamily, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetFont", (PyCFunction) _wrap_TextAttr_SetFont, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -51463,6 +51562,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttr_GetFontStyle", (PyCFunction)_wrap_TextAttr_GetFontStyle, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontWeight", (PyCFunction)_wrap_TextAttr_GetFontWeight, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontUnderlined", (PyCFunction)_wrap_TextAttr_GetFontUnderlined, METH_O, NULL},
+	 { (char *)"TextAttr_GetFontStrikethrough", (PyCFunction)_wrap_TextAttr_GetFontStrikethrough, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontFaceName", (PyCFunction)_wrap_TextAttr_GetFontFaceName, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontEncoding", (PyCFunction)_wrap_TextAttr_GetFontEncoding, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontFamily", (PyCFunction)_wrap_TextAttr_GetFontFamily, METH_O, NULL},
@@ -51492,6 +51592,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttr_HasFontSize", (PyCFunction)_wrap_TextAttr_HasFontSize, METH_O, NULL},
 	 { (char *)"TextAttr_HasFontItalic", (PyCFunction)_wrap_TextAttr_HasFontItalic, METH_O, NULL},
 	 { (char *)"TextAttr_HasFontUnderlined", (PyCFunction)_wrap_TextAttr_HasFontUnderlined, METH_O, NULL},
+	 { (char *)"TextAttr_HasFontStrikethrough", (PyCFunction)_wrap_TextAttr_HasFontStrikethrough, METH_O, NULL},
 	 { (char *)"TextAttr_HasFontFaceName", (PyCFunction)_wrap_TextAttr_HasFontFaceName, METH_O, NULL},
 	 { (char *)"TextAttr_HasFontEncoding", (PyCFunction)_wrap_TextAttr_HasFontEncoding, METH_O, NULL},
 	 { (char *)"TextAttr_HasFontFamily", (PyCFunction)_wrap_TextAttr_HasFontFamily, METH_O, NULL},
@@ -55225,6 +55326,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_WEIGHT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_WEIGHT)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_ITALIC",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_ITALIC)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_UNDERLINE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_UNDERLINE)));
+  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_STRIKETHROUGH",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_STRIKETHROUGH)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_ENCODING",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_ENCODING)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_FAMILY",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_FAMILY)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT)));

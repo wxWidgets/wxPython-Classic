@@ -13193,6 +13193,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataViewCtrl_GetCurrentColumn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
+  wxDataViewColumn *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_GetCurrentColumn" "', expected argument " "1"" of type '" "wxDataViewCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxDataViewColumn *)((wxDataViewCtrl const *)arg1)->GetCurrentColumn();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDataViewColumn, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DataViewCtrl_GetSelectedItemsCount(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
@@ -13901,17 +13929,17 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_DataViewCtrl_StartEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_DataViewCtrl_EditItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
   wxDataViewItem *arg2 = 0 ;
-  unsigned int arg3 ;
+  wxDataViewColumn *arg3 = (wxDataViewColumn *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  unsigned int val3 ;
-  int ecode3 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -13919,28 +13947,28 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_StartEditor(PyObject *SWIGUNUSEDPARM(sel
     (char *) "self",(char *) "item",(char *) "column", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:DataViewCtrl_StartEditor",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:DataViewCtrl_EditItem",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_EditItem" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDataViewItem,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_EditItem" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataViewCtrl_StartEditor" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataViewCtrl_EditItem" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
   }
   arg2 = reinterpret_cast< wxDataViewItem * >(argp2);
-  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "3"" of type '" "unsigned int""'");
-  } 
-  arg3 = static_cast< unsigned int >(val3);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxDataViewColumn, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataViewCtrl_EditItem" "', expected argument " "3"" of type '" "wxDataViewColumn const *""'"); 
+  }
+  arg3 = reinterpret_cast< wxDataViewColumn * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->StartEditor((wxDataViewItem const &)*arg2,arg3);
+    (arg1)->EditItem((wxDataViewItem const &)*arg2,(wxDataViewColumn const *)arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20540,6 +20568,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewCtrl_GetIndent", (PyCFunction)_wrap_DataViewCtrl_GetIndent, METH_O, NULL},
 	 { (char *)"DataViewCtrl_GetCurrentItem", (PyCFunction)_wrap_DataViewCtrl_GetCurrentItem, METH_O, NULL},
 	 { (char *)"DataViewCtrl_SetCurrentItem", (PyCFunction) _wrap_DataViewCtrl_SetCurrentItem, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewCtrl_GetCurrentColumn", (PyCFunction)_wrap_DataViewCtrl_GetCurrentColumn, METH_O, NULL},
 	 { (char *)"DataViewCtrl_GetSelectedItemsCount", (PyCFunction)_wrap_DataViewCtrl_GetSelectedItemsCount, METH_O, NULL},
 	 { (char *)"DataViewCtrl_HasSelection", (PyCFunction)_wrap_DataViewCtrl_HasSelection, METH_O, NULL},
 	 { (char *)"DataViewCtrl_GetSelection", (PyCFunction)_wrap_DataViewCtrl_GetSelection, METH_O, NULL},
@@ -20558,7 +20587,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewCtrl_HitTest", (PyCFunction) _wrap_DataViewCtrl_HitTest, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_GetItemRect", (PyCFunction) _wrap_DataViewCtrl_GetItemRect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_SetRowHeight", (PyCFunction) _wrap_DataViewCtrl_SetRowHeight, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DataViewCtrl_StartEditor", (PyCFunction) _wrap_DataViewCtrl_StartEditor, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewCtrl_EditItem", (PyCFunction) _wrap_DataViewCtrl_EditItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDragSource", (PyCFunction) _wrap_DataViewCtrl_EnableDragSource, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDropTarget", (PyCFunction) _wrap_DataViewCtrl_EnableDropTarget, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_GetClassDefaultAttributes", (PyCFunction) _wrap_DataViewCtrl_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
