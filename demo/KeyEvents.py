@@ -19,7 +19,6 @@ keyMap = {
     wx.WXK_CLEAR : "WXK_CLEAR",
     wx.WXK_SHIFT : "WXK_SHIFT",
     wx.WXK_ALT : "WXK_ALT",
-    wx.WXK_CONTROL : "WXK_CONTROL",
     wx.WXK_MENU : "WXK_MENU",
     wx.WXK_PAUSE : "WXK_PAUSE",
     wx.WXK_CAPITAL : "WXK_CAPITAL",
@@ -113,8 +112,6 @@ keyMap = {
     wx.WXK_WINDOWS_RIGHT : "WXK_WINDOWS_RIGHT",
     wx.WXK_WINDOWS_MENU : "WXK_WINDOWS_MENU",
 
-    wx.WXK_COMMAND : "WXK_COMMAND",
-
     wx.WXK_SPECIAL1 : "WXK_SPECIAL1",
     wx.WXK_SPECIAL2 : "WXK_SPECIAL2",
     wx.WXK_SPECIAL3 : "WXK_SPECIAL3",
@@ -137,6 +134,14 @@ keyMap = {
     wx.WXK_SPECIAL2 : "WXK_SPECIAL2",
 }
 
+if 'wxMac' in wx.PlatformInfo:
+    keyMap[wx.WXK_RAW_CONTROL] = 'WXK_RAW_CONTROL'
+    keyMap[wx.WXK_CONTROL] = "WXK_CONTROL"
+    keyMap[wx.WXK_COMMAND] = "WXK_COMMAND"
+else:
+    keyMap[wx.WXK_COMMAND] = "WXK_COMMAND"
+    keyMap[wx.WXK_CONTROL] = "WXK_CONTROL"
+    
 
 #----------------------------------------------------------------------
 
