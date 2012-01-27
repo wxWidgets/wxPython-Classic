@@ -323,22 +323,20 @@ enum wxOperatingSystemId
 // a single toolkit.
 enum wxPortId
 {
-    wxPORT_UNKNOWN  = 0,            // returned on error
+    wxPORT_UNKNOWN,     // returned on error
 
-    wxPORT_BASE     = 1 << 0,       // wxBase, no native toolkit used
+    wxPORT_BASE,        // wxBase, no native toolkit used
 
-    wxPORT_MSW      = 1 << 1,       // wxMSW, native toolkit is Windows API
-    wxPORT_MOTIF    = 1 << 2,       // wxMotif, using [Open]Motif or Lesstif
-    wxPORT_GTK      = 1 << 3,       // wxGTK, using GTK+ 1.x, 2.x, GPE or Maemo
-    wxPORT_MGL      = 1 << 4,       // wxMGL, using wxUniversal
-    wxPORT_X11      = 1 << 5,       // wxX11, using wxUniversal
-    wxPORT_PM       = 1 << 6,       // wxOS2, using OS/2 Presentation Manager
-    wxPORT_OS2      = wxPORT_PM,    // wxOS2, using OS/2 Presentation Manager
-    wxPORT_MAC      = 1 << 7,       // wxMac, using Carbon or Classic Mac API
-    wxPORT_COCOA    = 1 << 8,       // wxCocoa, using Cocoa NextStep/Mac API
-    wxPORT_WINCE    = 1 << 9,       // wxWinCE, toolkit is WinCE SDK API
-    wxPORT_PALMOS   = 1 << 10,       // wxPalmOS, toolkit is PalmOS API
-    wxPORT_DFB      = 1 << 11       // wxDFB, using wxUniversal
+    wxPORT_MSW,         // wxMSW, native toolkit is Windows API
+    wxPORT_MOTIF,       // wxMotif, using [Open]Motif or Lesstif
+    wxPORT_GTK,         // wxGTK, using GTK+ 1.x, 2.x, GPE or Maemo
+    wxPORT_X11,         // wxX11, using wxUniversal
+    wxPORT_PM,          // wxOS2, using OS/2 Presentation Manager
+    wxPORT_OS2,         // wxOS2, using OS/2 Presentation Manager
+    wxPORT_MAC,         // wxMac, using Carbon or Classic Mac API
+    wxPORT_COCOA,       // wxCocoa, using Cocoa NextStep/Mac API
+    wxPORT_WINCE,       // wxWinCE, toolkit is WinCE SDK API
+    wxPORT_DFB,         // wxDFB, using wxUniversal
 };
 
 // architecture of the operating system

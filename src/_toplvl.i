@@ -216,6 +216,7 @@ by pressing <Enter> such as the OK button on a wx.Dialog.", "");
 
     bool OSXIsModified() const;
     void OSXSetModified(bool modified);
+    void SetRepresentedFilename(const wxString& filename);
     
     %property(DefaultItem, GetDefaultItem, SetDefaultItem, doc="See `GetDefaultItem` and `SetDefaultItem`");
     %property(Icon, GetIcon, SetIcon, doc="See `GetIcon` and `SetIcon`");

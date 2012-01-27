@@ -97,6 +97,7 @@ enum wxTextAttrFlags {
     wxTEXT_ATTR_FONT_WEIGHT,
     wxTEXT_ATTR_FONT_ITALIC,
     wxTEXT_ATTR_FONT_UNDERLINE,
+    wxTEXT_ATTR_FONT_STRIKETHROUGH,
     wxTEXT_ATTR_FONT_ENCODING,
     wxTEXT_ATTR_FONT_FAMILY,
 
@@ -231,6 +232,7 @@ public:
     void SetFontWeight(wxFontWeight fontWeight);
     void SetFontFaceName(const wxString& faceName);
     void SetFontUnderlined(bool underlined);
+    void SetFontStrikethrough(bool strikethrough);
     void SetFontEncoding(wxFontEncoding encoding);
     void SetFontFamily(wxFontFamily family);
     void SetFont(const wxFont& font, int flags = wxTEXT_ATTR_FONT);
@@ -280,6 +282,7 @@ public:
     int GetFontStyle() const;
     int GetFontWeight() const;
     bool GetFontUnderlined() const;
+    bool GetFontStrikethrough() const;
     const wxString& GetFontFaceName() const;
     wxFontEncoding GetFontEncoding() const;
     wxFontFamily GetFontFamily() const;
@@ -314,6 +317,7 @@ public:
     bool HasFontSize() const;
     bool HasFontItalic() const;
     bool HasFontUnderlined() const;
+    bool HasFontStrikethrough() const;
     bool HasFontFaceName() const;
     bool HasFontEncoding() const;
     bool HasFontFamily() const;

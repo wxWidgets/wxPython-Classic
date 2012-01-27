@@ -2388,6 +2388,9 @@ public:
     wxDataViewItem GetCurrentItem() const;
     void SetCurrentItem(const wxDataViewItem& item);
 
+    // Currently focused column of the current item or NULL if no column has focus
+    virtual wxDataViewColumn *GetCurrentColumn() const;
+
     virtual int GetSelectedItemsCount() const;
     bool HasSelection() const;    
     virtual wxDataViewItem GetSelection() const;
@@ -2423,7 +2426,8 @@ public:
 
     virtual bool SetRowHeight( int rowHeight );
 
-    virtual void StartEditor( const wxDataViewItem & item, unsigned int column );
+    virtual void EditItem(const wxDataViewItem& item, const wxDataViewColumn *column);
+//    virtual void StartEditor( const wxDataViewItem & item, unsigned int column );
     
     virtual bool EnableDragSource(const wxDataFormat& format);
     virtual bool EnableDropTarget(const wxDataFormat& format);

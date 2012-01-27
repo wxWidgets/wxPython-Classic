@@ -12,6 +12,12 @@ API.  In order to continue using the original "arg1" API you will need
 to import wx.lib.pubsub.setuparg1 before importing any other pubsub
 modules. 
 
+The wx.RA_USE_CHECKBOX and wx.RB_USE_CHECKBOX constants were removed.
+They were only used by the incomplete PalmOS port which has been
+removed from the wxWidgets source tree.
+
+wx.Font: There is now GetStrikethrough and SetStrikethrough methods.
+
 
 
 

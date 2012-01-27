@@ -258,6 +258,7 @@ public:
     wxFontStyle GetStyle() const;
     wxFontWeight GetWeight() const;
     bool GetUnderlined() const;
+    bool GetStrikethrough() const;
     wxString GetFaceName() const;
     wxFontFamily GetFamily() const;
     wxFontEncoding GetEncoding() const;
@@ -269,6 +270,7 @@ public:
     void SetStyle(wxFontStyle style);
     void SetWeight(wxFontWeight weight);
     void SetUnderlined(bool underlined);
+    void SetStrikethrough(bool strikethrough);
     bool SetFaceName(wxString facename);
     void SetFamily(wxFontFamily family);
     void SetEncoding(wxFontEncoding encoding);
@@ -710,6 +712,8 @@ size.", "");
         virtual bool , GetUnderlined() const,
         "Returns ``True`` if the font is underlined, ``False`` otherwise.", "");
     
+    bool GetStrikethrough() const;
+
     DocDeclStr(
         virtual wxString , GetFaceName() const,
         "Returns the typeface name associated with the font, or the empty
@@ -778,6 +782,8 @@ then for a font belonging to the same family.", "");
         virtual void , SetUnderlined( bool underlined ),
         "Sets underlining.", "");
     
+    void SetStrikethrough(bool strikethrough);
+
     DocDeclStr(
         virtual void , SetEncoding(wxFontEncoding encoding),
         "Set the font encoding.", "");
@@ -839,6 +845,7 @@ then for a font belonging to the same family.", "");
     wxFont& MakeBold(); 
     wxFont& MakeItalic();
     wxFont& MakeUnderlined();
+    wxFont& MakeStrikethrough();
     wxFont& MakeLarger();
     wxFont& MakeSmaller();
     wxFont& Scale(float x);
@@ -851,6 +858,7 @@ then for a font belonging to the same family.", "");
     wxFont Bold() const; 
     wxFont Italic() const;
     wxFont Underlined() const;
+    wxFont Strikethrough() const;
     wxFont Larger() const;
     wxFont Smaller() const;
     wxFont Scaled(float x) const;
@@ -898,7 +906,8 @@ then for a font belonging to the same family.", "");
     %property(PointSize, GetPointSize, SetPointSize, doc="See `GetPointSize` and `SetPointSize`");
     %property(Style, GetStyle, SetStyle, doc="See `GetStyle` and `SetStyle`");
     %property(StyleString, GetStyleString, doc="See `GetStyleString`");
-    %property(Underlined, GetUnderlined, SetUnderlined, doc="See `GetUnderlined` and `SetUnderlined`");
+    //%property(Underlined, GetUnderlined, SetUnderlined, doc="See `GetUnderlined` and `SetUnderlined`");
+    //%property(Strikethrough, GetStrikethrough, SetStrikethrough);
     %property(Weight, GetWeight, SetWeight, doc="See `GetWeight` and `SetWeight`");
     %property(WeightString, GetWeightString, doc="See `GetWeightString`");
     
