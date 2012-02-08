@@ -6214,7 +6214,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
 
     def AddTextRaw(*args, **kwargs):
         """
-        AddTextRaw(self, char text)
+        AddTextRaw(self, char text, int length=-1)
 
         Add text to the document at current position.  The text should be
         utf-8 encoded on unicode builds of wxPython, or can be any 8-bit text
@@ -6291,7 +6291,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
 
     def AppendTextRaw(*args, **kwargs):
         """
-        AppendTextRaw(self, char text)
+        AppendTextRaw(self, char text, int length=-1)
 
         Append a string to the end of the document without changing the
         selection.  The text should be utf-8 encoded on unicode builds of

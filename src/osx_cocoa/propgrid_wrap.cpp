@@ -52742,7 +52742,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PG_NAT_BUTTON_BORDER_ANY",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "PG_NAT_BUTTON_BORDER_X",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "PG_NAT_BUTTON_BORDER_Y",SWIG_From_int(static_cast< int >(0)));
-  SWIG_Python_SetConstant(d, "PG_REFRESH_CONTROLS_AFTER_REPAINT",SWIG_From_int(static_cast< int >(0)));
+  SWIG_Python_SetConstant(d, "PG_REFRESH_CONTROLS",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "PG_CONTROL_MARGIN",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "CC_CUSTOM_IMAGE_MARGIN1",SWIG_From_int(static_cast< int >(4)));
   SWIG_Python_SetConstant(d, "CC_CUSTOM_IMAGE_MARGIN2",SWIG_From_int(static_cast< int >(5)));

@@ -2630,33 +2630,32 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxStatusBar swig_types[164]
 #define SWIGTYPE_p_wxStatusBarPane swig_types[165]
 #define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[166]
-#define SWIGTYPE_p_wxString swig_types[167]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[168]
-#define SWIGTYPE_p_wxTGAHandler swig_types[169]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[170]
-#define SWIGTYPE_p_wxTaskBarIcon swig_types[171]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[172]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[173]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[174]
-#define SWIGTYPE_p_wxThreadEvent swig_types[175]
-#define SWIGTYPE_p_wxTipWindow swig_types[176]
-#define SWIGTYPE_p_wxToolBar swig_types[177]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[178]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[179]
-#define SWIGTYPE_p_wxValidator swig_types[180]
-#define SWIGTYPE_p_wxVarHScrollHelper swig_types[181]
-#define SWIGTYPE_p_wxVarHVScrollHelper swig_types[182]
-#define SWIGTYPE_p_wxVarScrollHelperBase swig_types[183]
-#define SWIGTYPE_p_wxVarVScrollHelper swig_types[184]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[185]
-#define SWIGTYPE_p_wxWindow swig_types[186]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[187]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[188]
-#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[189]
-#define SWIGTYPE_p_wxWrapSizer swig_types[190]
-#define SWIGTYPE_p_wxXPMHandler swig_types[191]
-static swig_type_info *swig_types[193];
-static swig_module_info swig_module = {swig_types, 192, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[167]
+#define SWIGTYPE_p_wxTGAHandler swig_types[168]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[169]
+#define SWIGTYPE_p_wxTaskBarIcon swig_types[170]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[171]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[172]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[173]
+#define SWIGTYPE_p_wxThreadEvent swig_types[174]
+#define SWIGTYPE_p_wxTipWindow swig_types[175]
+#define SWIGTYPE_p_wxToolBar swig_types[176]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[177]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[178]
+#define SWIGTYPE_p_wxValidator swig_types[179]
+#define SWIGTYPE_p_wxVarHScrollHelper swig_types[180]
+#define SWIGTYPE_p_wxVarHVScrollHelper swig_types[181]
+#define SWIGTYPE_p_wxVarScrollHelperBase swig_types[182]
+#define SWIGTYPE_p_wxVarVScrollHelper swig_types[183]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[184]
+#define SWIGTYPE_p_wxWindow swig_types[185]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[186]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[187]
+#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[188]
+#define SWIGTYPE_p_wxWrapSizer swig_types[189]
+#define SWIGTYPE_p_wxXPMHandler swig_types[190]
+static swig_type_info *swig_types[192];
+static swig_module_info swig_module = {swig_types, 191, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3407,9 +3406,9 @@ SWIGINTERN PyObject *wxFileDialog_GetPaths(wxFileDialog *self){
 SWIGINTERN PyObject *wxMultiChoiceDialog_GetSelections(wxMultiChoiceDialog *self){
             return wxArrayInt2PyList_helper(self->GetSelections());
         }
-SWIGINTERN wxSingleChoiceDialog *new_wxSingleChoiceDialog(wxWindow *parent,wxString const &message,wxString const &caption,int choices,wxString *choices_array,long style=wxCHOICEDLG_STYLE,wxPoint const &pos=wxDefaultPosition){
+SWIGINTERN wxSingleChoiceDialog *new_wxSingleChoiceDialog(wxWindow *parent,wxString const &message,wxString const &caption,wxArrayString const &choices,long style=wxCHOICEDLG_STYLE,wxPoint const &pos=wxDefaultPosition){
             return new wxSingleChoiceDialog(parent, message, caption,
-                                            choices, choices_array, NULL, style, pos);
+                                            choices, (void**)NULL, style, pos);
         }
  static const wxString wxPyGetPasswordFromUserPromptStr(wxGetPasswordFromUserPromptStr); 
 
@@ -23276,19 +23275,19 @@ SWIGINTERN PyObject *_wrap_new_MultiChoiceDialog(PyObject *SWIGUNUSEDPARM(self),
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxString *arg2 = 0 ;
   wxString *arg3 = 0 ;
-  int arg4 = (int) 0 ;
-  wxString *arg5 = (wxString *) NULL ;
-  long arg6 = (long) wxCHOICEDLG_STYLE ;
-  wxPoint const &arg7_defvalue = wxDefaultPosition ;
-  wxPoint *arg7 = (wxPoint *) &arg7_defvalue ;
+  wxArrayString *arg4 = 0 ;
+  long arg5 = (long) wxCHOICEDLG_STYLE ;
+  wxPoint const &arg6_defvalue = wxDefaultPosition ;
+  wxPoint *arg6 = (wxPoint *) &arg6_defvalue ;
   wxMultiChoiceDialog *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
   bool temp3 = false ;
-  long val6 ;
-  int ecode6 = 0 ;
-  wxPoint temp7 ;
+  bool temp4 = false ;
+  long val5 ;
+  int ecode5 = 0 ;
+  wxPoint temp6 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -23299,7 +23298,7 @@ SWIGINTERN PyObject *_wrap_new_MultiChoiceDialog(PyObject *SWIGUNUSEDPARM(self),
     (char *) "parent",(char *) "message",(char *) "caption",(char *) "choices",(char *) "style",(char *) "pos", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OOO:new_MultiChoiceDialog",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|OO:new_MultiChoiceDialog",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_MultiChoiceDialog" "', expected argument " "1"" of type '" "wxWindow *""'"); 
@@ -23315,30 +23314,40 @@ SWIGINTERN PyObject *_wrap_new_MultiChoiceDialog(PyObject *SWIGUNUSEDPARM(self),
     if (arg3 == NULL) SWIG_fail;
     temp3 = true;
   }
-  if (obj3) {
-    {
-      arg4 = PyList_Size(obj3);
-      arg5 = wxString_LIST_helper(obj3);
-      if (arg5 == NULL) SWIG_fail;
+  {
+    if (! PySequence_Check(obj3)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
+      SWIG_fail;
+    }
+    arg4 = new wxArrayString;
+    temp4 = true;
+    int i, len=PySequence_Length(obj3);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj3, i);
+      wxString* s = wxString_in_helper(item);
+      if (PyErr_Occurred())  SWIG_fail;
+      arg4->Add(*s);
+      delete s;
+      Py_DECREF(item);
     }
   }
   if (obj4) {
-    ecode6 = SWIG_AsVal_long(obj4, &val6);
-    if (!SWIG_IsOK(ecode6)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "new_MultiChoiceDialog" "', expected argument " "6"" of type '" "long""'");
+    ecode5 = SWIG_AsVal_long(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_MultiChoiceDialog" "', expected argument " "5"" of type '" "long""'");
     } 
-    arg6 = static_cast< long >(val6);
+    arg5 = static_cast< long >(val5);
   }
   if (obj5) {
     {
-      arg7 = &temp7;
-      if ( ! wxPoint_helper(obj5, &arg7)) SWIG_fail;
+      arg6 = &temp6;
+      if ( ! wxPoint_helper(obj5, &arg6)) SWIG_fail;
     }
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMultiChoiceDialog *)new wxMultiChoiceDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6,(wxPoint const &)*arg7);
+    result = (wxMultiChoiceDialog *)new wxMultiChoiceDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxArrayString const &)*arg4,arg5,(wxPoint const &)*arg6);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23352,7 +23361,7 @@ SWIGINTERN PyObject *_wrap_new_MultiChoiceDialog(PyObject *SWIGUNUSEDPARM(self),
     delete arg3;
   }
   {
-    if (arg5) delete [] arg5;
+    if (temp4) delete arg4;
   }
   return resultobj;
 fail:
@@ -23365,7 +23374,7 @@ fail:
     delete arg3;
   }
   {
-    if (arg5) delete [] arg5;
+    if (temp4) delete arg4;
   }
   return NULL;
 }
@@ -23473,19 +23482,19 @@ SWIGINTERN PyObject *_wrap_new_SingleChoiceDialog(PyObject *SWIGUNUSEDPARM(self)
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxString *arg2 = 0 ;
   wxString *arg3 = 0 ;
-  int arg4 ;
-  wxString *arg5 = (wxString *) 0 ;
-  long arg6 = (long) wxCHOICEDLG_STYLE ;
-  wxPoint const &arg7_defvalue = wxDefaultPosition ;
-  wxPoint *arg7 = (wxPoint *) &arg7_defvalue ;
+  wxArrayString *arg4 = 0 ;
+  long arg5 = (long) wxCHOICEDLG_STYLE ;
+  wxPoint const &arg6_defvalue = wxDefaultPosition ;
+  wxPoint *arg6 = (wxPoint *) &arg6_defvalue ;
   wxSingleChoiceDialog *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
   bool temp3 = false ;
-  long val6 ;
-  int ecode6 = 0 ;
-  wxPoint temp7 ;
+  bool temp4 = false ;
+  long val5 ;
+  int ecode5 = 0 ;
+  wxPoint temp6 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -23513,27 +23522,39 @@ SWIGINTERN PyObject *_wrap_new_SingleChoiceDialog(PyObject *SWIGUNUSEDPARM(self)
     temp3 = true;
   }
   {
-    arg4 = PyList_Size(obj3);
-    arg5 = wxString_LIST_helper(obj3);
-    if (arg5 == NULL) SWIG_fail;
+    if (! PySequence_Check(obj3)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
+      SWIG_fail;
+    }
+    arg4 = new wxArrayString;
+    temp4 = true;
+    int i, len=PySequence_Length(obj3);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj3, i);
+      wxString* s = wxString_in_helper(item);
+      if (PyErr_Occurred())  SWIG_fail;
+      arg4->Add(*s);
+      delete s;
+      Py_DECREF(item);
+    }
   }
   if (obj4) {
-    ecode6 = SWIG_AsVal_long(obj4, &val6);
-    if (!SWIG_IsOK(ecode6)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "new_SingleChoiceDialog" "', expected argument " "6"" of type '" "long""'");
+    ecode5 = SWIG_AsVal_long(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_SingleChoiceDialog" "', expected argument " "5"" of type '" "long""'");
     } 
-    arg6 = static_cast< long >(val6);
+    arg5 = static_cast< long >(val5);
   }
   if (obj5) {
     {
-      arg7 = &temp7;
-      if ( ! wxPoint_helper(obj5, &arg7)) SWIG_fail;
+      arg6 = &temp6;
+      if ( ! wxPoint_helper(obj5, &arg6)) SWIG_fail;
     }
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSingleChoiceDialog *)new_wxSingleChoiceDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6,(wxPoint const &)*arg7);
+    result = (wxSingleChoiceDialog *)new_wxSingleChoiceDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxArrayString const &)*arg4,arg5,(wxPoint const &)*arg6);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23547,7 +23568,7 @@ SWIGINTERN PyObject *_wrap_new_SingleChoiceDialog(PyObject *SWIGUNUSEDPARM(self)
     delete arg3;
   }
   {
-    if (arg5) delete [] arg5;
+    if (temp4) delete arg4;
   }
   return resultobj;
 fail:
@@ -23560,7 +23581,7 @@ fail:
     delete arg3;
   }
   {
-    if (arg5) delete [] arg5;
+    if (temp4) delete arg4;
   }
   return NULL;
 }
@@ -40184,7 +40205,6 @@ static swig_type_info _swigt__p_wxStandardDialogLayoutAdapter = {"_p_wxStandardD
 static swig_type_info _swigt__p_wxStatusBar = {"_p_wxStatusBar", "wxStatusBar *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxStatusBarPane = {"_p_wxStatusBarPane", "wxStatusBarPane *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxStdDialogButtonSizer = {"_p_wxStdDialogButtonSizer", "wxStdDialogButtonSizer *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxString = {"_p_wxString", "wxString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTaskBarIcon = {"_p_wxTaskBarIcon", "wxTaskBarIcon *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTaskBarIconEvent = {"_p_wxTaskBarIconEvent", "wxTaskBarIconEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntryDialog = {"_p_wxTextEntryDialog", "wxTextEntryDialog *", 0, 0, (void*)0, 0};
@@ -40368,7 +40388,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxStatusBar,
   &_swigt__p_wxStatusBarPane,
   &_swigt__p_wxStdDialogButtonSizer,
-  &_swigt__p_wxString,
   &_swigt__p_wxSysColourChangedEvent,
   &_swigt__p_wxTGAHandler,
   &_swigt__p_wxTIFFHandler,
@@ -40572,7 +40591,6 @@ static swig_cast_info _swigc__p_wxStandardDialogLayoutAdapter[] = {  {&_swigt__p
 static swig_cast_info _swigc__p_wxStatusBar[] = {  {&_swigt__p_wxStatusBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxStatusBarPane[] = {  {&_swigt__p_wxStatusBarPane, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxStdDialogButtonSizer[] = {  {&_swigt__p_wxStdDialogButtonSizer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxString[] = {  {&_swigt__p_wxString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTaskBarIcon[] = {  {&_swigt__p_wxTaskBarIcon, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTaskBarIconEvent[] = {  {&_swigt__p_wxTaskBarIconEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntryDialog[] = {  {&_swigt__p_wxTextEntryDialog, 0, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxTextEntryDialog, 0, 0},{0, 0, 0, 0}};
@@ -40756,7 +40774,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxStatusBar,
   _swigc__p_wxStatusBarPane,
   _swigc__p_wxStdDialogButtonSizer,
-  _swigc__p_wxString,
   _swigc__p_wxSysColourChangedEvent,
   _swigc__p_wxTGAHandler,
   _swigc__p_wxTIFFHandler,

@@ -23437,18 +23437,22 @@ SWIGINTERN PyObject *_wrap_StyledTextCtrl_AddTextRaw(PyObject *SWIGUNUSEDPARM(se
   PyObject *resultobj = 0;
   wxStyledTextCtrl *arg1 = (wxStyledTextCtrl *) 0 ;
   char *arg2 = (char *) 0 ;
+  int arg3 = (int) -1 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 ;
   char *buf2 = 0 ;
   int alloc2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "text", NULL 
+    (char *) "self",(char *) "text",(char *) "length", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StyledTextCtrl_AddTextRaw",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:StyledTextCtrl_AddTextRaw",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStyledTextCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StyledTextCtrl_AddTextRaw" "', expected argument " "1"" of type '" "wxStyledTextCtrl *""'"); 
@@ -23459,9 +23463,16 @@ SWIGINTERN PyObject *_wrap_StyledTextCtrl_AddTextRaw(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "StyledTextCtrl_AddTextRaw" "', expected argument " "2"" of type '" "char const *""'");
   }
   arg2 = buf2;
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "StyledTextCtrl_AddTextRaw" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddTextRaw((char const *)arg2);
+    (arg1)->AddTextRaw((char const *)arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23775,18 +23786,22 @@ SWIGINTERN PyObject *_wrap_StyledTextCtrl_AppendTextRaw(PyObject *SWIGUNUSEDPARM
   PyObject *resultobj = 0;
   wxStyledTextCtrl *arg1 = (wxStyledTextCtrl *) 0 ;
   char *arg2 = (char *) 0 ;
+  int arg3 = (int) -1 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 ;
   char *buf2 = 0 ;
   int alloc2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "text", NULL 
+    (char *) "self",(char *) "text",(char *) "length", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StyledTextCtrl_AppendTextRaw",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:StyledTextCtrl_AppendTextRaw",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStyledTextCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StyledTextCtrl_AppendTextRaw" "', expected argument " "1"" of type '" "wxStyledTextCtrl *""'"); 
@@ -23797,9 +23812,16 @@ SWIGINTERN PyObject *_wrap_StyledTextCtrl_AppendTextRaw(PyObject *SWIGUNUSEDPARM
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "StyledTextCtrl_AppendTextRaw" "', expected argument " "2"" of type '" "char const *""'");
   }
   arg2 = buf2;
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "StyledTextCtrl_AppendTextRaw" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AppendTextRaw((char const *)arg2);
+    (arg1)->AppendTextRaw((char const *)arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
