@@ -425,7 +425,7 @@ public:
         wxMultiChoiceDialog(wxWindow *parent,
                             const wxString& message,
                             const wxString& caption,
-                            int choices=0, wxString* choices_array=NULL,
+                            const wxArrayString& choices,
                             long style = wxCHOICEDLG_STYLE,
                             const wxPoint& pos = wxDefaultPosition),
         "__init__(self, Window parent, String message, String caption,
@@ -484,17 +484,17 @@ public:
             "Constructor.  Use ShowModal method to show the dialog.", "");
 
     %extend {
-        // TODO: ignoring clientData for now...  FIX THIS
-        //       SWIG is messing up the &/*'s for some reason.
+        // TODO: ignoring clientData for now...  FIX THIS. SWIG is messing up
+        //       the &/*'s for some reason, and we need a typemap anyway
         wxSingleChoiceDialog(wxWindow* parent,
                              const wxString& message,
                              const wxString& caption,
-                             int choices, wxString* choices_array,
-                             //char** clientData = NULL,
+                             const wxArrayString& choices,
+                             //void** clientData = NULL,
                              long style = wxCHOICEDLG_STYLE,
                              const wxPoint& pos = wxDefaultPosition) {
             return new wxSingleChoiceDialog(parent, message, caption,
-                                            choices, choices_array, NULL, style, pos);
+                                            choices, (void**)NULL, style, pos);
         }
     }
 
