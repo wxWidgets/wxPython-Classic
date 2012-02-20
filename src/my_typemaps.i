@@ -464,6 +464,8 @@ MAKE_INT_ARRAY_TYPEMAPS(styles, styles_field)
 %typemap(out) wxScrolledWindow*         { $result = wxPyMake_wxObject($1, (bool)$owner); }
 
 %typemap(out) wxSizer*                  { $result = wxPyMake_wxObject($1, (bool)$owner); }
+%typemap(out) wxTimer*                  { $result = wxPyMake_wxObject($1, (bool)$owner); }
+%typemap(out) wxTimer&                  { $result = wxPyMake_wxObject($1, (bool)$owner); }
 
 
 //---------------------------------------------------------------------------

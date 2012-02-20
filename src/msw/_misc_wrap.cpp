@@ -12586,7 +12586,9 @@ SWIGINTERN PyObject *_wrap_TimerEvent_GetTimer(PyObject *SWIGUNUSEDPARM(self), P
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimer, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0); 
+  }
   return resultobj;
 fail:
   return NULL;
