@@ -91,7 +91,7 @@ class MyTreeListModel(dv.PyDataViewModel):
                    1 : 'string',
                    2 : 'string',
                    3.: 'string', # the real value is an int, but the renderer should convert it okay
-                   4 : 'datatime',
+                   4 : 'datetime',
                    5 : 'bool',
                    }
         return mapper[col]
