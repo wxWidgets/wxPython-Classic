@@ -60,6 +60,12 @@ class MyFrame(wx.Frame):
         panel.SetSizer(sizer)
         panel.Layout()
 
+        # And also use a sizer to manage the size of the panel such
+        # that it fills the frame
+        sizer = wx.BoxSizer()
+        sizer.Add(panel, 1, wx.EXPAND)
+        self.SetSizer(sizer)
+        
 
     def OnTimeToClose(self, evt):
         """Event handler for the button click."""
@@ -81,6 +87,6 @@ class MyApp(wx.App):
         frame.Show(True)
         return True
         
-app = MyApp(redirect=True)
+app = MyApp(redirect=False)
 app.MainLoop()
 
