@@ -87,6 +87,6 @@ class MyApp(wx.App):
         frame.Show(True)
         return True
         
-app = MyApp(redirect=False)
+app = MyApp(redirect=True)
 app.MainLoop()
 
