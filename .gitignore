@@ -1,3 +1,9 @@
+# Global wildcards to ignore
+*.pyc
+*.pyd
+*.pdb
+*.dll
+
 
 # SVN subrepositories for items in the 3rdParty repo
 /wx/lib/agw
