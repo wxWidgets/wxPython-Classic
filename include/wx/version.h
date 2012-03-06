@@ -29,7 +29,7 @@
 #define wxMAJOR_VERSION      2
 #define wxMINOR_VERSION      9
 #define wxRELEASE_NUMBER     3
-#define wxSUBRELEASE_NUMBER  1
+#define wxSUBRELEASE_NUMBER  2
 #define wxVERSION_STRING   wxT("wxWidgets 2.9.3")
 
 /*  nothing to update below this line when updating the version */
