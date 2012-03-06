@@ -540,8 +540,10 @@ class InspectionTree(TreeBaseClass):
         """
         Returns the string to be used in the tree for a widget
         """
-        return "%s (\"%s\")" % (widget.__class__.__name__, widget.GetName())
-
+        if hasattr(widget, 'GetName'):
+            return "%s (\"%s\")" % (widget.__class__.__name__, widget.GetName())
+        return widget.__class__.__name__
+    
     
     def GetTextForSizer(self, sizer):
         """
@@ -641,7 +643,8 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         tlwcount = _countAllChildren(obj.GetChildren())
 
         st = ["Widget:"]
-        st.append(self.Fmt('name',        obj.GetName()))
+        if hasattr(obj, 'GetName'):
+            st.append(self.Fmt('name',        obj.GetName()))
         st.append(self.Fmt('class',       obj.__class__))
         st.append(self.Fmt('bases',       obj.__class__.__bases__))
         st.append(self.Fmt('module',      inspect.getmodule(obj)))
