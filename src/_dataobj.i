@@ -645,6 +645,24 @@ public:
 
 //---------------------------------------------------------------------------
 
+class wxHTMLDataObject : public wxDataObjectSimple
+{
+public:
+    // ctor: you can specify the text here or in SetText(), or override
+    // GetText()
+    wxHTMLDataObject(const wxString& html = wxEmptyString);
+
+    // virtual functions which you may override if you want to provide text on
+    // demand only - otherwise, the trivial default versions will be used
+    virtual size_t GetLength() const;
+    virtual wxString GetHTML() const;
+    virtual void SetHTML(const wxString& html);
+};
+
+// TODO: Make a wxPyHTMLDataObject class
+
+//---------------------------------------------------------------------------
+
 DocStr(wxBitmapDataObject,
 "wx.BitmapDataObject is a specialization of wxDataObject for bitmap
 data. It can be used without change to paste data into the `wx.Clipboard`
