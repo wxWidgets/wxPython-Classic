@@ -422,6 +422,61 @@ bool wxTextDataObject::SetData(size_t len, const void *buf)
 
 #endif // different wxTextDataObject implementations
 
+size_t wxHTMLDataObject::GetDataSize() const
+{
+    // Windows and Mac always use UTF-8, and docs suggest GTK does as well.
+    wxCharBuffer buffer =  wxConvUTF8.cWX2MB( GetHTML().c_str() );
+
+    return buffer ? strlen( buffer ) : 0;
+}
+
+bool wxHTMLDataObject::GetDataHere(void *buf) const
+{
+    if ( !buf )
+        return false;
+
+    // Windows and Mac always use UTF-8, and docs suggest GTK does as well.
+    wxCharBuffer buffer =  wxConvUTF8.cWX2MB( GetHTML().c_str() );
+    if ( !buffer )
+        return false;
+
+    memcpy( (char*) buf, buffer, GetDataSize() );
+
+    return true;
+}
+
+bool wxHTMLDataObject::SetData(size_t WXUNUSED(len), const void *buf)
+{
+    if ( buf == NULL )
+        return false;
+
+    // Windows and Mac always use UTF-8, and docs suggest GTK does as well.
+    wxWCharBuffer buffer =  wxConvUTF8.cMB2WX( (const char*)buf );
+
+    wxString html(buffer);
+    // To be consistent with other platforms, we only add the Fragment part
+    // of the Windows HTML clipboard format to the data object. We do the
+    // trimming here as we can take advantage of the wxString methods here,
+    // simplifying the trimming code considerably.
+#if __WXMSW__
+    int fragmentStart = html.rfind("StartFragment");
+    int fragmentEnd = html.rfind("EndFragment");
+
+    if (fragmentStart != wxNOT_FOUND && fragmentEnd != wxNOT_FOUND) 
+    {
+        int startCommentEnd = html.find("-->", fragmentStart) + 3;
+        int endCommentStart = html.rfind("<!--", fragmentEnd);
+        
+        if (startCommentEnd != wxNOT_FOUND && endCommentStart != wxNOT_FOUND)
+            html = html.Mid(startCommentEnd, endCommentStart - startCommentEnd);
+    }
+#endif
+    SetHTML( html );
+
+    return true;
+}
+
+
 // ----------------------------------------------------------------------------
 // wxCustomDataObject
 // ----------------------------------------------------------------------------

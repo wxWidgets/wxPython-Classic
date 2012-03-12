@@ -432,6 +432,17 @@ STDMETHODIMP wxIDataObject::SetData(FORMATETC *pformatetc,
             {
                 wxDataFormat format = pformatetc->cfFormat;
 
+                // Since the HTML format is dynamically registered, the wxDF_HTML
+                // format does not match the native constant in the way other formats do,
+                // so for the format checks below to work, we must change the native
+                // id to the wxDF_HTML constant.
+                wxChar s_szBuf[256];
+                if (::GetClipboardFormatName(format, s_szBuf, WXSIZEOF(s_szBuf)))
+                {
+                    if (s_szBuf == wxString("HTML Format"))
+                        format = wxDF_HTML;
+                }
+
                 // this is quite weird, but for file drag and drop, explorer
                 // calls our SetData() with the formats we do *not* support!
                 //
@@ -459,6 +470,7 @@ STDMETHODIMP wxIDataObject::SetData(FORMATETC *pformatetc,
                 size_t size;
                 switch ( format )
                 {
+                    case wxDF_HTML:
                     case CF_TEXT:
                     case CF_OEMTEXT:
                         size = strlen((const char *)pBuf);
