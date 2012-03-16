@@ -5,12 +5,19 @@
 
 import sys
 
+_pathFixed = False
+
 def fixpath(pyver, num):
     """
     Look for the position in the sys.path of the std library zip file
     and move the last num items to that position. This puts us before
     the stock paths, but after any PYTHONPATH settings or eggs.
     """
+    global _pathFixed
+    if _pathFixed:
+        return
+    _pathFixed = True
+    
     if '.' in pyver:
         pyver = ''.join(pyver.split('.'))
     tail = 'python%s.zip' % pyver
