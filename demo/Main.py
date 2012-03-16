@@ -2067,15 +2067,15 @@ class wxPythonDemo(wx.Frame):
         treeFont = self.tree.GetFont()
         catFont = self.tree.GetFont()
 
-        # The old native treectrl on MSW has a bug where it doesn't
-        # draw all of the text for an item if the font is larger than
-        # the default.  It seems to be clipping the item's label as if
-        # it was the size of the same label in the default font.
-        if 'wxMSW' not in wx.PlatformInfo or wx.GetApp().GetComCtl32Version() >= 600:
+        # The native treectrl on MSW has a bug where it doesn't draw
+        # all of the text for an item if the font is larger than the
+        # default.  It seems to be clipping the item's label as if it
+        # was the size of the same label in the default font.
+        if USE_CUSTOMTREECTRL or 'wxMSW' not in wx.PlatformInfo:
             treeFont.SetPointSize(treeFont.GetPointSize()+2)
-            treeFont.SetWeight(wx.BOLD)
-            catFont.SetWeight(wx.BOLD)
             
+        treeFont.SetWeight(wx.BOLD)
+        catFont.SetWeight(wx.BOLD)
         self.tree.SetItemFont(self.root, treeFont)
         
         firstChild = None
