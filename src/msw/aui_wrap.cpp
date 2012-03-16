@@ -28278,6 +28278,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_AUI_PANE_CLOSE", PyInt_FromLong(wxEVT_AUI_PANE_CLOSE));
   PyDict_SetItemString(d, "wxEVT_AUI_PANE_MAXIMIZE", PyInt_FromLong(wxEVT_AUI_PANE_MAXIMIZE));
   PyDict_SetItemString(d, "wxEVT_AUI_PANE_RESTORE", PyInt_FromLong(wxEVT_AUI_PANE_RESTORE));
+  PyDict_SetItemString(d, "wxEVT_AUI_PANE_ACTIVATED", PyInt_FromLong(wxEVT_AUI_PANE_ACTIVATED));
   PyDict_SetItemString(d, "wxEVT_AUI_RENDER", PyInt_FromLong(wxEVT_AUI_RENDER));
   PyDict_SetItemString(d, "wxEVT_AUI_FIND_MANAGER", PyInt_FromLong(wxEVT_AUI_FIND_MANAGER));
   SWIG_Python_SetConstant(d, "AUI_NB_TOP",SWIG_From_int(static_cast< int >(wxAUI_NB_TOP)));
