@@ -88,6 +88,8 @@ class SimpleGrid(gridlib.Grid): ##, mixins.GridAutoEditMixin):
         self.Bind(gridlib.EVT_GRID_LABEL_LEFT_DCLICK, self.OnLabelLeftDClick)
         self.Bind(gridlib.EVT_GRID_LABEL_RIGHT_DCLICK, self.OnLabelRightDClick)
 
+        self.Bind(gridlib.EVT_GRID_COL_SORT, self.OnGridColSort)
+
         self.Bind(gridlib.EVT_GRID_ROW_SIZE, self.OnRowSize)
         self.Bind(gridlib.EVT_GRID_COL_SIZE, self.OnColSize)
 
@@ -140,6 +142,10 @@ class SimpleGrid(gridlib.Grid): ##, mixins.GridAutoEditMixin):
                        (evt.GetRow(), evt.GetCol(), evt.GetPosition()))
         evt.Skip()
 
+    def OnGridColSort(self, evt):
+        self.log.write("OnGridColSort: %s %s" % (evt.GetCol(), self.GetSortingColumn()))
+        self.SetSortingColumn(evt.GetCol())
+        
     def OnRowSize(self, evt):
         self.log.write("OnRowSize: row %d, %s\n" %
                        (evt.GetRowOrCol(), evt.GetPosition()))
