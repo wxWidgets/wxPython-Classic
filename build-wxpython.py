@@ -71,7 +71,7 @@ option_dict = {
     "unicode"       : (True, "Build wxPython with unicode support (always on for wx2.9)"),
     "osx_cocoa"     : (False, "Build the OS X Cocoa port on Mac"),
     "osx_carbon"    : (True,  "Build the Carbon port on Mac (default)"),
-    "mac_arch"      : ("", "Build just the specified architecture on Mac"),
+    "mac_arch"      : ("", "Build the specified architectures on Mac, (comma-separated list)"),
     "mac_framework" : (False, "Build wxWidgets as a Mac framework."),
     "mac_framework_prefix" 
                     : (defFwPrefix, "Prefix where the framework should be installed. Default: %s" % defFwPrefix),    
@@ -281,8 +281,8 @@ else:
         
     if options.mac_universal_binary:
         build_options.append("--mac_universal_binary")
-    if  options.mac_arch: 
-        build_options.append("--mac_arch=%s" % options.mac_arch)
+    elif  options.mac_arch: 
+        build_options.append("--mac_universal_binary=%s" % options.mac_arch)
         wxpy_build_options.append("ARCH=%s" % options.mac_arch)
 
 
