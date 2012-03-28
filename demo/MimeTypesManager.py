@@ -255,10 +255,10 @@ class MimeTypesDemoPanel(wx.Panel):
         if fileType is None:
             wx.MessageBox(msg + " not found.", "Oops!")
         else:
-            self.Update(fileType)
+            self.DoUpdate(fileType)
 
     # Populate the wx.FileType fields with actual values.
-    def Update(self, ft):
+    def DoUpdate(self, ft):
 
         #------- Icon info
         info = ft.GetIconInfo()
