@@ -2225,7 +2225,7 @@ class DocManager(wx.EvtHandler):
         if len(templates) == 0:
             return None
         elif len(templates) == 1:
-            return template[0]
+            return templates[0]
 
         if sort:
             def tempcmp(a, b):
