@@ -1061,7 +1061,7 @@ class GraphicsContext(GraphicsObject):
         Creates a native brush having a linear gradient, starting at (x1,y1)
         to (x2,y2) with the given boundary colors or the specified stops.
 
-        The *args can be either a GraphicsGradientStops or just two colours to
+        The `*args` can be either a GraphicsGradientStops or just two colours to
         be used as the starting and ending gradient colours.
         """
         if len(args) ==1:
@@ -1086,7 +1086,7 @@ class GraphicsContext(GraphicsObject):
         the colours may be specified by just the two extremes or the full
         array of gradient stops.
         
-        The *args can be either a GraphicsGradientStops or just two colours to
+        The `*args` can be either a GraphicsGradientStops or just two colours to
         be used as the starting and ending gradient colours.
         """
         if len(args) ==1:

@@ -320,8 +320,8 @@ def startWorker(
     jobID=None, group=None, daemon=False, 
     sendReturn=True, senderArg=None):
     """
-    Convenience function to send data produced by workerFn(*wargs, **wkwargs) 
-    running in separate thread, to a consumer(*cargs, **ckwargs) running in
+    Convenience function to send data produced by `workerFn(*wargs, **wkwargs)`
+    running in separate thread, to a `consumer(*cargs, **ckwargs)` running in
     the main thread. This function merely creates a SenderCallAfter (or a
     SenderWxEvent, if consumer derives from wx.EvtHandler), and a Producer,
     and returns immediately after starting the Producer thread. The jobID

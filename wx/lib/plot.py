@@ -238,7 +238,7 @@ class PolyLine(PolyPoints):
         Creates PolyLine object
         
         :param `points`: sequence (array, tuple or list) of (x,y) points making up line
-        :keyword `attr` : keyword attributes, default to:
+        :keyword `attr`: keyword attributes, default to:
 
          ==========================  ================================  
          'colour'= 'black'           wx.Pen Colour any wx.NamedColour
@@ -286,7 +286,7 @@ class PolySpline(PolyLine):
         Creates PolyLine object
 
         :param `points`: sequence (array, tuple or list) of (x,y) points making up spline
-        :keyword `attr` : keyword attributes, default to:
+        :keyword `attr`: keyword attributes, default to:
 
          ==========================  ================================  
          'colour'= 'black'           wx.Pen Colour any wx.NamedColour
@@ -331,7 +331,7 @@ class PolyMarker(PolyPoints):
         Creates PolyMarker object
 
         :param `points`: sequence (array, tuple or list) of (x,y) points
-        :keyword `attr` : keyword attributes, default to:
+        :keyword `attr`: keyword attributes, default to:
 
          ============================  ================================  
          'colour'= 'black'             wx.Pen Colour any wx.NamedColour
