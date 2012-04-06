@@ -18,22 +18,27 @@ the content of the data can be changed greatly without affecting the other parts
 
 MVCTree actually is even more configurable than MVC normally implies, because
 almost every aspect of it is pluggable:
-    MVCTree - Overall controller, and the window that actually gets placed
-    in the GUI.
-        Painter - Paints the control. The 'view' part of MVC.
-           NodePainter - Paints just the nodes
-           LinePainter - Paints just the lines between the nodes
-           TextConverter - Figures out what text to print for each node
-        Editor - Edits the contents of a node, if the model is editable.
-        LayoutEngine - Determines initial placement of nodes
-        Transform - Adjusts positions of nodes for movement or special effects.
-        TreeModel - Contains the data which the rest of the control acts
-        on. The 'model' part of MVC.
+
+* MVCTree - Overall controller, and the window that actually gets placed in the GUI.
+
+  * Painter - Paints the control. The 'view' part of MVC.
+  
+    * NodePainter - Paints just the nodes
+    * LinePainter - Paints just the lines between the nodes
+    * TextConverter - Figures out what text to print for each node
+    
+  * Editor - Edits the contents of a node, if the model is editable.
+  * LayoutEngine - Determines initial placement of nodes
+  * Transform - Adjusts positions of nodes for movement or special effects.
+  * TreeModel - Contains the data which the rest of the control acts on. The 'model' part of MVC.
+
 
 Author/Maintainer - Bryn Keller <xoltar@starship.python.net>
 
 
-NOTE: This module is *not* supported in any way.  Use it however you
+.. note::
+
+      This module is *not* supported in any way.  Use it however you
       wish, but be warned that dealing with any consequences is
       entirly up to you.
       --Robin
@@ -505,7 +510,7 @@ class NullTransform(Transform):
             if node.projy > self.size[1]:
                 self.size[1] = node.projy
 
-class Rect:
+class Rect(object):
     def __init__(self, x, y, width, height):
         self.x = x
         self.y = y

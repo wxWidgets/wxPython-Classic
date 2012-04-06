@@ -23,7 +23,8 @@ separately.
 
 The VirtualTree and DragAndDrop mixins force the wx.TR_HIDE_ROOT style.
 
-Author: Frank Niessink <frank@niessink.com>
+.. moduleauthor:: Frank Niessink <frank@niessink.com>
+
 License: wxWidgets license
 Version: 1.1
 Date: 24 September 2007
@@ -252,9 +253,11 @@ class VirtualTree(TreeAPIHarmonizer, TreeHelper):
     wx.lib.customtree.CustomTreeCtrl.
 
     To use it derive a new class from this class and one of the tree
-    controls, e.g.:
-    class MyTree(VirtualTree, wx.TreeCtrl):
-        ...
+    controls, e.g.::
+    
+      class MyTree(VirtualTree, wx.TreeCtrl):
+          # Other code here
+
 
     VirtualTree uses several callbacks (such as OnGetItemText) to 
     retrieve information needed to construct the tree and render the 
@@ -472,9 +475,11 @@ class DragAndDrop(TreeAPIHarmonizer, TreeHelper):
     wx.TreeCtrl, wx.gizmos.TreeListCtrl, or wx.lib.customtree.CustomTreeCtrl.
 
     To use it derive a new class from this class and one of the tree
-    controls, e.g.:
-    class MyTree(DragAndDrop, wx.TreeCtrl):
-        ...
+    controls, e.g.::
+    
+      class MyTree(DragAndDrop, wx.TreeCtrl):
+          # Other code here
+          
 
     You *must* implement OnDrop. OnDrop is called when the user has
     dropped an item on top of another item. It's up to you to decide how
@@ -576,9 +581,11 @@ class ExpansionState(TreeAPIHarmonizer, TreeHelper):
     wx.gizmos.TreeListCtrl, or wx.lib.customtree.CustomTreeCtrl.
 
     To use it derive a new class from this class and one of the tree
-    controls, e.g.:
-    class MyTree(ExpansionState, wx.TreeCtrl):
-        ...
+    controls, e.g.::
+    
+      class MyTree(ExpansionState, wx.TreeCtrl):
+          # Other code here
+
 
     By default, ExpansionState uses the position of tree items in the tree 
     to keep track of which items are expanded. This should be sufficient 

@@ -177,16 +177,13 @@ if  wx.PlatformInfo[1] == 'wxMSW':
             """
             LayoutMode possible values:
 
-                =================  ====================================
-                'DontCare'         use the current user preference
-                'SinglePage'       use single page mode (as in pre-Acrobat
-                    3.0 viewers)
-                'OneColumn'        use one-column continuous mode
-                'TwoColumnLeft'    use two-column continuous mode, first
-                    page on the left
-                'TwoColumnRight'   use two-column continuous mode, first
-                    page on the right
-                =================  ====================================
+            =================  ====================================
+            'DontCare'         use the current user preference
+            'SinglePage'       use single page mode (as in pre-Acrobat 3.0 viewers)
+            'OneColumn'        use one-column continuous mode
+            'TwoColumnLeft'    use two-column continuous mode, first page on the left
+            'TwoColumnRight'   use two-column continuous mode, first page on the right
+            =================  ====================================
             """
             return self.ctrl.setLayoutMode(layoutMode)
             
@@ -226,16 +223,14 @@ if  wx.PlatformInfo[1] == 'wxMSW':
             Determines how the page will fit in the current view.
             viewMode possible values:
 
-                ========  ==============================================
-                'Fit'     fits whole page within the window both vertically
-                    and horizontally.
-                'FitH'    fits the width of the page within the window.
-                'FitV'    fits the height of the page within the window.
-                'FitB'    fits bounding box within the window both vertically
-                    and horizontally.
-                'FitBH'   fits the width of the bounding box within the window.
-                'FitBV'   fits the height of the bounding box within the window.
-                ========  ==============================================
+            ========  ==============================================
+            'Fit'     fits whole page within the window both vertically and horizontally.
+            'FitH'    fits the width of the page within the window.
+            'FitV'    fits the height of the page within the window.
+            'FitB'    fits bounding box within the window both vertically and horizontally.
+            'FitBH'   fits the width of the bounding box within the window.
+            'FitBV'   fits the height of the bounding box within the window.
+            ========  ==============================================
             """
             return self.ctrl.setView(viewMode)
             

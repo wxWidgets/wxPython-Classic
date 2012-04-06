@@ -54,7 +54,7 @@ def buildWxEventMap():
 
 def addModuleEvents(module):
     """
-    Adds all the items in module that start with 'EVT_' to the event
+    Adds all the items in module that start with ``EVT_`` to the event
     data structures used by the EventWatcher.
     """
     if _eventBinders is None:

@@ -1,48 +1,55 @@
 """ 
 ComboTreeBox provides a ComboBox that pops up a tree instead of a list. 
 
-ComboTreeBox tries to provide the same interface as ComboBox as much as
+ComboTreeBox tries to provide the same interface as :class:`ComboBox` as much as
 possible. However, whereas the ComboBox widget uses indices to access 
 items in the list of choices, ComboTreeBox uses TreeItemId's instead. If
 you add an item to the ComboTreeBox (using Append or Insert), the 
-TreeItemId associated with the added item is returned. You can then use
-that TreeItemId to add items as children of that first item. For
+:class:`TreeItemId` associated with the added item is returned. You can then use
+that `TreeItemId` to add items as children of that first item. For
 example::
 
-from wx.lib.combotreebox import ComboTreeBox
-combo = ComboTreeBox(parent)
-item1 = combo.Append('Item 1') # Add a root item
-item1a = combo.Append('Item 1a', parent=item1) # Add a child to item1
+    from wx.lib.combotreebox import ComboTreeBox
+    combo = ComboTreeBox(parent)
+    item1 = combo.Append('Item 1') # Add a root item
+    item1a = combo.Append('Item 1a', parent=item1) # Add a child to item1
+
 
 You can also add client data to each of the items like this::
 
-item1 = combo.Append('Item 1', clientData=somePythonObject)
-item1a = combo.Append('Item 1a', parent=item1, 
-                       clientData=someOtherPythonObject)
+    item1 = combo.Append('Item 1', clientData=somePythonObject)
+    item1a = combo.Append('Item 1a', parent=item1, 
+                           clientData=someOtherPythonObject)
+
 
 And later fetch the client data like this::
 
-somePythonObject = combo.GetClientData(item1)
+    somePythonObject = combo.GetClientData(item1)
+
 
 To get the client data of the currently selected item (if any)::
 
-currentItem = combo.GetSelection()
-if currentItem:
-    somePythonObject = combo.GetClientData(currentItem)
+    currentItem = combo.GetSelection()
+    if currentItem:
+        somePythonObject = combo.GetClientData(currentItem)
 
-Supported styles are the same as for ComboBox, i.e. wx.CB_READONLY and
-wx.CB_SORT. Provide them as usual::
 
-combo = ComboTreeBox(parent, style=wx.CB_READONLY|wx.CB_SORT)
+Supported styles are the same as for :class:`ComboBox`, i.e. ``wx.CB_READONLY`` and
+``wx.CB_SORT``. Provide them as usual::
+
+    combo = ComboTreeBox(parent, style=wx.CB_READONLY|wx.CB_SORT)
+
 
 Supported platforms: wxMSW and wxMAC natively, wxGTK by means of a
 workaround.
 
-Author: Frank Niessink <frank@niessink.com>
+.. moduleauthor:: Frank Niessink <frank@niessink.com>
+
 Copyright 2006, 2008, 2010, Frank Niessink
 License: wxWidgets license
 Version: 1.1
 Date: August 1, 2010
+
 """
 
 import wx
@@ -55,7 +62,7 @@ __all__ = ['ComboTreeBox'] # Export only the ComboTreeBox widget
 
 class IterableTreeCtrl(wx.TreeCtrl):
     """ 
-    TreeCtrl is the same as wx.TreeCtrl, with a few convenience methods 
+    TreeCtrl is the same as :class:`TreeCtrl`, with a few convenience methods 
     added for easier navigation of items. """
 
     def GetPreviousItem(self, item):
@@ -484,7 +491,7 @@ class BaseComboTreeBox(object):
         
         :param PyObject `clientData`: the client data to find
         :return: True if an item has been selected, otherwise False
-        :rtype: boolean
+        :rtype: bool
         
         """
         item = self.FindClientData(clientData)
@@ -904,7 +911,7 @@ def ComboTreeBox(*args, **kwargs):
     Factory function to create the right ComboTreeBox depending on
     platform. You may force a specific class, e.g. for testing
     purposes, by setting the keyword argument 'platform', e.g. 
-    'platform=GTK' or 'platform=MSW' or platform='MAC'.
+    'platform=GTK' or 'platform=MSW' or 'platform=MAC'.
     
     :keyword string `platform`: 'GTK'|'MSW'|'MAC' can be used to override the
       actual platform for testing

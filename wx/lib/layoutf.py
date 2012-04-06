@@ -12,109 +12,112 @@ import  wx
 
 class Layoutf(wx.LayoutConstraints):
     """
-The class Layoutf(wxLayoutConstraints) presents a simplification
-of the wxLayoutConstraints syntax. The name Layoutf is choosen
-because of the similarity with C's printf function.
+    The class Layoutf(wxLayoutConstraints) presents a simplification
+    of the wxLayoutConstraints syntax. The name Layoutf is choosen
+    because of the similarity with C's printf function.
 
-Quick Example:
+    Quick Example::
 
-    lc = Layoutf('t=t#1;l=r10#2;r!100;h%h50#1', (self, self.panel))
+        lc = Layoutf('t=t#1;l=r10#2;r!100;h%h50#1', (self, self.panel))
 
-is equivalent to
 
-    lc = wxLayoutContraints()
-    lc.top.SameAs(self, wxTop)
-    lc.left.SameAs(self.panel, wxRight, 10)
-    lc.right.Absolute(100)
-    lc.height.PercentOf(self, wxHeight, 50)
+    is equivalent to::
 
-Usage:
+        lc = wx.LayoutContraints()
+        lc.top.SameAs(self, wx.Top)
+        lc.left.SameAs(self.panel, wx.Right, 10)
+        lc.right.Absolute(100)
+        lc.height.PercentOf(self, wx.Height, 50)
+
+
+    Usage:
 
     You can give a constraint string to the Layoutf constructor,
-or use the 'pack' method. The following are equivalent:
+    or use the 'pack' method. The following are equivalent::
 
-    lc = Layoutf('t=t#1;l=r#2;r!100;h%h50#1', (self, self.panel))
+        lc = Layoutf('t=t#1;l=r#2;r!100;h%h50#1', (self, self.panel))
 
-and
 
-    lc = Layoutf()
-    lc.pack('t=t#1;l=r#2;r!100;h%h50#1', (self, self.panel))
+    and::
+
+        lc = Layoutf()
+        lc.pack('t=t#1;l=r#2;r!100;h%h50#1', (self, self.panel))
+
 
     Besides 'pack' there's also 'debug_pack' which does not set
-constraints, but prints traditional wxLayoutConstraint calls to
-stdout.
+    constraints, but prints traditional wxLayoutConstraint calls to
+    stdout.
 
     The calls to the Layoutf constructor and pack methods have
-the following argument list:
+    the following argument list:
 
-    (constraint_string, objects_tuple)
+    `(constraint_string, objects_tuple)`
 
-Constraint String syntax:
+
+    Constraint String syntax:
 
     Constraint directives are separated by semi-colons. You
-generally (always?) need four directives to completely describe a
-subwindow's location.
+    generally (always?) need four directives to completely describe a
+    subwindow's location.
 
     A single directive has either of the following forms:
 
     1. <own attribute><compare operation>[numerical argument]
-    for example r!100 -> lc.right.Absolute(100) )
-    and w* -> lc.width.AsIs()
+       for example ``r!100`` -> lc.right.Absolute(100) )
+       and ``w*`` -> lc.width.AsIs()
 
-    2. <own attribute><compare operation>[numerical argument]
-       #<compare object nr.>
-    for example t_10#2 (lc.top.Below(<second obj>, 10)
+     2. <own attribute><compare operation>[numerical argument]
+        #<compare object nr.>
+        for example ``t_10#2`` -> lc.top.Below(<second obj>, 10)
 
-    3. <own attribute><compare operation><compare attribute>
-       [numerical argument]#<compare object nr.>
-    for example w%h50#2 ( lc.width.PercentOf(<second obj>,
-    wxHeight, 50) and t=b#1 ( lc.top.SameAs(<first obj>,
-    wxBottom) )
+     3. <own attribute><compare operation><compare attribute>
+        [numerical argument]#<compare object nr.>
+        for example ``w%h50#2`` -> lc.width.PercentOf(<second obj>, wx.Height, 50) and ``t=b#1` -> lc.top.SameAs(<first obj>, wx.Bottom)
 
     Which one you need is defined by the <compare operation>
-type. The following take type 1 (no object to compare with):
+    type. The following take type 1 (no object to compare with):
 
-    '!': 'Absolute', '?': 'Unconstrained', '*': 'AsIs'
+    * '!': 'Absolute', '?': 'Unconstrained', '*': 'AsIs'
 
-These take type 2 (need to be compared with another object)
+    These take type 2 (need to be compared with another object)
 
-    '<': 'LeftOf', '>': 'RightOf', '^': 'Above', '_': 'Below'
+    * '<': 'LeftOf', '>': 'RightOf', '^': 'Above', '_': 'Below'
 
-These take type 3 (need to be compared to another object
-attribute)
+    These take type 3 (need to be compared to another object
+    attribute)
 
-    '=': 'SameAs', '%': 'PercentOf'
+    * '=': 'SameAs', '%': 'PercentOf'
 
-For all types, the <own attribute> letter can be any of
+    For all types, the <own attribute> letter can be any of
 
-    't': 'top', 'l': 'left', 'b': 'bottom',
-    'r': 'right', 'h': 'height', 'w': 'width',
-    'x': 'centreX', 'y': 'centreY'
+    * 't': 'top', 'l': 'left', 'b': 'bottom',
+    * 'r': 'right', 'h': 'height', 'w': 'width',
+    * 'x': 'centreX', 'y': 'centreY'
 
-If the operation takes an (optional) numerical argument, place it
-in [numerical argument].  For type 3 directives, the <compare
-attribute> letter can be any of
+    If the operation takes an (optional) numerical argument, place it
+    in [numerical argument].  For type 3 directives, the <compare
+    attribute> letter can be any of
 
-    't': 'wxTop', 'l': 'wxLeft', 'b': 'wxBottom'
-    'r': 'wxRight', 'h': 'wxHeight', 'w': 'wxWidth',
-    'x': 'wxCentreX', 'y': 'wxCentreY'
+    * 't': 'wxTop', 'l': 'wxLeft', 'b': 'wx.Bottom'
+    * 'r': 'wxRight', 'h': 'wxHeight', 'w': 'wx.Width',
+    * 'x': 'wxCentreX', 'y': 'wx.CentreY'
 
-Note that these are the same letters as used for <own attribute>,
-so you'll only need to remember one set. Finally, the object
-whose attribute is refered to, is specified by #<compare object
-nr>, where <compare object nr> is the 1-based (stupid, I know,
-but I've gotten used to it) index of the object in the
-objects_tuple argument.
+    Note that these are the same letters as used for <own attribute>,
+    so you'll only need to remember one set. Finally, the object
+    whose attribute is refered to, is specified by #<compare object
+    nr>, where <compare object nr> is the 1-based (stupid, I know,
+    but I've gotten used to it) index of the object in the
+    objects_tuple argument.
 
-Bugs:
+    Bugs:
 
-Not entirely happy about the logic in the order of arguments
-after the <compare operation> character.
+    Not entirely happy about the logic in the order of arguments
+    after the <compare operation> character.
 
-Not all wxLayoutConstraint methods are included in the
-syntax. However, the type 3 directives are generally the most
-used. Further excuse: wxWindows layout constraints are at the
-time of this writing not documented.
+    Not all wxLayoutConstraint methods are included in the
+    syntax. However, the type 3 directives are generally the most
+    used. Further excuse: wxWindows layout constraints are at the
+    time of this writing not documented.
 
 """
 

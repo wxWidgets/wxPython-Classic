@@ -17,20 +17,19 @@ i would like to use command completion (see rlcompleter library module),
 but i cannot load it because i don't have readline...
 
 History:
-03-oct-1999 [als] created
-04-oct-1999 [als] PyShellOutput.intro moved from __init__ parameters
-                  to class attributes; html debug disabled
-04-oct-1999 [als] fixed bug with class attributes
-                  input prompts and output styles added to customized demo
-                  some html cleanups
-04-oct-1999 [rpd] Changed to use the new sizers
-05-oct-1999 [als] changes inspired by code.InteractiveInterpreter()
-                  from Python Library.  if i knew about this class earlier,
-                  i would rather inherit from it.
-                  renamed to wxPyShell.py since i've renounced the 8.3 scheme
 
-8-10-2001         THIS MODULE IS NOW DEPRECATED.  Please see the most excellent
-                  PyCrust package instead.
+* 03-oct-1999 [als] created
+* 04-oct-1999 [als] PyShellOutput.intro moved from __init__ parameters to class
+  attributes; html debug disabled
+* 04-oct-1999 [als] fixed bug with class attributes input prompts and output
+  styles added to customized demo some html cleanups
+* 04-oct-1999 [rpd] Changed to use the new sizers
+* 05-oct-1999 [als] changes inspired by code.InteractiveInterpreter()
+  from Python Library.  if i knew about this class earlier,
+  i would rather inherit from it.
+  renamed to wxPyShell.py since i've renounced the 8.3 scheme
+* 8-10-2001: THIS MODULE IS NOW DEPRECATED.  Please see the most excellent
+  PyCrust package instead.
 
 """
 __version__ ="$Revision$"

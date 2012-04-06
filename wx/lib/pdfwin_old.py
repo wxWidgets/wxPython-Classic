@@ -22,12 +22,18 @@ def get_acroversion():
     global _acroversion
     if _acroversion == None and wx.PlatformInfo[1] == 'wxMSW':
         import _winreg
-        adobesoft = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, r'Software\Adobe')
+        regKey = _winreg.HKEY_LOCAL_MACHINE
         acrokeys, acroversions = [], []
+        try:
+            adobesoft = _winreg.OpenKey(regKey, r'Software\Adobe')
+        except WindowsError:
+            regKey = _winreg.HKEY_CURRENT_USER
+            adobesoft = _winreg.OpenKey(regKey, r'Software\Adobe')
+            
         for index in range(_winreg.QueryInfoKey(adobesoft)[0]):
             key = _winreg.EnumKey(adobesoft, index)
             if "acrobat" in key.lower():
-                acrokeys.append(_winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'Software\\Adobe\\%s' % key))
+                acrokeys.append(_winreg.OpenKey(regKey, 'Software\\Adobe\\%s' % key))
         for acrokey in acrokeys:
             for index in range(_winreg.QueryInfoKey(acrokey)[0]):
                 key = _winreg.EnumKey(acrokey, index)

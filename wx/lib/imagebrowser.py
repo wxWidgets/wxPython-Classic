@@ -83,7 +83,7 @@ def GetCheckeredBitmap(blocksize=8,ntiles=4,rgb0='\xFF', rgb1='\xCC'):
     - blocksize:  the number of pixels in each solid color square
     - ntiles:  the number of tiles along width and height.  Each tile is 2x2 blocks.
     - rbg0,rgb1:  the first and second colors, as 3-byte strings.
-                  If only 1 byte is provided, it is treated as a grey value.
+      If only 1 byte is provided, it is treated as a grey value.
 
     The bitmap returned will have width = height = blocksize*ntiles*2
     """
@@ -643,7 +643,7 @@ class ImageDialog(wx.Dialog):
     def OnOk(self, event):
         if os.path.isdir(self.set_file):
             sdir = os.path.split(self.set_file)
-	
+    
             #os.path.normapth?
             if sdir and sdir[-1]=='..':
                 sdir = os.path.split(sdir[0])[0]

@@ -62,7 +62,7 @@ class Struct:
 class Handler:
     """
     Bind some of the arguments and keyword arguments of a callable ('listener'). 
-    Then when the Handler instance is called (e.g. handler(result, **kwargs))
+    Then when the Handler instance is called (e.g. `handler(result, **kwargs)`)
     the result is passed as first argument to callable, the kwargs is 
     combined with those given at construction, and the args are those
     given at construction. Its return value is returned.
@@ -74,7 +74,7 @@ class Handler:
         self.__kwargs = kwargs
         
     def __call__(self, result, **moreKwargs):
-        """Listener is assumed to take result as first arg, then *args, 
+        """Listener is assumed to take result as first `arg`, then `*args`, 
         then the combination of moreKwargs and the kwargs given at construction."""
         if moreKwargs:
             moreKwargs.update(self.__kwargs)
@@ -136,7 +136,7 @@ class SenderNoWx( Sender ):
     """
     def __init__(self, consumer, jobID=None, args=(), kwargs={}):
         """The consumer can be any callable of the form 
-        callable(result, *args, **kwargs)"""
+        `callable(result, *args, **kwargs)`"""
         Sender.__init__(self, jobID)
         if args or kwargs:
             self.__consumer = Handler(consumer, *args, **kwargs)
@@ -254,7 +254,7 @@ class Producer(threading.Thread):
                  name=None, group=None, daemon=False, 
                  sendReturn=True, senderArg=None):
         """The sender will send the return value of 
-        workerFn(*args, **kwargs) to the main thread. The name and group 
+        `workerFn(*args, **kwargs)` to the main thread. The name and group 
         are same as threading.Thread constructor parameters. Daemon causes 
         setDaemon() to be called. If sendReturn is False, then the return 
         value of workerFn() will not be sent. If senderArg is given, it 
@@ -353,7 +353,7 @@ class PreProcessChain:
     anything about the lower-level objects. 
     """
     def __init__(self, handler, *args, **kwargs):
-        """Wrap handler(result, *args, **kwargs) so that the result 
+        """Wrap `handler(result, *args, **kwargs)` so that the result 
         it receives has been transformed by us. """
         if handler is None:# assume rhs is a chain
             self.__chain = args[0]
@@ -363,7 +363,7 @@ class PreProcessChain:
             self.__chain = [handler]
 
     def addSub(self, callable, *args, **kwargs):
-        """Add a sub-callable, ie a callable(result, *args, **kwargs)
+        """Add a sub-callable, ie a `callable(result, *args, **kwargs)`
         that returns a transformed result to the previously added
         sub-callable (or the handler given at construction, if this is 
         the first call to addSub). """

@@ -46,8 +46,16 @@ class AppEventHandlerMixin:
     we need this to efficiently make sure that the right handler is handling
     the event.
 
-    To work with this system, views must call 
-            Add(UI)HandlerForID(ID, handlerFunc)
+    To work with this system, views must call::
+
+            AddHandlerForID(ID, handlerFunc)
+
+
+    or::
+
+            AddUIHandlerForID(ID, handlerFunc)
+
+    
     in their EVT_SET_FOCUS handler, and call Remove(UI)HandlerForID(ID) in their
     EVT_KILL_FOCUS handler.
     """

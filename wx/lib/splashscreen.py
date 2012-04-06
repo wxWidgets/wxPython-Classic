@@ -52,7 +52,7 @@ class SplashScreen(wx.Frame):
         duration -- milliseconds to display the splash screen
         bitmapfile -- absolute or relative pathname to image file
         callback -- if specified, is called when timer completes, callback is
-                    responsible for closing the splash screen
+        responsible for closing the splash screen
         '''
         ### Loading bitmap
         self.bitmap = bmp = wx.Image(bitmapfile, wx.BITMAP_TYPE_ANY).ConvertToBitmap()

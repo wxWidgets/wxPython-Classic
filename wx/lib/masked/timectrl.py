@@ -695,11 +695,13 @@ class TimeCtrl(BaseMaskedTextCtrl):
         """
         This function is the conversion engine for TimeCtrl; it takes
         one of the following types:
-            time string
-            wxDateTime
-            wxTimeSpan
-            mxDateTime
-            mxDateTimeDelta
+        
+        * time string
+        * wx.DateTime
+        * wx.TimeSpan
+        * mxDateTime
+        * mxDateTimeDelta
+        
         and converts it to a wx.DateTime that always has Jan 1, 1970 as its date
         portion, so that range comparisons around values can work using
         wx.DateTime's built-in comparison function.  If a value is not

@@ -234,14 +234,19 @@ class PolyLine(PolyPoints):
                    'legend': ''}
 
     def __init__(self, points, **attr):
-        """Creates PolyLine object
-            points - sequence (array, tuple or list) of (x,y) points making up line
-            **attr - key word attributes
-                Defaults:
-                    'colour'= 'black',          - wx.Pen Colour any wx.NamedColour
-                    'width'= 1,                 - Pen width
-                    'style'= wx.SOLID,          - wx.Pen style
-                    'legend'= ''                - Line Legend to display
+        """
+        Creates PolyLine object
+        
+        :param `points`: sequence (array, tuple or list) of (x,y) points making up line
+        :keyword `attr` : keyword attributes, default to:
+
+         ==========================  ================================  
+         'colour'= 'black'           wx.Pen Colour any wx.NamedColour
+         'width'= 1                  Pen width
+         'style'= wx.SOLID           wx.Pen style
+         'legend'= ''                Line Legend to display
+         ==========================  ================================  
+
         """
         PolyPoints.__init__(self, points, attr)
 
@@ -277,14 +282,19 @@ class PolySpline(PolyLine):
                    'legend': ''}
 
     def __init__(self, points, **attr):
-        """Creates PolyLine object
-            points - sequence (array, tuple or list) of (x,y) points making up line
-            **attr - key word attributes
-                Defaults:
-                    'colour'= 'black',          - wx.Pen Colour any wx.NamedColour
-                    'width'= 1,                 - Pen width
-                    'style'= wx.SOLID,          - wx.Pen style
-                    'legend'= ''                - Line Legend to display
+        """
+        Creates PolyLine object
+
+        :param `points`: sequence (array, tuple or list) of (x,y) points making up spline
+        :keyword `attr` : keyword attributes, default to:
+
+         ==========================  ================================  
+         'colour'= 'black'           wx.Pen Colour any wx.NamedColour
+         'width'= 1                  Pen width
+         'style'= wx.SOLID           wx.Pen style
+         'legend'= ''                Line Legend to display
+         ==========================  ================================  
+
         """
         PolyLine.__init__(self, points, **attr)
 
@@ -317,26 +327,31 @@ class PolyMarker(PolyPoints):
                    'legend': ''}
 
     def __init__(self, points, **attr):
-        """Creates PolyMarker object
-        points - sequence (array, tuple or list) of (x,y) points
-        **attr - key word attributes
-            Defaults:
-                'colour'= 'black',          - wx.Pen Colour any wx.NamedColour
-                'width'= 1,                 - Pen width
-                'size'= 2,                  - Marker size
-                'fillcolour'= same as colour,      - wx.Brush Colour any wx.NamedColour
-                'fillstyle'= wx.SOLID,      - wx.Brush fill style (use wx.TRANSPARENT for no fill)
-                'marker'= 'circle'          - Marker shape
-                'legend'= ''                - Marker Legend to display
-              
-            Marker Shapes:
-                - 'circle'
-                - 'dot'
-                - 'square'
-                - 'triangle'
-                - 'triangle_down'
-                - 'cross'
-                - 'plus'
+        """
+        Creates PolyMarker object
+
+        :param `points`: sequence (array, tuple or list) of (x,y) points
+        :keyword `attr` : keyword attributes, default to:
+
+         ============================  ================================  
+         'colour'= 'black'             wx.Pen Colour any wx.NamedColour
+         'width'= 1                    Pen width
+         'size'= 2                     Marker size
+         'fillcolour'= same as colour  wx.Brush Colour any wx.NamedColour
+         'fillstyle'= wx.SOLID         wx.Brush fill style (use wx.TRANSPARENT for no fill)
+         'style'= wx.SOLID             wx.Pen style
+         'marker'= 'circle'            Marker shape
+         'legend'= ''                  Line Legend to display
+         ============================  ================================  
+
+         Marker Shapes:
+         - 'circle'
+         - 'dot'
+         - 'square'
+         - 'triangle'
+         - 'triangle_down'
+         - 'cross'
+         - 'plus'
         """
       
         PolyPoints.__init__(self, points, attr)
@@ -1016,20 +1031,22 @@ class PlotCanvas(wx.Panel):
     def SetXSpec(self, type= 'auto'):
         """xSpec- defines x axis type. Can be 'none', 'min' or 'auto'
         where:
-            'none' - shows no axis or tick mark values
-            'min' - shows min bounding box values
-            'auto' - rounds axis range to sensible values
-            <number> - like 'min', but with <number> tick marks
+        
+        * 'none' - shows no axis or tick mark values
+        * 'min' - shows min bounding box values
+        * 'auto' - rounds axis range to sensible values
+        * <number> - like 'min', but with <number> tick marks
         """
         self._xSpec= type
         
     def SetYSpec(self, type= 'auto'):
         """ySpec- defines x axis type. Can be 'none', 'min' or 'auto'
         where:
-            'none' - shows no axis or tick mark values
-            'min' - shows min bounding box values
-            'auto' - rounds axis range to sensible values
-            <number> - like 'min', but with <number> tick marks
+
+        * 'none' - shows no axis or tick mark values
+        * 'min' - shows min bounding box values
+        * 'auto' - rounds axis range to sensible values
+        * <number> - like 'min', but with <number> tick marks
         """
         self._ySpec= type
 

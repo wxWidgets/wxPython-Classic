@@ -34,12 +34,13 @@ then), it's "frame" attribute is the actual instance of wFrame...
 
 Typical usage::
 
-    from wxPython.lib.infoframe import *
+    from wx.lib.infoframe import *
     ... # ... modify your wxApp as follows:
     class myApp(wxApp):
         outputWindowClass = PyInformationalMessagesFrame
-        ...
-        
+        # ...
+
+
 If you're running on Linux, you'll also have to supply an argument 1 to your
 constructor of myApp to redirect stdout/stderr to this window (it's done
 automatically for you on Windows).
@@ -47,7 +48,7 @@ automatically for you on Windows).
 If you don't want to redirect stdout/stderr, but use the class directly: do
 it this way::
 
- InformationalMessagesFrame = PyInformationalMessagesFrame\
+InformationalMessagesFrame = PyInformationalMessagesFrame\
                                          ([options from progname (default ""),
                                            txt (default "informational messages"])
                                           
@@ -80,11 +81,12 @@ The former, EnableOutput, displays the frame with an introductory
 message, opens a random file to which future displayed output also
 goes (unless the nofile attribute is present), and sets the __debug__
 variable of each module to 1 (unless the no __debug__ attribute is
-present].  This is so that you can say, in any module whatsoever,
+present].  This is so that you can say, in any module whatsoever::
 
     if __debug__:
         InformationalMessagesFrame("... with lots of %<Character> constructs"
                                     % TUPLE)
+
 
 without worrying about the overhead of evaluating the arguments, and
 calling the wxInformationalMessagesFrame instance, in the case where
@@ -200,7 +202,7 @@ class _MyStatusBar(wx.StatusBar):
 
 
 
-class PyInformationalMessagesFrame:
+class PyInformationalMessagesFrame(object):
     def __init__(self,
                  progname="",
                  text="informational messages",
@@ -464,7 +466,7 @@ class PyInformationalMessagesFrame:
 
 
 
-class Dummy_PyInformationalMessagesFrame:
+class Dummy_PyInformationalMessagesFrame(object):
     def __init__(self,progname=""):
         self.softspace = 1
     def __call__(self,*args):
