@@ -48,17 +48,21 @@ automatically for you on Windows).
 If you don't want to redirect stdout/stderr, but use the class directly: do
 it this way::
 
-InformationalMessagesFrame = PyInformationalMessagesFrame\
-                                         ([options from progname (default ""),
-                                           txt (default "informational messages"])
+    InformationalMessagesFrame = PyInformationalMessagesFrame( \
+                                                options_from_progname,  # (default = "")
+                                                txt),                   # (default = "informational messages")
                                           
-#^^^^ early in the program
-...
-InformationalMessagesFrame([comma-separated list of items to
-                             display.  Note that these will never
-                             be separated by spaces as they may
-                             be when used in the Python 'print'
-                             command])
+    #^^^^ early in the program
+    # ...
+    
+    InformationalMessagesFrame(list_of_items)
+
+    # where list_of_items:
+    #
+    # comma-separated list of items to display.
+    # Note that these will never be separated by spaces as they may
+    # be when used in the Python 'print' command
+    
 
 The latter statement, of course, may be repeated arbitrarily often.
 The window will not appear until it is written to, and it may be

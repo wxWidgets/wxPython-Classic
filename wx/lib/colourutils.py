@@ -30,8 +30,7 @@ def AdjustColour(color, percent, alpha=wx.ALPHA_OPAQUE):
     Brighten/Darken input colour by percent and adjust alpha
     channel if needed. Returns the modified color.
     
-    :param `color`: color object to adjust
-    :type color: `wx.Colour`
+    :param Colour `color`: color object to adjust
     :param integer `percent`: percent to adjust +(brighten) or -(darken)
     :keyword `alpha`: amount to adjust alpha channel
 
@@ -55,7 +54,7 @@ def BestLabelColour(color, bw=False):
     Get the best color to use for the label that will be drawn on
     top of the given color.
     
-    :param `color`: background color that text will be drawn on
+    :param Colour `color`: background color that text will be drawn on
     :keyword `bw`: If True, only return black or white
     
     """
@@ -75,7 +74,7 @@ def BestLabelColour(color, bw=False):
 def GetHighlightColour():
     """Get the default highlight color
     
-    :return: `wx.Colour`
+    :return: :class:`Colour`
 
     """
     if wx.Platform == '__WXMAC__':

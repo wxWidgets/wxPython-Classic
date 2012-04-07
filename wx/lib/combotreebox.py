@@ -71,9 +71,9 @@ class IterableTreeCtrl(wx.TreeCtrl):
         (as is displayed when the tree is fully expanded). The returned 
         item is invalid if item is the first item in the tree.
         
-        :param TreeItemId `item`: a TreeItemId
-        :return: the TreeItemId previous to the one passed in or an invalid item
-        :rtype: TreeItemId
+        :param TreeItemId `item`: a :class:`TreeItemId`
+        :return: the :class:`TreeItemId` previous to the one passed in or an invalid item
+        :rtype: :class:`TreeItemId`
         
         """
         previousSibling = self.GetPrevSibling(item)
@@ -94,9 +94,9 @@ class IterableTreeCtrl(wx.TreeCtrl):
         (as is displayed when the tree is fully expanded). The returned
         item is invalid if item is the last item in the tree.
         
-        :param TreeItemId `item`: a TreeItemId
-        :return: TreeItemId of the next item or an invalid item
-        :rtype: TreeItemId
+        :param TreeItemId `item`: a :class:`TreeItemId`
+        :return: :class:`TreeItemId` of the next item or an invalid item
+        :rtype: :class:`TreeItemId`
         
         """
         if self.ItemHasChildren(item):
@@ -112,8 +112,8 @@ class IterableTreeCtrl(wx.TreeCtrl):
         the root item is returned, if any. If the tree is empty, an
         invalid tree item is returned.
         
-        :return: TreeItemId
-        :rtype: TreeItemId
+        :return: :class:`TreeItemId`
+        :rtype: :class:`TreeItemId`
         
         """
         rootItem = self.GetRootItem()
@@ -129,9 +129,9 @@ class IterableTreeCtrl(wx.TreeCtrl):
         has no children, item itself is returned. So the returned item
         is always valid, assuming a valid item has been passed.
 
-        :param TreeItemId `item`: a TreeItemId
-        :return: TreeItemId of the last item or an invalid item
-        :rtype: TreeItemId
+        :param TreeItemId `item`: a :class:`TreeItemId`
+        :return: :class:`TreeItemId` of the last item or an invalid item
+        :rtype: :class:`TreeItemId`
         
         """
         lastChild = item
@@ -147,9 +147,9 @@ class IterableTreeCtrl(wx.TreeCtrl):
         of the parent is returned, etc. If none of the ancestors of item
         has a next sibling, an invalid item is returned.
        
-        :param TreeItemId `item`: a TreeItemId
-        :return: TreeItemId of the next item or an invalid item
-        :rtype: TreeItemId
+        :param TreeItemId `item`: a :class:`TreeItemId`
+        :return: :class:`TreeItemId` of the next item or an invalid item
+        :rtype: :class:`TreeItemId`
         
         """
         if item == self.GetRootItem():
@@ -179,11 +179,10 @@ class IterableTreeCtrl(wx.TreeCtrl):
 
 class BasePopupFrame(wx.Frame):
     """ 
-    BasePopupFrame is the base class for platform specific
-    versions of the PopupFrame. The PopupFrame is the frame that 
-    is popped up by ComboTreeBox. It contains the tree of items 
-    that the user can select one item from. Upon selection, or 
-    when focus is lost, the frame is hidden.
+    BasePopupFrame is the base class for platform specific versions of the
+    PopupFrame. The PopupFrame is the frame that is popped up by ComboTreeBox.
+    It contains the tree of items that the user can select one item from. Upon
+    selection, or when focus is lost, the frame is hidden.
     """
 
     def __init__(self, parent):
@@ -260,6 +259,7 @@ class BasePopupFrame(wx.Frame):
 
 
 class MSWPopupFrame(BasePopupFrame):
+    """MSWPopupFrame is the base class Windows PopupFrame."""  
     def Show(self):
         # Comply with the MS Windows Combobox behaviour: if the text in
         # the text field is not in the tree, the first item in the tree
@@ -270,6 +270,7 @@ class MSWPopupFrame(BasePopupFrame):
 
 
 class MACPopupFrame(BasePopupFrame):
+    """MacPopupFrame is the base class Mac PopupFrame."""  
     def _bindKillFocus(self):
         # On wxMac, the kill focus event doesn't work, but the
         # deactivate event does:
@@ -286,6 +287,7 @@ class MACPopupFrame(BasePopupFrame):
 
 
 class GTKPopupFrame(BasePopupFrame):
+    """GTKPopupFrame is the base class GTK PopupFrame."""  
     def _keyShouldHidePopup(self, keyEvent):
         # On wxGTK, Alt-Up also closes the popup:
         return super(GTKPopupFrame, self)._keyShouldHidePopup(keyEvent) or \
@@ -297,8 +299,8 @@ class GTKPopupFrame(BasePopupFrame):
 
 class BaseComboTreeBox(object):
     """
-    BaseComboTreeBox is the base class for platform specific
-    versions of the ComboTreeBox.
+    BaseComboTreeBox is the base class for platform specific versions of the
+    ComboTreeBox.
     """
 
     def __init__(self, *args, **kwargs):
@@ -466,9 +468,9 @@ class BaseComboTreeBox(object):
         returned. 
         
         :param PyObject `clientData`: the client data to find
-        :keyword TreeItemId `parent`: TreeItemId parent or None
-        :return: TreeItemId
-        :rtype: TreeItemId
+        :keyword TreeItemId `parent`: :class:`TreeItemId` parent or None
+        :return: :class:`TreeItemId`
+        :rtype: :class:`TreeItemId`
         
         """
         parent = parent or self._tree.GetRootItem()
@@ -506,22 +508,22 @@ class BaseComboTreeBox(object):
 
     # The following methods are all part of the ComboBox API (actually
     # the ControlWithItems API) and have been adapted to take TreeItemIds 
-    # as parameter and return TreeItemIds, rather than indices.
+    # as parameter and return :class:`TreeItemId`s, rather than indices.
 
     def Append(self, itemText, parent=None, clientData=None):
         """ 
         Adds the itemText to the control, associating the given clientData 
         with the item if not None. If parent is None, itemText is added
         as a root item, else itemText is added as a child item of
-        parent. The return value is the TreeItemId of the newly added
+        parent. The return value is the :class:`TreeItemId` of the newly added
         item.
 
         :param string `itemText`: text to add to the control
         :keyword TreeItemId `parent`: if None item is added as a root, else it
           is added as a child of the parent.
         :keyword PyObject `clientData`: the client data to find
-        :return: TreeItemId of newly added item
-        :rtype: TreeItemId
+        :return: :class:`TreeItemId` of newly added item
+        :rtype: :class:`TreeItemId`
        
         """    
         if parent is None:
@@ -547,9 +549,9 @@ class BaseComboTreeBox(object):
         returned.
        
         :param string `string`: string to be found in label
-        :keyword TreeItemId `parent`: TreeItemId parent or None
-        :return: TreeItemId
-        :rtype: TreeItemId
+        :keyword TreeItemId `parent`: :class:`TreeItemId` parent or None
+        :return: :class:`TreeItemId`
+        :rtype: :class:`TreeItemId`
         
         """
         parent = parent or self._tree.GetRootItem()
@@ -566,11 +568,11 @@ class BaseComboTreeBox(object):
 
     def GetSelection(self):
         """
-        Returns the TreeItemId of the selected item or an invalid item
+        Returns the :class:`TreeItemId` of the selected item or an invalid item
         if no item is selected.
         
         :return: a TreeItemId
-        :rtype: TreeItemId
+        :rtype: :class:`TreeItemId`
         
         """
         selectedItem = self._tree.GetSelection()
@@ -583,7 +585,7 @@ class BaseComboTreeBox(object):
         """
         Returns the label of the given item.
         
-        :param TreeItemId `item`: TreeItemId for which to get the label
+        :param TreeItemId `item`: :class:`TreeItemId` for which to get the label
         :return: label
         :rtype: string
         
@@ -614,8 +616,8 @@ class BaseComboTreeBox(object):
         :keyword TreeItemId `previous`: the previous item
         :keyword TreeItemId `parent`: the parent item
         :keyword PyObject `clientData`: the data to associate
-        :return: the create TreeItemId
-        :rtype: TreeItemId
+        :return: the create :class:`TreeItemId`
+        :rtype: :class:`TreeItemId`
         
         """
         data = wx.TreeItemData(clientData)
@@ -758,9 +760,9 @@ class BaseComboTreeBox(object):
 
 class NativeComboTreeBox(BaseComboTreeBox, wx.ComboBox):
     """
-    NativeComboTreeBox, and any subclass, uses the native ComboBox as 
-    basis, but prevent it from popping up its drop down list and
-    instead pops up a PopupFrame containing a tree of items.
+    NativeComboTreeBox, and any subclass, uses the native ComboBox as basis,
+    but prevent it from popping up its drop down list and instead pops up a
+    PopupFrame containing a tree of items.
     """
 
     def _eventsToBind(self):

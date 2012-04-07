@@ -72,7 +72,7 @@ class Layoutf(wx.LayoutConstraints):
 
     3. <own attribute><compare operation><compare attribute>
        [numerical argument]#<compare object nr.>
-       for example ``w%h50#2`` -> lc.width.PercentOf(<second obj>, wx.Height, 50) and ``t=b#1` -> lc.top.SameAs(<first obj>, wx.Bottom)
+       for example ``w%h50#2`` -> lc.width.PercentOf(<second obj>, wx.Height, 50) and ``t=b#1`` -> lc.top.SameAs(<first obj>, wx.Bottom)
 
     Which one you need is defined by the <compare operation>
     type. The following take type 1 (no object to compare with):
