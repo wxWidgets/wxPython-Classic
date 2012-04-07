@@ -858,7 +858,7 @@ class ListRowHighlighter:
             self.SetItemBackgroundColour(row, color)
 
     def SetHighlightColor(self, color):
-        """Set the color used to highlight the rows. Call L{RefreshRows} after
+        """Set the color used to highlight the rows. Call :meth:`RefreshRows` after
         this if you wish to update all the rows highlight colors.
         @param color: wx.Color or None to set default
 
@@ -867,7 +867,7 @@ class ListRowHighlighter:
 
     def SetHighlightMode(self, mode):
         """Set the highlighting mode to either HIGHLIGHT_EVEN or to
-        HIGHLIGHT_ODD. Call L{RefreshRows} afterwards to update the list
+        HIGHLIGHT_ODD. Call :meth:`RefreshRows` afterwards to update the list
         state.
         @param mode: HIGHLIGHT_* mode value
 
