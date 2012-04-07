@@ -112,14 +112,14 @@ def daysPerMonth(month, year):
     ndays = mdays[month] + (month == 2 and isleap(year))
     return ndays
 
-class now:
+class now(object):
     def __init__(self):
         self.date = time.localtime(time.time())
         self.year = self.date[0]
         self.month = self.date[1]
         self.day = self.date[2]
 
-class Date:
+class Date(object):
     def __init__(self, year, month, day):
         self.julian = julianDay(year, month, day)
         self.month = month

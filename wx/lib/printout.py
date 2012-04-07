@@ -26,7 +26,7 @@ import  copy
 import  types
 import  wx
 
-class PrintBase:
+class PrintBase(object):
     def SetPrintFont(self, font):      # set the DC font parameters
         fattr = font["Attr"]
         if fattr[0] == 1:
@@ -663,7 +663,7 @@ class PrintTableDraw(wx.ScrolledWindow, PrintBase):
         self.sizeh = DC.MaxX()
 
 
-class PrintTable:
+class PrintTable(object):
     def __init__(self, parentFrame=None):
         self.data = []
         self.set_column = []
@@ -1002,7 +1002,7 @@ class PrintTable:
         self.ptwidth = width
         self.ptheight = height
 
-class PrintGrid:
+class PrintGrid(object):
     def __init__(self, parent, grid, format = [], total_col = None, total_row = None):
         if total_row is None:
             total_row = grid.GetNumberRows()
