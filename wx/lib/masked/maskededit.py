@@ -306,22 +306,22 @@ There are a variety of initialization parameters that are used to validate
 user input.  These parameters can apply to the control as a whole, and/or
 to individual fields:
 
-        ========================  ==================================================================
-        excludeChars              A string of characters to exclude even if otherwise allowed
-        includeChars              A string of characters to allow even if otherwise disallowed
-        validRegex                Use a regular expression to validate the contents of the text box
-        validRange                Pass a rangeas list (low,high) to limit numeric fields/values
-        choices                   A list of strings that are allowed choices for the control.
-        choiceRequired            value must be member of choices list
-        compareNoCase             Perform case-insensitive matching when validating against list. *Note: for masked.ComboBox, this defaults to True.*
-        emptyInvalid              Boolean indicating whether an empty value should be considered invalid
-        validFunc                 A function to call of the form: bool = func(candidate_value) which will return True if the candidate_value satisfies some external criteria for the control in addition to the the other validation, or False if not.  (This validation is applied last in the chain of validations.)
-        validRequired             Boolean indicating whether or not keys that are allowed by the mask, but result in an invalid value are allowed to be entered into the control.  Setting this to True implies that a valid default value is set for the control.
-        retainFieldValidation     False by default; if True, this allows individual fields to retain their own validation constraints independently of any subsequent changes to the control's overall parameters. (This is a control-level parameter.)
-        validator                 Validators are not normally needed for masked controls, because of the nature of the validation and control of input.  However, you can supply one to provide data transfer routines for the controls.
-        raiseOnInvalidPaste       False by default; normally a bad paste simply is ignored with a bell; if True, this will cause a ValueError exception to be thrown, with the .value attribute of the exception containing the bad value.
-        stopFieldChangeIfInvalid  False by default; tries to prevent navigation out of a field if its current value is invalid.  Can be used to create a hybrid of validation settings, allowing intermediate invalid values in a field without sacrificing ability to limit values as with validRequired. NOTE: It is possible to end up with an invalid value when using this option if focus is switched to some other control via mousing. To avoid this, consider deriving a class that defines _LostFocus() function that returns the control to a valid value when the focus shifts.  (AFAICT, The change in focus is unpreventable.)
-        ========================  ==================================================================
+========================  ==================================================================
+excludeChars              A string of characters to exclude even if otherwise allowed
+includeChars              A string of characters to allow even if otherwise disallowed
+validRegex                Use a regular expression to validate the contents of the text box
+validRange                Pass a rangeas list (low,high) to limit numeric fields/values
+choices                   A list of strings that are allowed choices for the control.
+choiceRequired            value must be member of choices list
+compareNoCase             Perform case-insensitive matching when validating against list. *Note: for masked.ComboBox, this defaults to True.*
+emptyInvalid              Boolean indicating whether an empty value should be considered invalid
+validFunc                 A function to call of the form: bool = func(candidate_value) which will return True if the candidate_value satisfies some external criteria for the control in addition to the the other validation, or False if not.  (This validation is applied last in the chain of validations.)
+validRequired             Boolean indicating whether or not keys that are allowed by the mask, but result in an invalid value are allowed to be entered into the control.  Setting this to True implies that a valid default value is set for the control.
+retainFieldValidation     False by default; if True, this allows individual fields to retain their own validation constraints independently of any subsequent changes to the control's overall parameters. (This is a control-level parameter.)
+validator                 Validators are not normally needed for masked controls, because of the nature of the validation and control of input.  However, you can supply one to provide data transfer routines for the controls.
+raiseOnInvalidPaste       False by default; normally a bad paste simply is ignored with a bell; if True, this will cause a ValueError exception to be thrown, with the .value attribute of the exception containing the bad value.
+stopFieldChangeIfInvalid  False by default; tries to prevent navigation out of a field if its current value is invalid.  Can be used to create a hybrid of validation settings, allowing intermediate invalid values in a field without sacrificing ability to limit values as with validRequired. NOTE: It is possible to end up with an invalid value when using this option if focus is switched to some other control via mousing. To avoid this, consider deriving a class that defines _LostFocus() function that returns the control to a valid value when the focus shifts.  (AFAICT, The change in focus is unpreventable.)
+========================  ==================================================================
 
 
 Coloring Behavior
@@ -541,8 +541,8 @@ controlType can be one of::
 These constants are also available individually, ie, you can
 use either of the following::
 
-    from wxPython.wx.lib.masked import MaskedCtrl, controlTypes
-    from wxPython.wx.lib.masked import MaskedCtrl, COMBO, TEXT, NUMBER, IPADDR
+    from wx.lib.masked import MaskedCtrl, controlTypes
+    from wx.lib.masked import MaskedCtrl, COMBO, TEXT, NUMBER, IPADDR
 
 If not specified as a keyword argument, the default controlType is
 controlTypes.TEXT.
@@ -659,7 +659,7 @@ Event Handling
   each class derivation using the mixin to have an option to hook up
   the event handlers itself or forego this operation and let a
   subclass of the masked control do so.  For this reason, each
-  subclass should probably include the following code:
+  subclass should probably include the following code::
 
     if setupEventHandling:
         ## Setup event handlers
