@@ -227,6 +227,7 @@ def ImageSurfaceFromBitmap(bitmap):
     
     surface = cairo.ImageSurface(format, width, height)
     bitmap.CopyToBuffer(surface.get_data(), fmt, stride)
+    surface.mark_dirty()
     return surface
 
 
