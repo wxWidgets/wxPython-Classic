@@ -220,7 +220,7 @@ public:
 
 %pythonAppend wxAuiNotebook::wxAuiNotebook    "self._setOORInfo(self)";
 %pythonAppend wxAuiNotebook::wxAuiNotebook()  "val._setOORInfo(val)";
-%ignore wxAuiiNotebook::~wxAuiNotebook;
+%ignore wxAuiNotebook::~wxAuiNotebook;
 %rename(PreAuiNotebook) wxAuiNotebook::wxAuiNotebook();
 
 // NB: Since we can't target the use of a typemap to specific methods make
