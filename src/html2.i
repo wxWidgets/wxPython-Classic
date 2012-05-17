@@ -285,7 +285,7 @@ public:
         Creation function for two-step creation.
     */
     virtual bool Create(wxWindow* parent,
-                        wxWindowID id,
+                        wxWindowID id = wxID_ANY,
                         const wxString& url = wxWebViewDefaultURLStr,
                         const wxPoint& pos = wxDefaultPosition,
                         const wxSize& size = wxDefaultSize,
