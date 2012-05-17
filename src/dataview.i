@@ -1045,7 +1045,9 @@ index or order of appearance) is required, then this should be used.", "");
 class wxPyDataViewModel: public wxDataViewModel
 {
 public:
-    wxPyDataViewModel() {}
+    wxPyDataViewModel() { /*printf("=== ctor\n");*/ }
+
+    ~wxPyDataViewModel() { /*printf("--- dtor\n");*/ }
 
     PYCALLBACK_UINT__pure_const(wxDataViewModel, GetColumnCount);
     PYCALLBACK_STRING_UINT_pure_const(wxDataViewModel, GetColumnType);
@@ -1701,6 +1703,7 @@ public:
     wxDataViewIconText( const wxString &text = wxEmptyString,
                         const wxIcon& icon = wxNullIcon );
 
+    ~wxDataViewIconText();
 
     void SetText( const wxString &text );
     wxString GetText() const;
