@@ -104,7 +104,7 @@ class WebView(_core.Control):
     __repr__ = _swig_repr
     def Create(*args, **kwargs):
         """
-        Create(self, Window parent, int id, String url=wxWebViewDefaultURLStr, 
+        Create(self, Window parent, int id=ID_ANY, String url=wxWebViewDefaultURLStr, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
             long style=0, String name=wxWebViewNameStr) -> bool
         """

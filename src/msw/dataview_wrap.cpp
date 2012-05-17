@@ -3444,7 +3444,9 @@ SWIGINTERN wxVariant wxDataViewModel_GetValue(wxDataViewModel const *self,wxData
 class wxPyDataViewModel: public wxDataViewModel
 {
 public:
-    wxPyDataViewModel() {}
+    wxPyDataViewModel() { /*printf("=== ctor\n");*/ }
+
+    ~wxPyDataViewModel() { /*printf("--- dtor\n");*/ }
 
     PYCALLBACK_UINT__pure_const(wxDataViewModel, GetColumnCount);
     PYCALLBACK_STRING_UINT_pure_const(wxDataViewModel, GetColumnType);
@@ -9742,6 +9744,34 @@ fail:
     if (temp1)
     delete arg1;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_DataViewIconText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDataViewIconText *arg1 = (wxDataViewIconText *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewIconText, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_DataViewIconText" "', expected argument " "1"" of type '" "wxDataViewIconText *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewIconText * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -20571,6 +20601,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewIconTextRenderer_swigregister", DataViewIconTextRenderer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DataViewIconTextRenderer_swiginit", DataViewIconTextRenderer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_DataViewIconText", (PyCFunction) _wrap_new_DataViewIconText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_DataViewIconText", (PyCFunction)_wrap_delete_DataViewIconText, METH_O, NULL},
 	 { (char *)"DataViewIconText_SetText", (PyCFunction) _wrap_DataViewIconText_SetText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewIconText_GetText", (PyCFunction)_wrap_DataViewIconText_GetText, METH_O, NULL},
 	 { (char *)"DataViewIconText_SetIcon", (PyCFunction) _wrap_DataViewIconText_SetIcon, METH_VARARGS | METH_KEYWORDS, NULL},

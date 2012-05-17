@@ -3091,7 +3091,7 @@ SWIGINTERN PyObject *_wrap_WebView_Create(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject *resultobj = 0;
   wxWebView *arg1 = (wxWebView *) 0 ;
   wxWindow *arg2 = (wxWindow *) 0 ;
-  int arg3 ;
+  int arg3 = (int) wxID_ANY ;
   wxString const &arg4_defvalue = wxWebViewDefaultURLStr ;
   wxString *arg4 = (wxString *) &arg4_defvalue ;
   wxPoint const &arg5_defvalue = wxDefaultPosition ;
@@ -3126,7 +3126,7 @@ SWIGINTERN PyObject *_wrap_WebView_Create(PyObject *SWIGUNUSEDPARM(self), PyObje
     (char *) "self",(char *) "parent",(char *) "id",(char *) "url",(char *) "pos",(char *) "size",(char *) "style",(char *) "name", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OOOOO:WebView_Create",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOOOO:WebView_Create",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWebView, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebView_Create" "', expected argument " "1"" of type '" "wxWebView *""'"); 
@@ -3137,11 +3137,13 @@ SWIGINTERN PyObject *_wrap_WebView_Create(PyObject *SWIGUNUSEDPARM(self), PyObje
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WebView_Create" "', expected argument " "2"" of type '" "wxWindow *""'"); 
   }
   arg2 = reinterpret_cast< wxWindow * >(argp2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "WebView_Create" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "WebView_Create" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   if (obj3) {
     {
       arg4 = wxString_in_helper(obj3);

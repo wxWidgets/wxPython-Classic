@@ -43357,6 +43357,55 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PropertyGridManager_SetPageSplitterLeft(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPropertyGridManager *arg1 = (wxPropertyGridManager *) 0 ;
+  int arg2 ;
+  bool arg3 = (bool) false ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "page",(char *) "subProps", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:PropertyGridManager_SetPageSplitterLeft",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPropertyGridManager, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PropertyGridManager_SetPageSplitterLeft" "', expected argument " "1"" of type '" "wxPropertyGridManager *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPropertyGridManager * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PropertyGridManager_SetPageSplitterLeft" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PropertyGridManager_SetPageSplitterLeft" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetPageSplitterLeft(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PropertyGridManager_SetPageSplitterPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPropertyGridManager *arg1 = (wxPropertyGridManager *) 0 ;
@@ -48943,6 +48992,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PropertyGridManager_SetDescription", (PyCFunction) _wrap_PropertyGridManager_SetDescription, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGridManager_SetDescBoxHeight", (PyCFunction) _wrap_PropertyGridManager_SetDescBoxHeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGridManager_SetSplitterLeft", (PyCFunction) _wrap_PropertyGridManager_SetSplitterLeft, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PropertyGridManager_SetPageSplitterLeft", (PyCFunction) _wrap_PropertyGridManager_SetPageSplitterLeft, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGridManager_SetPageSplitterPosition", (PyCFunction) _wrap_PropertyGridManager_SetPageSplitterPosition, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGridManager_SetSplitterPosition", (PyCFunction) _wrap_PropertyGridManager_SetSplitterPosition, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGridManager_SetId", (PyCFunction) _wrap_PropertyGridManager_SetId, METH_VARARGS | METH_KEYWORDS, NULL},

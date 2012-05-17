@@ -3583,6 +3583,10 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
         """SetSplitterLeft(self, bool subProps=False, bool allPages=True)"""
         return _propgrid.PropertyGridManager_SetSplitterLeft(*args, **kwargs)
 
+    def SetPageSplitterLeft(*args, **kwargs):
+        """SetPageSplitterLeft(self, int page, bool subProps=False)"""
+        return _propgrid.PropertyGridManager_SetPageSplitterLeft(*args, **kwargs)
+
     def SetPageSplitterPosition(*args, **kwargs):
         """SetPageSplitterPosition(self, int page, int pos, int column=0)"""
         return _propgrid.PropertyGridManager_SetPageSplitterPosition(*args, **kwargs)

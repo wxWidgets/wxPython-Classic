@@ -28029,7 +28029,7 @@ fail:
 SWIGINTERN PyObject *_wrap_MouseEvent_GetWheelAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
+  wxMouseWheelAxis result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -28043,7 +28043,7 @@ SWIGINTERN PyObject *_wrap_MouseEvent_GetWheelAxis(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxMouseEvent const *)arg1)->GetWheelAxis();
+    result = (wxMouseWheelAxis)((wxMouseEvent const *)arg1)->GetWheelAxis();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -75806,6 +75806,8 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_SET_FOCUS", PyInt_FromLong(wxEVT_COMMAND_SET_FOCUS));
   PyDict_SetItemString(d, "wxEVT_COMMAND_KILL_FOCUS", PyInt_FromLong(wxEVT_COMMAND_KILL_FOCUS));
   PyDict_SetItemString(d, "wxEVT_COMMAND_ENTER", PyInt_FromLong(wxEVT_COMMAND_ENTER));
+  SWIG_Python_SetConstant(d, "MOUSE_WHEEL_VERTICAL",SWIG_From_int(static_cast< int >(wxMOUSE_WHEEL_VERTICAL)));
+  SWIG_Python_SetConstant(d, "MOUSE_WHEEL_HORIZONTAL",SWIG_From_int(static_cast< int >(wxMOUSE_WHEEL_HORIZONTAL)));
   SWIG_Python_SetConstant(d, "WXK_CATEGORY_ARROW",SWIG_From_int(static_cast< int >(WXK_CATEGORY_ARROW)));
   SWIG_Python_SetConstant(d, "WXK_CATEGORY_PAGING",SWIG_From_int(static_cast< int >(WXK_CATEGORY_PAGING)));
   SWIG_Python_SetConstant(d, "WXK_CATEGORY_JUMP",SWIG_From_int(static_cast< int >(WXK_CATEGORY_JUMP)));

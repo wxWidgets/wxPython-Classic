@@ -1298,6 +1298,8 @@ class DataViewIconText(_core.Object):
         `DataViewIconTextRenderer`
         """
         _dataview.DataViewIconText_swiginit(self,_dataview.new_DataViewIconText(*args, **kwargs))
+    __swig_destroy__ = _dataview.delete_DataViewIconText
+    __del__ = lambda self : None;
     def SetText(*args, **kwargs):
         """SetText(self, String text)"""
         return _dataview.DataViewIconText_SetText(*args, **kwargs)

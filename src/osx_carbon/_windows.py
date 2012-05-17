@@ -2793,14 +2793,14 @@ def PreSimpleHtmlListBox(*args, **kwargs):
 #---------------------------------------------------------------------------
 
 TBI_DOCK = _windows_.TBI_DOCK
-TBI_CUSTOM_STATUS_ITEM = _windows_.TBI_CUSTOM_STATUS_ITEM
-TBI_DEFAULT = _windows_.TBI_DEFAULT
+TBI_CUSTOM_STATUSITEM = _windows_.TBI_CUSTOM_STATUSITEM
+TBI_DEFAULT_TYPE = _windows_.TBI_DEFAULT_TYPE
 class TaskBarIcon(_core.EvtHandler):
     """Proxy of C++ TaskBarIcon class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int iconType=TBI_DEFAULT) -> TaskBarIcon"""
+        """__init__(self, int iconType=TBI_DEFAULT_TYPE) -> TaskBarIcon"""
         _windows_.TaskBarIcon_swiginit(self,_windows_.new_TaskBarIcon(*args, **kwargs))
         self._setOORInfo(self);TaskBarIcon._setCallbackInfo(self, self, TaskBarIcon)
 

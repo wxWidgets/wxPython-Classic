@@ -3275,23 +3275,24 @@ SWIGINTERN void wxSimpleHtmlListBox__Clear(wxSimpleHtmlListBox *self){
             self->Clear();
         }
 
+#include <wx/taskbar.h>
 
-
-enum wxPyTaskBarIconType
-{
-    wxTBI_DOCK,
-    wxTBI_CUSTOM_STATUS_ITEM,
-    wxTBI_DEFAULT = wxTBI_CUSTOM_STATUS_ITEM
-};
-
-    
+   
 #ifndef wxHAS_TASK_BAR_ICON
 // implement dummy classes for platforms that don't have it
 
+enum wxTaskBarIconType
+{
+    wxTBI_DOCK,
+    wxTBI_CUSTOM_STATUSITEM,
+    wxTBI_DEFAULT_TYPE = wxTBI_CUSTOM_STATUSITEM
+};
+
+    
 class wxTaskBarIcon : public wxEvtHandler
 {
 public:
-    wxTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT)
+    wxTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE)
     { wxPyRaiseNotImplemented(); }
 };
 
@@ -3333,12 +3334,8 @@ class wxPyTaskBarIcon : public wxTaskBarIcon
 {
     DECLARE_ABSTRACT_CLASS(wxPyTaskBarIcon)
 public:
-    wxPyTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT) :
-#ifdef __WXOSX_COCOA__
-        wxTaskBarIcon((wxTaskBarIconType)iconType) {}
-#else
-        wxTaskBarIcon() {}
-#endif
+    wxPyTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE) :
+        wxTaskBarIcon(iconType) {}
     
     wxMenu* CreatePopupMenu() {
         wxMenu *rval = NULL;
@@ -21196,7 +21193,7 @@ SWIGINTERN PyObject *SimpleHtmlListBox_swiginit(PyObject *SWIGUNUSEDPARM(self), 
 
 SWIGINTERN PyObject *_wrap_new_TaskBarIcon(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxPyTaskBarIconType arg1 = (wxPyTaskBarIconType) wxTBI_DEFAULT ;
+  wxTaskBarIconType arg1 = (wxTaskBarIconType) wxTBI_DEFAULT_TYPE ;
   wxPyTaskBarIcon *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
@@ -21209,9 +21206,9 @@ SWIGINTERN PyObject *_wrap_new_TaskBarIcon(PyObject *SWIGUNUSEDPARM(self), PyObj
   if (obj0) {
     ecode1 = SWIG_AsVal_int(obj0, &val1);
     if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_TaskBarIcon" "', expected argument " "1"" of type '" "wxPyTaskBarIconType""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_TaskBarIcon" "', expected argument " "1"" of type '" "wxTaskBarIconType""'");
     } 
-    arg1 = static_cast< wxPyTaskBarIconType >(val1);
+    arg1 = static_cast< wxTaskBarIconType >(val1);
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
@@ -41366,8 +41363,8 @@ SWIGEXPORT void SWIG_init(void) {
   wxPyPtrTypeMap_Add("wxVScrolledWindow", "wxPyVScrolledWindow");
   
   SWIG_Python_SetConstant(d, "TBI_DOCK",SWIG_From_int(static_cast< int >(wxTBI_DOCK)));
-  SWIG_Python_SetConstant(d, "TBI_CUSTOM_STATUS_ITEM",SWIG_From_int(static_cast< int >(wxTBI_CUSTOM_STATUS_ITEM)));
-  SWIG_Python_SetConstant(d, "TBI_DEFAULT",SWIG_From_int(static_cast< int >(wxTBI_DEFAULT)));
+  SWIG_Python_SetConstant(d, "TBI_CUSTOM_STATUSITEM",SWIG_From_int(static_cast< int >(wxTBI_CUSTOM_STATUSITEM)));
+  SWIG_Python_SetConstant(d, "TBI_DEFAULT_TYPE",SWIG_From_int(static_cast< int >(wxTBI_DEFAULT_TYPE)));
   PyDict_SetItemString(d, "wxEVT_TASKBAR_MOVE", PyInt_FromLong(wxEVT_TASKBAR_MOVE));
   PyDict_SetItemString(d, "wxEVT_TASKBAR_LEFT_DOWN", PyInt_FromLong(wxEVT_TASKBAR_LEFT_DOWN));
   PyDict_SetItemString(d, "wxEVT_TASKBAR_LEFT_UP", PyInt_FromLong(wxEVT_TASKBAR_LEFT_UP));
