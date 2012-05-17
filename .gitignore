@@ -42,6 +42,7 @@ reswig
 /licence
 /s.bat
 /temp
+/tmp
 /update.log
 /build-options.cache
 /build.carbon.unicode
