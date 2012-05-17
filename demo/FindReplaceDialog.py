@@ -23,11 +23,12 @@ class TestPanel(wx.Panel):
         self.frbtn = wx.Button(self, -1, "Show Find && Replace Dialog", (25, 90))
         self.Bind(wx.EVT_BUTTON, self.OnShowFindReplace, self.frbtn)
 
-        self.Bind(wx.EVT_FIND, self.OnFind)
-        self.Bind(wx.EVT_FIND_NEXT, self.OnFind)
-        self.Bind(wx.EVT_FIND_REPLACE, self.OnFind)
-        self.Bind(wx.EVT_FIND_REPLACE_ALL, self.OnFind)
-        self.Bind(wx.EVT_FIND_CLOSE, self.OnFindClose)
+    def BindFindEvents(self, win):
+        win.Bind(wx.EVT_FIND, self.OnFind)
+        win.Bind(wx.EVT_FIND_NEXT, self.OnFind)
+        win.Bind(wx.EVT_FIND_REPLACE, self.OnFind)
+        win.Bind(wx.EVT_FIND_REPLACE_ALL, self.OnFind)
+        win.Bind(wx.EVT_FIND_CLOSE, self.OnFindClose)
 
     def EnableButtons(self):
         self.fbtn.Enable()
@@ -40,12 +41,14 @@ class TestPanel(wx.Panel):
     def OnShowFind(self, evt):
         self.DisableButtons()
         dlg = wx.FindReplaceDialog(self, self.findData, "Find")
+        self.BindFindEvents(dlg)
         dlg.Show(True)
 
 
     def OnShowFindReplace(self, evt):
         self.DisableButtons()
         dlg = wx.FindReplaceDialog(self, self.findData, "Find & Replace", wx.FR_REPLACEDIALOG)
+        self.BindFindEvents(dlg)
         dlg.Show(True)
 
 
