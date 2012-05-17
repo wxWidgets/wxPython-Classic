@@ -698,7 +698,7 @@ bytes in the buffer:
             """
             Copy data from a RGBA buffer object to replace the bitmap pixel
             data.  This method is now just a compatibility wrapper around
-            CopyFrombuffer.
+            CopyFromBuffer.
             """
             self.CopyFromBuffer(buffer, wx.BitmapBufferFormat_RGBA)           
     }
