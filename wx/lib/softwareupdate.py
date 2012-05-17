@@ -61,6 +61,11 @@ class SoftwareUpdate(object):
     """
     
     _caption = "Software Update"
+    _networkFailureMsg = (
+        "Unable to connect to %s to check for updates.\n\n"
+        "Perhaps your network is not enabled, the update server is down, or your"
+        "firewall is blocking the connection.")
+    
     
     def InitUpdates(self, updatesURL, changelogURL=None, icon=None):
         """
@@ -151,9 +156,9 @@ class SoftwareUpdate(object):
             self._checkInProgress = False
             if result == 'URLError':
                 if not silentUnlessUpdate:
-                    MultiMessageBox("Unable to connect to %s to check for updates." % 
-                                    self._updatesURL,
-                                    self._caption, parent=parentWindow, icon=self._icon)
+                    MultiMessageBox(
+                        self._networkFailureMsg % self._updatesURL,
+                        self._caption, parent=parentWindow, icon=self._icon)
                 return
         
             active = self._esky.active_version
@@ -173,7 +178,7 @@ class SoftwareUpdate(object):
             self._parentWindow = parentWindow
         
             resp = MultiMessageBox("A new version of %s is available.\n\n"
-                   "You are currently running verison %s, version %s is now "
+                   "You are currently running verison %s; version %s is now "
                    "available for download.  Do you wish to install it now?"
                    % (self.GetAppDisplayName(), active, newest),
                    self._caption, msg2=chLogTxt, style=wx.YES_NO, 
@@ -211,6 +216,7 @@ class SoftwareUpdate(object):
                 
             except UpdateAbortedError:
                 self._esky.cleanup()
+                self._esky.reinitialize()
                 MultiMessageBox("Update canceled.", self._caption, 
                                 parent=parentWindow, icon=self._icon)
                 if self._pd:
@@ -218,7 +224,7 @@ class SoftwareUpdate(object):
                 return              
     
             # Ask the user if they want the application to be restarted.
-            resp = MultiMessageBox("The upgrade to %s %s is ready to use, the application will "
+            resp = MultiMessageBox("The upgrade to %s %s is ready to use; the application will "
                                    "need to be restarted to begin using the new release.\n\n"
                                    "Restart %s now?"
                                    % (self.GetAppDisplayName(), newest, self.GetAppDisplayName()),
