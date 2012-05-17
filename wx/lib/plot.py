@@ -773,7 +773,7 @@ class PlotCanvas(wx.Panel):
         out = PlotPrintout(self)
         print_ok = printer.Print(self.parent, out)
         if print_ok:
-            self.print_data = wx.PrintData(printer.GetPrintDialogData().GetPrintData())
+            self._print_data = wx.PrintData(printer.GetPrintDialogData().GetPrintData())
         out.Destroy()
 
     def PrintPreview(self):
