@@ -16,28 +16,29 @@
 //---------------------------------------------------------------------------
 
 %{
+#include <wx/taskbar.h>
 %}
 
 //---------------------------------------------------------------------------
 %newgroup;
 
 
-%{
-enum wxPyTaskBarIconType
-{
-    wxTBI_DOCK,
-    wxTBI_CUSTOM_STATUS_ITEM,
-    wxTBI_DEFAULT = wxTBI_CUSTOM_STATUS_ITEM
-};
-
-    
+%{   
 #ifndef wxHAS_TASK_BAR_ICON
 // implement dummy classes for platforms that don't have it
 
+enum wxTaskBarIconType
+{
+    wxTBI_DOCK,
+    wxTBI_CUSTOM_STATUSITEM,
+    wxTBI_DEFAULT_TYPE = wxTBI_CUSTOM_STATUSITEM
+};
+
+    
 class wxTaskBarIcon : public wxEvtHandler
 {
 public:
-    wxTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT)
+    wxTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE)
     { wxPyRaiseNotImplemented(); }
 };
 
@@ -79,12 +80,8 @@ class wxPyTaskBarIcon : public wxTaskBarIcon
 {
     DECLARE_ABSTRACT_CLASS(wxPyTaskBarIcon)
 public:
-    wxPyTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT) :
-#ifdef __WXOSX_COCOA__
-        wxTaskBarIcon((wxTaskBarIconType)iconType) {}
-#else
-        wxTaskBarIcon() {}
-#endif
+    wxPyTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE) :
+        wxTaskBarIcon(iconType) {}
     
     wxMenu* CreatePopupMenu() {
         wxMenu *rval = NULL;
@@ -115,11 +112,11 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyTaskBarIcon, wxTaskBarIcon);
 %}
 
 
-enum wxPyTaskBarIconType
+enum wxTaskBarIconType
 {
     wxTBI_DOCK,
-    wxTBI_CUSTOM_STATUS_ITEM,
-    wxTBI_DEFAULT = wxTBI_CUSTOM_STATUS_ITEM
+    wxTBI_CUSTOM_STATUSITEM,
+    wxTBI_DEFAULT_TYPE
 };
 
 
@@ -131,7 +128,7 @@ class wxPyTaskBarIcon : public wxEvtHandler
 public:
     %pythonAppend wxPyTaskBarIcon   "self._setOORInfo(self);" setCallbackInfo(TaskBarIcon)
 
-    wxPyTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT);
+    wxPyTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE);
     ~wxPyTaskBarIcon();
 
     void _setCallbackInfo(PyObject* self, PyObject* _class, int incref=0);
