@@ -681,7 +681,7 @@ class AxisBar(wx.Gauge):
         txt = str(self.rawvalue)
 
         # Copy the default font, make it bold.
-        fn = parent.GetFont()
+        fn = self.GetParent().GetFont()
         fn.SetWeight(wx.BOLD)
 
         # Set the font for the DC ...
