@@ -109,11 +109,11 @@ class TestPanel(wx.Panel):
         self.x.SetLabel( str(ms.x) )
         self.y.SetLabel( str(ms.y) )
         
-        self.lft.SetLabel( str(ms.leftDown) )
-        self.mid.SetLabel( str(ms.middleDown) )
-        self.rgt.SetLabel( str(ms.rightDown) )
-        self.aux1.SetLabel( str(ms.aux1Down) )
-        self.aux2.SetLabel( str(ms.aux2Down) )
+        self.lft.SetLabel( str(ms.leftIsDown) )
+        self.mid.SetLabel( str(ms.middleIsDown) )
+        self.rgt.SetLabel( str(ms.rightIsDown) )
+        self.aux1.SetLabel( str(ms.aux1IsDown) )
+        self.aux2.SetLabel( str(ms.aux2IsDown) )
 
         self.ctrl.SetLabel( str(ms.controlDown) )
         self.shft.SetLabel( str(ms.shiftDown) )
