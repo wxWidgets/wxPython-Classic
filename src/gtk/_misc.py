@@ -5578,7 +5578,7 @@ def DROP_ICON(filename):
     """
     Returns either a `wx.Cursor` or `wx.Icon` created from the image file
     ``filename``.  This function is useful with the `wx.DropSource` class
-    which, depending on platform accepts either a icon or a cursor.
+    which, depending on platform accepts either an icon or a cursor.
     """
     img = wx.Image(filename)
     if wx.Platform == '__WXGTK__':
