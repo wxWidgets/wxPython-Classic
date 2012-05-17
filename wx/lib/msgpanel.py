@@ -25,6 +25,7 @@ class MessagePanel(wx.Panel):
         wx.Panel.__init__(self, parent)
 
         # Make widgets
+        icon = None
         if flags:
             artid = None
             if flags & wx.ICON_EXCLAMATION:
@@ -39,8 +40,9 @@ class MessagePanel(wx.Panel):
             if artid is not None:
                 bmp = wx.ArtProvider.GetBitmap(artid, wx.ART_MESSAGE_BOX, (32,32))
                 icon = wx.StaticBitmap(self, -1, bmp)
-            else:
-                icon = (32,32) # make a spacer instead
+
+        if not icon:
+            icon = (32,32) # make a spacer instead
 
         if caption:
             caption = wx.StaticText(self, -1, caption)
