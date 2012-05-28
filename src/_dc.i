@@ -2078,6 +2078,64 @@ public:
 #endif
 
 
+
+
+
+#if defined(__WXMSW__)
+class  wxEnhMetaFile : public wxGDIObject
+{
+public:
+    %nokwargs wxEnhMetaFile;
+    wxEnhMetaFile(const wxString& file = wxEmptyString);
+    wxEnhMetaFile(const wxEnhMetaFile& metafile);
+
+    virtual ~wxEnhMetaFile();
+
+    // display the picture stored in the metafile on the given DC
+    bool Play(wxDC *dc, wxRect *rectBound = NULL);
+
+    // accessors
+    virtual bool IsOk() const;
+
+    wxSize GetSize() const;
+    int GetWidth() const;
+    int GetHeight() const;
+
+    const wxString& GetFileName() const;
+
+    // copy the metafile to the clipboard: the width and height parameters are
+    // for backwards compatibility (with wxMetaFile) only, they are ignored by
+    // this method
+    bool SetClipboard(int width = 0, int height = 0);
+};
+
+class wxEnhMetaFileDC : public wxDC
+{
+public:
+    %nokwargs wxEnhMetaFileDC;
+    
+    // the ctor parameters specify the filename (empty for memory metafiles),
+    // the metafile picture size and the optional description/comment
+    wxEnhMetaFileDC(const wxString& filename = wxEmptyString,
+                    int width = 0, int height = 0,
+                    const wxString& description = wxEmptyString);
+
+    // as above, but takes reference DC as first argument to take resolution,
+    // size, font metrics etc. from
+    wxEnhMetaFileDC(const wxDC& referenceDC,
+                    const wxString& filename = wxEmptyString,
+                    int width = 0, int height = 0,
+                    const wxString& description = wxEmptyString);
+
+    // obtain a pointer to the new metafile (caller should delete it)
+    %newobject Close;
+    wxEnhMetaFile *Close();
+};
+
+
+#else
+#endif
+
 //---------------------------------------------------------------------------
 
 MustHaveApp(wxPrinterDC);
