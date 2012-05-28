@@ -2142,15 +2142,15 @@ class DataViewListCtrl(DataViewCtrl):
         return _dataview.DataViewListCtrl_AppendIconTextColumn(*args, **kwargs)
 
     def AppendItem(*args, **kwargs):
-        """AppendItem(self, wxVariantVector values, wxClientData data=None)"""
+        """AppendItem(self, wxVariantVector values, UIntPtr data=None)"""
         return _dataview.DataViewListCtrl_AppendItem(*args, **kwargs)
 
     def PrependItem(*args, **kwargs):
-        """PrependItem(self, wxVariantVector values, wxClientData data=None)"""
+        """PrependItem(self, wxVariantVector values, UIntPtr data=None)"""
         return _dataview.DataViewListCtrl_PrependItem(*args, **kwargs)
 
     def InsertItem(*args, **kwargs):
-        """InsertItem(self, unsigned int row, wxVariantVector values, wxClientData data=None)"""
+        """InsertItem(self, unsigned int row, wxVariantVector values, UIntPtr data=None)"""
         return _dataview.DataViewListCtrl_InsertItem(*args, **kwargs)
 
     def DeleteItem(*args, **kwargs):
@@ -2185,13 +2185,13 @@ class DataViewListCtrl(DataViewCtrl):
         """GetToggleValue(self, unsigned int row, unsigned int col) -> bool"""
         return _dataview.DataViewListCtrl_GetToggleValue(*args, **kwargs)
 
-    def GetItemData(*args, **kwargs):
-        """GetItemData(self, unsigned int row) -> PyObject"""
-        return _dataview.DataViewListCtrl_GetItemData(*args, **kwargs)
-
     def SetItemData(*args, **kwargs):
-        """SetItemData(self, unsigned int row, PyObject data)"""
+        """SetItemData(self, DataViewItem item, UIntPtr data)"""
         return _dataview.DataViewListCtrl_SetItemData(*args, **kwargs)
+
+    def GetItemData(*args, **kwargs):
+        """GetItemData(self, DataViewItem item) -> UIntPtr"""
+        return _dataview.DataViewListCtrl_GetItemData(*args, **kwargs)
 
 _dataview.DataViewListCtrl_swigregister(DataViewListCtrl)
 

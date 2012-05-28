@@ -1370,17 +1370,9 @@ class AuiNotebook(wxNavigationEnabled_BookCtrlBase):
         """GetHeightForPageHeight(self, int pageHeight) -> int"""
         return _aui.AuiNotebook_GetHeightForPageHeight(*args, **kwargs)
 
-    def AdvanceSelection(*args, **kwargs):
-        """AdvanceSelection(self, bool forward=True)"""
-        return _aui.AuiNotebook_AdvanceSelection(*args, **kwargs)
-
     def ShowWindowMenu(*args, **kwargs):
         """ShowWindowMenu(self) -> bool"""
         return _aui.AuiNotebook_ShowWindowMenu(*args, **kwargs)
-
-    def GetCurrentPage(*args, **kwargs):
-        """GetCurrentPage(self) -> Window"""
-        return _aui.AuiNotebook_GetCurrentPage(*args, **kwargs)
 
 _aui.AuiNotebook_swigregister(AuiNotebook)
 

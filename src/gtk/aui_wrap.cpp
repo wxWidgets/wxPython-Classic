@@ -15569,46 +15569,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_AuiNotebook_AdvanceSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
-  bool arg2 = (bool) true ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "forward", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:AuiNotebook_AdvanceSelection",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_AdvanceSelection" "', expected argument " "1"" of type '" "wxAuiNotebook *""'"); 
-  }
-  arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
-  if (obj1) {
-    ecode2 = SWIG_AsVal_bool(obj1, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiNotebook_AdvanceSelection" "', expected argument " "2"" of type '" "bool""'");
-    } 
-    arg2 = static_cast< bool >(val2);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AdvanceSelection(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_AuiNotebook_ShowWindowMenu(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
@@ -15632,36 +15592,6 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_ShowWindowMenu(PyObject *SWIGUNUSEDPARM(s
   }
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_AuiNotebook_GetCurrentPage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
-  wxWindow *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_GetCurrentPage" "', expected argument " "1"" of type '" "wxAuiNotebook const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxAuiNotebook const *)arg1)->GetCurrentPage();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = wxPyMake_wxObject(result, 0); 
   }
   return resultobj;
 fail:
@@ -24006,9 +23936,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiNotebook_SetMeasuringFont", (PyCFunction) _wrap_AuiNotebook_SetMeasuringFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebook_GetTabCtrlHeight", (PyCFunction)_wrap_AuiNotebook_GetTabCtrlHeight, METH_O, NULL},
 	 { (char *)"AuiNotebook_GetHeightForPageHeight", (PyCFunction) _wrap_AuiNotebook_GetHeightForPageHeight, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"AuiNotebook_AdvanceSelection", (PyCFunction) _wrap_AuiNotebook_AdvanceSelection, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebook_ShowWindowMenu", (PyCFunction)_wrap_AuiNotebook_ShowWindowMenu, METH_O, NULL},
-	 { (char *)"AuiNotebook_GetCurrentPage", (PyCFunction)_wrap_AuiNotebook_GetCurrentPage, METH_O, NULL},
 	 { (char *)"AuiNotebook_swigregister", AuiNotebook_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiNotebook_swiginit", AuiNotebook_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PreAuiMDIParentFrame", (PyCFunction)_wrap_new_PreAuiMDIParentFrame, METH_NOARGS, NULL},

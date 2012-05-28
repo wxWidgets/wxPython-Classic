@@ -5517,6 +5517,66 @@ class MetaFileDC(DC):
 
 _gdi_.MetaFileDC_swigregister(MetaFileDC)
 
+class EnhMetaFile(GDIObject):
+    """Proxy of C++ EnhMetaFile class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self, String file=wxEmptyString) -> EnhMetaFile
+        __init__(self, EnhMetaFile metafile) -> EnhMetaFile
+        """
+        _gdi_.EnhMetaFile_swiginit(self,_gdi_.new_EnhMetaFile(*args))
+    __swig_destroy__ = _gdi_.delete_EnhMetaFile
+    __del__ = lambda self : None;
+    def Play(*args, **kwargs):
+        """Play(self, DC dc, Rect rectBound=None) -> bool"""
+        return _gdi_.EnhMetaFile_Play(*args, **kwargs)
+
+    def IsOk(*args, **kwargs):
+        """IsOk(self) -> bool"""
+        return _gdi_.EnhMetaFile_IsOk(*args, **kwargs)
+
+    def GetSize(*args, **kwargs):
+        """GetSize(self) -> Size"""
+        return _gdi_.EnhMetaFile_GetSize(*args, **kwargs)
+
+    def GetWidth(*args, **kwargs):
+        """GetWidth(self) -> int"""
+        return _gdi_.EnhMetaFile_GetWidth(*args, **kwargs)
+
+    def GetHeight(*args, **kwargs):
+        """GetHeight(self) -> int"""
+        return _gdi_.EnhMetaFile_GetHeight(*args, **kwargs)
+
+    def GetFileName(*args, **kwargs):
+        """GetFileName(self) -> String"""
+        return _gdi_.EnhMetaFile_GetFileName(*args, **kwargs)
+
+    def SetClipboard(*args, **kwargs):
+        """SetClipboard(self, int width=0, int height=0) -> bool"""
+        return _gdi_.EnhMetaFile_SetClipboard(*args, **kwargs)
+
+_gdi_.EnhMetaFile_swigregister(EnhMetaFile)
+
+class EnhMetaFileDC(DC):
+    """Proxy of C++ EnhMetaFileDC class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self, String filename=wxEmptyString, int width=0, int height=0, 
+            String description=wxEmptyString) -> EnhMetaFileDC
+        __init__(self, DC referenceDC, String filename=wxEmptyString, int width=0, 
+            int height=0, String description=wxEmptyString) -> EnhMetaFileDC
+        """
+        _gdi_.EnhMetaFileDC_swiginit(self,_gdi_.new_EnhMetaFileDC(*args))
+    def Close(*args, **kwargs):
+        """Close(self) -> EnhMetaFile"""
+        return _gdi_.EnhMetaFileDC_Close(*args, **kwargs)
+
+_gdi_.EnhMetaFileDC_swigregister(EnhMetaFileDC)
+
 class PrinterDC(DC):
     """Proxy of C++ PrinterDC class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -6076,7 +6136,7 @@ class GraphicsContext(GraphicsObject):
         Create(Window window) -> GraphicsContext
         Create(PrinterDC dc) -> GraphicsContext
         Create(MetaFileDC dc) -> GraphicsContext
-        Create(wxEnhMetaFileDC dc) -> GraphicsContext
+        Create(EnhMetaFileDC dc) -> GraphicsContext
         Create(Image ?) -> GraphicsContext
 
         Creates a wx.GraphicsContext either from a window or a DC.
@@ -6623,7 +6683,7 @@ def GraphicsContext_Create(*args):
     Create(Window window) -> GraphicsContext
     Create(PrinterDC dc) -> GraphicsContext
     Create(MetaFileDC dc) -> GraphicsContext
-    Create(wxEnhMetaFileDC dc) -> GraphicsContext
+    Create(EnhMetaFileDC dc) -> GraphicsContext
     GraphicsContext_Create(Image ?) -> GraphicsContext
 
     Creates a wx.GraphicsContext either from a window or a DC.
@@ -6684,7 +6744,7 @@ class GraphicsRenderer(_core.Object):
         CreateContext(self, PrinterDC dc) -> GraphicsContext
         CreateContext(self, Window window) -> GraphicsContext
         CreateContext(self, MetaFileDC dc) -> GraphicsContext
-        CreateContext(self, wxEnhMetaFileDC dc) -> GraphicsContext
+        CreateContext(self, EnhMetaFileDC dc) -> GraphicsContext
         """
         return _gdi_.GraphicsRenderer_CreateContext(*args)
 
