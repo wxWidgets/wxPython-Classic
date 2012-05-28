@@ -928,6 +928,7 @@ else:
 
 
 
+DATA_FILES += find_data_files('wx/lib/agw/data', '*.png', '*.html')
 DATA_FILES += find_data_files('wx/lib/editor', '*.txt')
 DATA_FILES += find_data_files('wx/py', '*.txt', '*.ico', '*.css', '*.html')
 

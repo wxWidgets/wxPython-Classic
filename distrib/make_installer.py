@@ -118,7 +118,8 @@ Source: "wx\lib\agw\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\agw\aui\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\aui"; Components: core
 Source: "wx\lib\agw\persist\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\persist"; Components: core
 Source: "wx\lib\agw\ribbon\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon"; Components: core
-;;Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
+Source: "wx\lib\agw\data\*.png";                DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\data"; Components: core
+Source: "wx\lib\agw\data\*.html";               DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\data"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
 Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
 Source: "wx\lib\art\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
