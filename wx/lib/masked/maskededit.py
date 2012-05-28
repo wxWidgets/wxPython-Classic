@@ -2856,11 +2856,24 @@ class MaskedEditMixin:
             # sizing of numctrl when using proportional font and
             # wxPython 2.9 is not working when using "M"
             # GetTextExtent returns a width which is way to large
+            # instead we use '9' for numctrl and a selection of 
+            # characters instead of just 'M' for textctrl and combobox
+            # where the mask is larger then 10 characters long
             if isinstance(self, wx.lib.masked.numctrl.NumCtrl):
                 sizing_text = '9' * self._masklength
                 wAdjust = 8
+            elif isinstance(self, wx.lib.masked.combobox.ComboBox):
+                if self._masklength > 10:
+                    sizing_text = 'FDSJKLREUI' * (self._masklength/10)
+                    wAdjust = 26
+                else:
+                    sizing_text = 'M' * self._masklength
+                    wAdjust = 4
             else:
-                sizing_text = 'M' * self._masklength
+                if self._masklength > 10:
+                    sizing_text = 'FDSJKLREUI' * (self._masklength/10)
+                else:
+                    sizing_text = 'M' * self._masklength
                 wAdjust = 4
             if wx.Platform != "__WXMSW__":   # give it a little extra space
                 sizing_text += 'M'
