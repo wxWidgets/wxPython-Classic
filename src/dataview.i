@@ -2673,10 +2673,10 @@ public:
         int width = -1, wxAlignment align = wxALIGN_LEFT,
         int flags = wxDATAVIEW_COL_RESIZABLE );
 
-    void AppendItem( const wxVariantVector &values, wxClientData *data = NULL );
-    void PrependItem( const wxVariantVector &values, wxClientData *data = NULL );
+    void AppendItem( const wxVariantVector &values, wxUIntPtr data = NULL );
+    void PrependItem( const wxVariantVector &values, wxUIntPtr data = NULL );
     void InsertItem(  unsigned int row, const wxVariantVector &values,
-                      wxClientData *data = NULL );
+                      wxUIntPtr data = NULL );
 
     void DeleteItem( unsigned row );
     void DeleteAllItems();
@@ -2698,30 +2698,8 @@ public:
     void SetToggleValue( bool value, unsigned int row, unsigned int col );
     bool GetToggleValue( unsigned int row, unsigned int col ) const;
 
-    
-    %extend {
-        PyObject* GetItemData(unsigned int row)
-        {
-            wxCHECK_MSG(row < self->GetStore()->m_data.size(), NULL, "Invalid row");
-            wxDataViewListStoreLine* line = self->GetStore()->m_data[row];
-            wxPyClientData* data = (wxPyClientData*)line->GetData();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
-        }
-
-        void SetItemData(unsigned int row, PyObject* data)
-        {
-            wxCHECK_RET(row < self->GetStore()->m_data.size(), "Invalid row");
-            wxDataViewListStoreLine* line = self->GetStore()->m_data[row];
-            delete line->GetData();
-            line->SetData(new wxPyClientData(data));
-        }
-    }
+    void SetItemData( const wxDataViewItem& item, wxUIntPtr data );
+    wxUIntPtr GetItemData( const wxDataViewItem& item ) const;
     
 };
 
