@@ -5504,6 +5504,24 @@ class URLDataObject(DataObject):
     URL = property(GetURL,SetURL,doc="See `GetURL` and `SetURL`") 
 _misc_.URLDataObject_swigregister(URLDataObject)
 
+class HTMLDataObject(DataObjectSimple):
+    """Proxy of C++ HTMLDataObject class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String html=wxEmptyString) -> HTMLDataObject"""
+        _misc_.HTMLDataObject_swiginit(self,_misc_.new_HTMLDataObject(*args, **kwargs))
+    def GetHTML(*args, **kwargs):
+        """GetHTML(self) -> String"""
+        return _misc_.HTMLDataObject_GetHTML(*args, **kwargs)
+
+    def SetHTML(*args, **kwargs):
+        """SetHTML(self, String html)"""
+        return _misc_.HTMLDataObject_SetHTML(*args, **kwargs)
+
+    HTML = property(GetHTML,SetHTML) 
+_misc_.HTMLDataObject_swigregister(HTMLDataObject)
+
 class MetafileDataObject(DataObjectSimple):
     """Proxy of C++ MetafileDataObject class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
