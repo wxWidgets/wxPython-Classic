@@ -91,7 +91,7 @@ def select(versions, optionsRequired=False):
     Search for a wxPython installation that matches version.  If one
     is found then sys.path is modified so that version will be
     imported with a 'import wx', otherwise a VersionError exception is
-    raised.  This funciton should only be caled once at the begining
+    raised.  This function should only be called once at the beginning
     of the application before wxPython is imported.
 
         :param versions: Specifies the version to look for, it can

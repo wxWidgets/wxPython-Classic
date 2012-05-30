@@ -24229,7 +24229,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToCurrent(PyObject *SWIGUNUSEDPARM(self),
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24271,7 +24273,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetTimeT(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24313,7 +24317,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetJDN(PyObject *SWIGUNUSEDPARM(self), PyObj
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24388,7 +24394,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetHMS(PyObject *SWIGUNUSEDPARM(self), PyObj
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24496,7 +24504,9 @@ SWIGINTERN PyObject *_wrap_DateTime_Set(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24527,7 +24537,9 @@ SWIGINTERN PyObject *_wrap_DateTime_ResetTime(PyObject *SWIGUNUSEDPARM(self), Py
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24597,7 +24609,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetYear(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24639,7 +24653,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetMonth(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24681,7 +24697,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetDay(PyObject *SWIGUNUSEDPARM(self), PyObj
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24723,7 +24741,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetHour(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24765,7 +24785,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetMinute(PyObject *SWIGUNUSEDPARM(self), Py
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24807,7 +24829,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetSecond(PyObject *SWIGUNUSEDPARM(self), Py
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24849,7 +24873,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetMillisecond(PyObject *SWIGUNUSEDPARM(self
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24902,7 +24928,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToWeekDayInSameWeek(PyObject *SWIGUNUSEDP
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24994,7 +25022,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToNextWeekDay(PyObject *SWIGUNUSEDPARM(se
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25075,7 +25105,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToPrevWeekDay(PyObject *SWIGUNUSEDPARM(se
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25541,7 +25573,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToLastMonthDay(PyObject *SWIGUNUSEDPARM(s
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25635,7 +25669,9 @@ SWIGINTERN PyObject *_wrap_DateTime_SetToYearDay(PyObject *SWIGUNUSEDPARM(self),
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25919,7 +25955,9 @@ SWIGINTERN PyObject *_wrap_DateTime_MakeTimezone(PyObject *SWIGUNUSEDPARM(self),
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   {
     if (temp2) delete arg2;
   }
@@ -26030,7 +26068,9 @@ SWIGINTERN PyObject *_wrap_DateTime_MakeFromTimezone(PyObject *SWIGUNUSEDPARM(se
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   {
     if (temp2) delete arg2;
   }
@@ -26121,7 +26161,9 @@ SWIGINTERN PyObject *_wrap_DateTime_MakeUTC(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -26206,7 +26248,9 @@ SWIGINTERN PyObject *_wrap_DateTime_MakeGMT(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -26291,7 +26335,9 @@ SWIGINTERN PyObject *_wrap_DateTime_MakeFromUTC(PyObject *SWIGUNUSEDPARM(self), 
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateTime, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29189,7 +29235,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan_Add(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29234,7 +29282,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan_Subtract(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29276,7 +29326,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan_Multiply(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29307,7 +29359,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan_Neg(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29380,7 +29434,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan___iadd__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29425,7 +29481,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan___isub__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29467,7 +29525,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan___imul__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -29498,7 +29558,9 @@ SWIGINTERN PyObject *_wrap_TimeSpan___neg__(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTimeSpan, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -30711,7 +30773,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_SetYears(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -30753,7 +30817,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_SetMonths(PyObject *SWIGUNUSEDPARM(self), Py
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -30795,7 +30861,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_SetWeeks(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -30837,7 +30905,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_SetDays(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31022,7 +31092,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_Add(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31067,7 +31139,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_Subtract(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31098,7 +31172,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_Neg(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31140,7 +31216,9 @@ SWIGINTERN PyObject *_wrap_DateSpan_Multiply(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31185,7 +31263,9 @@ SWIGINTERN PyObject *_wrap_DateSpan___iadd__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31230,7 +31310,9 @@ SWIGINTERN PyObject *_wrap_DateSpan___isub__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31261,7 +31343,9 @@ SWIGINTERN PyObject *_wrap_DateSpan___neg__(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, 0 |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -31303,7 +31387,9 @@ SWIGINTERN PyObject *_wrap_DateSpan___imul__(PyObject *SWIGUNUSEDPARM(self), PyO
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDateSpan, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;

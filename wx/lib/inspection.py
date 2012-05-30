@@ -382,7 +382,11 @@ class InspectionFrame(wx.Frame):
         
         perspective = config.Read('perspective', '')
         if perspective:
-            self.mgr.LoadPerspective(perspective)
+            try:
+                self.mgr.LoadPerspective(perspective)
+            except wx.PyAssertionError:
+                # ignore bad perspective string errors
+                pass                
         self.includeSizers = config.ReadBool('includeSizers', False)
 
 

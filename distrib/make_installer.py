@@ -664,7 +664,7 @@ Source: "wx\tools\Editra\pixmaps\editra.ico";   DestDir: "{app}\scripts";
 [Icons]
 Name: "{group}\Run the wxPython DEMO"; Filename: "{app}\demo\demo.pyw";           WorkingDir: "{app}\demo";   IconFilename: "{app}\demo\wxpdemo.ico";
 Name: "{group}\PyCrust";               Filename: "{app}\scripts\pycrust.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
-Name: "{group}\Pylices";               Filename: "{app}\scripts\pyslices.pyw";    WorkingDir: "c:\";          IconFilename: "{app}\scripts\PySlices.ico";
+Name: "{group}\PySlices";              Filename: "{app}\scripts\pyslices.pyw";    WorkingDir: "c:\";          IconFilename: "{app}\scripts\PySlices.ico";
 Name: "{group}\PyShell";               Filename: "{app}\scripts\pyshell.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
 Name: "{group}\PySlicesShell";         Filename: "{app}\scripts\pysliceshell.pyw";WorkingDir: "c:\";          IconFilename: "{app}\scripts\PySlices.ico";
 Name: "{group}\XRC Resource Editor";   Filename: "{app}\scripts\xrced.pyw";       WorkingDir: "c:\";          IconFilename: "{app}\scripts\xrced.ico";

@@ -223,6 +223,7 @@ public:
         "Create the GUI parts of the GenericDatePickerCtrl, for use in 2-phase
 creation.", "");
     
+//    void SetFormat(const wxString& format);
 };
 
 //---------------------------------------------------------------------------

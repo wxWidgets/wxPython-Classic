@@ -99,6 +99,7 @@ MAKE_CONST_WXSTRING(EmptyString);
 %include _validator.i
 %include _menu.i
 %include _control.i
+ //%include _withimages.i
 
 
 // Layout

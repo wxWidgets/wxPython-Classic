@@ -1291,10 +1291,10 @@ public:
                        wxWindow *parentWindow = NULL);
     ~wxHtmlEasyPrinting();
 
-    void PreviewFile(const wxString &htmlfile);
-    void PreviewText(const wxString &htmltext, const wxString& basepath = wxPyEmptyString);
-    void PrintFile(const wxString &htmlfile);
-    void PrintText(const wxString &htmltext, const wxString& basepath = wxPyEmptyString);
+    bool PreviewFile(const wxString &htmlfile);
+    bool PreviewText(const wxString &htmltext, const wxString& basepath = wxPyEmptyString);
+    bool PrintFile(const wxString &htmlfile);
+    bool PrintText(const wxString &htmltext, const wxString& basepath = wxPyEmptyString);
 //    void PrinterSetup();
     void PageSetup();
     void SetHeader(const wxString& header, int pg = wxPAGE_ALL);

@@ -3267,7 +3267,6 @@ int wxPyImageHandler::GetImageCount( wxInputStream& stream ) {
 // can be connected to.  This is accessable from wxPython as a staticmethod of
 // wx.App called IsDisplayAvailable().
 
-
 bool wxPyTestDisplayAvailable()
 {
 #ifdef __WXGTK__

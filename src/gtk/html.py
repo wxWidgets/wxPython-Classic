@@ -1344,19 +1344,19 @@ class HtmlEasyPrinting(_core.Object):
     __swig_destroy__ = _html.delete_HtmlEasyPrinting
     __del__ = lambda self : None;
     def PreviewFile(*args, **kwargs):
-        """PreviewFile(self, String htmlfile)"""
+        """PreviewFile(self, String htmlfile) -> bool"""
         return _html.HtmlEasyPrinting_PreviewFile(*args, **kwargs)
 
     def PreviewText(*args, **kwargs):
-        """PreviewText(self, String htmltext, String basepath=EmptyString)"""
+        """PreviewText(self, String htmltext, String basepath=EmptyString) -> bool"""
         return _html.HtmlEasyPrinting_PreviewText(*args, **kwargs)
 
     def PrintFile(*args, **kwargs):
-        """PrintFile(self, String htmlfile)"""
+        """PrintFile(self, String htmlfile) -> bool"""
         return _html.HtmlEasyPrinting_PrintFile(*args, **kwargs)
 
     def PrintText(*args, **kwargs):
-        """PrintText(self, String htmltext, String basepath=EmptyString)"""
+        """PrintText(self, String htmltext, String basepath=EmptyString) -> bool"""
         return _html.HtmlEasyPrinting_PrintText(*args, **kwargs)
 
     def PageSetup(*args, **kwargs):

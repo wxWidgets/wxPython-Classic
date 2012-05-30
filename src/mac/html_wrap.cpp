@@ -12534,6 +12534,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewFile(PyObject *SWIGUNUSEDPARM
   PyObject *resultobj = 0;
   wxHtmlEasyPrinting *arg1 = (wxHtmlEasyPrinting *) 0 ;
   wxString *arg2 = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -12556,11 +12557,13 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewFile(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PreviewFile((wxString const &)*arg2);
+    result = (bool)(arg1)->PreviewFile((wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -12581,6 +12584,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewText(PyObject *SWIGUNUSEDPARM
   wxString *arg2 = 0 ;
   wxString const &arg3_defvalue = wxPyEmptyString ;
   wxString *arg3 = (wxString *) &arg3_defvalue ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -12612,11 +12616,13 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewText(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PreviewText((wxString const &)*arg2,(wxString const &)*arg3);
+    result = (bool)(arg1)->PreviewText((wxString const &)*arg2,(wxString const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -12643,6 +12649,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintFile(PyObject *SWIGUNUSEDPARM(s
   PyObject *resultobj = 0;
   wxHtmlEasyPrinting *arg1 = (wxHtmlEasyPrinting *) 0 ;
   wxString *arg2 = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -12665,11 +12672,13 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintFile(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PrintFile((wxString const &)*arg2);
+    result = (bool)(arg1)->PrintFile((wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -12690,6 +12699,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintText(PyObject *SWIGUNUSEDPARM(s
   wxString *arg2 = 0 ;
   wxString const &arg3_defvalue = wxPyEmptyString ;
   wxString *arg3 = (wxString *) &arg3_defvalue ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -12721,11 +12731,13 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintText(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PrintText((wxString const &)*arg2,(wxString const &)*arg3);
+    result = (bool)(arg1)->PrintText((wxString const &)*arg2,(wxString const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;

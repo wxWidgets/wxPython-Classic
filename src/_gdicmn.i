@@ -33,6 +33,7 @@ enum wxBitmapType
     wxBITMAP_TYPE_XPM,
     wxBITMAP_TYPE_XPM_DATA,
     wxBITMAP_TYPE_TIF,
+//    wxBITMAP_TYPE_TIFF,
     wxBITMAP_TYPE_GIF,
     wxBITMAP_TYPE_PNG,
     wxBITMAP_TYPE_JPEG,
