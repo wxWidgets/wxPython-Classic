@@ -788,11 +788,10 @@ DocAStr(wxIntersectRect,
         reg1.Intersect(reg2);
         dest = reg1.GetBox();
 
+        wxPyThreadBlocker blocker;
         if (dest != wxRect(0,0,0,0)) {
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
             wxRect* newRect = new wxRect(dest);
             obj = wxPyConstructObject((void*)newRect, wxT("wxRect"), true);
-            wxPyEndBlockThreads(blocked);
             return obj;
         }
         Py_INCREF(Py_None);

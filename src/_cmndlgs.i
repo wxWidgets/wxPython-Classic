@@ -359,6 +359,7 @@ GetFilename for the others.", "");
         PyObject* GetFilenames() {
             wxArrayString arr;
             self->GetFilenames(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
 
@@ -370,6 +371,7 @@ style, use GetPath for the others.", "");
         PyObject* GetPaths() {
             wxArrayString arr;
             self->GetPaths(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
     }

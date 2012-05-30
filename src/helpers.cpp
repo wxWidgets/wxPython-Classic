@@ -890,25 +890,16 @@ bool wxPyCheckForApp() {
 //---------------------------------------------------------------------------
 
 void wxPyUserData_dtor(wxPyUserData* self) {
-    if (! wxPyDoingCleanup) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        Py_DECREF(self->m_obj);
-        self->m_obj = NULL;
-        wxPyEndBlockThreads(blocked);
-    }
+    if (wxPyDoingCleanup) {
+        self->ReleaseDataDuringCleanup();
+    }   // otherwise let the wxPyUserDataHelper dtor cleanup
 }
 
-
 void wxPyClientData_dtor(wxPyClientData* self) {
-    if (! wxPyDoingCleanup) {           // Don't do it during cleanup as Python
+    if (wxPyDoingCleanup) {           // Don't do it during cleanup as Python
                                         // may have already garbage collected the object...
-        if (self->m_incRef) {
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
-            Py_DECREF(self->m_obj);
-            wxPyEndBlockThreads(blocked);
-        }
-        self->m_obj = NULL;
-    }
+        self->ReleaseDataDuringCleanup();
+    }   // otherwise let the wxPyUserDataHelper dtor cleanup
 }
 
 
@@ -924,55 +915,58 @@ void wxPyClientData_dtor(wxPyClientData* self) {
 void wxPyOORClientData_dtor(wxPyOORClientData* self) {
 
     static PyObject* deadObjectClass = NULL;
-
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    if (deadObjectClass == NULL) {
-        deadObjectClass = PyDict_GetItemString(wxPython_dict, "_wxPyDeadObject");
-        // TODO:  Can not wxASSERT here because inside a wxPyBeginBlock Threads,
-        // will lead to a deadlock when it tries to aquire the GIL again.
-        //wxASSERT_MSG(deadObjectClass != NULL, wxT("Can't get _wxPyDeadObject class!"));
-        Py_INCREF(deadObjectClass);
-    }
-
-
-    // Only if there is more than one reference to the object and we are
-    // holding the OOR reference:
-    if ( !wxPyDoingCleanup && self->m_obj->ob_refcnt > 1 && self->m_incRef) {
-        // bool isInstance = wxPyInstance_Check(self->m_obj);
-        // TODO same here
-        //wxASSERT_MSG(isInstance, wxT("m_obj not an instance!?!?!"));
-
-        // Call __del__, if there is one.
-        PyObject* func = PyObject_GetAttrString(self->m_obj, "__del__");
-        if (func) {
-            PyObject* rv = PyObject_CallMethod(self->m_obj, "__del__", NULL);
-            Py_XDECREF(rv);
-            Py_DECREF(func);
+    if (!wxPyDoingCleanup) {
+        wxPyThreadBlocker blocker;
+        if (deadObjectClass == NULL) {
+            deadObjectClass = PyDict_GetItemString(wxPython_dict, "_wxPyDeadObject");
+            // TODO:  Can not wxASSERT here because inside a wxPyBeginBlock Threads,
+            // will lead to a deadlock when it tries to aquire the GIL again.
+            //wxASSERT_MSG(deadObjectClass != NULL, wxT("Can't get _wxPyDeadObject class!"));
+            Py_INCREF(deadObjectClass);
         }
-        if (PyErr_Occurred())
-            PyErr_Clear();      // just ignore it for now
 
 
-        PyObject* dict = PyObject_GetAttrString(self->m_obj, "__dict__");
-        if (dict) {
-            // Clear the instance's dictionary
-            PyDict_Clear(dict);
+        // Only if there is more than one reference to the object and we are
+        // holding the OOR reference:
+        PyObject* obj = self->BorrowData();
+        if (obj->ob_refcnt > 1 && self->m_incRef) {
+            // bool isInstance = wxPyInstance_Check(obj);
+            // TODO same here
+            //wxASSERT_MSG(isInstance, wxT("m_obj not an instance!?!?!"));
 
-            // put the name of the old class into the instance, and then reset the
-            // class to be the dead class.
-            PyObject* klass = PyObject_GetAttrString(self->m_obj, "__class__");
-            PyObject* name =  PyObject_GetAttrString(klass, "__name__");
-            PyDict_SetItemString(dict, "_name", name);
-            PyObject_SetAttrString(self->m_obj, "__class__",  deadObjectClass);
-            //Py_INCREF(deadObjectClass);
-            Py_DECREF(klass);
-            Py_DECREF(name);
-            Py_DECREF(dict);
+            // Call __del__, if there is one.
+            PyObject* func = PyObject_GetAttrString(obj, "__del__");
+            if (func) {
+                PyObject* rv = PyObject_CallMethod(obj, "__del__", NULL);
+                Py_XDECREF(rv);
+                Py_DECREF(func);
+            }
+            if (PyErr_Occurred())
+                PyErr_Clear();      // just ignore it for now
+
+
+            PyObject* dict = PyObject_GetAttrString(obj, "__dict__");
+            if (dict) {
+                // Clear the instance's dictionary
+                PyDict_Clear(dict);
+
+                // put the name of the old class into the instance, and then reset the
+                // class to be the dead class.
+                PyObject* klass = PyObject_GetAttrString(obj, "__class__");
+                PyObject* name =  PyObject_GetAttrString(klass, "__name__");
+                PyDict_SetItemString(dict, "_name", name);
+                PyObject_SetAttrString(obj, "__class__",  deadObjectClass);
+                //Py_INCREF(deadObjectClass);
+                Py_DECREF(klass);
+                Py_DECREF(name);
+                Py_DECREF(dict);
+            }
+        }
+        if (self->m_incRef) {
+            Py_DECREF(obj);
         }
     }
-
-    // m_obj is DECREF'd in the base class dtor...
-    wxPyEndBlockThreads(blocked);
+    self->ReleaseDataDuringCleanup();
 }
 
 
@@ -1011,9 +1005,7 @@ PyObject*  wxPyMake_wxObject(wxObject* source, bool setThisOwn, bool checkEvtHan
             wxEvtHandler* eh = (wxEvtHandler*)source;
             wxPyOORClientData* data = (wxPyOORClientData*)eh->GetClientObject();
             if (data) {
-                target = data->m_obj;
-                if (target)
-                    Py_INCREF(target);
+                target = data->GetData();
             }
         }
 
@@ -1023,9 +1015,7 @@ PyObject*  wxPyMake_wxObject(wxObject* source, bool setThisOwn, bool checkEvtHan
             wxSizer* sz = (wxSizer*)source;
             wxPyOORClientData* data = (wxPyOORClientData*)sz->GetClientObject();
             if (data) {
-                target = data->m_obj;
-                if (target)
-                    Py_INCREF(target);
+                target = data->GetData();
             }
         }
         
@@ -1405,6 +1395,7 @@ wxPyCBInputStream::wxPyCBInputStream(const wxPyCBInputStream& other)
     m_seek  = other.m_seek;
     m_tell  = other.m_tell;
     m_block = other.m_block;
+    wxPyThreadBlocker blocker;
     Py_INCREF(m_read);
     Py_INCREF(m_seek);
     Py_INCREF(m_tell);
@@ -1412,18 +1403,15 @@ wxPyCBInputStream::wxPyCBInputStream(const wxPyCBInputStream& other)
 
 
 wxPyCBInputStream::~wxPyCBInputStream() {
-    wxPyBlock_t blocked = wxPyBlock_t_default;
-    if (m_block) blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     Py_XDECREF(m_read);
     Py_XDECREF(m_seek);
     Py_XDECREF(m_tell);
-    if (m_block) wxPyEndBlockThreads(blocked);
 }
 
 
 wxPyCBInputStream* wxPyCBInputStream::create(PyObject *py, bool block) {
-    wxPyBlock_t blocked = wxPyBlock_t_default;
-    if (block) blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker(block);
 
     PyObject* read = wxPyGetMethod(py, "read");
     PyObject* seek = wxPyGetMethod(py, "seek");
@@ -1434,11 +1422,8 @@ wxPyCBInputStream* wxPyCBInputStream::create(PyObject *py, bool block) {
         Py_XDECREF(read);
         Py_XDECREF(seek);
         Py_XDECREF(tell);
-        if (block) wxPyEndBlockThreads(blocked);
         return NULL;
     }
-
-    if (block) wxPyEndBlockThreads(blocked);
     return new wxPyCBInputStream(read, seek, tell, block);
 }
 
@@ -1469,7 +1454,7 @@ size_t wxPyCBInputStream::OnSysRead(void *buffer, size_t bufsize) {
     if (bufsize == 0)
         return 0;
 
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocked;
     PyObject* arglist = Py_BuildValue("(i)", bufsize);
     PyObject* result = PyEval_CallObject(m_read, arglist);
     Py_DECREF(arglist);
@@ -1487,7 +1472,6 @@ size_t wxPyCBInputStream::OnSysRead(void *buffer, size_t bufsize) {
     }
     else
         m_lasterror = wxSTREAM_READ_ERROR;
-    wxPyEndBlockThreads(blocked);
     return o;
 }
 
@@ -1498,7 +1482,7 @@ size_t wxPyCBInputStream::OnSysWrite(const void *buffer, size_t bufsize) {
 
 
 wxFileOffset wxPyCBInputStream::OnSysSeek(wxFileOffset off, wxSeekMode mode) {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocked;
     PyObject* arglist = PyTuple_New(2);
 
     if (sizeof(wxFileOffset) > sizeof(long))
@@ -1513,13 +1497,12 @@ wxFileOffset wxPyCBInputStream::OnSysSeek(wxFileOffset off, wxSeekMode mode) {
     PyObject* result = PyEval_CallObject(m_seek, arglist);
     Py_DECREF(arglist);
     Py_XDECREF(result);
-    wxPyEndBlockThreads(blocked);
     return OnSysTell();
 }
 
 
 wxFileOffset wxPyCBInputStream::OnSysTell() const {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocked;
     PyObject* arglist = Py_BuildValue("()");
     PyObject* result = PyEval_CallObject(m_tell, arglist);
     Py_DECREF(arglist);
@@ -1531,7 +1514,6 @@ wxFileOffset wxPyCBInputStream::OnSysTell() const {
             o = PyInt_AsLong(result);
         Py_DECREF(result);
     };
-    wxPyEndBlockThreads(blocked);
     return o;
 }
 
@@ -1606,6 +1588,7 @@ wxPyCBOutputStream::wxPyCBOutputStream(const wxPyCBOutputStream& other)
     m_seek  = other.m_seek;
     m_tell  = other.m_tell;
     m_block = other.m_block;
+    wxPyThreadBlocker blocked;
     Py_INCREF(m_write);
     Py_INCREF(m_seek);
     Py_INCREF(m_tell);
@@ -1613,18 +1596,15 @@ wxPyCBOutputStream::wxPyCBOutputStream(const wxPyCBOutputStream& other)
 
 
 wxPyCBOutputStream::~wxPyCBOutputStream() {
-    wxPyBlock_t blocked = wxPyBlock_t_default;
-    if (m_block) blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocked(m_block);
     Py_XDECREF(m_write);
     Py_XDECREF(m_seek);
     Py_XDECREF(m_tell);
-    if (m_block) wxPyEndBlockThreads(blocked);
 }
 
 
 wxPyCBOutputStream* wxPyCBOutputStream::create(PyObject *py, bool block) {
-    wxPyBlock_t blocked = wxPyBlock_t_default;
-    if (block) blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker(block);
 
     PyObject* write = wxPyGetMethod(py, "write");
     PyObject* seek = wxPyGetMethod(py, "seek");
@@ -1635,11 +1615,9 @@ wxPyCBOutputStream* wxPyCBOutputStream::create(PyObject *py, bool block) {
         Py_XDECREF(write);
         Py_XDECREF(seek);
         Py_XDECREF(tell);
-        if (block) wxPyEndBlockThreads(blocked);
         return NULL;
     }
 
-    if (block) wxPyEndBlockThreads(blocked);
     return new wxPyCBOutputStream(write, seek, tell, block);
 }
 
@@ -1741,18 +1719,19 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyCallback, wxEvtHandler);
 
 wxPyCallback::wxPyCallback(PyObject* func) {
     m_func = func;
+    wxPyThreadBlocker blocker;
     Py_INCREF(m_func);
 }
 
 wxPyCallback::wxPyCallback(const wxPyCallback& other) {
     m_func = other.m_func;
+    wxPyThreadBlocker blocker;
     Py_INCREF(m_func);
 }
 
 wxPyCallback::~wxPyCallback() {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     Py_DECREF(m_func);
-    wxPyEndBlockThreads(blocked);
 }
 
 
@@ -1850,6 +1829,7 @@ void wxPyCallback::EventThunker(wxEvent& event) {
 //----------------------------------------------------------------------
 
 wxPyCallbackHelper::wxPyCallbackHelper(const wxPyCallbackHelper& other) {
+      wxPyThreadBlocker blocker;
       m_lastFound = NULL;
       m_self = other.m_self;
       m_class = other.m_class;
@@ -1865,6 +1845,7 @@ void wxPyCallbackHelper::setSelf(PyObject* self, PyObject* klass, int incref) {
     m_class = klass;
     m_incRef = incref;
     if (incref) {
+        wxPyThreadBlocker blocker;
         Py_INCREF(m_self);
         Py_INCREF(m_class);
     }
@@ -2095,7 +2076,7 @@ wxPyEvtSelfRef::~wxPyEvtSelfRef() {
 }
 
 void wxPyEvtSelfRef::SetSelf(PyObject* self, bool clone) {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (m_self && m_cloned)
         Py_DECREF(m_self);
     m_self = self;
@@ -2104,12 +2085,13 @@ void wxPyEvtSelfRef::SetSelf(PyObject* self, bool clone) {
         Py_INCREF(m_self);
         m_cloned = true;
     }
-    wxPyEndBlockThreads(blocked);
 }
 
 PyObject* wxPyEvtSelfRef::GetSelf() const {
-    if (m_self)
+    if (m_self) {
+        wxPyThreadBlocker blocker;
         Py_INCREF(m_self);
+    }
     return m_self;
 }
 
@@ -3297,35 +3279,17 @@ bool wxPyTextOrBitmap_helper(PyObject* obj, bool& wasString,
 //----------------------------------------------------------------------
 
 // A wxVariantData class that can hold a PyObject
-class wxVariantDataPyObject : public wxVariantData
+class wxVariantDataPyObject : public wxPyUserDataHelper<wxVariantData>
 {
 public:
-    wxVariantDataPyObject()
-        : m_obj(NULL) {}
+    explicit wxVariantDataPyObject(PyObject* obj = 0)
+        : wxPyUserDataHelper<wxVariantData>(obj) {}
     
-    wxVariantDataPyObject(PyObject* obj)
-        : m_obj(obj) { Py_INCREF(m_obj); }
-
-    PyObject* GetValue() const { return m_obj; }
-    void SetValue(PyObject* obj);
-
     virtual bool Eq(wxVariantData& data) const;
     
     virtual wxString GetType() const { return wxT("PyObject"); }
-    wxVariantData* Clone() const { return new wxVariantDataPyObject(m_obj); }
-
-protected:
-    ~wxVariantDataPyObject()    { Py_XDECREF(m_obj); }
-    PyObject*   m_obj;
+    wxVariantData* Clone() const { return new wxVariantDataPyObject(BorrowData()); }
 };
-
-
-void wxVariantDataPyObject::SetValue(PyObject* obj)
-{
-    Py_XDECREF(m_obj);
-    m_obj = obj;
-    Py_XINCREF(m_obj);
-}
 
 bool wxVariantDataPyObject::Eq(wxVariantData& data) const
 {
@@ -3333,15 +3297,11 @@ bool wxVariantDataPyObject::Eq(wxVariantData& data) const
                   wxT("wxVariantDataPyObject::Eq: argument mismatch") );
     wxVariantDataPyObject& otherData = (wxVariantDataPyObject&) data;
 
-    if ( !m_obj || !otherData.m_obj )
-        return false;
-
     int result;
-    PyObject_Cmp(m_obj, otherData.m_obj, &result);
+    wxPyThreadBlocker blocker;
+    PyObject_Cmp(BorrowData(), otherData.BorrowData(), &result);
     return result == 0;
 }
-
-
 
 // Helper functions for wxVariant typemaps.  For the basic types that
 // wxVariant knows about we will try to store/fetch natively, otherwise
@@ -3424,8 +3384,7 @@ PyObject* wxVariant_out_helper(const wxVariant& value)
     else if ( value.IsType("PyObject") )
     {
         wxVariantDataPyObject* data = (wxVariantDataPyObject*)value.GetData();
-        ret = data->GetValue();
-        Py_INCREF(ret);
+        ret = data->GetData();
     }
     else
     {
@@ -3467,6 +3426,7 @@ wxPyImageHandler::wxPyImageHandler():
     m_self(NULL)
 {
     if (!m_DoCanRead_Name) {
+        wxPyThreadBlocker blocker;
         m_DoCanRead_Name = PyString_FromString("DoCanRead");
         m_GetImageCount_Name = PyString_FromString("GetImageCount");
         m_LoadFile_Name = PyString_FromString("LoadFile");
@@ -3476,6 +3436,7 @@ wxPyImageHandler::wxPyImageHandler():
 
 wxPyImageHandler::~wxPyImageHandler() {
     if (m_self) {
+        wxPyThreadBlocker blocker;
         Py_DECREF(m_self);
         m_self = NULL;
     }
@@ -3483,15 +3444,15 @@ wxPyImageHandler::~wxPyImageHandler() {
 
 void wxPyImageHandler::_SetSelf(PyObject *self) {
     // should check here for isinstance(PyImageHandler) ??
+    wxPyThreadBlocker blocker;
     m_self = self;
     Py_INCREF(m_self);
 }
 
 bool wxPyImageHandler::DoCanRead(wxInputStream& stream) {
     // check if our object has this method
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (!m_self || !PyObject_HasAttr(m_self, m_DoCanRead_Name)) {
-        wxPyEndBlockThreads(blocked);
         return false;
     }
 
@@ -3505,7 +3466,6 @@ bool wxPyImageHandler::DoCanRead(wxInputStream& stream) {
     }
     else
         PyErr_Print();
-    wxPyEndBlockThreads(blocked);
     return retval;
 }
 

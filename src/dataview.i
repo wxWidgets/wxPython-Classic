@@ -1584,8 +1584,10 @@ public:
         virtual wxVariant  GetValue( ) const
         {
             wxVariant var;
-            if (! self->GetValue(var))
+            if (! self->GetValue(var)) {
+                wxPyThreadBlocker blocker;
                 var = wxDVCVariant_in_helper(Py_None);
+            }
             return var;
         }
     }
@@ -1623,8 +1625,10 @@ public:
         virtual wxVariant GetValueFromEditorCtrl(wxWindow * editor)
         {
             wxVariant var;
-            if (! self->GetValueFromEditorCtrl(editor, var))
+            if (! self->GetValueFromEditorCtrl(editor, var)) {
+                wxPyThreadBlocker blocker;
                 var = wxDVCVariant_in_helper(Py_None);
+            }
             return var;
         }
     }
@@ -2585,11 +2589,7 @@ EVT_DATAVIEW_CACHE_HINT                = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 
 // This one extracts the PyObject from the wxPyClientData for the return value.
 %typemap(out) wxClientData* {
-    if (! $1)
-        $result = Py_None;
-    else 
-        $result = ((wxPyClientData*)$1)->m_obj;
-    Py_INCREF($result);
+    $result = wxPyClientData::SafeGetData(static_cast<wxPyClientData*>($1));
 }
 
 //---------------------------------------------------------------------------

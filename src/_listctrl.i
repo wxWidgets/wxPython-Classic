@@ -888,8 +888,11 @@ any.", "",
         // item, a positive number of the second item should precede the first,
         // or zero if the two items are equivalent.
         bool SortItems(PyObject* func) {
-            if (!PyCallable_Check(func))
-                return false;
+			{
+				wxPyThreadBlocker blocker;
+				if (!PyCallable_Check(func))
+					return false;
+            }
             return self->SortItems((wxListCtrlCompare)wxPyListCtrl_SortItems, (long)func);
         }
     }

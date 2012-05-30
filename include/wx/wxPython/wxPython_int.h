@@ -235,7 +235,6 @@ void wxPyEndBlockThreads(wxPyBlock_t blocked);
 
 #endif // wxPyUSE_EXPORTED_API
 
-
 // A macro that will help to execute simple statments wrapped in
 // StartBlock/EndBlockThreads calls
 #define wxPyBLOCK_THREADS(stmt) \
@@ -383,6 +382,7 @@ public:
 class wxPyClientData;
 class wxPyUserData;
 class wxPyOORClientData;
+class wxPyTreeItemData;
 class wxPyCBInputStream;
 class wxPyCBOutputStream;
 
@@ -490,62 +490,148 @@ static wxPyCoreAPI* wxPyCoreAPIPtr = NULL;
 inline wxPyCoreAPI* wxPyGetCoreAPIPtr();
 #endif // wxPyUSE_EXPORTED_API
 
+// helper for RAII thread blocking
+class wxPyThreadBlocker {
+public:
+    #ifdef wxPyUSE_EXPORTED_API
+    static wxPyBlock_t wxPyBeginBlockThreads() { return wxPyGetCoreAPIPtr()->p_wxPyBeginBlockThreads(); }
+    static void wxPyEndBlockThreads(wxPyBlock_t oldstate) { wxPyGetCoreAPIPtr()->p_wxPyEndBlockThreads(oldstate); }
+    #endif
+
+    explicit wxPyThreadBlocker(bool block=true)
+        :   m_oldstate(block ?  wxPyBeginBlockThreads() : wxPyBlock_t_default),
+            m_block(block)
+    {
+    }
+
+    ~wxPyThreadBlocker() {
+        if (m_block) {
+            wxPyEndBlockThreads(m_oldstate);
+        }
+    } 
+
+private:
+    void operator=(const wxPyThreadBlocker&);
+    explicit wxPyThreadBlocker(const wxPyThreadBlocker&);    
+    wxPyBlock_t m_oldstate;
+    bool        m_block;
+};
+
 //---------------------------------------------------------------------------
 
-// A wxObject that holds a reference to a Python object
-class wxPyUserData : public wxObject {
+// helper template to make common code for all of the various user data owners
+template<typename Base>
+    class wxPyUserDataHelper : public Base {
 public:
-    wxPyUserData(PyObject* obj) {
-        m_obj = obj;
+    // This incRef flag seems to be used by the wxApp OOR stuff ONLY.
+    explicit wxPyUserDataHelper(PyObject* obj, bool incRef=true) : m_obj(obj ? obj : Py_None) {
+        if (incRef) {
+            wxPyThreadBlocker blocker;
+            Py_INCREF(m_obj);   
+        }
+    }  
+    ~wxPyUserDataHelper()
+    {   // normally the derived class does the clean up, or deliberately leaks
+        // by setting m_obj to 0, but if not then do it here.
+        if (m_obj) {    
+            wxPyThreadBlocker blocker;
+            Py_DECREF(m_obj);
+            m_obj = 0;
+        }
+    }
+
+    // Return Value: New reference
+    PyObject* GetData() const {
+        wxPyThreadBlocker blocker;
         Py_INCREF(m_obj);
+        return m_obj;
+    }
+    // Return Value: Borrowed reference
+    PyObject* BorrowData() const {
+        return m_obj;
     }
 
-    ~wxPyUserData() {
-#ifdef wxPyUSE_EXPORTED_API
-        wxPyGetCoreAPIPtr()->p_wxPyUserData_dtor(this);
-#else
-        wxPyUserData_dtor(this);
-#endif
-    }
-    PyObject* m_obj;
-};
-
-
-// A wxClientData that holds a refernece to a Python object
-class wxPyClientData : public wxClientData {
-public:
-    wxPyClientData(PyObject* obj, bool incref=true) {
-        m_obj = obj;
-        m_incRef = incref;
-        if (incref)
+    void SetData(PyObject* obj) {
+        if (obj != m_obj) {
+            wxPyThreadBlocker blocker;
+            Py_DECREF(m_obj);
+            m_obj = obj ? obj : Py_None;
             Py_INCREF(m_obj);
+        }
     }
-    ~wxPyClientData() {
+    
+    // Return the object in udata or None if udata is null
+    // Return Value: New reference
+    static PyObject* SafeGetData(wxPyUserDataHelper<Base>* udata) {
+        wxPyThreadBlocker blocker;
+        PyObject* obj = udata ? udata->BorrowData() : Py_None;
+        Py_INCREF(obj);
+        return obj;
+    }
+    
+    // Set the m_obj to null, this should only be used during clean up, when
+    // the object should be leaked.
+    // Calling any other methods on this object is then undefined behaviour
+    void ReleaseDataDuringCleanup()
+    {
+        m_obj = 0;        
+    }
 
-#ifdef wxPyUSE_EXPORTED_API
-        wxPyGetCoreAPIPtr()->p_wxPyClientData_dtor(this);
-#else
-        wxPyClientData_dtor(this);
-#endif
-    }
+private:
     PyObject* m_obj;
-    bool      m_incRef;
 };
 
+// A wxObject that holds a reference to a Python object
+class wxPyUserData : public wxPyUserDataHelper<wxObject> {
+public:
+    explicit wxPyUserData(PyObject* obj) 
+        :   wxPyUserDataHelper<wxObject>(obj) {
+    }
+    #ifdef wxPyUSE_EXPORTED_API
+        static void wxPyUserData_dtor(wxPyUserData* self) { wxPyGetCoreAPIPtr()->p_wxPyUserData_dtor(self); }
+    #endif
+    ~wxPyUserData() {
+        wxPyUserData_dtor(this);
+    }
+};
+// A wxClientData that holds a reference to a Python object
+class wxPyClientData : public wxPyUserDataHelper<wxClientData> {
+public:
+    explicit wxPyClientData(PyObject* obj) 
+        :   wxPyUserDataHelper<wxClientData>(obj) {
+    }
+    #ifdef wxPyUSE_EXPORTED_API
+        static void wxPyClientData_dtor(wxPyClientData* self) { wxPyGetCoreAPIPtr()->p_wxPyClientData_dtor(self); }
+    #endif
+    ~wxPyClientData() {
+        wxPyClientData_dtor(this);
+    }
+};
 
 // Just like wxPyClientData, except when this object is destroyed it does some
 // OOR magic on the Python Object.
-class wxPyOORClientData : public wxPyClientData {
+class wxPyOORClientData : public wxPyUserDataHelper<wxClientData> {
 public:
-    wxPyOORClientData(PyObject* obj, bool incref=true)
-        : wxPyClientData(obj, incref) {}
+    explicit wxPyOORClientData(PyObject* obj, bool incRef=true)
+        :   wxPyUserDataHelper<wxClientData>(obj, incRef),
+            m_incRef(incRef) {
+    }
+    #ifdef wxPyUSE_EXPORTED_API
+        static void wxPyOORClientData_dtor(wxPyOORClientData* self) { wxPyGetCoreAPIPtr()->p_wxPyOORClientData_dtor(self); }
+    #endif
     ~wxPyOORClientData() {
-
-#ifdef wxPyUSE_EXPORTED_API
-        wxPyGetCoreAPIPtr()->p_wxPyOORClientData_dtor(this);
-#else
         wxPyOORClientData_dtor(this);
-#endif
+    }
+private:
+    friend void wxPyOORClientData_dtor(wxPyOORClientData* self);
+    bool      m_incRef;
+};
+
+// hold python object for association in a tree. This class was in PyTree.h
+class wxPyTreeItemData : public wxPyUserDataHelper<wxTreeItemData> {
+public:
+    explicit wxPyTreeItemData(PyObject* obj)
+        :   wxPyUserDataHelper<wxTreeItemData>(obj) {
     }
 };
 

@@ -701,13 +701,7 @@ deselection), or a boolean value representing the value of a checkbox.", "");
                "Returns the client data object for a listbox or choice selection event, (if any.)", "");
         PyObject* GetClientData() {
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 
         DocStr(SetClientData,

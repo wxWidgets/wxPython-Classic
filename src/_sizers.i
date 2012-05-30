@@ -457,13 +457,7 @@ if it made use of the information (and min size was changed).", "");
 isn't any.", "");
         PyObject* GetUserData() {
             wxPyUserData* data = (wxPyUserData*)self->GetUserData();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(data);
         }
 
         DocStr(SetUserData,
@@ -471,9 +465,7 @@ isn't any.", "");
         void SetUserData(PyObject* userData) {
             wxPyUserData* data = NULL;
             if ( userData ) {
-                wxPyBlock_t blocked = wxPyBeginBlockThreads();
                 data = new wxPyUserData(userData);
-                wxPyEndBlockThreads(blocked);
             }
             self->SetUserData(data);
         }

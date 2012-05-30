@@ -76,7 +76,12 @@ public:
     %extend {
         // Dynamic association of a member function handler with the event handler
         void Connect( int id, int lastId, wxEventType eventType, PyObject* func) {
-            if (PyCallable_Check(func)) {
+            bool is_callable = false;
+            {
+                wxPyThreadBlocker blocker;
+                is_callable = PyCallable_Check(func) != 0;
+            }
+            if (is_callable) {
                 self->Connect(id, lastId, eventType,
                               (wxObjectEventFunction)(wxEventFunction)
                               &wxPyCallback::EventThunker,

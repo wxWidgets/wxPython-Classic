@@ -43,6 +43,7 @@
 #include <wx/image.h>
     
     static char** ConvertListOfStrings(PyObject* listOfStrings) {
+        wxPyThreadBlocker blocker;
         char**    cArray = NULL;
         int       count;
 
@@ -514,13 +515,16 @@ this case the bits parameter should contain an XBM image as a data
 string.  For other bit depths, the behaviour is platform dependent.", "",
             wxBitmap(PyObject* bits, int width, int height, int depth=1 ))
             {
-                char*      buf;
-                Py_ssize_t length;
-                if (! PyString_Check(bits)) {
-                    wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
-                    return NULL;
+                char*      buf = 0;
+                {
+                    wxPyThreadBlocker blocker;
+                    Py_ssize_t length;
+                    if (! PyString_Check(bits)) {
+                        wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
+                        return NULL;
+                    }
+                    PyString_AsStringAndSize(bits, &buf, &length);
                 }
-                PyString_AsStringAndSize(bits, &buf, &length);
                 return new wxBitmap(buf, width, height, depth);
             }
     }    

@@ -426,7 +426,9 @@ public:
                                     const wxString& facename = wxPyEmptyString,
                                     bool interactive = true) {
             wxFontEncoding alt_enc;
-            if (self->GetAltForEncoding(encoding, &alt_enc, facename, interactive))
+            bool success = self->GetAltForEncoding(encoding, &alt_enc, facename, interactive);
+            wxPyThreadBlocker blocker;
+            if (success)
                 return PyInt_FromLong(alt_enc);
             else {
                 Py_INCREF(Py_None);

@@ -1174,13 +1174,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
                "Returns the client data object for a property", "");
         PyObject* GetPyClientData() {
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 
         DocStr(SetPyClientData,

@@ -115,13 +115,7 @@ public:
         // convert the ClientData back to a PyObject
         PyObject* GetClientData() {
             wxPyUserData* udata = (wxPyUserData*)self->GetClientData();
-            if (udata) {
-                Py_INCREF(udata->m_obj);
-                return udata->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(udata);
         }
 
         void SetClientData(PyObject* clientData) {
@@ -364,13 +358,7 @@ public:
         // convert the ClientData back to a PyObject
         PyObject* GetToolClientData(int id) {
             wxPyUserData* udata = (wxPyUserData*)self->GetToolClientData(id);
-            if (udata) {
-                Py_INCREF(udata->m_obj);
-                return udata->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(udata);
         }
 
         void SetToolClientData(int id, PyObject* clientData) {

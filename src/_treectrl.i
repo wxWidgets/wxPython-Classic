@@ -427,10 +427,7 @@ public:
         // Get the Python object associated with the tree item
         PyObject* GetItemPyData(const wxTreeItemId& item) {
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                RETURN_NONE();
-            }
-            return data->GetData();
+            return wxPyTreeItemData::SafeGetData(data);
         }
     }
     %pythoncode { GetPyData = GetItemPyData }

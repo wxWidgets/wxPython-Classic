@@ -278,13 +278,7 @@ than the number of items in the control.", "");
                "Returns the client data associated with the given item, (if any.)", "");
         PyObject* GetClientData(/*unsigned*/ int n) {
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject(n);
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 
         DocStr(SetClientData,

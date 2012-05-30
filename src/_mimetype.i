@@ -158,7 +158,9 @@ public:
     %extend {
         PyObject* GetMimeType() {
             wxString str;
-            if (self->GetMimeType(&str)) 
+            bool res = self->GetMimeType(&str);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wx2PyString(str);
             else
                 RETURN_NONE();
@@ -166,7 +168,9 @@ public:
         
         PyObject* GetMimeTypes() {
             wxArrayString arr;
-            if (self->GetMimeTypes(arr))
+            bool res = self->GetMimeTypes(arr);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wxArrayString2PyList_helper(arr);
             else
                 RETURN_NONE();
@@ -178,7 +182,9 @@ public:
     %extend {
         PyObject* GetExtensions() {
             wxArrayString arr;
-            if (self->GetExtensions(arr))
+            bool res = self->GetExtensions(arr);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wxArrayString2PyList_helper(arr);
             else
                 RETURN_NONE();
@@ -377,6 +383,7 @@ public:
         PyObject* EnumAllFileTypes() {
             wxArrayString arr;
             self->EnumAllFileTypes(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
     }
