@@ -3,7 +3,7 @@
 Name=PySlicesShell
 Comment=GUI Python Shell
 Exec=pysliceshell
-Icon=PySlices.png
+Icon=PySlices
 Terminal=false
 Type=Application
-Categories=Application;Development;
+Categories=Development;

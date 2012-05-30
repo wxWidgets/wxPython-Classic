@@ -2,7 +2,7 @@
 Name=PyAlaMode
 Comment=GUI Python Shell with Filling and editor windows
 Exec=pyalamode
-Icon=PyCrust.png
+Icon=PyCrust
 Terminal=false
 Type=Application
-Categories=Application;Development;
+Categories=Development;
