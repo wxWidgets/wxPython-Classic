@@ -852,6 +852,31 @@ public:
     %property(URL, GetURL, SetURL, doc="See `GetURL` and `SetURL`");
 };
 
+
+
+//---------------------------------------------------------------------------
+
+class wxHTMLDataObject : public wxDataObjectSimple
+{
+public:
+    /**
+        Constructor.
+    */
+    wxHTMLDataObject(const wxString& html = wxEmptyString);
+
+    /**
+        Returns the HTML string.
+    */
+    virtual wxString GetHTML() const;
+    
+    /**
+        Sets the HTML string.
+    */
+    virtual void SetHTML(const wxString& html);
+
+    %property(HTML, GetHTML, SetHTML);
+};
+
 //---------------------------------------------------------------------------
 
 #if defined(__WXMSW__) || defined(__WXMAC__)
