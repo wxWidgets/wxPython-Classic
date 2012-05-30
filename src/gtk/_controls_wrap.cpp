@@ -3010,13 +3010,7 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
  static const wxString wxPyToolBarNameStr(wxToolBarNameStr); 
 SWIGINTERN PyObject *wxToolBarToolBase_GetClientData(wxToolBarToolBase *self){
             wxPyUserData* udata = (wxPyUserData*)self->GetClientData();
-            if (udata) {
-                Py_INCREF(udata->m_obj);
-                return udata->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(udata);
         }
 SWIGINTERN void wxToolBarToolBase_SetClientData(wxToolBarToolBase *self,PyObject *clientData){
             self->SetClientData(new wxPyUserData(clientData));
@@ -3037,13 +3031,7 @@ SWIGINTERN wxToolBarToolBase *wxToolBarBase_DoInsertTool(wxToolBarBase *self,siz
         }
 SWIGINTERN PyObject *wxToolBarBase_GetToolClientData(wxToolBarBase *self,int id){
             wxPyUserData* udata = (wxPyUserData*)self->GetToolClientData(id);
-            if (udata) {
-                Py_INCREF(udata->m_obj);
-                return udata->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(udata);
         }
 SWIGINTERN void wxToolBarBase_SetToolClientData(wxToolBarBase *self,int id,PyObject *clientData){
             self->SetToolClientData(id, new wxPyUserData(clientData));
@@ -3185,8 +3173,11 @@ SWIGINTERN wxRect wxPyListCtrl_GetItemRect(wxPyListCtrl *self,long item,int code
             return rect;
         }
 SWIGINTERN bool wxPyListCtrl_SortItems(wxPyListCtrl *self,PyObject *func){
-            if (!PyCallable_Check(func))
-                return false;
+			{
+				wxPyThreadBlocker blocker;
+				if (!PyCallable_Check(func))
+					return false;
+            }
             return self->SortItems((wxListCtrlCompare)wxPyListCtrl_SortItems, (long)func);
         }
 SWIGINTERN wxWindow *wxPyListCtrl_GetMainWindow(wxPyListCtrl *self){
@@ -3259,10 +3250,7 @@ SWIGINTERN wxPyTreeItemData *wxPyTreeCtrl_GetItemData(wxPyTreeCtrl *self,wxTreeI
         }
 SWIGINTERN PyObject *wxPyTreeCtrl_GetItemPyData(wxPyTreeCtrl *self,wxTreeItemId const &item){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                RETURN_NONE();
-            }
-            return data->GetData();
+            return wxPyTreeItemData::SafeGetData(data);
         }
 SWIGINTERN void wxPyTreeCtrl_SetItemData(wxPyTreeCtrl *self,wxTreeItemId const &item,wxPyTreeItemData *data){
             self->SetItemData(item, data);

@@ -3394,11 +3394,13 @@ SWIGINTERN bool wxPyTaskBarIcon_ShowBalloon(wxPyTaskBarIcon *self,wxString const
 SWIGINTERN PyObject *wxFileDialog_GetFilenames(wxFileDialog *self){
             wxArrayString arr;
             self->GetFilenames(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
 SWIGINTERN PyObject *wxFileDialog_GetPaths(wxFileDialog *self){
             wxArrayString arr;
             self->GetPaths(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
 SWIGINTERN PyObject *wxMultiChoiceDialog_GetSelections(wxMultiChoiceDialog *self){

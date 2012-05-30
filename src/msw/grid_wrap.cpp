@@ -2797,9 +2797,7 @@ PyObject* wxPyMake_##TYPE(TYPE* source, bool setThisOwn) { \
            OOR data that we can use. */ \
         wxPyOORClientData* data = (wxPyOORClientData*)source->GetClientObject(); \
         if (data) { \
-            target = data->m_obj; \
-            if (target) \
-                Py_INCREF(target); \
+            target = data->GetData(); \
         } \
         /* Otherwise make a new wrapper for it the old fashioned way and \
            give it the OOR treatment */ \

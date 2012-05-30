@@ -3805,8 +3805,10 @@ public:
 
 SWIGINTERN wxVariant wxDataViewRenderer_GetValue(wxDataViewRenderer const *self){
             wxVariant var;
-            if (! self->GetValue(var))
+            if (! self->GetValue(var)) {
+                wxPyThreadBlocker blocker;
                 var = wxDVCVariant_in_helper(Py_None);
+            }
             return var;
         }
 
@@ -3827,8 +3829,10 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 
 SWIGINTERN wxVariant wxDataViewRenderer_GetValueFromEditorCtrl(wxDataViewRenderer *self,wxWindow *editor){
             wxVariant var;
-            if (! self->GetValueFromEditorCtrl(editor, var))
+            if (! self->GetValueFromEditorCtrl(editor, var)) {
+                wxPyThreadBlocker blocker;
                 var = wxDVCVariant_in_helper(Py_None);
+            }
             return var;
         }
  // Derive from the class in C++ for virtualization
@@ -17119,11 +17123,7 @@ SWIGINTERN PyObject *_wrap_DataViewTreeStoreNode_GetData(PyObject *SWIGUNUSEDPAR
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
-    if (! result)
-    resultobj = Py_None;
-    else 
-    resultobj = ((wxPyClientData*)result)->m_obj;
-    Py_INCREF(resultobj);
+    resultobj = wxPyClientData::SafeGetData(static_cast<wxPyClientData*>(result));
   }
   return resultobj;
 fail:
@@ -18910,11 +18910,7 @@ SWIGINTERN PyObject *_wrap_DataViewTreeStore_GetItemData(PyObject *SWIGUNUSEDPAR
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
-    if (! result)
-    resultobj = Py_None;
-    else 
-    resultobj = ((wxPyClientData*)result)->m_obj;
-    Py_INCREF(resultobj);
+    resultobj = wxPyClientData::SafeGetData(static_cast<wxPyClientData*>(result));
   }
   return resultobj;
 fail:
@@ -20312,11 +20308,7 @@ SWIGINTERN PyObject *_wrap_DataViewTreeCtrl_GetItemData(PyObject *SWIGUNUSEDPARM
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
-    if (! result)
-    resultobj = Py_None;
-    else 
-    resultobj = ((wxPyClientData*)result)->m_obj;
-    Py_INCREF(resultobj);
+    resultobj = wxPyClientData::SafeGetData(static_cast<wxPyClientData*>(result));
   }
   return resultobj;
 fail:

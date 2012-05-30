@@ -3503,21 +3503,27 @@ SWIGINTERN wxFileTypeInfo *new_wxFileTypeInfo(wxArrayString const &sArray){
          }
 SWIGINTERN PyObject *wxFileType_GetMimeType(wxFileType *self){
             wxString str;
-            if (self->GetMimeType(&str)) 
+            bool res = self->GetMimeType(&str);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wx2PyString(str);
             else
                 RETURN_NONE();
         }
 SWIGINTERN PyObject *wxFileType_GetMimeTypes(wxFileType *self){
             wxArrayString arr;
-            if (self->GetMimeTypes(arr))
+            bool res = self->GetMimeTypes(arr);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wxArrayString2PyList_helper(arr);
             else
                 RETURN_NONE();
         }
 SWIGINTERN PyObject *wxFileType_GetExtensions(wxFileType *self){
             wxArrayString arr;
-            if (self->GetExtensions(arr))
+            bool res = self->GetExtensions(arr);
+            wxPyThreadBlocker blocker;
+            if (res)
                 return wxArrayString2PyList_helper(arr);
             else
                 RETURN_NONE();
@@ -3593,6 +3599,7 @@ SWIGINTERN wxString wxFileType_ExpandCommand(wxString const &command,wxString co
 SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *self){
             wxArrayString arr;
             self->EnumAllFileTypes(arr);
+            wxPyThreadBlocker blocker;
             return wxArrayString2PyList_helper(arr);
         }
 

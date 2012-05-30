@@ -2897,8 +2897,10 @@ class wxPyHtmlTagsModule : public wxHtmlTagsModule {
 public:
     wxPyHtmlTagsModule(PyObject* thc) : wxHtmlTagsModule() {
         m_tagHandlerClass = thc;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
         Py_INCREF(m_tagHandlerClass);
-        RegisterModule(this);
+        wxPyEndBlockThreads(blocked);
+        RegisterModule(this);            
         wxHtmlWinParser::AddModule(this);
     }
 
@@ -2916,6 +2918,7 @@ public:
     void FillHandlersTable(wxHtmlWinParser *parser) {
         // Wave our magic wand...  (if it works it's a miracle!  ;-)
 
+        wxPyHtmlWinTagHandler* thPtr = 0;
         // First, make a new instance of the tag handler
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyObject* arg = PyTuple_New(0);
@@ -2923,7 +2926,7 @@ public:
         Py_DECREF(arg);
 
         // now figure out where it's C++ object is...
-        wxPyHtmlWinTagHandler* thPtr;
+        
         if (! wxPyConvertSwigPtr(obj, (void **)&thPtr, wxT("wxPyHtmlWinTagHandler"))) {
             wxPyEndBlockThreads(blocked);
             return;

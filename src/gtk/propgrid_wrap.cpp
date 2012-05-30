@@ -3958,13 +3958,7 @@ SWIGINTERN wxPGVariantAndBool wxPGProperty_PyBase_IntToValue(wxPGProperty const 
         }
 SWIGINTERN PyObject *wxPGProperty_GetPyClientData(wxPGProperty *self){
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 SWIGINTERN void wxPGProperty_SetPyClientData(wxPGProperty *self,PyObject *clientData){
             wxPyClientData* data = new wxPyClientData(clientData);
@@ -5275,6 +5269,7 @@ PyFloatProperty::~PyFloatProperty()
 
 void PyFloatProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyFloatProperty_pyClass )
     {
         gs_PyFloatProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -5719,6 +5714,7 @@ PyEditorDialogAdapter::~PyEditorDialogAdapter()
 
 void PyEditorDialogAdapter::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyEditorDialogAdapter_pyClass )
     {
         gs_PyEditorDialogAdapter_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -5809,6 +5805,7 @@ PyEnumProperty::~PyEnumProperty()
 
 void PyEnumProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyEnumProperty_pyClass )
     {
         gs_PyEnumProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -6308,6 +6305,7 @@ PyArrayStringProperty::~PyArrayStringProperty()
 
 void PyArrayStringProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyArrayStringProperty_pyClass )
     {
         gs_PyArrayStringProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -6973,6 +6971,7 @@ PyComboBoxEditor::~PyComboBoxEditor()
 
 void PyComboBoxEditor::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyComboBoxEditor_pyClass )
     {
         gs_PyComboBoxEditor_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -7276,6 +7275,7 @@ PyFileDialogAdapter::~PyFileDialogAdapter()
 
 void PyFileDialogAdapter::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyFileDialogAdapter_pyClass )
     {
         gs_PyFileDialogAdapter_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -7362,6 +7362,7 @@ PyStringProperty::~PyStringProperty()
 
 void PyStringProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyStringProperty_pyClass )
     {
         gs_PyStringProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -7806,6 +7807,7 @@ PyLongStringDialogAdapter::~PyLongStringDialogAdapter()
 
 void PyLongStringDialogAdapter::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyLongStringDialogAdapter_pyClass )
     {
         gs_PyLongStringDialogAdapter_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -7928,6 +7930,7 @@ PyEditEnumProperty::~PyEditEnumProperty()
 
 void PyEditEnumProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyEditEnumProperty_pyClass )
     {
         gs_PyEditEnumProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -8424,6 +8427,7 @@ PyTextCtrlEditor::~PyTextCtrlEditor()
 
 void PyTextCtrlEditor::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyTextCtrlEditor_pyClass )
     {
         gs_PyTextCtrlEditor_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -8779,6 +8783,7 @@ PySystemColourProperty::~PySystemColourProperty()
 
 void PySystemColourProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PySystemColourProperty_pyClass )
     {
         gs_PySystemColourProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -9340,6 +9345,7 @@ PyFlagsProperty::~PyFlagsProperty()
 
 void PyFlagsProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyFlagsProperty_pyClass )
     {
         gs_PyFlagsProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -9813,6 +9819,7 @@ PyFontProperty::~PyFontProperty()
 
 void PyFontProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyFontProperty_pyClass )
     {
         gs_PyFontProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -10290,6 +10297,7 @@ PyColourProperty::~PyColourProperty()
 
 void PyColourProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyColourProperty_pyClass )
     {
         gs_PyColourProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -10849,6 +10857,7 @@ PyFileProperty::~PyFileProperty()
 
 void PyFileProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyFileProperty_pyClass )
     {
         gs_PyFileProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -11332,6 +11341,7 @@ PyIntProperty::~PyIntProperty()
 
 void PyIntProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyIntProperty_pyClass )
     {
         gs_PyIntProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -11809,6 +11819,7 @@ PyEditor::~PyEditor()
 
 void PyEditor::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyEditor_pyClass )
     {
         gs_PyEditor_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -12149,6 +12160,7 @@ PyChoiceEditor::~PyChoiceEditor()
 
 void PyChoiceEditor::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyChoiceEditor_pyClass )
     {
         gs_PyChoiceEditor_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -12487,6 +12499,7 @@ PyProperty::~PyProperty()
 
 void PyProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyProperty_pyClass )
     {
         gs_PyProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -12970,6 +12983,7 @@ PyUIntProperty::~PyUIntProperty()
 
 void PyUIntProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyUIntProperty_pyClass )
     {
         gs_PyUIntProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
@@ -13444,6 +13458,7 @@ PyLongStringProperty::~PyLongStringProperty()
 
 void PyLongStringProperty::_SetSelf(PyObject *self)
 {
+    wxPyThreadBlocker blocker;
     if ( !gs_PyLongStringProperty_pyClass )
     {
         gs_PyLongStringProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);

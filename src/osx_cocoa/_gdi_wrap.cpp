@@ -3025,6 +3025,7 @@ SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*s
 #include <wx/image.h>
     
     static char** ConvertListOfStrings(PyObject* listOfStrings) {
+        wxPyThreadBlocker blocker;
         char**    cArray = NULL;
         int       count;
 
@@ -3373,13 +3374,16 @@ SWIGINTERN wxBitmap *new_wxBitmap(PyObject *listOfStrings){
                 return bmp;
             }
 SWIGINTERN wxBitmap *new_wxBitmap(PyObject *bits,int width,int height,int depth=1){
-                char*      buf;
-                Py_ssize_t length;
-                if (! PyString_Check(bits)) {
-                    wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
-                    return NULL;
+                char*      buf = 0;
+                {
+                    wxPyThreadBlocker blocker;
+                    Py_ssize_t length;
+                    if (! PyString_Check(bits)) {
+                        wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
+                        return NULL;
+                    }
+                    PyString_AsStringAndSize(bits, &buf, &length);
                 }
-                PyString_AsStringAndSize(bits, &buf, &length);
                 return new wxBitmap(buf, width, height, depth);
             }
 SWIGINTERN void wxBitmap_SetMaskColour(wxBitmap *self,wxColour const &colour){
@@ -3638,7 +3642,9 @@ SWIGINTERN wxString wxNativeFontInfo___str__(wxNativeFontInfo *self){
 
 SWIGINTERN PyObject *wxFontMapper_GetAltForEncoding(wxFontMapper *self,wxFontEncoding encoding,wxString const &facename=wxPyEmptyString,bool interactive=true){
             wxFontEncoding alt_enc;
-            if (self->GetAltForEncoding(encoding, &alt_enc, facename, interactive))
+            bool success = self->GetAltForEncoding(encoding, &alt_enc, facename, interactive);
+            wxPyThreadBlocker blocker;
+            if (success)
                 return PyInt_FromLong(alt_enc);
             else {
                 Py_INCREF(Py_None);

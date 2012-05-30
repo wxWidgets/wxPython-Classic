@@ -3200,11 +3200,10 @@ SWIGINTERN PyObject *wxRect_Get(wxRect *self){
         reg1.Intersect(reg2);
         dest = reg1.GetBox();
 
+        wxPyThreadBlocker blocker;
         if (dest != wxRect(0,0,0,0)) {
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
             wxRect* newRect = new wxRect(dest);
             obj = wxPyConstructObject((void*)newRect, wxT("wxRect"), true);
-            wxPyEndBlockThreads(blocked);
             return obj;
         }
         Py_INCREF(Py_None);
@@ -3926,7 +3925,12 @@ SWIGINTERN bool wxQuantize_Quantize(wxImage const &src,wxImage &dest,int desired
                                             flags);
         }
 SWIGINTERN void wxEvtHandler_Connect(wxEvtHandler *self,int id,int lastId,wxEventType eventType,PyObject *func){
-            if (PyCallable_Check(func)) {
+            bool is_callable = false;
+            {
+                wxPyThreadBlocker blocker;
+                is_callable = PyCallable_Check(func) != 0;
+            }
+            if (is_callable) {
                 self->Connect(id, lastId, eventType,
                               (wxObjectEventFunction)(wxEventFunction)
                               &wxPyCallback::EventThunker,
@@ -4029,13 +4033,7 @@ IMPLEMENT_DYNAMIC_CLASS(wxPyEvtHandler, wxEvtHandler)
 
 SWIGINTERN PyObject *wxCommandEvent_GetClientData(wxCommandEvent *self){
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 SWIGINTERN void wxCommandEvent_SetClientData(wxCommandEvent *self,PyObject *clientData){
             wxPyClientData* data = new wxPyClientData(clientData);
@@ -4359,13 +4357,7 @@ SWIGINTERN int wxItemContainer_Insert(wxItemContainer *self,wxString const &item
         }
 SWIGINTERN PyObject *wxItemContainer_GetClientData(wxItemContainer *self,int n){
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject(n);
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyClientData::SafeGetData(data);
         }
 SWIGINTERN void wxItemContainer_SetClientData(wxItemContainer *self,int n,PyObject *clientData){
             wxPyClientData* data = new wxPyClientData(clientData);
@@ -4464,20 +4456,12 @@ SWIG_From_float  (float value)
 
 SWIGINTERN PyObject *wxSizerItem_GetUserData(wxSizerItem *self){
             wxPyUserData* data = (wxPyUserData*)self->GetUserData();
-            if (data) {
-                Py_INCREF(data->m_obj);
-                return data->m_obj;
-            } else {
-                Py_INCREF(Py_None);
-                return Py_None;
-            }
+            return wxPyUserData::SafeGetData(data);
         }
 SWIGINTERN void wxSizerItem_SetUserData(wxSizerItem *self,PyObject *userData){
             wxPyUserData* data = NULL;
             if ( userData ) {
-                wxPyBlock_t blocked = wxPyBeginBlockThreads();
                 data = new wxPyUserData(userData);
-                wxPyEndBlockThreads(blocked);
             }
             self->SetUserData(data);
         }
