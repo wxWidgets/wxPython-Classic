@@ -41,7 +41,7 @@ class MyCanvas(wx.ScrolledWindow):
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftButtonEvent)
         self.Bind(wx.EVT_LEFT_UP,   self.OnLeftButtonEvent)
         self.Bind(wx.EVT_MOTION,    self.OnLeftButtonEvent)
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
+        self.Bind(wx.EVT_PAINT,     self.OnPaint)
 
 
     def getWidth(self):
@@ -147,7 +147,6 @@ class MyCanvas(wx.ScrolledWindow):
 
     def DrawSavedLines(self, dc):
         dc.SetPen(wx.Pen('MEDIUM FOREST GREEN', 4))
-
         for line in self.lines:
             for coords in line:
                 apply(dc.DrawLine, coords)
@@ -161,6 +160,9 @@ class MyCanvas(wx.ScrolledWindow):
         return newpos
 
     def OnLeftButtonEvent(self, event):
+        if self.IsAutoScrolling():
+            self.StopAutoScrolling()
+        
         if event.LeftDown():
             self.SetFocus()
             self.SetXY(event)
