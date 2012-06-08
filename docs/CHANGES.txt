@@ -18,6 +18,23 @@ removed from the wxWidgets source tree.
 
 wx.Font: There is now GetStrikethrough and SetStrikethrough methods.
 
+wx.StaticBox: Fixed the client origin and client size on MSW so
+children of the static box should not overlap the box's label or
+border lines.
+
+Added wx.HTMLDataObject
+
+Applied a patch from Sam Partington that fixes some threading issues
+in the wrapper code and other cool stuff.
+
+Added the missing wx/lib/agw/data dir to the installers.
+
+Add wx.EnhMetaFile and wx.EnhMetaFileDC for MSW.  This DC type is what
+is used by the print framework in the print preview window, so it
+needed to be wrapped so self.GetDC() would work properly.
+
+
+
 
 
 
