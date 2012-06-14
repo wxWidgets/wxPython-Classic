@@ -32,9 +32,11 @@ class TestPanel(wx.Panel):
                 # default for this demo.
                 backend = wx.media.MEDIABACKEND_QUICKTIME
                 
-            self.mc = wx.media.MediaCtrl(self, 
-                                         style=wx.SIMPLE_BORDER,
-                                         szBackend=backend)
+            self.mc = wx.media.PreMediaCtrl()
+            ok = self.mc.Create(self, style=wx.SIMPLE_BORDER,
+                                szBackend=backend)
+            if not ok:
+                raise NotImplementedError
         except NotImplementedError:
             self.Destroy()
             raise
