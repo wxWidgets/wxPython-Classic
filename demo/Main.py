@@ -301,6 +301,7 @@ _treeList = [
 
     # Images
     ('Using Images', [
+        'AdjustChannels',
         'AlphaDrawing',
         'AnimateCtrl',
         'ArtProvider',
@@ -679,11 +680,7 @@ class MyLog(wx.PyLog):
         self.tc = textCtrl
         self.logTime = logTime
 
-    def DoLogString(self, message, timeStamp):
-        #print message, timeStamp
-        #if self.logTime:
-        #    message = time.strftime("%X", time.localtime(timeStamp)) + \
-        #              ": " + message
+    def DoLogText(self, message):
         if self.tc:
             self.tc.AppendText(message + '\n')
 
