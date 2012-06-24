@@ -125,7 +125,7 @@ rm -f wxPython/samples/embedded/embedded.o
 cleanup mgl
 cleanup motif
 cleanup os2
-cleanup x11
+##cleanup x11
 cleanup univ
 cleanup wine
 
