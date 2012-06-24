@@ -71,7 +71,7 @@ class MyApp(wx.App):
         # only going to temporarily have a nested event loop then
         # you should get a reference to the old one and set it as
         # the active event loop when you are done with this one...
-        evtloop = wx.EventLoop()
+        evtloop = wx.GUIEventLoop()
         old = wx.EventLoop.GetActive()
         wx.EventLoop.SetActive(evtloop)
 
@@ -97,7 +97,7 @@ class MyApp(wx.App):
             # much CPU time spent in the idle handlers.  For this
             # example, I'll just snooze a little...
             time.sleep(0.10)
-            self.ProcessIdle()
+            evtloop.ProcessIdle()
 
         wx.EventLoop.SetActive(old)
 
