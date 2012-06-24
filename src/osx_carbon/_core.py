@@ -4318,6 +4318,14 @@ class KeyboardState(object):
         """
         return _core_.KeyboardState_ControlDown(*args, **kwargs)
 
+    def RawControlDown(*args, **kwargs):
+        """RawControlDown(self) -> bool"""
+        return _core_.KeyboardState_RawControlDown(*args, **kwargs)
+
+    def SetRawControlDown(*args, **kwargs):
+        """SetRawControlDown(self, bool down)"""
+        return _core_.KeyboardState_SetRawControlDown(*args, **kwargs)
+
     def MetaDown(*args, **kwargs):
         """
         MetaDown(self) -> bool
@@ -4386,6 +4394,7 @@ class KeyboardState(object):
         return _core_.KeyboardState_SetMetaDown(*args, **kwargs)
 
     controlDown = property(ControlDown, SetControlDown)
+    rawControlDown = property(RawControlDown, SetRawControlDown)
     shiftDown = property(ShiftDown, SetShiftDown)
     altDown = property(AltDown, SetAltDown)
     metaDown = property(MetaDown, SetMetaDown)

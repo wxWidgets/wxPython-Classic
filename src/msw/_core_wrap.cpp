@@ -23846,6 +23846,74 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_KeyboardState_RawControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_RawControlDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->RawControlDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_SetRawControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetRawControlDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetRawControlDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetRawControlDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetRawControlDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_KeyboardState_MetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
@@ -71616,6 +71684,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_KeyboardState", (PyCFunction)_wrap_delete_KeyboardState, METH_O, NULL},
 	 { (char *)"KeyboardState_GetModifiers", (PyCFunction)_wrap_KeyboardState_GetModifiers, METH_O, NULL},
 	 { (char *)"KeyboardState_ControlDown", (PyCFunction)_wrap_KeyboardState_ControlDown, METH_O, NULL},
+	 { (char *)"KeyboardState_RawControlDown", (PyCFunction)_wrap_KeyboardState_RawControlDown, METH_O, NULL},
+	 { (char *)"KeyboardState_SetRawControlDown", (PyCFunction) _wrap_KeyboardState_SetRawControlDown, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"KeyboardState_MetaDown", (PyCFunction)_wrap_KeyboardState_MetaDown, METH_O, NULL},
 	 { (char *)"KeyboardState_AltDown", (PyCFunction)_wrap_KeyboardState_AltDown, METH_O, NULL},
 	 { (char *)"KeyboardState_ShiftDown", (PyCFunction)_wrap_KeyboardState_ShiftDown, METH_O, NULL},
