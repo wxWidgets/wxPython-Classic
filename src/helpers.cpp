@@ -1916,7 +1916,11 @@ PyObject* PyFindClassWithAttr(PyObject *klass, PyObject *name)
 static
 PyObject* PyMethod_GetDefiningClass(PyObject* method, PyObject* nameo)
 {
-    PyObject* mgc = PyMethod_GET_CLASS(method);
+    //(    PyObject* mgc = PyMethod_GET_CLASS(method);
+    PyObject* mgc = PyObject_GetAttrString( method, "im_class" );
+
+    if (mgc == NULL)
+        return NULL;
 
 #if PYTHON_API_VERSION <= 1010    // prior to Python 2.2, the easy way
     return mgc;
@@ -1971,7 +1975,7 @@ bool wxPyCallbackHelper::findCallback(const char* name, bool setGuard) const {
 
         // ...and if that attribute is a method, and if that method's class is
         // not from the registered class or a base class...
-        if (PyMethod_Check(method) &&
+        if (Py_TYPE(method)->tp_call != NULL &&
             (klass = PyMethod_GetDefiningClass(method, nameo)) != NULL &&
             (klass != m_class) &&
             PyObject_IsSubclass(klass, m_class)) {
