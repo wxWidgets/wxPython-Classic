@@ -493,13 +493,14 @@ class Shell(editwindow.EditWindow):
         # Prevent modification of previously submitted
         # commands/responses.
         controlDown = event.ControlDown()
+        rawControlDown = event.RawControlDown()
         altDown = event.AltDown()
         shiftDown = event.ShiftDown()
         currpos = self.GetCurrentPos()
         endpos = self.GetTextLength()
         selecting = self.GetSelectionStart() != self.GetSelectionEnd()
         
-        if controlDown and shiftDown and key in (ord('F'), ord('f')): 
+        if (rawControlDown or controlDown) and shiftDown and key in (ord('F'), ord('f')): 
             li = self.GetCurrentLine()
             m = self.MarkerGet(li)
             if m & 1<<0:
@@ -554,7 +555,7 @@ class Shell(editwindow.EditWindow):
 
         # Return (Enter) is used to submit a command to the
         # interpreter.
-        if (not controlDown and not shiftDown and not altDown) and \
+        if (not (rawControlDown or controlDown) and not shiftDown and not altDown) and \
            key in [wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER]:
             if self.CallTipActive():
                 self.CallTipCancel()
@@ -565,7 +566,7 @@ class Shell(editwindow.EditWindow):
             self.OnShowCompHistory()
             
         # Ctrl+Return (Ctrl+Enter) is used to insert a line break.
-        elif controlDown and key in [wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER]:
+        elif (rawControlDown or controlDown) and key in [wx.WXK_RETURN, wx.WXK_NUMPAD_ENTER]:
             if self.CallTipActive():
                 self.CallTipCancel()
             if currpos == endpos:
@@ -574,7 +575,7 @@ class Shell(editwindow.EditWindow):
                 self.insertLineBreak()
                 
         # Let Ctrl-Alt-* get handled normally.
-        elif controlDown and altDown:
+        elif (rawControlDown or controlDown) and altDown:
             event.Skip()
             
         # Clear the current, unexecuted command.
@@ -585,33 +586,33 @@ class Shell(editwindow.EditWindow):
                 self.clearCommand()
 
         # Clear the current command
-        elif key == wx.WXK_BACK and controlDown and shiftDown:
+        elif key == wx.WXK_BACK and (rawControlDown or controlDown) and shiftDown:
             self.clearCommand()
 
         # Increase font size.
-        elif controlDown and key in (ord(']'), wx.WXK_NUMPAD_ADD):
+        elif (rawControlDown or controlDown) and key in (ord(']'), wx.WXK_NUMPAD_ADD):
             dispatcher.send(signal='FontIncrease')
 
         # Decrease font size.
-        elif controlDown and key in (ord('['), wx.WXK_NUMPAD_SUBTRACT):
+        elif (rawControlDown or controlDown) and key in (ord('['), wx.WXK_NUMPAD_SUBTRACT):
             dispatcher.send(signal='FontDecrease')
 
         # Default font size.
-        elif controlDown and key in (ord('='), wx.WXK_NUMPAD_DIVIDE):
+        elif (rawControlDown or controlDown) and key in (ord('='), wx.WXK_NUMPAD_DIVIDE):
             dispatcher.send(signal='FontDefault')
 
         # Cut to the clipboard.
-        elif (controlDown and key in (ord('X'), ord('x'))) \
+        elif ((rawControlDown or controlDown) and key in (ord('X'), ord('x'))) \
                  or (shiftDown and key == wx.WXK_DELETE):
             self.Cut()
 
         # Copy to the clipboard.
-        elif controlDown and not shiftDown \
+        elif (rawControlDown or controlDown) and not shiftDown \
                  and key in (ord('C'), ord('c'), wx.WXK_INSERT):
             self.Copy()
 
         # Copy to the clipboard, including prompts.
-        elif controlDown and shiftDown \
+        elif (rawControlDown or controlDown) and shiftDown \
                  and key in (ord('C'), ord('c'), wx.WXK_INSERT):
             self.CopyWithPrompts()
 
@@ -621,7 +622,7 @@ class Shell(editwindow.EditWindow):
             self.CopyWithPromptsPrefixed()
 
         # Home needs to be aware of the prompt.
-        elif controlDown and key == wx.WXK_HOME:
+        elif (rawControlDown or controlDown) and key == wx.WXK_HOME:
             home = self.promptPosEnd
             if currpos > home:
                 self.SetCurrentPos(home)
@@ -657,34 +658,34 @@ class Shell(editwindow.EditWindow):
             pass
 
         # Paste from the clipboard.
-        elif (controlDown and not shiftDown and key in (ord('V'), ord('v'))) \
+        elif ((rawControlDown or controlDown) and not shiftDown and key in (ord('V'), ord('v'))) \
                  or (shiftDown and not controlDown and key == wx.WXK_INSERT):
             self.Paste()
 
         # manually invoke AutoComplete and Calltips
-        elif controlDown and key == wx.WXK_SPACE:
+        elif (rawControlDown or controlDown) and key == wx.WXK_SPACE:
             self.OnCallTipAutoCompleteManually(shiftDown)
 
         # Paste from the clipboard, run commands.
-        elif controlDown and shiftDown and key in (ord('V'), ord('v')):
+        elif (rawControlDown or controlDown) and shiftDown and key in (ord('V'), ord('v')):
             self.PasteAndRun()
             
         # Replace with the previous command from the history buffer.
-        elif (controlDown and not shiftDown and key == wx.WXK_UP) \
+        elif ((rawControlDown or controlDown) and not shiftDown and key == wx.WXK_UP) \
                  or (altDown and key in (ord('P'), ord('p'))):
             self.OnHistoryReplace(step=+1)
             
         # Replace with the next command from the history buffer.
-        elif (controlDown and not shiftDown and key == wx.WXK_DOWN) \
+        elif ((rawControlDown or controlDown) and not shiftDown and key == wx.WXK_DOWN) \
                  or (altDown and key in (ord('N'), ord('n'))):
             self.OnHistoryReplace(step=-1)
             
         # Insert the previous command from the history buffer.
-        elif (controlDown and shiftDown and key == wx.WXK_UP) and self.CanEdit():
+        elif ((rawControlDown or controlDown) and shiftDown and key == wx.WXK_UP) and self.CanEdit():
             self.OnHistoryInsert(step=+1)
             
         # Insert the next command from the history buffer.
-        elif (controlDown and shiftDown and key == wx.WXK_DOWN) and self.CanEdit():
+        elif ((rawControlDown or controlDown) and shiftDown and key == wx.WXK_DOWN) and self.CanEdit():
             self.OnHistoryInsert(step=-1)
             
         # Search up the history for the text in front of the cursor.

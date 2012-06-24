@@ -212,6 +212,7 @@ class Calltip(wx.TextCtrl):
         ## self.SetValue(calltip)  # Caused refresh problem on Windows.
         self.Clear()
         self.AppendText(calltip)
+        self.SetInsertionPoint(0)
 
 
 # TODO: Switch this to a editwindow.EditWindow
