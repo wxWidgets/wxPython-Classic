@@ -768,6 +768,7 @@ def _darwin_compiler_fixup(compiler_so, cc_args):
         sysroot = compiler_so[idx+1]
 
     if sysroot and not os.path.isdir(sysroot):
+        from distutils import log
         log.warn("Compiling with an SDK that doesn't seem to exist: %s",
                 sysroot)
         log.warn("Please check your Xcode installation")
@@ -1038,7 +1039,8 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
         if not os.environ.get('CC') or not os.environ.get('CXX'):
             os.environ["CXX"] = getWxConfigValue('--cxx')
             os.environ["CC"]  = getWxConfigValue('--cc')
-            os.environ["LD"]  = getWxConfigValue('--ld').replace(' -o', '')
+            os.environ["LD"] = os.environ["LDSHARED"]  = \
+                getWxConfigValue('--ld').replace(' -o', '') + ' -bundle -undefined dynamic_lookup'
 
     else:
         # Set flags for other Unix type platforms
