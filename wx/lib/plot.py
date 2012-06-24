@@ -760,7 +760,7 @@ class PlotCanvas(wx.Panel):
                 self.pageSetupData.SetMarginBottomRight(data.GetMarginBottomRight())
                 self.pageSetupData.SetMarginTopLeft(data.GetMarginTopLeft())
                 self.pageSetupData.SetPrintData(data.GetPrintData())
-                self.print_data=wx.PrintData(data.GetPrintData()) # updates print_data
+                self._print_data=wx.PrintData(data.GetPrintData()) # updates print_data
         finally:
             dlg.Destroy()
                 
