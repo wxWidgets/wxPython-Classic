@@ -48,6 +48,9 @@ example::
         bool , ControlDown() const,
         "Returns ``True`` if the Control key was down at the time of the event.", "");
 
+    bool RawControlDown() const;
+    void SetRawControlDown(bool down);
+
     DocDeclStr(
         bool , MetaDown() const,
         "Returns ``True`` if the Meta key was down at the time of the event.", "");
@@ -90,6 +93,7 @@ normally).", "");
 
     %pythoncode {
         controlDown = property(ControlDown, SetControlDown)
+        rawControlDown = property(RawControlDown, SetRawControlDown)
         shiftDown = property(ShiftDown, SetShiftDown)
         altDown = property(AltDown, SetAltDown)
         metaDown = property(MetaDown, SetMetaDown)
