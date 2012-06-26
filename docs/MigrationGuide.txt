@@ -206,15 +206,44 @@ your encoding to Unicode before passing the text to the wx API.
 
 
 
-wx.Platform, wx.PlatformInfo, wx.USE_UNICODE and wx.__WXDEBUG__
----------------------------------------------------------------
+RawControlDown and Mac accelerators
+-----------------------------------
 
-wx.Platform has been renamed to wx.Port, and wx.PlatformInfo has been
-renamed to wx.PortInfo.  The reason for this change is that wrappers
-for a C++ class named wxPlatformInfo have been added, and would have
-caused a name conflict if the old wx.PlatformInfo had not been
-renamed. 
+First a little background.  Probably 95% of the places in a Windows or
+GTK application where you would use a Ctrl key, the equivalent on Mac
+would be to use the Cmd key instead.  For example, the traditional
+accelerator for paste is Ctrl-V on Windows and Cmd-V on Macs.  The
+reason for this difference is probably lost in the mists of time, so
+let's just call it tradition or the quirkiness of Apple.
 
-In related news, wx.USE_UNICODE and wx.__WXDEBUG__ have been removed.
+wxMac does a few things to help cross-platform applications to fit in
+and behave more natively on Macs, so one of the first things it did
+was to automatically convert things like "Ctrl-V" in menu accelerators
+to "Cmd-V".  Later on we added the concept of the CmdDown and related
+modifier flags to help key and char event handlers to not care whether
+it is the Control key or the Meta (command) key that is being pressed.
+In other words, CmdDown would be True on non-Macs if the Control key
+is pressed, and it would be True on Macs if the Command key is
+pressed.  If it was implemented in Python code it would look like
+this::
 
+    def CmdDown(self):
+        if 'wxMac' in wx.PlatformInfo:
+            return self.MetaDown()
+        else:
+            return self.ControlDown()
+
+That was the situation in 2.8.  
+
+In 2.9 things have been taken one step further.  I'm not sure all of
+the reasons behind this, but one of them was to make it possible to
+have real Ctrl accelerators on Mac, in addition to those that get
+automatically converted to Cmd accelerators.  So now we have
+RawControlDown and associated modifier flags and etc.  On non-Mac
+platforms RawControlDown is the same as ControlDown.  On Macs
+RawControlDown is used for the real Ctrl key on the keyboard, and
+ControlDown is used for the command key.  You can also use accelerator
+strings like "RawCtrl-H" in menu items to create an accelerator that
+will always use Ctrl on all platforms, and not be converted to Cmd on
+Macs.
 
