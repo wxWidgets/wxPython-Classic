@@ -264,21 +264,22 @@ class KeyLog(wx.ListCtrl, listmix.ListCtrlAutoWidthMixin):
                 if keycode == 0:
                     keyname = "NUL"
                 elif keycode < 27:
-                    keyname = "Ctrl-%s" % chr(ord('A') + keycode-1)
+                    keyname = u"Ctrl-%s" % unichr(ord('A') + keycode-1)
                 else:
-                    keyname = "\"%s\"" % chr(keycode)
+                    keyname = u"\"%s\"" % unichr(keycode)
             else:
-                keyname = "(%s)" % keycode
+                keyname = u"(%s)" % keycode
 
         UniChr = ''
         if "unicode" in wx.PlatformInfo:
             UniChr = "\"" + unichr(evt.GetUnicodeKey()) + "\""
             
         modifiers = ""
-        for mod, ch in [(evt.ControlDown(), 'C'),
-                        (evt.AltDown(),     'A'),
-                        (evt.ShiftDown(),   'S'),
-                        (evt.MetaDown(),    'M')]:
+        for mod, ch in [(evt.ControlDown(),    'C'),
+                        (evt.AltDown(),        'A'),
+                        (evt.ShiftDown(),      'S'),
+                        (evt.MetaDown(),       'M'),
+                        (evt.RawControlDown(), 'R'),]:
             if mod:
                 modifiers += ch
             else:
