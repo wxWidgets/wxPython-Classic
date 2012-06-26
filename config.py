@@ -1039,8 +1039,27 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
         if not os.environ.get('CC') or not os.environ.get('CXX'):
             os.environ["CXX"] = getWxConfigValue('--cxx')
             os.environ["CC"]  = getWxConfigValue('--cc')
-            os.environ["LD"] = os.environ["LDSHARED"]  = \
-                getWxConfigValue('--ld').replace(' -o', '') + ' -bundle -undefined dynamic_lookup'
+
+            # We want to use the linker command from wx to make sure
+            # we get the right sysroot, but we also need to ensure that
+            # the other linker flags that distutils wants to use are
+            # included as well.
+            LDSHARED = distutils.sysconfig.get_config_var('LDSHARED').split()
+            # remove the compiler command
+            del LDSHARED[0]
+            # remove any -sysroot flags and their arg
+            while 1:
+                try:
+                    index = LDSHARED.index('-isysroot')
+                    # Strip this argument and the next one:
+                    del LDSHARED[index:index+2]
+                except ValueError:
+                    break            
+            LDSHARED = ' '.join(LDSHARED)
+            # Combine with wx's ld command and stash it in the env
+            # where distutils will get it later.
+            LDSHARED = getWxConfigValue('--ld').replace(' -o', '') + ' ' + LDSHARED
+            os.environ["LDSHARED"]  = LDSHARED
 
     else:
         # Set flags for other Unix type platforms
