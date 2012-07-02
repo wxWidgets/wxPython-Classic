@@ -9,6 +9,7 @@ import shutil
 import string
 import sys
 import types
+import subprocess
 import cfg_version as cfg
 
 from distutils.dep_util  import newer
@@ -162,6 +163,31 @@ def exitIfError(code, msg):
     if code != 0:
         print msg
         sys.exit(1)
+
+
+def getoutput(cmd):
+    sp = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    output = None
+    output = sp.stdout.read()
+    if sys.version_info > (3,):
+        output = output.decode('utf-8')  # TODO: is utf-8 okay here?
+    output = output.rstrip()
+    rval = sp.wait()
+    if rval:
+        # Failed!
+        print("Command '%s' failed with exit code %d." % (cmd, rval))
+        sys.exit(rval)
+    return output
+
+def getVisCVersion():
+    text = getoutput("cl.exe")
+    if 'Version 15' in text:
+        return '90'
+    # TODO: Add more tests to get the other versions...
+    else:
+        return 'FIXME'
+    
+
         
 #---------------------------------------------------------------------------
 
@@ -232,9 +258,9 @@ print "wxWidgets directory is: %s" % WXWIN
 
 if sys.platform.startswith("win"):
     if CPU == 'AMD64':
-        dllDir = os.path.join(WXWIN, "lib", "vc_amd64_dll")        
+        dllDir = os.path.join(WXWIN, "lib", "vc%s_amd64_dll" % getVisCVersion())        
     else:
-        dllDir = os.path.join(WXWIN, "lib", "vc_dll")
+        dllDir = os.path.join(WXWIN, "lib", "vc%s_dll" % getVisCVersion())
     buildDir = os.path.join(WXWIN, "build", "msw")
     
     if options.cairo:
@@ -248,7 +274,7 @@ if sys.platform.startswith("win"):
         delFiles(glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.*")))
         delFiles(glob.glob(os.path.join(dllDir, "*%s.*" % dll_type)))
         delFiles(glob.glob(os.path.join(dllDir, "*%s.*" % build_type_ext)))        
-        deleteIfExists(os.path.join(buildDir, "vc_msw" + dll_type + "dll"))
+        deleteIfExists(os.path.join(buildDir, "vc%s_msw%sdll" % (getVisCVersion(), dll_type)))
         sys.exit(0)
     
           

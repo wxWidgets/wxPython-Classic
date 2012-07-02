@@ -21,6 +21,7 @@
 #----------------------------------------------------------------------
 
 import sys, os, glob, fnmatch, tempfile
+import subprocess
 
 EGGing = 'bdist_egg' in sys.argv or 'egg_info' in sys.argv
 if not EGGing:
@@ -404,13 +405,12 @@ def run_swig(files, dir, gendir, package, USE_SWIG, force, swig_args,
 
     return sources
 
-import subprocess as sp
 
 def swig_version():
     # It may come on either stdout or stderr, depending on the
     # version, so read both.
-    p = sp.Popen(SWIG + ' -version', shell=True, universal_newlines=True,
-                 stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+    p = subprocess.Popen(SWIG + ' -version', shell=True, universal_newlines=True,
+                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stext = p.stdout.read() + p.stderr.read()
     import re
     match = re.search(r'[0-9]+\.[0-9]+\.[0-9]+$', stext, re.MULTILINE)
@@ -693,6 +693,29 @@ def getExtraPath(shortVer=True, addOpts=False, addRelease=True):
 
     return ep
 
+
+def getoutput(cmd):
+    sp = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    output = None
+    output = sp.stdout.read()
+    if sys.version_info > (3,):
+        output = output.decode('utf-8')  # TODO: is utf-8 okay here?
+    output = output.rstrip()
+    rval = sp.wait()
+    if rval:
+        # Failed!
+        print("Command '%s' failed with exit code %d." % (cmd, rval))
+        sys.exit(rval)
+    return output
+
+def getVisCVersion():
+    text = getoutput("cl.exe")
+    if 'Version 15' in text:
+        return '90'
+    # TODO: Add more tests to get the other versions...
+    else:
+        return 'UNKNOWN'
+ 
 #----------------------------------------------------------------------
 # These functions and class are copied from distutils in Python 2.5
 # and then grafted back into the distutils modules so we can change
@@ -910,9 +933,9 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     GENDIR = 'msw'
 
     if os.environ.get('CPU', None) == 'AMD64':
-        VCDLL = 'vc_amd64_dll'
+        VCDLL = 'vc%s_amd64_dll' % getVisCVersion()
     else:
-        VCDLL = 'vc_dll'
+        VCDLL = 'vc%s_dll' % getVisCVersion()
         
     includes = ['include', 'src',
                 opj(WXDIR, 'lib', VCDLL, 'msw'  + libFlag()),
