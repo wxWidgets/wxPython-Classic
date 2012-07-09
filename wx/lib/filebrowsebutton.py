@@ -40,7 +40,7 @@ class FileBrowseButton(wx.Panel):
                   startDirectory = ".",
                   initialValue = "",
                   fileMask = "*.*",
-                  fileMode = wx.OPEN,
+                  fileMode = wx.FD_OPEN,
                   # callback for when value changes (optional)
                   changeCallback= lambda x:x,
                   labelWidth = 0,
@@ -53,7 +53,7 @@ class FileBrowseButton(wx.Panel):
         :param dialogTitle:    Title used in file dialog
         :param startDirectory: Default directory for file dialog startup
         :param fileMask:       File mask (glob pattern, such as *.*) to use in file dialog
-        :param fileMode:       wx.OPEN or wx.SAVE, indicates type of file dialog to use
+        :param fileMode:       wx.FD_OPEN or wx.FD_SAVE, indicates type of file dialog to use
         :param changeCallback: Optional callback called for all changes in value of the control
         :param labelWidth:     Width of the label
         """
