@@ -98,10 +98,16 @@ class Interpreter(InteractiveInterpreter):
         # meant to be changed and leave it. Power to the people.
         if sys.stdin == self.stdin:
             sys.stdin = stdin
+        else:
+            self.stdin = sys.stdin
         if sys.stdout == self.stdout:
             sys.stdout = stdout
+        else:
+            self.stdout = sys.stdout
         if sys.stderr == self.stderr:
             sys.stderr = stderr
+        else:
+            self.stderr = sys.stderr
         return more
         
     def runModule(self, mod):
@@ -115,10 +121,16 @@ class Interpreter(InteractiveInterpreter):
         # meant to be changed and leave it. Power to the people.
         if sys.stdin == self.stdin:
             sys.stdin = stdin
+        else:
+            self.stdin = sys.stdin
         if sys.stdout == self.stdout:
             sys.stdout = stdout
+        else:
+            self.stdout = sys.stdout
         if sys.stderr == self.stderr:
             sys.stderr = stderr
+        else:
+            self.stderr = sys.stderr
         return False
     
     def getAutoCompleteKeys(self):
