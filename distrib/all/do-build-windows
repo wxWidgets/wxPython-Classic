@@ -45,7 +45,7 @@ if [ $PYVER = 2.3 ]; then
     . msvcset local 6
 
 elif [ $PYVER = 2.4 -o $PYVER = 2.5 ]; then    
-    if [ "$CPU" = "AMD64" ]; then
+    if [ "$CPU" = "AMD64" -o "$CPU" = "X64" ]; then
 	echo "Using MSVC ver 7x64"
 	. msvcset local 7x64
     else
@@ -54,7 +54,7 @@ elif [ $PYVER = 2.4 -o $PYVER = 2.5 ]; then
     fi
 
 else # Python 2.6 or later
-    if [ "$CPU" = "AMD64" ]; then
+    if [ "$CPU" = "AMD64" -o "$CPU" = "X64" ]; then
 	echo "Using MSVC ver 9x64"
 	. msvcset local 9x64
     else
@@ -114,7 +114,7 @@ esac
 # export DISTUTILS_DEBUG=1
 
 PYTHON=$TOOLS/python$VER/python.exe
-if [ "$CPU" == "AMD64" -a -d $TOOLS/amd64 ]; then
+if [ "$CPU" == "AMD64" -o "$CPU" = "X64" -a -d $TOOLS/amd64 ]; then
     PYTHON=$TOOLS/amd64/python$VER/python.exe
 fi
 

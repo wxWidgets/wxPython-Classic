@@ -13,10 +13,12 @@ set DELTYPE=d
 if "%2" == "debug" set DELTYPE=h 
 
 set DLLDIR=vc_dll
-if "%CPU%" == "AMD64" set DLLDIR=vc_amd64_dll
+if "%CPU%" == "AMD64" set DLLDIR=vc_x64_dll
+if "%CPU%" == "X64" set DLLDIR=vc_x64_dll
 
 set PLATFORM=win32
 if "%CPU%" == "AMD64" set PLATFORM=win64
+if "%CPU%" == "X64" set PLATFORM=win64
 
 
 rem **** Make a directory to build up a distribution tree

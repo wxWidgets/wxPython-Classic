@@ -95,7 +95,7 @@ BUILD_DLLWIDGET = 0# Build a module that enables unknown wx widgets
                    # to be loaded from a DLL and to be used from Python.
 
                    # Internet Explorer wrapper (experimental)
-BUILD_ACTIVEX = (os.name == 'nt') # and os.environ.get('CPU',None) != 'AMD64') 
+BUILD_ACTIVEX = (os.name == 'nt')
 
 
 CORE_ONLY = 0      # if true, don't build any of the above
@@ -932,8 +932,8 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     WXPLAT = '__WXMSW__'
     GENDIR = 'msw'
 
-    if os.environ.get('CPU', None) == 'AMD64':
-        VCDLL = 'vc%s_amd64_dll' % getVisCVersion()
+    if os.environ.get('CPU', None) in ['AMD64', 'X64']:
+        VCDLL = 'vc%s_x64_dll' % getVisCVersion()
     else:
         VCDLL = 'vc%s_dll' % getVisCVersion()
         

@@ -257,8 +257,8 @@ if options.clean in ['all', 'py', 'pyext']:
 print "wxWidgets directory is: %s" % WXWIN
 
 if sys.platform.startswith("win"):
-    if CPU == 'AMD64':
-        dllDir = os.path.join(WXWIN, "lib", "vc%s_amd64_dll" % getVisCVersion())        
+    if CPU in ['AMD64', 'X64']:
+        dllDir = os.path.join(WXWIN, "lib", "vc%s_x64_dll" % getVisCVersion())        
     else:
         dllDir = os.path.join(WXWIN, "lib", "vc%s_dll" % getVisCVersion())
     buildDir = os.path.join(WXWIN, "build", "msw")

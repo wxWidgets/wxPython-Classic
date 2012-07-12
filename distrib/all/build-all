@@ -63,8 +63,8 @@ def getTasks(config_env):
     cyclopsTask0 = Task([
         Job("win32-26", "distrib/all/build-windows", ["2.6"], env=config_env),
         Job("win32-27", "distrib/all/build-windows", ["2.7"], env=config_env),
-        Job("win64-26", "distrib/all/build-windows", ["2.6", "AMD64"], env=config_env),
-        Job("win64-27", "distrib/all/build-windows", ["2.7", "AMD64"], env=config_env),
+        Job("win64-26", "distrib/all/build-windows", ["2.6", "X64"], env=config_env),
+        Job("win64-27", "distrib/all/build-windows", ["2.7", "X64"], env=config_env),
         ])
     
 
@@ -77,8 +77,8 @@ def getTasks(config_env):
 
     cyclopsTask2 = Task([
         # 64-bit builds are now handled w/o a VM, see above
-        #Job("win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
-        #Job("win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "AMD64"], env=config_env),
+        #Job("win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "X64"], env=config_env),
+        #Job("win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "X64"], env=config_env),
         ])
 
     cyclopsTask3 = Task([

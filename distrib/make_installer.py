@@ -765,7 +765,7 @@ Type: files; Name: "{app}\samples\wxPIA_book\Chapter-18\*";
 
 def find_DLLs():
 
-    if os.environ.get('CPU', '') == 'AMD64':
+    if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         # Just hard-code it for now until a good solution for finding
         # the right dumpbin can be found...
         return '294u', sys.version[:3]
@@ -840,7 +840,7 @@ def get_runtime_dlls(PYVER, PKGDIR):
         # bother with installing it ourselves.
         return ('', '')
         
-    if os.environ.get('CPU', '') == 'AMD64':
+    if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         if PYVER == 'py25':
             # For now just pull the DLLs from the system dir, and install
             # them there.  We may eventually want to get more customized
@@ -884,12 +884,11 @@ def main():
     RTDLL,CPPDLL    = get_runtime_dlls(PYVER, PKGDIR)
     CAIRO_ROOT      = os.environ["CAIRO_ROOT"]
 
-    if os.environ.get('CPU', '') == 'AMD64':
+    if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         BITS        = '64'
-        VCDLLDIR    = 'vc_amd64_dll'
+        VCDLLDIR    = 'vc_x64_dll'
         GDIPLUS     = ''
         ARCH        = 'ArchitecturesInstallIn64BitMode = x64\nArchitecturesAllowed = x64'
-        #ARCH        = ''
         PRIV        = 'admin'
 
     else:

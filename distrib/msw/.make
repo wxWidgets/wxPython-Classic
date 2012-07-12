@@ -78,8 +78,8 @@ else
     exit 1
 fi
 
-if [ "$CPU" = "AMD64" ]; then
-    DLLDIR=vc_amd64_dll
+if [ "$CPU" = "AMD64" -o "$CPU" = "X64" ]; then
+    DLLDIR=vc_x64_dll
 else
     DLLDIR=vc_dll
 fi

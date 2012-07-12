@@ -86,9 +86,9 @@ def main():
     WXDIR           = os.environ["WXWIN"]
     ISSFILE         = "__wxWidgets-win32.iss"
 
-    if os.environ.get('CPU', '') == 'AMD64':
+    if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         BITS        = '64'
-        VCDLLDIR    = 'vc_amd64_dll'
+        VCDLLDIR    = 'vc_x64_dll'
         GDIPLUS     = ''
         ARCH        = 'ArchitecturesInstallIn64BitMode = x64\nArchitecturesAllowed = x64'
         #ARCH        = ''
