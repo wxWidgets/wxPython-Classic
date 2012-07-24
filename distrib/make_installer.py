@@ -886,14 +886,14 @@ def main():
 
     if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         BITS        = '64'
-        VCDLLDIR    = 'vc_x64_dll'
+        VCDLLDIR    = 'vc90_x64_dll'
         GDIPLUS     = ''
         ARCH        = 'ArchitecturesInstallIn64BitMode = x64\nArchitecturesAllowed = x64'
         PRIV        = 'admin'
 
     else:
         BITS        = '32'
-        VCDLLDIR    = 'vc_dll'
+        VCDLLDIR    = 'vc90_dll'
         GDIPLUS     = 'Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion' % vars()
         ARCH        = ''
         PRIV        = 'none'
