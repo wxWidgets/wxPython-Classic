@@ -45510,6 +45510,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "CONFIG_USE_GLOBAL_FILE",SWIG_From_int(static_cast< int >(wxCONFIG_USE_GLOBAL_FILE)));
   SWIG_Python_SetConstant(d, "CONFIG_USE_RELATIVE_PATH",SWIG_From_int(static_cast< int >(wxCONFIG_USE_RELATIVE_PATH)));
   SWIG_Python_SetConstant(d, "CONFIG_USE_NO_ESCAPE_CHARACTERS",SWIG_From_int(static_cast< int >(wxCONFIG_USE_NO_ESCAPE_CHARACTERS)));
+  SWIG_Python_SetConstant(d, "CONFIG_USE_SUBDIR",SWIG_From_int(static_cast< int >(wxCONFIG_USE_SUBDIR)));
   SWIG_Python_SetConstant(d, "ConfigBase_Type_Unknown",SWIG_From_int(static_cast< int >(wxConfigBase::Type_Unknown)));
   SWIG_Python_SetConstant(d, "ConfigBase_Type_String",SWIG_From_int(static_cast< int >(wxConfigBase::Type_String)));
   SWIG_Python_SetConstant(d, "ConfigBase_Type_Boolean",SWIG_From_int(static_cast< int >(wxConfigBase::Type_Boolean)));
