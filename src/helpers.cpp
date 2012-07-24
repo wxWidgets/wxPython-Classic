@@ -26,6 +26,7 @@
 #endif
 
 #ifdef __WXGTK__
+#include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #ifdef __WXGTK20__
 #include <wx/gtk/private/win_gtk.h>
