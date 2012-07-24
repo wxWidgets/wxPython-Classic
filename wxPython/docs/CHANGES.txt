@@ -3,6 +3,16 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.4.1
+-------
+* 24-July-2012
+
+A quick patch release to fix some C++ headers for the wxGTK port not
+getting installed, causing a build error in wxPython.
+
+
+
+
 2.9.4.0
 -------
 * 21-July-2012
