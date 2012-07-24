@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 2.9.4.0
 -------
-*
+* 21-July-2012
 
 wx.lib.pubsub: Pusub now defaults to the new "kwarg" version of the
 API.  In order to continue using the original "arg1" API you will need
