@@ -3913,12 +3913,6 @@ SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DE
         }
 
 #include "wx/wxPython/pydrawxxx.h"
-#ifdef __WXMSW__
-#include <wx/msw/dc.h>
-#endif
-#ifdef __WXGTK__
-#include <wx/gtk/dc.h>
-#endif
 #include <wx/dcgraph.h>
 
 SWIGINTERN wxColour wxDC_GetPixel(wxDC *self,int x,int y){

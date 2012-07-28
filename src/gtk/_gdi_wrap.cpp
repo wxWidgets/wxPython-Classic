@@ -3906,12 +3906,6 @@ SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DE
         }
 
 #include "wx/wxPython/pydrawxxx.h"
-#ifdef __WXMSW__
-#include <wx/msw/dc.h>
-#endif
-#ifdef __WXGTK__
-#include <wx/gtk/dc.h>
-#endif
 #include <wx/dcgraph.h>
 
 SWIGINTERN wxColour wxDC_GetPixel(wxDC *self,int x,int y){
@@ -3959,12 +3953,7 @@ SWIGINTERN long wxDC_GetHDC(wxDC *self){
             return 0;
 
         }
-SWIGINTERN void *wxDC_GetGdkDrawable(wxDC *self){
-            // TODO: Is this always non-null?  if not then we can check
-            // GetSelectedBitmap and get the GdkPixmap from it, as that is a
-            // drawable too.
-            return ((wxGTKDCImpl*)self->GetImpl())->GetGDKWindow();
-        }
+SWIGINTERN void *wxDC_GetGdkDrawable(wxDC *self){ return self->GetHandle(); }
 SWIGINTERN PyObject *wxDC__DrawPointList(wxDC *self,PyObject *pyCoords,PyObject *pyPens,PyObject *pyBrushes){
             return wxPyDrawXXXList(*self, wxPyDrawXXXPoint, pyCoords, pyPens, pyBrushes);
         }
