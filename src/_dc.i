@@ -1161,43 +1161,30 @@ supported.", "");
         "Change the layout direction for this dc.", "");
     
 
+    void* GetHandle() const;
     
 
     %extend {
         long GetHDC()
         {
 #ifdef __WXMSW__
-            return (long)((wxMSWDCImpl*)self->GetImpl())->GetHDC();
+            return (long)self->GetHandle();
 #else
             wxPyRaiseNotImplemented();
             return 0;
 #endif
         }
-
-        // TODO: Do GetTempHDC ?
     }
 
 #ifdef __WXMAC__
     %extend {
-        void* GetCGContext() {
-            void* cgctx = NULL;
-            wxGraphicsContext* gc = ((wxGCDCImpl*)self->GetImpl())->GetGraphicsContext();
-            if (gc) {
-                cgctx = gc->GetNativeContext();
-            }
-            return cgctx;
-        }
+        void* GetCGContext() { return self->GetHandle(); }
     }
 #endif
 
 #ifdef __WXGTK__
     %extend {
-        void* GetGdkDrawable() {
-            // TODO: Is this always non-null?  if not then we can check
-            // GetSelectedBitmap and get the GdkPixmap from it, as that is a
-            // drawable too.
-            return ((wxGTKDCImpl*)self->GetImpl())->GetGDKWindow();
-        }
+        void* GetGdkDrawable() { return self->GetHandle(); }
     }    
 #endif
 
