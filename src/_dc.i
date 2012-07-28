@@ -18,12 +18,6 @@
 
 %{
 #include "wx/wxPython/pydrawxxx.h"
-#ifdef __WXMSW__
-#include <wx/msw/dc.h>
-#endif
-#ifdef __WXGTK__
-#include <wx/gtk/dc.h>
-#endif
 #include <wx/dcgraph.h>
 %}
 
