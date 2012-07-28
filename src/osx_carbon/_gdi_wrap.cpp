@@ -3956,14 +3956,7 @@ SWIGINTERN long wxDC_GetHDC(wxDC *self){
             return 0;
 
         }
-SWIGINTERN void *wxDC_GetCGContext(wxDC *self){
-            void* cgctx = NULL;
-            wxGraphicsContext* gc = ((wxGCDCImpl*)self->GetImpl())->GetGraphicsContext();
-            if (gc) {
-                cgctx = gc->GetNativeContext();
-            }
-            return cgctx;
-        }
+SWIGINTERN void *wxDC_GetCGContext(wxDC *self){ return self->GetHandle(); }
 SWIGINTERN PyObject *wxDC__DrawPointList(wxDC *self,PyObject *pyCoords,PyObject *pyPens,PyObject *pyBrushes){
             return wxPyDrawXXXList(*self, wxPyDrawXXXPoint, pyCoords, pyPens, pyBrushes);
         }
@@ -26381,6 +26374,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_GetHandle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetHandle" "', expected argument " "1"" of type '" "wxDC const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (void *)((wxDC const *)arg1)->GetHandle();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC_GetHDC(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -44647,6 +44668,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_GetBoundingBox", (PyCFunction)_wrap_DC_GetBoundingBox, METH_O, NULL},
 	 { (char *)"DC_GetLayoutDirection", (PyCFunction)_wrap_DC_GetLayoutDirection, METH_O, NULL},
 	 { (char *)"DC_SetLayoutDirection", (PyCFunction) _wrap_DC_SetLayoutDirection, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DC_GetHandle", (PyCFunction)_wrap_DC_GetHandle, METH_O, NULL},
 	 { (char *)"DC_GetHDC", (PyCFunction)_wrap_DC_GetHDC, METH_O, NULL},
 	 { (char *)"DC_GetCGContext", (PyCFunction)_wrap_DC_GetCGContext, METH_O, NULL},
 	 { (char *)"DC__DrawPointList", (PyCFunction) _wrap_DC__DrawPointList, METH_VARARGS | METH_KEYWORDS, NULL},

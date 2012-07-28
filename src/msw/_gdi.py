@@ -4726,6 +4726,10 @@ class DC(_core.Object):
         """
         return _gdi_.DC_SetLayoutDirection(*args, **kwargs)
 
+    def GetHandle(*args, **kwargs):
+        """GetHandle(self) -> void"""
+        return _gdi_.DC_GetHandle(*args, **kwargs)
+
     def GetHDC(*args, **kwargs):
         """GetHDC(self) -> long"""
         return _gdi_.DC_GetHDC(*args, **kwargs)

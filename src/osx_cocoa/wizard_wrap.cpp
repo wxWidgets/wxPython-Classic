@@ -7577,6 +7577,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_WIZARD_HELP", PyInt_FromLong(wxEVT_WIZARD_HELP));
   PyDict_SetItemString(d, "wxEVT_WIZARD_FINISHED", PyInt_FromLong(wxEVT_WIZARD_FINISHED));
   PyDict_SetItemString(d, "wxEVT_WIZARD_PAGE_SHOWN", PyInt_FromLong(wxEVT_WIZARD_PAGE_SHOWN));
+  PyDict_SetItemString(d, "wxEVT_WIZARD_BEFORE_PAGE_CHANGED", PyInt_FromLong(wxEVT_WIZARD_BEFORE_PAGE_CHANGED));
   
   
 }
