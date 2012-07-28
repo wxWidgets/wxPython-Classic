@@ -68,7 +68,7 @@ pycairoAPI = None
 # a convenience funtion, just to save a bit of typing below
 def voidp(ptr):
     """Convert a SWIGged void* type to a ctypes c_void_p"""
-    return ctypes.c_void_p(int(ptr))
+    return ctypes.c_void_p(long(ptr))
 
 #----------------------------------------------------------------------------
 
@@ -88,12 +88,16 @@ def ContextFromDC(dc):
         cgc = dc.GetCGContext()
         assert cgc is not None, "Unable to get CGContext from DC."
         cgref = voidp( cgc )
-        surfaceptr = voidp(
-            cairoLib.cairo_quartz_surface_create_for_cg_context(
-                cgref, width, height) )
+        surface_create = cairoLib.cairo_quartz_surface_create_for_cg_context
+        surface_create.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_int]
+        surface_create.restype = ctypes.c_void_p
+        surfaceptr = voidp(surface_create(cgref, width, height))
 
         # create a cairo context for that surface
-        ctxptr = cairoLib.cairo_create(surfaceptr)
+        cairo_create = cairoLib.cairo_create
+        cairo_create.argtypes = [ctypes.c_void_p]
+        cairo_create.restype = ctypes.c_void_p
+        ctxptr = voidp(cairo_create(surfaceptr))
 
         # Turn it into a pycairo context object
         ctx = pycairoAPI.Context_FromContext(ctxptr, pycairoAPI.Context_Type, None)
@@ -138,9 +142,11 @@ def FontFaceFromFont(font):
     """
     
     if 'wxMac' in wx.PlatformInfo:
-        fontfaceptr = voidp(
-            cairoLib.cairo_quartz_font_face_create_for_cgfont(
-                voidp(font.OSXGetCGFont())) )
+        font_face_create = cairoLib.cairo_quartz_font_face_create_for_cgfont
+        font_face_create.argtypes = [ctypes.c_void_p]
+        font_face_create.restype = ctypes.c_void_p
+        
+        fontfaceptr = font_face_create(voidp(font.OSXGetCGFont()))
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
 
 
@@ -257,11 +263,12 @@ def _findCairoLib():
     # appropriate for the system
     for name in names:
         location = ctypes.util.find_library(name) 
-        try:
-            cairoLib = ctypes.CDLL(location)
-            return
-        except:
-            pass
+        if location:
+            try:
+                cairoLib = ctypes.CDLL(location)
+                return
+            except:
+                pass
         
     # If the above didn't find it on OS X then we still have a
     # trick up our sleeve...
