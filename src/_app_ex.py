@@ -242,7 +242,9 @@ logged in on the main display of your Mac."""
                 self.stdioWin.size = size
             
 
-
+    @staticmethod
+    def Get():
+        return wx.GetApp()
 
 # change from wx.PyApp_XX to wx.App_XX
 App_GetMacSupportPCMenuShortcuts = _core_.PyApp_GetMacSupportPCMenuShortcuts
