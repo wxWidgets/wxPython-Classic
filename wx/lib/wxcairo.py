@@ -85,7 +85,7 @@ def ContextFromDC(dc):
         width, height = dc.GetSize()
 
         # use the CGContextRef of the DC to make the cairo surface
-        cgc = dc.GetCGContext()
+        cgc = dc.GetHandle()
         assert cgc is not None, "Unable to get CGContext from DC."
         cgref = voidp( cgc )
         surface_create = cairoLib.cairo_quartz_surface_create_for_cg_context
@@ -109,8 +109,10 @@ def ContextFromDC(dc):
     elif 'wxMSW' in wx.PlatformInfo:
         # This one is easy, just fetch the HDC and use PyCairo to make
         # the surface and context.
-        hdc = dc.GetHDC()
-        surface = cairo.Win32Surface(hdc)
+        hdc = dc.GetHandle()
+        # Ensure the pointer value is clampped into the range of a C signed long
+        hdc = ctypes.c_long(hdc)
+        surface = cairo.Win32Surface(hdc.value)
         ctx = cairo.Context(surface)
     
 
@@ -118,7 +120,7 @@ def ContextFromDC(dc):
         gdkLib = _findGDKLib()
 
         # Get the GdkDrawable from the dc
-        drawable = voidp( dc.GetGdkDrawable() )
+        drawable = voidp( dc.GetHandle() )
 
         # Call a GDK API to create a cairo context
         gdkLib.gdk_cairo_create.restype = ctypes.c_void_p
@@ -151,6 +153,7 @@ def FontFaceFromFont(font):
 
 
     elif 'wxMSW' in wx.PlatformInfo:
+        cairoLib.cairo_win32_font_face_create_for_hfont.restype = ctypes.c_void_p
         fontfaceptr = voidp( cairoLib.cairo_win32_font_face_create_for_hfont(
             ctypes.c_ulong(font.GetHFONT())) )
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
