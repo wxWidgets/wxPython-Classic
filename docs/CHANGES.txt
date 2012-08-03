@@ -3,6 +3,21 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.5.0
+-------
+*
+
+wx.media.MediaCtrl on OSX-cocoa now has a functioning back-end using
+the QTKit framework, so it works when running in either 32-bit or
+64-bit mode.
+
+Printing triggered from a Javascript window.print() statement will now
+work on OSX when using the old wx.webkit or the new wx.html2 browser
+controls. 
+
+
+
+
 2.9.4.1
 -------
 * 24-July-2012
