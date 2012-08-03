@@ -37,6 +37,7 @@ class TestPanel(wx.Panel):
                                 szBackend=backend)
             if not ok:
                 raise NotImplementedError
+            self.mc.PostCreate(self.mc)
         except NotImplementedError:
             self.Destroy()
             raise
