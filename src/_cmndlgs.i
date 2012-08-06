@@ -1019,7 +1019,7 @@ public:
 wx.FR_DOWN, wx.FR_WHOLEWORD and wx.FR_MATCHCASE flags.", "");
 
     DocDeclStr(
-        const wxString& , GetFindString(),
+        const wxString , GetFindString(),
         "Return the string to find (never empty).", "");
 
     DocDeclStr(
