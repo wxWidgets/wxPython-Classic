@@ -12,7 +12,7 @@ class TestPanel(wx.Panel):
         dir1 = wx.GenericDirCtrl(self, -1, size=(200,225), style=0)
 
         txt2 = wx.StaticText(self, -1, "wx.DIRCTRL_DIR_ONLY")
-        dir2 = wx.GenericDirCtrl(self, -1, size=(200,225), style=wx.DIRCTRL_DIR_ONLY)
+        dir2 = wx.GenericDirCtrl(self, -1, size=(200,225), style=wx.DIRCTRL_DIR_ONLY|wx.DIRCTRL_MULTIPLE)
 
         txt3 = wx.StaticText(self, -1, "wx.DIRCTRL_SHOW_FILTERS")
         dir3 = wx.GenericDirCtrl(self, -1, size=(200,225), style=wx.DIRCTRL_SHOW_FILTERS,

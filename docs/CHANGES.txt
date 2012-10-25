@@ -15,6 +15,9 @@ Printing triggered from a Javascript window.print() statement will now
 work on OSX when using the old wx.webkit or the new wx.html2 browser
 controls. 
 
+Updated Scintilla code to verison 3.21
+
+
 
 
 

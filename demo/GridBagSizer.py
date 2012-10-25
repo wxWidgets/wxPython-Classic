@@ -68,10 +68,10 @@ class TestFrame(wx.Frame):
         gbs.AddGrowableCol(2)
 
         box = wx.BoxSizer()
-        box.Add(gbs, 0, wx.ALL, 10)
+        box.Add(gbs, 1, wx.ALL|wx.EXPAND, 10)
         
-        p.SetSizerAndFit(box)
-        self.SetClientSize(p.GetSize())
+        p.SetSizer(box)
+        self.SetClientSize(p.GetBestSize())
 
 
     def OnHideButton(self, evt):
