@@ -314,7 +314,7 @@ class GridCellEditor(GridCellWorker):
         return _grid.GridCellEditor_Show(*args, **kwargs)
 
     def PaintBackground(*args, **kwargs):
-        """PaintBackground(self, Rect rectCell, GridCellAttr attr)"""
+        """PaintBackground(self, DC dc, Rect rectCell, GridCellAttr attr)"""
         return _grid.GridCellEditor_PaintBackground(*args, **kwargs)
 
     def IsAcceptedKey(*args, **kwargs):

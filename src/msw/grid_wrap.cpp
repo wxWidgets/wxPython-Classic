@@ -3486,21 +3486,23 @@ public:
     }
 
 
-    void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr) {
+    void PaintBackground(wxDC& dc, const wxRect& rectCell, const wxGridCellAttr& attr) {
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "PaintBackground"))) {
-            PyObject* ao = wxPyMake_wxGridCellAttr(attr,false);
+            PyObject* ao = wxPyMake_wxGridCellAttr((wxGridCellAttr*)&attr,false);
             PyObject* ro = wxPyConstructObject((void*)&rectCell, wxT("wxRect"), 0);
+            PyObject* dco = wxPyMake_wxObject(&dc,false);
 
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ro, ao));
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOO)", dco, ro, ao));
 
             Py_DECREF(ro);
             Py_DECREF(ao);
+            Py_DECREF(dco);
         }
         wxPyEndBlockThreads(blocked);
         if (! found)
-            wxGridCellEditor::PaintBackground(rectCell, attr);
+            wxGridCellEditor::PaintBackground(dc, rectCell, attr);
     }
 
 
@@ -5369,38 +5371,53 @@ fail:
 SWIGINTERN PyObject *_wrap_GridCellEditor_PaintBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxGridCellEditor *arg1 = (wxGridCellEditor *) 0 ;
-  wxRect *arg2 = 0 ;
-  wxGridCellAttr *arg3 = (wxGridCellAttr *) 0 ;
+  wxDC *arg2 = 0 ;
+  wxRect *arg3 = 0 ;
+  wxGridCellAttr *arg4 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  wxRect temp2 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  wxRect temp3 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "rectCell",(char *) "attr", NULL 
+    (char *) "self",(char *) "dc",(char *) "rectCell",(char *) "attr", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:GridCellEditor_PaintBackground",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:GridCellEditor_PaintBackground",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGridCellEditor, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GridCellEditor_PaintBackground" "', expected argument " "1"" of type '" "wxGridCellEditor *""'"); 
   }
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GridCellEditor_PaintBackground" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GridCellEditor_PaintBackground" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
   {
-    arg2 = &temp2;
-    if ( ! wxRect_helper(obj1, &arg2)) SWIG_fail;
+    arg3 = &temp3;
+    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxGridCellAttr, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "GridCellEditor_PaintBackground" "', expected argument " "3"" of type '" "wxGridCellAttr *""'"); 
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxGridCellAttr,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "GridCellEditor_PaintBackground" "', expected argument " "4"" of type '" "wxGridCellAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxGridCellAttr * >(argp3);
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GridCellEditor_PaintBackground" "', expected argument " "4"" of type '" "wxGridCellAttr const &""'"); 
+  }
+  arg4 = reinterpret_cast< wxGridCellAttr * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PaintBackground((wxRect const &)*arg2,arg3);
+    (arg1)->PaintBackground(*arg2,(wxRect const &)*arg3,(wxGridCellAttr const &)*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
