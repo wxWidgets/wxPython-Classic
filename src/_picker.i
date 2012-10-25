@@ -538,10 +538,12 @@ public:
     void SetPath(const wxString &str);
 
     // return true if the given path is valid for this control
-    bool CheckPath(const wxString& path) const;
+    // ?? bool CheckPath(const wxString& path) const;
 
     // Returns the filtered value currently placed in the text control (if present).
     wxString GetTextCtrlValue() const;
+
+    void SetInitialDirectory(const wxString& dir);
 
     %property(Path, GetPath, SetPath, doc="See `GetPath` and `SetPath`");
     %property(TextCtrlValue, GetTextCtrlValue, doc="See `GetTextCtrlValue`");
@@ -583,7 +585,7 @@ public:
     void SetPath(const wxString &str);
     
     // return true if the given path is valid for this control
-    bool CheckPath(const wxString& path) const;
+    // ?? bool CheckPath(const wxString& path) const;
 
     // Returns the filtered value currently placed in the text control (if present).
     wxString GetTextCtrlValue() const;
