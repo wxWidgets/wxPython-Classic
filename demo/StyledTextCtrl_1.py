@@ -217,7 +217,8 @@ def runTest(frame, nb, log):
     ed.StyleSetSpec(2, "face:%s,italic,fore:#FF0000,size:%d" % (face2, pb))
     ed.StyleSetSpec(3, "face:%s,bold,size:%d" % (face2, pb))
     ed.StyleSetSpec(4, "face:%s,size:%d" % (face1, pb-1))
-
+    ed.StyleSetSpec(5, "back:#FFF0F0")
+    
     # Now set some text to those styles...  Normally this would be
     # done in an event handler that happens when text needs displayed.
     ed.StartStyling(98, 0xff)
@@ -252,7 +253,7 @@ def runTest(frame, nb, log):
     ed.MarkerAdd(20, 0)
 
 
-    # and finally, an indicator or two
+    # and an indicator or two
     ed.IndicatorSetStyle(0, stc.STC_INDIC_SQUIGGLE)
     ed.IndicatorSetForeground(0, wx.RED)
     ed.IndicatorSetStyle(1, stc.STC_INDIC_DIAGONAL)
@@ -265,6 +266,10 @@ def runTest(frame, nb, log):
     ed.SetStyling(8, stc.STC_INDIC1_MASK)
     ed.SetStyling(10, stc.STC_INDIC2_MASK | stc.STC_INDIC1_MASK)
 
+    # add some annotations
+    ed.AnnotationSetText(23, "\nThis is an annotaion, it is not part of \nthe document's text.\n")
+    ed.AnnotationSetVisible(stc.STC_ANNOTATION_BOXED)
+    ed.AnnotationSetStyle(23, 5)  # line number, style number
 
     # some test stuff...
     if debug:
