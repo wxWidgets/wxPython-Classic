@@ -6684,6 +6684,10 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         return _stc.StyledTextCtrl_GetUseAntiAliasing(*args, **kwargs)
 
+    def AnnotationClearLine(*args, **kwargs):
+        """AnnotationClearLine(self, int line)"""
+        return _stc.StyledTextCtrl_AnnotationClearLine(*args, **kwargs)
+
     def AddTextRaw(*args, **kwargs):
         """
         AddTextRaw(self, char text, int length=-1)
@@ -6887,6 +6891,10 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
             text = u.encode(wx.GetDefaultPyEncoding())
         self.AppendTextRaw(text)
 
+
+    def SelectNone(*args, **kwargs):
+        """SelectNone(self)"""
+        return _stc.StyledTextCtrl_SelectNone(*args, **kwargs)
 
     def PositionToXY(*args, **kwargs):
         """PositionToXY(long pos) -> (x, y)"""

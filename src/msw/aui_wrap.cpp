@@ -17519,6 +17519,72 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiMDIClientWindow_GetActiveChild(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiMDIClientWindow *arg1 = (wxAuiMDIClientWindow *) 0 ;
+  wxAuiMDIChildFrame *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiMDIClientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiMDIClientWindow_GetActiveChild" "', expected argument " "1"" of type '" "wxAuiMDIClientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiMDIClientWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxAuiMDIChildFrame *)(arg1)->GetActiveChild();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiMDIChildFrame, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiMDIClientWindow_SetActiveChild(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiMDIClientWindow *arg1 = (wxAuiMDIClientWindow *) 0 ;
+  wxAuiMDIChildFrame *arg2 = (wxAuiMDIChildFrame *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pChildFrame", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiMDIClientWindow_SetActiveChild",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiMDIClientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiMDIClientWindow_SetActiveChild" "', expected argument " "1"" of type '" "wxAuiMDIClientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiMDIClientWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxAuiMDIChildFrame, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiMDIClientWindow_SetActiveChild" "', expected argument " "2"" of type '" "wxAuiMDIChildFrame *""'"); 
+  }
+  arg2 = reinterpret_cast< wxAuiMDIChildFrame * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetActiveChild(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *AuiMDIClientWindow_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -23990,6 +24056,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PreAuiMDIClientWindow", (PyCFunction)_wrap_new_PreAuiMDIClientWindow, METH_NOARGS, NULL},
 	 { (char *)"new_AuiMDIClientWindow", (PyCFunction) _wrap_new_AuiMDIClientWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiMDIClientWindow_CreateClient", (PyCFunction) _wrap_AuiMDIClientWindow_CreateClient, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiMDIClientWindow_GetActiveChild", (PyCFunction)_wrap_AuiMDIClientWindow_GetActiveChild, METH_O, NULL},
+	 { (char *)"AuiMDIClientWindow_SetActiveChild", (PyCFunction) _wrap_AuiMDIClientWindow_SetActiveChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiMDIClientWindow_swigregister", AuiMDIClientWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiMDIClientWindow_swiginit", AuiMDIClientWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_AuiToolBarEvent", (PyCFunction) _wrap_new_AuiToolBarEvent, METH_VARARGS | METH_KEYWORDS, NULL},

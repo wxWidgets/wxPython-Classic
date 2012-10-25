@@ -1636,6 +1636,14 @@ class AuiMDIClientWindow(AuiNotebook):
         """CreateClient(self, AuiMDIParentFrame parent, long style=wxVSCROLL|wxHSCROLL) -> bool"""
         return _aui.AuiMDIClientWindow_CreateClient(*args, **kwargs)
 
+    def GetActiveChild(*args, **kwargs):
+        """GetActiveChild(self) -> AuiMDIChildFrame"""
+        return _aui.AuiMDIClientWindow_GetActiveChild(*args, **kwargs)
+
+    def SetActiveChild(*args, **kwargs):
+        """SetActiveChild(self, AuiMDIChildFrame pChildFrame)"""
+        return _aui.AuiMDIClientWindow_SetActiveChild(*args, **kwargs)
+
 _aui.AuiMDIClientWindow_swigregister(AuiMDIClientWindow)
 
 def PreAuiMDIClientWindow(*args, **kwargs):

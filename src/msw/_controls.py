@@ -7045,13 +7045,13 @@ class FilePickerCtrl(PickerBase):
         """SetPath(self, String str)"""
         return _controls_.FilePickerCtrl_SetPath(*args, **kwargs)
 
-    def CheckPath(*args, **kwargs):
-        """CheckPath(self, String path) -> bool"""
-        return _controls_.FilePickerCtrl_CheckPath(*args, **kwargs)
-
     def GetTextCtrlValue(*args, **kwargs):
         """GetTextCtrlValue(self) -> String"""
         return _controls_.FilePickerCtrl_GetTextCtrlValue(*args, **kwargs)
+
+    def SetInitialDirectory(*args, **kwargs):
+        """SetInitialDirectory(self, String dir)"""
+        return _controls_.FilePickerCtrl_SetInitialDirectory(*args, **kwargs)
 
     Path = property(GetPath,SetPath,doc="See `GetPath` and `SetPath`") 
     TextCtrlValue = property(GetTextCtrlValue,doc="See `GetTextCtrlValue`") 
@@ -7099,10 +7099,6 @@ class DirPickerCtrl(PickerBase):
     def SetPath(*args, **kwargs):
         """SetPath(self, String str)"""
         return _controls_.DirPickerCtrl_SetPath(*args, **kwargs)
-
-    def CheckPath(*args, **kwargs):
-        """CheckPath(self, String path) -> bool"""
-        return _controls_.DirPickerCtrl_CheckPath(*args, **kwargs)
 
     def GetTextCtrlValue(*args, **kwargs):
         """GetTextCtrlValue(self) -> String"""

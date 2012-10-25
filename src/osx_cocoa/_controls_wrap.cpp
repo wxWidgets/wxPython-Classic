@@ -46167,54 +46167,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_FilePickerCtrl_CheckPath(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxFilePickerCtrl *arg1 = (wxFilePickerCtrl *) 0 ;
-  wxString *arg2 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "path", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:FilePickerCtrl_CheckPath",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFilePickerCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FilePickerCtrl_CheckPath" "', expected argument " "1"" of type '" "wxFilePickerCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxFilePickerCtrl * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxFilePickerCtrl const *)arg1)->CheckPath((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_FilePickerCtrl_GetTextCtrlValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFilePickerCtrl *arg1 = (wxFilePickerCtrl *) 0 ;
@@ -46245,6 +46197,51 @@ SWIGINTERN PyObject *_wrap_FilePickerCtrl_GetTextCtrlValue(PyObject *SWIGUNUSEDP
   }
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FilePickerCtrl_SetInitialDirectory(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFilePickerCtrl *arg1 = (wxFilePickerCtrl *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dir", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:FilePickerCtrl_SetInitialDirectory",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFilePickerCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FilePickerCtrl_SetInitialDirectory" "', expected argument " "1"" of type '" "wxFilePickerCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFilePickerCtrl * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetInitialDirectory((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -46644,54 +46641,6 @@ SWIGINTERN PyObject *_wrap_DirPickerCtrl_SetPath(PyObject *SWIGUNUSEDPARM(self),
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_DirPickerCtrl_CheckPath(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxDirPickerCtrl *arg1 = (wxDirPickerCtrl *) 0 ;
-  wxString *arg2 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "path", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DirPickerCtrl_CheckPath",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDirPickerCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DirPickerCtrl_CheckPath" "', expected argument " "1"" of type '" "wxDirPickerCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxDirPickerCtrl * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxDirPickerCtrl const *)arg1)->CheckPath((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
   {
     if (temp2)
     delete arg2;
@@ -52073,8 +52022,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"FilePickerCtrl_Create", (PyCFunction) _wrap_FilePickerCtrl_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FilePickerCtrl_GetPath", (PyCFunction)_wrap_FilePickerCtrl_GetPath, METH_O, NULL},
 	 { (char *)"FilePickerCtrl_SetPath", (PyCFunction) _wrap_FilePickerCtrl_SetPath, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"FilePickerCtrl_CheckPath", (PyCFunction) _wrap_FilePickerCtrl_CheckPath, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FilePickerCtrl_GetTextCtrlValue", (PyCFunction)_wrap_FilePickerCtrl_GetTextCtrlValue, METH_O, NULL},
+	 { (char *)"FilePickerCtrl_SetInitialDirectory", (PyCFunction) _wrap_FilePickerCtrl_SetInitialDirectory, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FilePickerCtrl_swigregister", FilePickerCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"FilePickerCtrl_swiginit", FilePickerCtrl_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_DirPickerCtrl", (PyCFunction) _wrap_new_DirPickerCtrl, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -52082,7 +52031,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DirPickerCtrl_Create", (PyCFunction) _wrap_DirPickerCtrl_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DirPickerCtrl_GetPath", (PyCFunction)_wrap_DirPickerCtrl_GetPath, METH_O, NULL},
 	 { (char *)"DirPickerCtrl_SetPath", (PyCFunction) _wrap_DirPickerCtrl_SetPath, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DirPickerCtrl_CheckPath", (PyCFunction) _wrap_DirPickerCtrl_CheckPath, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DirPickerCtrl_GetTextCtrlValue", (PyCFunction)_wrap_DirPickerCtrl_GetTextCtrlValue, METH_O, NULL},
 	 { (char *)"DirPickerCtrl_swigregister", DirPickerCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DirPickerCtrl_swiginit", DirPickerCtrl_swiginit, METH_VARARGS, NULL},
