@@ -306,7 +306,7 @@ else:
         os.makedirs(WXPY_BUILD_DIR)
         
     if options.mac_universal_binary:
-        build_options.append("--mac_universal_binary")
+        build_options.append("--mac_universal_binary=default")
     elif  options.mac_arch: 
         build_options.append("--mac_universal_binary=%s" % options.mac_arch)
         wxpy_build_options.append("ARCH=%s" % options.mac_arch)
