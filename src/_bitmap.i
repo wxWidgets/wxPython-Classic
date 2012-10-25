@@ -416,10 +416,6 @@ wx.Bitmap.  Other formats are automatically loaded by `wx.Image` and
 converted to a wx.Bitmap, so any image file format supported by
 `wx.Image` can be used.
 
-:todo: Add wrappers and support for raw bitmap data access.  Can this
-       be be put into Python without losing the speed benefits of the
-       teplates and iterators in rawbmp.h?
-
 :todo: Find a way to do very efficient PIL Image <--> wx.Bitmap
        converstions.
 

@@ -50,13 +50,13 @@ class Genre(object):
 
 # This model acts as a bridge between the DataViewCtrl and the music data, and
 # organizes it hierarchically as a collection of Genres, each of which is a
-# collection of songs. We derive the class from PyDataViewCtrl, which knows
+# collection of songs. We derive the class from PyDataViewModel, which knows
 # how to reflect the C++ virtual methods to the Python methods in the derived
 # class.
 
 # This model provides these data columns:
 #
-#     0. Genre :  string
+#     0. Genre:   string
 #     1. Artist:  string
 #     2. Title:   string
 #     3. id:      integer
