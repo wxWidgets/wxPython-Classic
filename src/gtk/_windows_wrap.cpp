@@ -25976,7 +25976,7 @@ fail:
 SWIGINTERN PyObject *_wrap_FindDialogEvent_GetFindString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFindDialogEvent *arg1 = (wxFindDialogEvent *) 0 ;
-  wxString *result = 0 ;
+  wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -25990,18 +25990,15 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_GetFindString(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxFindDialogEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = (arg1)->GetFindString();
-      result = (wxString *) &_result_ref;
-    }
+    result = (arg1)->GetFindString();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
 #if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
 #else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
   }
   return resultobj;
