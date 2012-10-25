@@ -784,7 +784,7 @@ public:
 
     virtual void SetSize(const wxRect& rect);
     virtual void Show(bool show, wxGridCellAttr *attr = NULL);
-    virtual void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr);
+    virtual void PaintBackground(wxDC& dc, const wxRect& rectCell, const wxGridCellAttr& attr);
     virtual bool IsAcceptedKey(wxKeyEvent& event);
     virtual void StartingKey(wxKeyEvent& event);
     virtual void StartingClick();
@@ -902,21 +902,23 @@ public:
     }
 
 
-    void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr) {
+    void PaintBackground(wxDC& dc, const wxRect& rectCell, const wxGridCellAttr& attr) {
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "PaintBackground"))) {
-            PyObject* ao = wxPyMake_wxGridCellAttr(attr,false);
+            PyObject* ao = wxPyMake_wxGridCellAttr((wxGridCellAttr*)&attr,false);
             PyObject* ro = wxPyConstructObject((void*)&rectCell, wxT("wxRect"), 0);
+            PyObject* dco = wxPyMake_wxObject(&dc,false);
 
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ro, ao));
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOO)", dco, ro, ao));
 
             Py_DECREF(ro);
             Py_DECREF(ao);
+            Py_DECREF(dco);
         }
         wxPyEndBlockThreads(blocked);
         if (! found)
-            wxGridCellEditor::PaintBackground(rectCell, attr);
+            wxGridCellEditor::PaintBackground(dc, rectCell, attr);
     }
 
 
@@ -957,7 +959,7 @@ public:
 
     void SetSize(const wxRect& rect);
     void Show(bool show, wxGridCellAttr *attr = NULL);
-    void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr);
+    void PaintBackground(wxDC& dc, const wxRect& rectCell, const wxGridCellAttr& attr);
     bool IsAcceptedKey(wxKeyEvent& event);
     void StartingKey(wxKeyEvent& event);
     void StartingClick();
