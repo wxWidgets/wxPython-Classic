@@ -16,7 +16,7 @@
 #
 
 '''
-wxPython.lib.wxpTag
+wx.lib.wxpTag
 
 This module contains a wxHtmlTagHandler that knows how to build
 and place wxPython widgets onto wxHtmlWindow web pages.
@@ -269,5 +269,7 @@ def _param2dict(param):
 #----------------------------------------------------------------------
 
 
-
+# Add our handler class to the collection of tag handlers maintained
+# by wxWidgets.
 wx.html.HtmlWinParser_AddTagHandler(wxpTagHandler)
+
