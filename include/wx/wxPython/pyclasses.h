@@ -154,7 +154,7 @@ public:
     // this function is called when data is dropped at position (x, y) - if it
     // returns True, OnData() will be called immediately afterwards which will
     // allow to retrieve the data dropped.
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    DEC_PYCALLBACK_BOOL_2COORD(OnDrop);
 
     PYPRIVATE;
 };
