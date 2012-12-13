@@ -105,7 +105,7 @@ public:
                    wxSize size = wxDefaultSize)
         { return wxXmlResourceHandler::GetIcon(param, defaultArtClient, size); }
 
-    wxAnimation GetAnimation(const wxString& param = wxT("animation"))
+    wxAnimation* GetAnimation(const wxString& param = wxT("animation"))
         { return wxXmlResourceHandler::GetAnimation(param); }
 
     wxFont GetFont(const wxString& param = wxT("font"))
@@ -247,7 +247,7 @@ public:
     wxFont GetFont(const wxString& param = wxPyFontString);
 
     // Gets an animation.
-    wxAnimation GetAnimation(const wxString& param = wxPyAnimationString);
+    wxAnimation* GetAnimation(const wxString& param = wxPyAnimationString);
 
     // Sets common window options.
     void SetupWindow(wxWindow *wnd);
