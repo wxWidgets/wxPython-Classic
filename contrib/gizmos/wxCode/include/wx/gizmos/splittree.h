@@ -173,7 +173,7 @@ public:
     void SizeWindows();
     // Tests for x, y over sash. Overriding this allows us to increase
     // the tolerance.
-    bool SashHitTest(int x, int y, int tolerance = 2);
+    bool SashHitTest(int x, int y);
     void DrawSash(wxDC& dc);
 
 //// Events

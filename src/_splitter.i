@@ -351,7 +351,7 @@ the window may be unsplit even if minimum size is non-zero.", "");
     
 
     DocDeclStr(
-        virtual bool , SashHitTest(int x, int y, int tolerance = 5),
+        virtual bool , SashHitTest(int x, int y),
         "Tests for x, y over the sash", "");
     
 

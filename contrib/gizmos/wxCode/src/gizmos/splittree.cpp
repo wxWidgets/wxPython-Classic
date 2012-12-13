@@ -595,9 +595,9 @@ void wxThinSplitterWindow::SizeWindows()
 }
 
 // Tests for x, y over sash
-bool wxThinSplitterWindow::SashHitTest(int x, int y, int WXUNUSED(tolerance))
+bool wxThinSplitterWindow::SashHitTest(int x, int y)
 {
-    return wxSplitterWindow::SashHitTest(x, y, 4);
+    return wxSplitterWindow::SashHitTest(x, y);
 }
 
 void wxThinSplitterWindow::DrawSash(wxDC& dc)
