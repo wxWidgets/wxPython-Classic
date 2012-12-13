@@ -1618,7 +1618,7 @@ class SplitterWindow(_core.Window):
 
     def SashHitTest(*args, **kwargs):
         """
-        SashHitTest(self, int x, int y, int tolerance=5) -> bool
+        SashHitTest(self, int x, int y) -> bool
 
         Tests for x, y over the sash
         """

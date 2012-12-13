@@ -3271,6 +3271,7 @@ enum wxBitmapBufferFormat {
                             *(data++) = wxPy_unpremultiply(p.Green(), a);
                             *(data++) = wxPy_unpremultiply(p.Blue(), a);
                             *(data++) = a;
+                            ++p;
                         }
                         p = rowStart;
                         p.OffsetY(pixData, 1);
@@ -3286,6 +3287,7 @@ enum wxBitmapBufferFormat {
                             *(data++) = wxPy_unpremultiply(p.Green(), a);
                             *(data++) = wxPy_unpremultiply(p.Blue(), a);
                             *(data++) = a;
+                            ++p;
                         }
                         p = rowStart;
                         p.OffsetY(pixData, 1);

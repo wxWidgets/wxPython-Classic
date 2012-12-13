@@ -2867,7 +2867,7 @@ public:
                    wxSize size = wxDefaultSize)
         { return wxXmlResourceHandler::GetIcon(param, defaultArtClient, size); }
 
-    wxAnimation GetAnimation(const wxString& param = wxT("animation"))
+    wxAnimation* GetAnimation(const wxString& param = wxT("animation"))
         { return wxXmlResourceHandler::GetAnimation(param); }
 
     wxFont GetFont(const wxString& param = wxT("font"))
@@ -9101,7 +9101,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetAnimation(PyObject *SWIGUNUSEDP
   wxPyXmlResourceHandler *arg1 = (wxPyXmlResourceHandler *) 0 ;
   wxString const &arg2_defvalue = wxPyAnimationString ;
   wxString *arg2 = (wxString *) &arg2_defvalue ;
-  wxAnimation result;
+  wxAnimation *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -9126,11 +9126,11 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetAnimation(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetAnimation((wxString const &)*arg2);
+    result = (wxAnimation *)(arg1)->GetAnimation((wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxAnimation(static_cast< const wxAnimation& >(result))), SWIGTYPE_p_wxAnimation, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAnimation, 0 |  0 );
   {
     if (temp2)
     delete arg2;

@@ -3210,7 +3210,7 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
 
 
 #define PYCALLBACK_BOOL_RECTDVMDVIUINT(PCLASS, CBNAME)                         \
-    bool CBNAME(const wxRect& a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
+    bool CBNAME(wxRect a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -3230,8 +3230,31 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
     }
 
 
+#define PYCALLBACK_BOOL_RECTDVMDVIUINTME(PCLASS, CBNAME)                         \
+    bool CBNAME(const wxRect& a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d, const wxMouseEvent* e) { \
+        bool found;                                                             \
+        bool rval = false;                                                      \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxRect"), 0);    \
+            PyObject* bo = wxPyConstructObject((void*)b, wxT("wxDataViewModel"), 0);   \
+            PyObject* co = wxPyConstructObject((void*)&c, wxT("wxDataViewItem"), 0);   \
+            PyObject* eo = wxPyConstructObject((void*)e, wxT("wxMouseEvent"), 0);   \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOOiO)", ao,bo,co,d,eo)); \
+            Py_DECREF(ao);                                                      \
+            Py_DECREF(bo);                                                      \
+            Py_DECREF(co);                                                      \
+            Py_DECREF(eo);                                                      \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a, b, c, d, e)      ;                         \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(PCLASS, CBNAME)                     \
-    bool CBNAME(const wxPoint& a, const wxRect& b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
+    bool CBNAME(wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -3859,6 +3882,7 @@ public:
     
     PYCALLBACK_SIZE__constpure(wxDataViewCustomRenderer, GetSize);
     PYCALLBACK_BOOL_RECTDCINT_pure(wxDataViewCustomRenderer, Render);
+    PYCALLBACK_BOOL_RECTDVMDVIUINTME(wxDataViewCustomRenderer, ActivateCell);
     PYCALLBACK_BOOL_RECTDVMDVIUINT(wxDataViewCustomRenderer, Activate);
     PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, LeftClick);
     PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, StartDrag);

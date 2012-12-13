@@ -13288,7 +13288,6 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SashHitTest(PyObject *SWIGUNUSEDPARM(s
   wxSplitterWindow *arg1 = (wxSplitterWindow *) 0 ;
   int arg2 ;
   int arg3 ;
-  int arg4 = (int) 5 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -13296,17 +13295,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SashHitTest(PyObject *SWIGUNUSEDPARM(s
   int ecode2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "x",(char *) "y",(char *) "tolerance", NULL 
+    (char *) "self",(char *) "x",(char *) "y", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:SplitterWindow_SashHitTest",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:SplitterWindow_SashHitTest",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSplitterWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SplitterWindow_SashHitTest" "', expected argument " "1"" of type '" "wxSplitterWindow *""'"); 
@@ -13322,16 +13318,9 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SashHitTest(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "SplitterWindow_SashHitTest" "', expected argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
-  if (obj3) {
-    ecode4 = SWIG_AsVal_int(obj3, &val4);
-    if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "SplitterWindow_SashHitTest" "', expected argument " "4"" of type '" "int""'");
-    } 
-    arg4 = static_cast< int >(val4);
-  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SashHitTest(arg2,arg3,arg4);
+    result = (bool)(arg1)->SashHitTest(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

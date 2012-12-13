@@ -4145,33 +4145,60 @@ IMP_PYCALLBACK_BOOL_DR(wxPyDropSource, wxDropSource, GiveFeedback);
 
 
 IMP_PYCALLBACK__(wxPyDropTarget, wxDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnDragOver);
+//IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnEnter);
+//IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnDragOver);
 IMP_PYCALLBACK_DR_2WXCDR_pure(wxPyDropTarget, wxDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyDropTarget, wxDropTarget, OnDrop);
+IMP_PYCALLBACK_BOOL_2COORD(wxPyDropTarget, wxDropTarget, OnDrop);
+
+wxDragResult wxPyDropTarget::OnEnter(wxCoord a, wxCoord b, wxDragResult c) {
+    printf("OnEnter\n");
+    int rval=0;                                                             
+    bool found;                                                             
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();                          
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnEnter")))                  
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c));
+    wxPyEndBlockThreads(blocked);                                           
+    if (! found)                                                            
+        rval = wxDropTarget::OnEnter(a, b, c);                                     
+    return (wxDragResult)rval;                                              
+}        
+
+wxDragResult wxPyDropTarget::OnDragOver(wxCoord a, wxCoord b, wxDragResult c) {
+    printf("--OnDragOver\n");
+    int rval=0;                                                             
+    bool found;                                                             
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();                          
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnDragOver")))                  
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c));
+    wxPyEndBlockThreads(blocked);                                           
+    if (! found)                                                            
+        rval = wxDropTarget::OnDragOver(a, b, c);                                     
+    return (wxDragResult)rval;                                              
+}        
+
 
 
 class wxPyTextDropTarget : public wxTextDropTarget {
 public:
     wxPyTextDropTarget() {}
 
-    DEC_PYCALLBACK_BOOL_INTINTSTR_pure(OnDropText);
+    DEC_PYCALLBACK_BOOL_2COORDSTR_pure(OnDropText);
 
     DEC_PYCALLBACK__(OnLeave);
     DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
     DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
     DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    DEC_PYCALLBACK_BOOL_2COORD(OnDrop);
 
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_BOOL_INTINTSTR_pure(wxPyTextDropTarget, wxTextDropTarget, OnDropText);
+IMP_PYCALLBACK_BOOL_2COORDSTR_pure(wxPyTextDropTarget, wxTextDropTarget, OnDropText);
 IMP_PYCALLBACK__(wxPyTextDropTarget, wxTextDropTarget, OnLeave);
 IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnEnter);
 IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnDragOver);
 IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyTextDropTarget, wxTextDropTarget, OnDrop);
+IMP_PYCALLBACK_BOOL_2COORD(wxPyTextDropTarget, wxTextDropTarget, OnDrop);
 
 
 
@@ -4185,7 +4212,7 @@ public:
     DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
     DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
     DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    DEC_PYCALLBACK_BOOL_2COORD(OnDrop);
 
     PYPRIVATE;
 };
