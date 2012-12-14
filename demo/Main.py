@@ -1548,15 +1548,15 @@ class DemoErrorPanel(wx.Panel):
 
 class MainPanel(wx.Panel):
     """
-    Just a simple derived panel where we override Freeze and Thaw to work
-    around an issue on wxGTK.
+    Just a simple derived panel where we override Freeze and Thaw so they are
+    only used on wxMSW.    
     """
     def Freeze(self):
-        if not 'wxGTK' in wx.PlatformInfo:
+        if 'wxMSW' in wx.PlatformInfo:
             return super(MainPanel, self).Freeze()
                          
     def Thaw(self):
-        if not 'wxGTK' in wx.PlatformInfo:
+        if 'wxMSW' in wx.PlatformInfo:
             return super(MainPanel, self).Thaw()
                          
 #---------------------------------------------------------------------------
@@ -1646,7 +1646,7 @@ class DemoTaskBarIcon(wx.TaskBarIcon):
 #---------------------------------------------------------------------------
 class wxPythonDemo(wx.Frame):
 
-    overviewText = "wxPython Overview"
+    overviewText = "wxPython Demo"
 
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, -1, title, size = (970, 720),
@@ -2900,10 +2900,16 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
 
         self.AssignImageList(imgList)
 
-
     def GetItemIdentity(self, item):
         return self.GetPyData(item)
 
+    def Freeze(self):
+        if 'wxMSW' in wx.PlatformInfo:
+            return super(wxPythonDemoTree, self).Freeze()
+                         
+    def Thaw(self):
+        if 'wxMSW' in wx.PlatformInfo:
+            return super(wxPythonDemoTree, self).Thaw()
 
 #---------------------------------------------------------------------------
 
