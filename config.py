@@ -710,6 +710,8 @@ def getoutput(cmd):
 
 def getVisCVersion():
     text = getoutput("cl.exe")
+    if 'Version 13' in text:
+        return '71'
     if 'Version 15' in text:
         return '90'
     # TODO: Add more tests to get the other versions...

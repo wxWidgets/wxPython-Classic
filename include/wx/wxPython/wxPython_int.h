@@ -222,6 +222,9 @@ typedef PyGILState_STATE wxPyBlock_t;
 typedef int Py_ssize_t;
 #endif
 
+#ifndef Py_TYPE
+#define Py_TYPE(o) ((o)->ob_type)
+#endif
 
 #ifndef wxPyUSE_EXPORTED_API
 
