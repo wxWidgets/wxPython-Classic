@@ -153,6 +153,20 @@ will always use Ctrl on all platforms, and not be converted to Cmd on
 Macs.
 
 
+Caching BestSize
+----------------
+
+The return value from DoGetBestSize is now explicitly cached in
+wx.Window code.  If you have custom controls that should have a new
+best size if something in the widget changes, then you should call
+InvalidateBestSize when that change happens.  That way the instance's
+DoGetBestSize will be called again the next time it is needed for
+layout or whatever.  If InvalidateBestSize is not called then the old
+best size will continue to be used and your layout may become
+incorrect. 
+
+
+
 Miscellaneous Other Stuff
 -------------------------
 
