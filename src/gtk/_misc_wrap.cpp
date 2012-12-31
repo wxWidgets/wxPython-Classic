@@ -3855,13 +3855,19 @@ SWIGINTERN bool wxDateTime___ne__(wxDateTime *self,wxDateTime const *other){
             if (!other || !self->IsValid() || !other->IsValid()) return self != other; 
             return (*self != *other);
         }
-SWIGINTERN bool wxDateTime_ParseRfc822Date(wxDateTime *self,wxString const &date){
+SWIGINTERN int wxDateTime_ParseRfc822Date(wxDateTime *self,wxString const &date){
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseRfc822Date(date, &end);
+            if (!self->ParseRfc822Date(date, &end))
+                return -1;
+            return end - begin;
         }
-SWIGINTERN bool wxDateTime_ParseFormat(wxDateTime *self,wxString const &date,wxString const &format=wxPyDefaultDateTimeFormat,wxDateTime const &dateDef=wxDefaultDateTime){
+SWIGINTERN int wxDateTime_ParseFormat(wxDateTime *self,wxString const &date,wxString const &format=wxPyDefaultDateTimeFormat,wxDateTime const &dateDef=wxDefaultDateTime){
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseFormat(date, format, dateDef, &end);
+            if (!self->ParseFormat(date, format, dateDef, &end))
+                return -1;
+            return end - begin;
         }
 
 SWIGINTERN int
@@ -3906,17 +3912,26 @@ SWIG_AsVal_char (PyObject * obj, char *val)
   return res;
 }
 
-SWIGINTERN bool wxDateTime_ParseDateTime(wxDateTime *self,wxString const &datetime){
+SWIGINTERN int wxDateTime_ParseDateTime(wxDateTime *self,wxString const &datetime){
+            wxString::const_iterator begin = datetime.begin();
             wxString::const_iterator end;
-            return self->ParseDateTime(datetime, &end);
+            if (!self->ParseDateTime(datetime, &end))
+                return -1;
+            return end - begin;
         }
-SWIGINTERN bool wxDateTime_ParseDate(wxDateTime *self,wxString const &date){
+SWIGINTERN int wxDateTime_ParseDate(wxDateTime *self,wxString const &date){
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseDate(date, &end);
+            if (!self->ParseDate(date, &end))
+                return -1;
+            return end - begin;
         }
-SWIGINTERN bool wxDateTime_ParseTime(wxDateTime *self,wxString const &time){
+SWIGINTERN int wxDateTime_ParseTime(wxDateTime *self,wxString const &time){
+            wxString::const_iterator begin = time.begin();
             wxString::const_iterator end;
-            return self->ParseTime(time, &end);
+            if (!self->ParseTime(time, &end))
+                return -1;
+            return end - begin;
         }
 SWIGINTERN wxTimeSpan wxTimeSpan___add__(wxTimeSpan *self,wxTimeSpan const &other){ return *self + other; }
 SWIGINTERN wxTimeSpan wxTimeSpan___sub__(wxTimeSpan *self,wxTimeSpan const &other){ return *self - other; }
@@ -29738,7 +29753,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseRfc822Date(PyObject *SWIGUNUSEDPARM(sel
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  bool result;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -29761,13 +29776,11 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseRfc822Date(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDateTime_ParseRfc822Date(arg1,(wxString const &)*arg2);
+    result = (int)wxDateTime_ParseRfc822Date(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   {
     if (temp2)
     delete arg2;
@@ -29790,7 +29803,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseFormat(PyObject *SWIGUNUSEDPARM(self), 
   wxString *arg3 = (wxString *) &arg3_defvalue ;
   wxDateTime const &arg4_defvalue = wxDefaultDateTime ;
   wxDateTime *arg4 = (wxDateTime *) &arg4_defvalue ;
-  bool result;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -29835,13 +29848,11 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseFormat(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDateTime_ParseFormat(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxDateTime const &)*arg4);
+    result = (int)wxDateTime_ParseFormat(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxDateTime const &)*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   {
     if (temp2)
     delete arg2;
@@ -30023,7 +30034,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDateTime(PyObject *SWIGUNUSEDPARM(self)
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  bool result;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -30046,13 +30057,11 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDateTime(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDateTime_ParseDateTime(arg1,(wxString const &)*arg2);
+    result = (int)wxDateTime_ParseDateTime(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   {
     if (temp2)
     delete arg2;
@@ -30071,7 +30080,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDate(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  bool result;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -30094,13 +30103,11 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDate(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDateTime_ParseDate(arg1,(wxString const &)*arg2);
+    result = (int)wxDateTime_ParseDate(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   {
     if (temp2)
     delete arg2;
@@ -30119,7 +30126,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseTime(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  bool result;
+  int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -30142,13 +30149,11 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseTime(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDateTime_ParseTime(arg1,(wxString const &)*arg2);
+    result = (int)wxDateTime_ParseTime(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   {
     if (temp2)
     delete arg2;

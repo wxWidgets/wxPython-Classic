@@ -20465,10 +20465,28 @@ SWIGINTERN PyObject *AuiDefaultToolBarArt_swiginit(PyObject *SWIGUNUSEDPARM(self
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_AuiToolBar(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_new_AuiToolBar__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  wxAuiToolBar *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxAuiToolBar *)new wxAuiToolBar();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBar, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_AuiToolBar__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
-  int arg2 = (int) -1 ;
+  int arg2 = (int) wxID_ANY ;
   wxPoint const &arg3_defvalue = wxDefaultPosition ;
   wxPoint *arg3 = (wxPoint *) &arg3_defvalue ;
   wxSize const &arg4_defvalue = wxDefaultSize ;
@@ -20483,42 +20501,34 @@ SWIGINTERN PyObject *_wrap_new_AuiToolBar(PyObject *SWIGUNUSEDPARM(self), PyObje
   wxSize temp4 ;
   long val5 ;
   int ecode5 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  char *  kwnames[] = {
-    (char *) "parent",(char *) "id",(char *) "position",(char *) "size",(char *) "style", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOOO:new_AuiToolBar",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if ((nobjs < 1) || (nobjs > 5)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_AuiToolBar" "', expected argument " "1"" of type '" "wxWindow *""'"); 
   }
   arg1 = reinterpret_cast< wxWindow * >(argp1);
-  if (obj1) {
-    ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (swig_obj[1]) {
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
     if (!SWIG_IsOK(ecode2)) {
       SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_AuiToolBar" "', expected argument " "2"" of type '" "int""'");
     } 
     arg2 = static_cast< int >(val2);
   }
-  if (obj2) {
+  if (swig_obj[2]) {
     {
       arg3 = &temp3;
-      if ( ! wxPoint_helper(obj2, &arg3)) SWIG_fail;
+      if ( ! wxPoint_helper(swig_obj[2], &arg3)) SWIG_fail;
     }
   }
-  if (obj3) {
+  if (swig_obj[3]) {
     {
       arg4 = &temp4;
-      if ( ! wxSize_helper(obj3, &arg4)) SWIG_fail;
+      if ( ! wxSize_helper(swig_obj[3], &arg4)) SWIG_fail;
     }
   }
-  if (obj4) {
-    ecode5 = SWIG_AsVal_long(obj4, &val5);
+  if (swig_obj[4]) {
+    ecode5 = SWIG_AsVal_long(swig_obj[4], &val5);
     if (!SWIG_IsOK(ecode5)) {
       SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_AuiToolBar" "', expected argument " "5"" of type '" "long""'");
     } 
@@ -20533,6 +20543,25 @@ SWIGINTERN PyObject *_wrap_new_AuiToolBar(PyObject *SWIGUNUSEDPARM(self), PyObje
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBar, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_AuiToolBar(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[6];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"new_AuiToolBar",0,5,argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_new_AuiToolBar__SWIG_0(self, argc, argv);
+  }
+  if ((argc >= 1) && (argc <= 5)) {
+    return _wrap_new_AuiToolBar__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_AuiToolBar'");
   return NULL;
 }
 
@@ -20559,6 +20588,89 @@ SWIGINTERN PyObject *_wrap_delete_AuiToolBar(PyObject *SWIGUNUSEDPARM(self), PyO
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiToolBar_Create(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiToolBar *arg1 = (wxAuiToolBar *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int arg3 = (int) wxID_ANY ;
+  wxPoint const &arg4_defvalue = wxDefaultPosition ;
+  wxPoint *arg4 = (wxPoint *) &arg4_defvalue ;
+  wxSize const &arg5_defvalue = wxDefaultSize ;
+  wxSize *arg5 = (wxSize *) &arg5_defvalue ;
+  long arg6 = (long) wxAUI_TB_DEFAULT_STYLE ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  wxPoint temp4 ;
+  wxSize temp5 ;
+  long val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "parent",(char *) "id",(char *) "pos",(char *) "size",(char *) "style", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:AuiToolBar_Create",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiToolBar, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBar_Create" "', expected argument " "1"" of type '" "wxAuiToolBar *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBar * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiToolBar_Create" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "AuiToolBar_Create" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  if (obj3) {
+    {
+      arg4 = &temp4;
+      if ( ! wxPoint_helper(obj3, &arg4)) SWIG_fail;
+    }
+  }
+  if (obj4) {
+    {
+      arg5 = &temp5;
+      if ( ! wxSize_helper(obj4, &arg5)) SWIG_fail;
+    }
+  }
+  if (obj5) {
+    ecode6 = SWIG_AsVal_long(obj5, &val6);
+    if (!SWIG_IsOK(ecode6)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "AuiToolBar_Create" "', expected argument " "6"" of type '" "long""'");
+    } 
+    arg6 = static_cast< long >(val6);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -24139,8 +24251,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_AuiDefaultToolBarArt", (PyCFunction)_wrap_delete_AuiDefaultToolBarArt, METH_O, NULL},
 	 { (char *)"AuiDefaultToolBarArt_swigregister", AuiDefaultToolBarArt_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiDefaultToolBarArt_swiginit", AuiDefaultToolBarArt_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_AuiToolBar", (PyCFunction) _wrap_new_AuiToolBar, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_AuiToolBar", _wrap_new_AuiToolBar, METH_VARARGS, NULL},
 	 { (char *)"delete_AuiToolBar", (PyCFunction)_wrap_delete_AuiToolBar, METH_O, NULL},
+	 { (char *)"AuiToolBar_Create", (PyCFunction) _wrap_AuiToolBar_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBar_SetArtProvider", (PyCFunction) _wrap_AuiToolBar_SetArtProvider, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBar_GetArtProvider", (PyCFunction)_wrap_AuiToolBar_GetArtProvider, METH_O, NULL},
 	 { (char *)"AuiToolBar_AddTool", _wrap_AuiToolBar_AddTool, METH_VARARGS, NULL},

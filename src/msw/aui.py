@@ -1983,14 +1983,24 @@ class AuiToolBar(_core.Control):
     """Proxy of C++ AuiToolBar class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
+    def __init__(self, *args): 
         """
-        __init__(self, Window parent, int id=-1, Point position=DefaultPosition, 
+        __init__(self) -> AuiToolBar
+        __init__(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
             Size size=DefaultSize, long style=AUI_TB_DEFAULT_STYLE) -> AuiToolBar
         """
-        _aui.AuiToolBar_swiginit(self,_aui.new_AuiToolBar(*args, **kwargs))
+        _aui.AuiToolBar_swiginit(self,_aui.new_AuiToolBar(*args))
     __swig_destroy__ = _aui.delete_AuiToolBar
     __del__ = lambda self : None;
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=AUI_TB_DEFAULT_STYLE) -> bool
+
+        Do the 2nd phase and create the GUI control.
+        """
+        return _aui.AuiToolBar_Create(*args, **kwargs)
+
     def SetArtProvider(*args, **kwargs):
         """SetArtProvider(self, AuiToolBarArt art)"""
         return _aui.AuiToolBar_SetArtProvider(*args, **kwargs)

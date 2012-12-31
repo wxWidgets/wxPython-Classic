@@ -4192,11 +4192,11 @@ class DateTime(object):
         return _misc_.DateTime___ne__(*args, **kwargs)
 
     def ParseRfc822Date(*args, **kwargs):
-        """ParseRfc822Date(self, String date) -> bool"""
+        """ParseRfc822Date(self, String date) -> int"""
         return _misc_.DateTime_ParseRfc822Date(*args, **kwargs)
 
     def ParseFormat(*args, **kwargs):
-        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> bool"""
+        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> int"""
         return _misc_.DateTime_ParseFormat(*args, **kwargs)
 
     def ParseISODate(*args, **kwargs):
@@ -4212,15 +4212,15 @@ class DateTime(object):
         return _misc_.DateTime_ParseISOCombined(*args, **kwargs)
 
     def ParseDateTime(*args, **kwargs):
-        """ParseDateTime(self, String datetime) -> bool"""
+        """ParseDateTime(self, String datetime) -> int"""
         return _misc_.DateTime_ParseDateTime(*args, **kwargs)
 
     def ParseDate(*args, **kwargs):
-        """ParseDate(self, String date) -> bool"""
+        """ParseDate(self, String date) -> int"""
         return _misc_.DateTime_ParseDate(*args, **kwargs)
 
     def ParseTime(*args, **kwargs):
-        """ParseTime(self, String time) -> bool"""
+        """ParseTime(self, String time) -> int"""
         return _misc_.DateTime_ParseTime(*args, **kwargs)
 
     def Format(*args, **kwargs):
