@@ -795,22 +795,28 @@ public:
     %extend {
         // parse a string in RFC 822 format (found e.g. in mail headers and
         // having the form "Wed, 10 Feb 1999 19:07:07 +0100")
-        bool ParseRfc822Date(const wxString& date)
+        int ParseRfc822Date(const wxString& date)
         {
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseRfc822Date(date, &end);
+            if (!self->ParseRfc822Date(date, &end))
+                return -1;
+            return end - begin;
         }
 
         // parse a date/time in the given format (see strptime(3)), fill in
         // the missing (in the string) fields with the values of dateDef (by
         // default, they will not change if they had valid values or will
         // default to Today() otherwise)
-        bool ParseFormat(const wxString& date,
+        int ParseFormat(const wxString& date,
                          const wxString& format = wxPyDefaultDateTimeFormat,
                          const wxDateTime& dateDef = wxDefaultDateTime)
         {
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseFormat(date, format, dateDef, &end);
+            if (!self->ParseFormat(date, format, dateDef, &end))
+                return -1;
+            return end - begin;
         }
     }
 
@@ -827,27 +833,41 @@ public:
     %extend {
         // parse a string containing the date/time in "free" format, this
         // function will try to make an educated guess at the string contents
-        bool ParseDateTime(const wxString& datetime)
+        int ParseDateTime(const wxString& datetime)
         {
+            wxString::const_iterator begin = datetime.begin();
             wxString::const_iterator end;
-            return self->ParseDateTime(datetime, &end);
+            if (!self->ParseDateTime(datetime, &end))
+                return -1;
+            return end - begin;
         }
 
         // parse a string containing the date only in "free" format (less
         // flexible than ParseDateTime)
-        bool ParseDate(const wxString& date)
+        int ParseDate(const wxString& date)
         {
+            wxString::const_iterator begin = date.begin();
             wxString::const_iterator end;
-            return self->ParseDate(date, &end);
+            if (!self->ParseDate(date, &end))
+                return -1;
+            return end - begin;
         }
             
         // parse a string containing the time only in "free" format
-        bool ParseTime(const wxString& time)
-        {
-            wxString::const_iterator end;
-            return self->ParseTime(time, &end);
-        }
+        // bool ParseTime(const wxString& time)
+        // {
+        //     wxString::const_iterator end;
+        //     return self->ParseTime(time, &end);
+        // }
 
+        int ParseTime(const wxString& time)
+        {
+            wxString::const_iterator begin = time.begin();
+            wxString::const_iterator end;
+            if (!self->ParseTime(time, &end))
+                return -1;
+            return end - begin;
+        }
     }
 
         // this function accepts strftime()-like format string (default

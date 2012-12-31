@@ -17,6 +17,12 @@ controls.
 
 Updated Scintilla code to verison 3.21
 
+Lots of fixes and improvements in the wxWidgets code.
+
+Changed the wx.DateTime.Parse* methods to work like they did in
+wxPython 2.8, they now return an integer indicating how far in to
+the string that the parser parsed, or -1 on error.
+
 
 
 
