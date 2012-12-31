@@ -768,7 +768,7 @@ def find_DLLs():
     if os.environ.get('CPU', '') in ['AMD64', 'X64']:
         # Just hard-code it for now until a good solution for finding
         # the right dumpbin can be found...
-        return '294u', sys.version[:3]
+        return '295u', sys.version[:3]
         
     WXDLLVER = PYTHONVER = None
 
