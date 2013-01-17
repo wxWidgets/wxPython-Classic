@@ -243,6 +243,9 @@ class ComboCtrl(_core.Control,_core.TextEntry):
         """
         return _combo.ComboCtrl_GetValue(*args, **kwargs)
 
+    GetMark = wx.TextEntry.GetSelection
+    SetMark = wx.TextEntry.SetSelection
+
     def SetText(*args, **kwargs):
         """
         SetText(self, String value)
@@ -842,6 +845,9 @@ class OwnerDrawnComboBox(ComboCtrl,_core.ItemContainer):
         return _combo.OwnerDrawnComboBox_GetWidestItem(*args, **kwargs)
 
     GetString = wx.ItemContainer.GetString 
+    GetSelection = wx.ItemContainer.GetSelection
+    SetSelection = wx.ItemContainer.SetSelection
+
     def OnDrawItem(*args, **kwargs):
         """
         OnDrawItem(self, DC dc, Rect rect, int item, int flags)
