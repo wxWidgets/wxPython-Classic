@@ -383,16 +383,16 @@ SetValue is ignored.", "");
     virtual bool CanUndo() const;
     virtual bool CanRedo() const;
 
-    virtual void GetSelection(long *OUTPUT, long *OUTPUT) const;
-
     virtual bool IsEditable() const;
     virtual void SetEditable(bool editable);
 
     virtual bool SetHint(const wxString& hint);
     virtual wxString GetHint() const;
 
-    %Rename(SetMark, void , SetSelection(long from, long to));
-
+    %pythoncode {
+        GetMark = wx.TextEntry.GetSelection
+        SetMark = wx.TextEntry.SetSelection
+    }
 
     DocDeclStr(
         void , SetText(const wxString& value),
@@ -1035,13 +1035,15 @@ public:
         "Return the index of the widest item (recalculating it if necessary.)", "");
     
 
-    void SetSelection(int n);
-    %Rename(SetMark, void , SetSelection(long from, long to));
-
     // Implemented in wxItemContainer, but hidden in wxPyComboCtrl, so list
     // it explicitly here.
     %pythoncode { GetString = wx.ItemContainer.GetString }
 
+    // Same for GetSelection and SetSelection
+    %pythoncode {
+        GetSelection = wx.ItemContainer.GetSelection
+        SetSelection = wx.ItemContainer.SetSelection
+    }
 
     // Callback for drawing. Font, background and text colour have been
     // prepared according to selection, focus and such.
