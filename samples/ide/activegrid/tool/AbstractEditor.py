@@ -208,7 +208,7 @@ class CanvasView(wx.lib.docview.View):
         
 
     def OnKeyPressed(self, event):
-        key = event.KeyCode()
+        key = event.GetKeyCode()
         if key == wx.WXK_DELETE:
             self.OnClear(event)
         else:

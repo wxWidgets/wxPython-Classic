@@ -804,7 +804,7 @@ class CodeCtrl(STCTextEditor.TextCtrl):
     def OnKeyPressed(self, event):
         if self.CallTipActive():
             self.CallTipCancel()
-        key = event.KeyCode()
+        key = event.GetKeyCode()
         if False:  # key == wx.WXK_SPACE and event.ControlDown():
             pos = self.GetCurrentPos()
             # Tips

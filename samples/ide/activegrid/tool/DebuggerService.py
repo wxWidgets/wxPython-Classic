@@ -1331,7 +1331,7 @@ class BaseFramesUI(wx.SplitterWindow):
             return
 
         def OnKeyPressed(event):
-            key = event.KeyCode()
+            key = event.GetKeyCode()
             if key == wx.WXK_RETURN:
                 handleCommand()
             elif key == wx.WXK_UP:
