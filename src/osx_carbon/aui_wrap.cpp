@@ -19682,6 +19682,63 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiToolBarArt_DrawPlainBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
+  wxDC *arg2 = 0 ;
+  wxWindow *arg3 = (wxWindow *) 0 ;
+  wxRect *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  wxRect temp4 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "wnd",(char *) "rect", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiToolBarArt_DrawPlainBackground",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiToolBarArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarArt_DrawPlainBackground" "', expected argument " "1"" of type '" "wxAuiToolBarArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarArt * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiToolBarArt_DrawPlainBackground" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AuiToolBarArt_DrawPlainBackground" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AuiToolBarArt_DrawPlainBackground" "', expected argument " "3"" of type '" "wxWindow *""'"); 
+  }
+  arg3 = reinterpret_cast< wxWindow * >(argp3);
+  {
+    arg4 = &temp4;
+    if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawPlainBackground(*arg2,arg3,(wxRect const &)*arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiToolBarArt_DrawLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
@@ -24234,6 +24291,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiToolBarArt_SetTextOrientation", (PyCFunction) _wrap_AuiToolBarArt_SetTextOrientation, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_GetTextOrientation", (PyCFunction)_wrap_AuiToolBarArt_GetTextOrientation, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_DrawBackground", (PyCFunction) _wrap_AuiToolBarArt_DrawBackground, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiToolBarArt_DrawPlainBackground", (PyCFunction) _wrap_AuiToolBarArt_DrawPlainBackground, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_DrawLabel", (PyCFunction) _wrap_AuiToolBarArt_DrawLabel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_DrawButton", (PyCFunction) _wrap_AuiToolBarArt_DrawButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_DrawDropDownButton", (PyCFunction) _wrap_AuiToolBarArt_DrawDropDownButton, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -27547,6 +27605,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "AUI_TB_VERTICAL",SWIG_From_int(static_cast< int >(wxAUI_TB_VERTICAL)));
   SWIG_Python_SetConstant(d, "AUI_TB_HORZ_LAYOUT",SWIG_From_int(static_cast< int >(wxAUI_TB_HORZ_LAYOUT)));
   SWIG_Python_SetConstant(d, "AUI_TB_HORIZONTAL",SWIG_From_int(static_cast< int >(wxAUI_TB_HORIZONTAL)));
+  SWIG_Python_SetConstant(d, "AUI_TB_PLAIN_BACKGROUND",SWIG_From_int(static_cast< int >(wxAUI_TB_PLAIN_BACKGROUND)));
   SWIG_Python_SetConstant(d, "AUI_TB_HORZ_TEXT",SWIG_From_int(static_cast< int >(wxAUI_TB_HORZ_TEXT)));
   SWIG_Python_SetConstant(d, "AUI_ORIENTATION_MASK",SWIG_From_int(static_cast< int >(wxAUI_ORIENTATION_MASK)));
   SWIG_Python_SetConstant(d, "AUI_TB_DEFAULT_STYLE",SWIG_From_int(static_cast< int >(wxAUI_TB_DEFAULT_STYLE)));
