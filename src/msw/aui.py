@@ -1660,6 +1660,7 @@ AUI_TB_OVERFLOW = _aui.AUI_TB_OVERFLOW
 AUI_TB_VERTICAL = _aui.AUI_TB_VERTICAL
 AUI_TB_HORZ_LAYOUT = _aui.AUI_TB_HORZ_LAYOUT
 AUI_TB_HORIZONTAL = _aui.AUI_TB_HORIZONTAL
+AUI_TB_PLAIN_BACKGROUND = _aui.AUI_TB_PLAIN_BACKGROUND
 AUI_TB_HORZ_TEXT = _aui.AUI_TB_HORZ_TEXT
 AUI_ORIENTATION_MASK = _aui.AUI_ORIENTATION_MASK
 AUI_TB_DEFAULT_STYLE = _aui.AUI_TB_DEFAULT_STYLE
@@ -1917,6 +1918,10 @@ class AuiToolBarArt(object):
     def DrawBackground(*args, **kwargs):
         """DrawBackground(self, DC dc, Window wnd, Rect rect)"""
         return _aui.AuiToolBarArt_DrawBackground(*args, **kwargs)
+
+    def DrawPlainBackground(*args, **kwargs):
+        """DrawPlainBackground(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawPlainBackground(*args, **kwargs)
 
     def DrawLabel(*args, **kwargs):
         """DrawLabel(self, DC dc, Window wnd, AuiToolBarItem item, Rect rect)"""

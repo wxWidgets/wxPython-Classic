@@ -77,9 +77,12 @@ WEB_NAV_ERR_USER_CANCELLED = _html2.WEB_NAV_ERR_USER_CANCELLED
 WEB_NAV_ERR_OTHER = _html2.WEB_NAV_ERR_OTHER
 WEB_VIEW_RELOAD_DEFAULT = _html2.WEB_VIEW_RELOAD_DEFAULT
 WEB_VIEW_RELOAD_NO_CACHE = _html2.WEB_VIEW_RELOAD_NO_CACHE
-WEB_VIEW_BACKEND_DEFAULT = _html2.WEB_VIEW_BACKEND_DEFAULT
-WEB_VIEW_BACKEND_WEBKIT = _html2.WEB_VIEW_BACKEND_WEBKIT
-WEB_VIEW_BACKEND_IE = _html2.WEB_VIEW_BACKEND_IE
+WEB_VIEW_FIND_WRAP = _html2.WEB_VIEW_FIND_WRAP
+WEB_VIEW_FIND_ENTIRE_WORD = _html2.WEB_VIEW_FIND_ENTIRE_WORD
+WEB_VIEW_FIND_MATCH_CASE = _html2.WEB_VIEW_FIND_MATCH_CASE
+WEB_VIEW_FIND_HIGHLIGHT_RESULT = _html2.WEB_VIEW_FIND_HIGHLIGHT_RESULT
+WEB_VIEW_FIND_BACKWARDS = _html2.WEB_VIEW_FIND_BACKWARDS
+WEB_VIEW_FIND_DEFAULT = _html2.WEB_VIEW_FIND_DEFAULT
 class WebViewHistoryItem(object):
     """Proxy of C++ WebViewHistoryItem class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -96,6 +99,28 @@ class WebViewHistoryItem(object):
         return _html2.WebViewHistoryItem_GetTitle(*args, **kwargs)
 
 _html2.WebViewHistoryItem_swigregister(WebViewHistoryItem)
+cvar = _html2.cvar
+WebViewBackendDefault = cvar.WebViewBackendDefault
+WebViewBackendIE = cvar.WebViewBackendIE
+WebViewBackendWebKit = cvar.WebViewBackendWebKit
+WebViewDefaultURLStr = cvar.WebViewDefaultURLStr
+WebViewNameStr = cvar.WebViewNameStr
+
+class WebViewFactory(_core.Object):
+    """Proxy of C++ WebViewFactory class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def Create(*args):
+        """
+        Create(self) -> WebView
+        Create(self, Window parent, int id, String url=wxWebViewDefaultURLStr, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=0, String name=wxWebViewNameStr) -> WebView
+        """
+        return _html2.WebViewFactory_Create(*args)
+
+_html2.WebViewFactory_swigregister(WebViewFactory)
 
 class WebView(_core.Control):
     """Proxy of C++ WebView class"""
@@ -111,7 +136,7 @@ class WebView(_core.Control):
         return _html2.WebView_Create(*args, **kwargs)
 
     def PreNew(*args, **kwargs):
-        """PreNew(int backend=WEB_VIEW_BACKEND_DEFAULT) -> WebView"""
+        """PreNew(String backend=wxWebViewBackendDefault) -> WebView"""
         return _html2.WebView_PreNew(*args, **kwargs)
 
     PreNew = staticmethod(PreNew)
@@ -119,7 +144,7 @@ class WebView(_core.Control):
         """
         New(Window parent, int id=ID_ANY, String url=wxWebViewDefaultURLStr, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            int backend=WEB_VIEW_BACKEND_DEFAULT, 
+            String backend=wxWebViewBackendDefault, 
             long style=0, String name=wxWebViewNameStr) -> WebView
         """
         val = _html2.WebView_New(*args, **kwargs)
@@ -301,14 +326,14 @@ class WebView(_core.Control):
 _html2.WebView_swigregister(WebView)
 
 def WebView_PreNew(*args, **kwargs):
-  """WebView_PreNew(int backend=WEB_VIEW_BACKEND_DEFAULT) -> WebView"""
+  """WebView_PreNew(String backend=wxWebViewBackendDefault) -> WebView"""
   return _html2.WebView_PreNew(*args, **kwargs)
 
 def WebView_New(*args, **kwargs):
   """
     WebView_New(Window parent, int id=ID_ANY, String url=wxWebViewDefaultURLStr, 
         Point pos=DefaultPosition, Size size=DefaultSize, 
-        int backend=WEB_VIEW_BACKEND_DEFAULT, 
+        String backend=wxWebViewBackendDefault, 
         long style=0, String name=wxWebViewNameStr) -> WebView
     """
   val = _html2.WebView_New(*args, **kwargs)

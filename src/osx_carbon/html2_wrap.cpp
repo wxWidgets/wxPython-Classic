@@ -2562,15 +2562,16 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxWebView swig_types[96]
 #define SWIGTYPE_p_wxWebViewArchiveHandler swig_types[97]
 #define SWIGTYPE_p_wxWebViewEvent swig_types[98]
-#define SWIGTYPE_p_wxWebViewHandler swig_types[99]
-#define SWIGTYPE_p_wxWebViewHistoryItem swig_types[100]
-#define SWIGTYPE_p_wxWindow swig_types[101]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[102]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[103]
-#define SWIGTYPE_p_wxWrapSizer swig_types[104]
-#define SWIGTYPE_p_wxXPMHandler swig_types[105]
-static swig_type_info *swig_types[107];
-static swig_module_info swig_module = {swig_types, 106, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxWebViewFactory swig_types[99]
+#define SWIGTYPE_p_wxWebViewHandler swig_types[100]
+#define SWIGTYPE_p_wxWebViewHistoryItem swig_types[101]
+#define SWIGTYPE_p_wxWindow swig_types[102]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[103]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[104]
+#define SWIGTYPE_p_wxWrapSizer swig_types[105]
+#define SWIGTYPE_p_wxXPMHandler swig_types[106]
+static swig_type_info *swig_types[108];
+static swig_module_info swig_module = {swig_types, 107, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2718,13 +2719,19 @@ enum wxWebViewReloadFlags
     wxWEB_VIEW_RELOAD_NO_CACHE 
 };
 
-enum wxWebViewBackend
+enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_BACKEND_DEFAULT,
-    wxWEB_VIEW_BACKEND_WEBKIT,
-    wxWEB_VIEW_BACKEND_IE
+    wxWEB_VIEW_FIND_WRAP =             0x0001,
+    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
+    wxWEB_VIEW_FIND_DEFAULT =          0
 };
 
+wxString wxWebViewBackendDefault("");
+wxString wxWebViewBackendIE("");
+wxString wxWebViewBackendWebKit("");
 wxString wxWebViewDefaultURLStr("");
 wxString wxWebViewNameStr("");
 
@@ -2760,6 +2767,20 @@ public:
 };
 
 
+class wxWebViewFactory : public wxObject
+{
+public:
+    virtual wxWebView* Create() = 0;
+
+    virtual wxWebView* Create(wxWindow* parent,
+                              wxWindowID id,
+                              const wxString& url = wxWebViewDefaultURLStr,
+                              const wxPoint& pos = wxDefaultPosition,
+                              const wxSize& size = wxDefaultSize,
+                              long style = 0,
+                              const wxString& name = wxWebViewNameStr) = 0;
+};
+
 class wxWebView : public wxControl
 {
 public:
@@ -2767,7 +2788,7 @@ public:
                         const wxSize&, long style, const wxString&) { _RaiseError(); return false; }
     static wxWebView* New(wxWebViewBackend) { _RaiseError(); return NULL; }
     static wxWebView* New(wxWindow*, wxWindowID, const wxString&, const wxPoint& ,
-                          const wxSize& , wxWebViewBackend, long style,
+                          const wxSize& , const wxString&, long style,
                           const wxString&) { _RaiseError(); return NULL; }
 
     virtual wxString GetCurrentTitle() const { return wxEmptyString; }
@@ -2850,6 +2871,11 @@ SWIG_From_int  (int value)
   return SWIG_From_long  (value);
 }
 
+ static const wxString wxPyWebViewBackendDefault(wxWebViewBackendDefault); 
+ static const wxString wxPyWebViewBackendIE(wxWebViewBackendIE); 
+ static const wxString wxPyWebViewBackendWebKit(wxWebViewBackendWebKit); 
+ static const wxString wxPyWebViewDefaultURLStr(wxWebViewDefaultURLStr); 
+ static const wxString wxPyWebViewNameStr(wxWebViewNameStr); 
 
 #include <limits.h>
 #ifndef LLONG_MIN
@@ -2955,6 +2981,106 @@ public:
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN int WebViewBackendDefault_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable WebViewBackendDefault is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *WebViewBackendDefault_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyWebViewBackendDefault)->c_str(), (&wxPyWebViewBackendDefault)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyWebViewBackendDefault)->c_str(), (&wxPyWebViewBackendDefault)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int WebViewBackendIE_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable WebViewBackendIE is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *WebViewBackendIE_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyWebViewBackendIE)->c_str(), (&wxPyWebViewBackendIE)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyWebViewBackendIE)->c_str(), (&wxPyWebViewBackendIE)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int WebViewBackendWebKit_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable WebViewBackendWebKit is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *WebViewBackendWebKit_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyWebViewBackendWebKit)->c_str(), (&wxPyWebViewBackendWebKit)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyWebViewBackendWebKit)->c_str(), (&wxPyWebViewBackendWebKit)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int WebViewDefaultURLStr_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable WebViewDefaultURLStr is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *WebViewDefaultURLStr_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyWebViewDefaultURLStr)->c_str(), (&wxPyWebViewDefaultURLStr)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyWebViewDefaultURLStr)->c_str(), (&wxPyWebViewDefaultURLStr)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int WebViewNameStr_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable WebViewNameStr is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *WebViewNameStr_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyWebViewNameStr)->c_str(), (&wxPyWebViewNameStr)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyWebViewNameStr)->c_str(), (&wxPyWebViewNameStr)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_WebViewHistoryItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
@@ -3087,6 +3213,164 @@ SWIGINTERN PyObject *WebViewHistoryItem_swiginit(PyObject *SWIGUNUSEDPARM(self),
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_WebViewFactory_Create__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxWebViewFactory *arg1 = (wxWebViewFactory *) 0 ;
+  wxWebView *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebViewFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebViewFactory_Create" "', expected argument " "1"" of type '" "wxWebViewFactory *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWebViewFactory * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWebView *)(arg1)->Create();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxWebView, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WebViewFactory_Create__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxWebViewFactory *arg1 = (wxWebViewFactory *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int arg3 ;
+  wxString const &arg4_defvalue = wxWebViewDefaultURLStr ;
+  wxString *arg4 = (wxString *) &arg4_defvalue ;
+  wxPoint const &arg5_defvalue = wxDefaultPosition ;
+  wxPoint *arg5 = (wxPoint *) &arg5_defvalue ;
+  wxSize const &arg6_defvalue = wxDefaultSize ;
+  wxSize *arg6 = (wxSize *) &arg6_defvalue ;
+  long arg7 = (long) 0 ;
+  wxString const &arg8_defvalue = wxWebViewNameStr ;
+  wxString *arg8 = (wxString *) &arg8_defvalue ;
+  wxWebView *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  bool temp4 = false ;
+  wxPoint temp5 ;
+  wxSize temp6 ;
+  long val7 ;
+  int ecode7 = 0 ;
+  bool temp8 = false ;
+  
+  if ((nobjs < 3) || (nobjs > 8)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebViewFactory, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebViewFactory_Create" "', expected argument " "1"" of type '" "wxWebViewFactory *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWebViewFactory * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WebViewFactory_Create" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "WebViewFactory_Create" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  if (swig_obj[3]) {
+    {
+      arg4 = wxString_in_helper(swig_obj[3]);
+      if (arg4 == NULL) SWIG_fail;
+      temp4 = true;
+    }
+  }
+  if (swig_obj[4]) {
+    {
+      arg5 = &temp5;
+      if ( ! wxPoint_helper(swig_obj[4], &arg5)) SWIG_fail;
+    }
+  }
+  if (swig_obj[5]) {
+    {
+      arg6 = &temp6;
+      if ( ! wxSize_helper(swig_obj[5], &arg6)) SWIG_fail;
+    }
+  }
+  if (swig_obj[6]) {
+    ecode7 = SWIG_AsVal_long(swig_obj[6], &val7);
+    if (!SWIG_IsOK(ecode7)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "WebViewFactory_Create" "', expected argument " "7"" of type '" "long""'");
+    } 
+    arg7 = static_cast< long >(val7);
+  }
+  if (swig_obj[7]) {
+    {
+      arg8 = wxString_in_helper(swig_obj[7]);
+      if (arg8 == NULL) SWIG_fail;
+      temp8 = true;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWebView *)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxWebView, 0 |  0 );
+  {
+    if (temp4)
+    delete arg4;
+  }
+  {
+    if (temp8)
+    delete arg8;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp4)
+    delete arg4;
+  }
+  {
+    if (temp8)
+    delete arg8;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_WebViewFactory_Create(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[9];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"WebViewFactory_Create",0,8,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_WebViewFactory_Create__SWIG_0(self, argc, argv);
+  }
+  if ((argc >= 3) && (argc <= 8)) {
+    return _wrap_WebViewFactory_Create__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'WebViewFactory_Create'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *WebViewFactory_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxWebViewFactory, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 SWIGINTERN PyObject *_wrap_WebView_Create(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWebView *arg1 = (wxWebView *) 0 ;
@@ -3210,10 +3494,10 @@ fail:
 
 SWIGINTERN PyObject *_wrap_WebView_PreNew(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxWebViewBackend arg1 = (wxWebViewBackend) wxWEB_VIEW_BACKEND_DEFAULT ;
+  wxString const &arg1_defvalue = wxWebViewBackendDefault ;
+  wxString *arg1 = (wxString *) &arg1_defvalue ;
   wxWebView *result = 0 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  bool temp1 = false ;
   PyObject * obj0 = 0 ;
   char *  kwnames[] = {
     (char *) "backend", NULL 
@@ -3221,21 +3505,29 @@ SWIGINTERN PyObject *_wrap_WebView_PreNew(PyObject *SWIGUNUSEDPARM(self), PyObje
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:WebView_PreNew",kwnames,&obj0)) SWIG_fail;
   if (obj0) {
-    ecode1 = SWIG_AsVal_int(obj0, &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "WebView_PreNew" "', expected argument " "1"" of type '" "wxWebViewBackend""'");
-    } 
-    arg1 = static_cast< wxWebViewBackend >(val1);
+    {
+      arg1 = wxString_in_helper(obj0);
+      if (arg1 == NULL) SWIG_fail;
+      temp1 = true;
+    }
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWebView *)wxWebView::New(arg1);
+    result = (wxWebView *)wxWebView::New((wxString const &)*arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxWebView, SWIG_POINTER_OWN |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
   return resultobj;
 fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
   return NULL;
 }
 
@@ -3250,7 +3542,8 @@ SWIGINTERN PyObject *_wrap_WebView_New(PyObject *SWIGUNUSEDPARM(self), PyObject 
   wxPoint *arg4 = (wxPoint *) &arg4_defvalue ;
   wxSize const &arg5_defvalue = wxDefaultSize ;
   wxSize *arg5 = (wxSize *) &arg5_defvalue ;
-  wxWebViewBackend arg6 = (wxWebViewBackend) wxWEB_VIEW_BACKEND_DEFAULT ;
+  wxString const &arg6_defvalue = wxWebViewBackendDefault ;
+  wxString *arg6 = (wxString *) &arg6_defvalue ;
   long arg7 = (long) 0 ;
   wxString const &arg8_defvalue = wxWebViewNameStr ;
   wxString *arg8 = (wxString *) &arg8_defvalue ;
@@ -3262,8 +3555,7 @@ SWIGINTERN PyObject *_wrap_WebView_New(PyObject *SWIGUNUSEDPARM(self), PyObject 
   bool temp3 = false ;
   wxPoint temp4 ;
   wxSize temp5 ;
-  int val6 ;
-  int ecode6 = 0 ;
+  bool temp6 = false ;
   long val7 ;
   int ecode7 = 0 ;
   bool temp8 = false ;
@@ -3312,11 +3604,11 @@ SWIGINTERN PyObject *_wrap_WebView_New(PyObject *SWIGUNUSEDPARM(self), PyObject 
     }
   }
   if (obj5) {
-    ecode6 = SWIG_AsVal_int(obj5, &val6);
-    if (!SWIG_IsOK(ecode6)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "WebView_New" "', expected argument " "6"" of type '" "wxWebViewBackend""'");
-    } 
-    arg6 = static_cast< wxWebViewBackend >(val6);
+    {
+      arg6 = wxString_in_helper(obj5);
+      if (arg6 == NULL) SWIG_fail;
+      temp6 = true;
+    }
   }
   if (obj6) {
     ecode7 = SWIG_AsVal_long(obj6, &val7);
@@ -3334,7 +3626,7 @@ SWIGINTERN PyObject *_wrap_WebView_New(PyObject *SWIGUNUSEDPARM(self), PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWebView *)wxWebView::New(arg1,arg2,(wxString const &)*arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,arg7,(wxString const &)*arg8);
+    result = (wxWebView *)wxWebView::New(arg1,arg2,(wxString const &)*arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,(wxString const &)*arg6,arg7,(wxString const &)*arg8);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3342,6 +3634,10 @@ SWIGINTERN PyObject *_wrap_WebView_New(PyObject *SWIGUNUSEDPARM(self), PyObject 
   {
     if (temp3)
     delete arg3;
+  }
+  {
+    if (temp6)
+    delete arg6;
   }
   {
     if (temp8)
@@ -3352,6 +3648,10 @@ fail:
   {
     if (temp3)
     delete arg3;
+  }
+  {
+    if (temp6)
+    delete arg6;
   }
   {
     if (temp8)
@@ -5167,6 +5467,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"WebViewHistoryItem_GetTitle", (PyCFunction)_wrap_WebViewHistoryItem_GetTitle, METH_O, NULL},
 	 { (char *)"WebViewHistoryItem_swigregister", WebViewHistoryItem_swigregister, METH_VARARGS, NULL},
 	 { (char *)"WebViewHistoryItem_swiginit", WebViewHistoryItem_swiginit, METH_VARARGS, NULL},
+	 { (char *)"WebViewFactory_Create", _wrap_WebViewFactory_Create, METH_VARARGS, NULL},
+	 { (char *)"WebViewFactory_swigregister", WebViewFactory_swigregister, METH_VARARGS, NULL},
 	 { (char *)"WebView_Create", (PyCFunction) _wrap_WebView_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WebView_PreNew", (PyCFunction) _wrap_WebView_PreNew, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WebView_New", (PyCFunction) _wrap_WebView_New, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -5264,6 +5566,9 @@ static void *_p_wxStaticBoxSizerTo_p_wxObject(void *x) {
 }
 static void *_p_wxGridBagSizerTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxSizer *)(wxGridSizer *)(wxFlexGridSizer *) ((wxGridBagSizer *) x));
+}
+static void *_p_wxWebViewFactoryTo_p_wxObject(void *x) {
+    return (void *)((wxObject *)  ((wxWebViewFactory *) x));
 }
 static void *_p_wxUpdateUIEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxUpdateUIEvent *) x));
@@ -5811,10 +6116,10 @@ static swig_type_info _swigt__p_wxGridSizer = {"_p_wxGridSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxFSFile = {"_p_wxFSFile", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPySizer = {"_p_wxPySizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMenuItem = {"_p_wxMenuItem", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxImageHandler = {"_p_wxImageHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxXPMHandler = {"_p_wxXPMHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxTIFFHandler = {"_p_wxTIFFHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxTGAHandler = {"_p_wxTGAHandler", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxImageHandler = {"_p_wxImageHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyImageHandler = {"_p_wxPyImageHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxBMPHandler = {"_p_wxBMPHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxICOHandler = {"_p_wxICOHandler", 0, 0, 0, 0, 0};
@@ -5839,6 +6144,7 @@ static swig_type_info _swigt__p_wxString = {"_p_wxString", "wxString *", 0, 0, (
 static swig_type_info _swigt__p_wxWebView = {"_p_wxWebView", "wxWebView *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewArchiveHandler = {"_p_wxWebViewArchiveHandler", "wxWebViewArchiveHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewEvent = {"_p_wxWebViewEvent", "wxWebViewEvent *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxWebViewFactory = {"_p_wxWebViewFactory", "wxWebViewFactory *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewHandler = {"_p_wxWebViewHandler", "wxWebViewHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewHistoryItem = {"_p_wxWebViewHistoryItem", "wxWebViewHistoryItem *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
@@ -5943,6 +6249,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxWebView,
   &_swigt__p_wxWebViewArchiveHandler,
   &_swigt__p_wxWebViewEvent,
+  &_swigt__p_wxWebViewFactory,
   &_swigt__p_wxWebViewHandler,
   &_swigt__p_wxWebViewHistoryItem,
   &_swigt__p_wxWindow,
@@ -6026,10 +6333,10 @@ static swig_cast_info _swigc__p_wxGridSizer[] = {{&_swigt__p_wxGridSizer, 0, 0, 
 static swig_cast_info _swigc__p_wxFSFile[] = {{&_swigt__p_wxFSFile, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPySizer[] = {{&_swigt__p_wxPySizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenuItem[] = {{&_swigt__p_wxMenuItem, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxImageHandler[] = {{&_swigt__p_wxImageHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxXPMHandler[] = {{&_swigt__p_wxXPMHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTIFFHandler[] = {{&_swigt__p_wxTIFFHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTGAHandler[] = {{&_swigt__p_wxTGAHandler, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxImageHandler[] = {{&_swigt__p_wxImageHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyImageHandler[] = {{&_swigt__p_wxPyImageHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBMPHandler[] = {{&_swigt__p_wxBMPHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxICOHandler[] = {{&_swigt__p_wxICOHandler, 0, 0, 0},{0, 0, 0, 0}};
@@ -6045,7 +6352,7 @@ static swig_cast_info _swigc__p_wxAcceleratorTable[] = {{&_swigt__p_wxAccelerato
 static swig_cast_info _swigc__p_wxImage[] = {{&_swigt__p_wxImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFileSystem[] = {{&_swigt__p_wxFileSystem, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWrapSizer[] = {{&_swigt__p_wxWrapSizer, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxBookCtrlEvent, _p_wxBookCtrlEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxThreadEvent, _p_wxThreadEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxWebView, _p_wxWebViewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWebViewEvent, _p_wxWebViewEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxBookCtrlBase, _p_wxBookCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvtHandler, _p_wxPyEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxBookCtrlEvent, _p_wxBookCtrlEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxWebViewFactory, _p_wxWebViewFactoryTo_p_wxObject, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxThreadEvent, _p_wxThreadEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxWebView, _p_wxWebViewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWebViewEvent, _p_wxWebViewEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxBookCtrlBase, _p_wxBookCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvtHandler, _p_wxPyEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPaperSize[] = {  {&_swigt__p_wxPaperSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyWebViewHandler[] = {  {&_swigt__p_wxPyWebViewHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRefCounter[] = {  {&_swigt__p_wxRefCounter, 0, 0, 0},{0, 0, 0, 0}};
@@ -6055,6 +6362,7 @@ static swig_cast_info _swigc__p_wxString[] = {  {&_swigt__p_wxString, 0, 0, 0},{
 static swig_cast_info _swigc__p_wxWebView[] = {  {&_swigt__p_wxWebView, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewArchiveHandler[] = {  {&_swigt__p_wxWebViewArchiveHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewEvent[] = {  {&_swigt__p_wxWebViewEvent, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxWebViewFactory[] = {  {&_swigt__p_wxWebViewFactory, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewHandler[] = {  {&_swigt__p_wxWebViewHandler, 0, 0, 0},  {&_swigt__p_wxPyWebViewHandler, _p_wxPyWebViewHandlerTo_p_wxWebViewHandler, 0, 0},  {&_swigt__p_wxWebViewArchiveHandler, _p_wxWebViewArchiveHandlerTo_p_wxWebViewHandler, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewHistoryItem[] = {  {&_swigt__p_wxWebViewHistoryItem, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxBookCtrlBase, _p_wxBookCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWebView, _p_wxWebViewTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
@@ -6159,6 +6467,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxWebView,
   _swigc__p_wxWebViewArchiveHandler,
   _swigc__p_wxWebViewEvent,
+  _swigc__p_wxWebViewFactory,
   _swigc__p_wxWebViewHandler,
   _swigc__p_wxWebViewHistoryItem,
   _swigc__p_wxWindow,
@@ -6686,9 +6995,18 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "WEB_NAV_ERR_OTHER",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_OTHER)));
   SWIG_Python_SetConstant(d, "WEB_VIEW_RELOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_RELOAD_DEFAULT)));
   SWIG_Python_SetConstant(d, "WEB_VIEW_RELOAD_NO_CACHE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_RELOAD_NO_CACHE)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_BACKEND_DEFAULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_BACKEND_DEFAULT)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_BACKEND_WEBKIT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_BACKEND_WEBKIT)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_BACKEND_IE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_BACKEND_IE)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_WRAP",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_WRAP)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_ENTIRE_WORD",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_ENTIRE_WORD)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_MATCH_CASE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_MATCH_CASE)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_HIGHLIGHT_RESULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_HIGHLIGHT_RESULT)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_BACKWARDS",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_BACKWARDS)));
+  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_DEFAULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_DEFAULT)));
+  PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
+  SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendDefault",WebViewBackendDefault_get, WebViewBackendDefault_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendIE",WebViewBackendIE_get, WebViewBackendIE_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendWebKit",WebViewBackendWebKit_get, WebViewBackendWebKit_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"WebViewDefaultURLStr",WebViewDefaultURLStr_get, WebViewDefaultURLStr_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"WebViewNameStr",WebViewNameStr_get, WebViewNameStr_set);
   PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_NAVIGATING", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_NAVIGATING));
   PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_NAVIGATED", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_NAVIGATED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_LOADED", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_LOADED));

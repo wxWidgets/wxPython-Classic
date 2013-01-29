@@ -80,13 +80,19 @@ enum wxWebViewReloadFlags
     wxWEB_VIEW_RELOAD_NO_CACHE 
 };
 
-enum wxWebViewBackend
+enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_BACKEND_DEFAULT,
-    wxWEB_VIEW_BACKEND_WEBKIT,
-    wxWEB_VIEW_BACKEND_IE
+    wxWEB_VIEW_FIND_WRAP =             0x0001,
+    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
+    wxWEB_VIEW_FIND_DEFAULT =          0
 };
 
+wxString wxWebViewBackendDefault("");
+wxString wxWebViewBackendIE("");
+wxString wxWebViewBackendWebKit("");
 wxString wxWebViewDefaultURLStr("");
 wxString wxWebViewNameStr("");
 
@@ -122,6 +128,20 @@ public:
 };
 
 
+class wxWebViewFactory : public wxObject
+{
+public:
+    virtual wxWebView* Create() = 0;
+
+    virtual wxWebView* Create(wxWindow* parent,
+                              wxWindowID id,
+                              const wxString& url = wxWebViewDefaultURLStr,
+                              const wxPoint& pos = wxDefaultPosition,
+                              const wxSize& size = wxDefaultSize,
+                              long style = 0,
+                              const wxString& name = wxWebViewNameStr) = 0;
+};
+
 class wxWebView : public wxControl
 {
 public:
@@ -129,7 +149,7 @@ public:
                         const wxSize&, long style, const wxString&) { _RaiseError(); return false; }
     static wxWebView* New(wxWebViewBackend) { _RaiseError(); return NULL; }
     static wxWebView* New(wxWindow*, wxWindowID, const wxString&, const wxPoint& ,
-                          const wxSize& , wxWebViewBackend, long style,
+                          const wxSize& , const wxString&, long style,
                           const wxString&) { _RaiseError(); return NULL; }
 
     virtual wxString GetCurrentTitle() const { return wxEmptyString; }
@@ -243,12 +263,21 @@ enum wxWebViewReloadFlags
     wxWEB_VIEW_RELOAD_NO_CACHE 
 };
 
-enum wxWebViewBackend
+enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_BACKEND_DEFAULT,
-    wxWEB_VIEW_BACKEND_WEBKIT,
-    wxWEB_VIEW_BACKEND_IE
+    wxWEB_VIEW_FIND_WRAP =             0x0001,
+    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
+    wxWEB_VIEW_FIND_DEFAULT =          0
 };
+
+MAKE_CONST_WXSTRING(WebViewBackendDefault);
+MAKE_CONST_WXSTRING(WebViewBackendIE);
+MAKE_CONST_WXSTRING(WebViewBackendWebKit);
+MAKE_CONST_WXSTRING(WebViewDefaultURLStr);
+MAKE_CONST_WXSTRING(WebViewNameStr);
 
 
 //---------------------------------------------------------------------------
@@ -274,6 +303,40 @@ public:
 
 
 //---------------------------------------------------------------------------
+class wxWebViewFactory : public wxObject
+{
+public:
+    /**
+        Function to create a new wxWebView with two-step creation,
+        wxWebView::Create should be called on the returned object.
+        @return the created wxWebView
+     */
+    virtual wxWebView* Create() = 0;
+
+    /**
+        Function to create a new wxWebView with parameters.
+        @param parent Parent window for the control
+        @param id ID of this control
+        @param url Initial URL to load
+        @param pos Position of the control
+        @param size Size of the control
+        @return the created wxWebView
+    */
+    virtual wxWebView* Create(wxWindow* parent,
+                              wxWindowID id,
+                              const wxString& url = wxWebViewDefaultURLStr,
+                              const wxPoint& pos = wxDefaultPosition,
+                              const wxSize& size = wxDefaultSize,
+                              long style = 0,
+                              const wxString& name = wxWebViewNameStr) = 0;
+};
+
+//---------------------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------------
+
 
 MustHaveApp(wxWebView);
 
@@ -301,7 +364,7 @@ public:
      */
     %newobject New;
     %Rename(PreNew,
-            static wxWebView*, New(wxWebViewBackend backend = wxWEB_VIEW_BACKEND_DEFAULT));
+            static wxWebView*, New(const wxString& backend = wxWebViewBackendDefault));
     
     /**
         Factory function to create a new wxWebView
@@ -323,7 +386,7 @@ public:
            const wxString& url = wxWebViewDefaultURLStr,
            const wxPoint& pos = wxDefaultPosition,
            const wxSize& size = wxDefaultSize,
-           wxWebViewBackend backend = wxWEB_VIEW_BACKEND_DEFAULT,
+           const wxString& backend = wxWebViewBackendDefault,
            long style = 0,
            const wxString& name = wxWebViewNameStr);
 
