@@ -56,7 +56,7 @@
 //----------------------------------------------------------------------
 
 wxPyApp* wxPythonApp = NULL;  // Global instance of application object
-bool wxPyDoCleanup = false;
+bool wxPyDoCleanup = true;
 bool wxPyDoingCleanup = false;
 
 

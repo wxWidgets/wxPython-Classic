@@ -304,22 +304,11 @@ class PyWidgetTester(wx.App):
         self.frame.Show(True)
 
 #----------------------------------------------------------------------------
-# DO NOT hold any other references to this object.  This is how we
-# know when to cleanup system resources that wxWidgets is holding.  When
-# the sys module is unloaded, the refcount on sys.__wxPythonCleanup
-# goes to zero and it calls the wx.App_CleanUp function.
-
-class __wxPyCleanup:
-    def __init__(self):
-        self.cleanup = _core_.App_CleanUp
-    def __del__(self):
-        self.cleanup()
-
-_sys.__wxPythonCleanup = __wxPyCleanup()
-
-## # another possible solution, but it gets called too early...
-## import atexit
-## atexit.register(_core_.wxApp_CleanUp)
-
+# Make sure that system resources allocated by wx are properly cleaned
+# up when the Python interpreter exits.
+        
+import atexit
+atexit.register(_core_.App_CleanUp)
+del atexit
 
 #----------------------------------------------------------------------------

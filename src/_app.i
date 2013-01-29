@@ -58,7 +58,13 @@ public:
         }
     }
 
-    ~wxPyApp();
+    //~wxPyApp();
+    %extend {
+        ~wxPyApp() {
+            if (wxApp::GetInstance())
+                delete self;
+        }
+    }
 
     // Turn it back on again
     %typemap(out) wxPyApp* { $result = wxPyMake_wxObject($1, $owner); }

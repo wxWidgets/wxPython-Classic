@@ -4098,6 +4098,10 @@ SWIGINTERN wxPyApp *new_wxPyApp(){
             wxPythonApp = new wxPyApp();
             return wxPythonApp;
         }
+SWIGINTERN void delete_wxPyApp(wxPyApp *self){
+            if (wxApp::GetInstance())
+                delete self;
+        }
 SWIGINTERN int wxPyApp_GetComCtl32Version(){ wxPyRaiseNotImplemented(); return 0; }
 SWIGINTERN int wxPyApp_GetShell32Version(){ wxPyRaiseNotImplemented(); return 0; }
 SWIGINTERN bool wxPyApp_IsDisplayAvailable(){
@@ -33213,7 +33217,7 @@ SWIGINTERN PyObject *_wrap_delete_PyApp(PyObject *SWIGUNUSEDPARM(self), PyObject
   arg1 = reinterpret_cast< wxPyApp * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
+    delete_wxPyApp(arg1);
     
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
