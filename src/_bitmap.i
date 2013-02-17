@@ -423,7 +423,7 @@ converted to a wx.Bitmap, so any image file format supported by
 
 :see: `wx.EmptyBitmap`, `wx.BitmapFromIcon`, `wx.BitmapFromImage`,
       `wx.BitmapFromXPMData`, `wx.BitmapFromBits`, `wx.BitmapFromBuffer`,
-      `wx.BitmapFromBufferRGBA`, `wx.BitmapFromBuffer32bit`, `wx.Image`
+      `wx.BitmapFromBufferRGBA`, `wx.Image`
 ");
 
 
@@ -460,7 +460,7 @@ public:
 
 :see: Alternate constructors `wx.EmptyBitmap`, `wx.BitmapFromIcon`,
       `wx.BitmapFromImage`, `wx.BitmapFromXPMData`, `wx.BitmapFromBits`,
-      `wx.BitmapFromBuffer`, `wx.BitmapFromBufferRGBA`,`wx.BitmapFromBuffer32bit`,
+      `wx.BitmapFromBuffer`, `wx.BitmapFromBufferRGBA`,
 ");
         
     ~wxBitmap();
