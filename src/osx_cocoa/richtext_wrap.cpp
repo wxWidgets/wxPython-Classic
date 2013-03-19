@@ -14058,18 +14058,22 @@ SWIGINTERN PyObject *_wrap_RichTextObject_CanMerge(PyObject *SWIGUNUSEDPARM(self
   PyObject *resultobj = 0;
   wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
   wxRichTextObject *arg2 = (wxRichTextObject *) 0 ;
+  wxRichTextDrawingContext *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "object", NULL 
+    (char *) "self",(char *) "object",(char *) "context", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextObject_CanMerge",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextObject_CanMerge",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_CanMerge" "', expected argument " "1"" of type '" "wxRichTextObject const *""'"); 
@@ -14080,9 +14084,17 @@ SWIGINTERN PyObject *_wrap_RichTextObject_CanMerge(PyObject *SWIGUNUSEDPARM(self
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_CanMerge" "', expected argument " "2"" of type '" "wxRichTextObject *""'"); 
   }
   arg2 = reinterpret_cast< wxRichTextObject * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextDrawingContext,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_CanMerge" "', expected argument " "3"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_CanMerge" "', expected argument " "3"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextDrawingContext * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextObject const *)arg1)->CanMerge(arg2);
+    result = (bool)((wxRichTextObject const *)arg1)->CanMerge(arg2,*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14099,18 +14111,22 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Merge(PyObject *SWIGUNUSEDPARM(self), 
   PyObject *resultobj = 0;
   wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
   wxRichTextObject *arg2 = (wxRichTextObject *) 0 ;
+  wxRichTextDrawingContext *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "object", NULL 
+    (char *) "self",(char *) "object",(char *) "context", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextObject_Merge",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextObject_Merge",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_Merge" "', expected argument " "1"" of type '" "wxRichTextObject *""'"); 
@@ -14121,9 +14137,17 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Merge(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_Merge" "', expected argument " "2"" of type '" "wxRichTextObject *""'"); 
   }
   arg2 = reinterpret_cast< wxRichTextObject * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextDrawingContext,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_Merge" "', expected argument " "3"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_Merge" "', expected argument " "3"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextDrawingContext * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Merge(arg2);
+    result = (bool)(arg1)->Merge(arg2,*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16602,33 +16626,45 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextCompositeObject_Defragment(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCompositeObject *arg1 = (wxRichTextCompositeObject *) 0 ;
-  wxRichTextRange const &arg2_defvalue = wxRICHTEXT_ALL ;
-  wxRichTextRange *arg2 = (wxRichTextRange *) &arg2_defvalue ;
+  wxRichTextDrawingContext *arg2 = 0 ;
+  wxRichTextRange const &arg3_defvalue = wxRICHTEXT_ALL ;
+  wxRichTextRange *arg3 = (wxRichTextRange *) &arg3_defvalue ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  wxRichTextRange temp2 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  wxRichTextRange temp3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "range", NULL 
+    (char *) "self",(char *) "context",(char *) "range", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:RichTextCompositeObject_Defragment",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:RichTextCompositeObject_Defragment",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCompositeObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCompositeObject_Defragment" "', expected argument " "1"" of type '" "wxRichTextCompositeObject *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextCompositeObject * >(argp1);
-  if (obj1) {
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRichTextDrawingContext,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCompositeObject_Defragment" "', expected argument " "2"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCompositeObject_Defragment" "', expected argument " "2"" of type '" "wxRichTextDrawingContext &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRichTextDrawingContext * >(argp2);
+  if (obj2) {
     {
-      arg2 = &temp2;
-      if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
+      arg3 = &temp3;
+      if ( ! wxRichTextRange_helper(obj2, &arg3)) SWIG_fail;
     }
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Defragment((wxRichTextRange const &)*arg2);
+    result = (bool)(arg1)->Defragment(*arg2,(wxRichTextRange const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

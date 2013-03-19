@@ -1236,15 +1236,15 @@ class RichTextObject(_core.Object):
         return _richtext.RichTextObject_GetTextForRange(*args, **kwargs)
 
     def CanMerge(*args, **kwargs):
-        """CanMerge(self, RichTextObject object) -> bool"""
+        """CanMerge(self, RichTextObject object, RichTextDrawingContext context) -> bool"""
         return _richtext.RichTextObject_CanMerge(*args, **kwargs)
 
-    def Merge(self, obj):
-        """Merge(self, RichTextObject object) -> bool"""
-        val = _richtext.RichTextObject_Merge(self, obj)
-        if val:
-            obj.this.own(True)
-        return val
+    def Merge(self, obj, context):
+          """Merge(self, RichTextObject object) -> bool"""
+          val = _richtext.RichTextObject_Merge(self, obj, context)
+          if val:
+              obj.this.own(True)
+          return val
 
 
     def Dump(*args, **kwargs):
@@ -1590,7 +1590,7 @@ class RichTextCompositeObject(RichTextObject):
         return _richtext.RichTextCompositeObject_DeleteChildren(*args, **kwargs)
 
     def Defragment(*args, **kwargs):
-        """Defragment(self, RichTextRange range=wxRICHTEXT_ALL) -> bool"""
+        """Defragment(self, RichTextDrawingContext context, RichTextRange range=wxRICHTEXT_ALL) -> bool"""
         return _richtext.RichTextCompositeObject_Defragment(*args, **kwargs)
 
 _richtext.RichTextCompositeObject_swigregister(RichTextCompositeObject)
