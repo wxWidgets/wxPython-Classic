@@ -1459,19 +1459,19 @@ public:
     virtual wxString GetTextForRange(const wxRichTextRange& range) const;
 
     /// Returns true if this object can merge itself with the given one.
-    virtual bool CanMerge(wxRichTextObject* object) const;
+    virtual bool CanMerge(wxRichTextObject* object, wxRichTextDrawingContext& context) const;
 
     /// Returns true if this object merged itself with the given one.
     /// The calling code will then delete the given object.
     %feature("shadow") Merge %{
-        def Merge(self, obj):
+      def Merge(self, obj, context):
             """Merge(self, RichTextObject object) -> bool"""
-            val = _richtext.RichTextObject_Merge(self, obj)
+            val = _richtext.RichTextObject_Merge(self, obj, context)
             if val:
                 obj.this.own(True)
             return val
     %}
-    virtual bool Merge(wxRichTextObject* object);
+    virtual bool Merge(wxRichTextObject* object, wxRichTextDrawingContext& context);
 
     /// Dump to output stream for debugging
     //virtual void Dump(wxTextOutputStream& stream);
@@ -1684,7 +1684,7 @@ public:
     bool DeleteChildren();
 
     /// Recursively merge all pieces that can be merged.
-    bool Defragment(const wxRichTextRange& range = wxRICHTEXT_ALL);
+    bool Defragment(wxRichTextDrawingContext& context, const wxRichTextRange& range = wxRICHTEXT_ALL);
 };
 
 

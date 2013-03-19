@@ -48,46 +48,46 @@
 
 enum wxWebViewZoom
 {
-    wxWEB_VIEW_ZOOM_TINY,
-    wxWEB_VIEW_ZOOM_SMALL,
-    wxWEB_VIEW_ZOOM_MEDIUM, 
-    wxWEB_VIEW_ZOOM_LARGE,
-    wxWEB_VIEW_ZOOM_LARGEST
+    wxWEBVIEW_ZOOM_TINY,
+    wxWEBVIEW_ZOOM_SMALL,
+    wxWEBVIEW_ZOOM_MEDIUM, 
+    wxWEBVIEW_ZOOM_LARGE,
+    wxWEBVIEW_ZOOM_LARGEST
 };
 
 enum wxWebViewZoomType
 {
-    wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
-    wxWEB_VIEW_ZOOM_TYPE_TEXT
+    wxWEBVIEW_ZOOM_TYPE_LAYOUT,
+    wxWEBVIEW_ZOOM_TYPE_TEXT
 };
 
 
 enum wxWebViewNavigationError
 {
-    wxWEB_NAV_ERR_CONNECTION,
-    wxWEB_NAV_ERR_CERTIFICATE,
-    wxWEB_NAV_ERR_AUTH,
-    wxWEB_NAV_ERR_SECURITY,
-    wxWEB_NAV_ERR_NOT_FOUND,
-    wxWEB_NAV_ERR_REQUEST,
-    wxWEB_NAV_ERR_USER_CANCELLED,
-    wxWEB_NAV_ERR_OTHER
+    wxWEBVIEW_NAV_ERR_CONNECTION,
+    wxWEBVIEW_NAV_ERR_CERTIFICATE,
+    wxWEBVIEW_NAV_ERR_AUTH,
+    wxWEBVIEW_NAV_ERR_SECURITY,
+    wxWEBVIEW_NAV_ERR_NOT_FOUND,
+    wxWEBVIEW_NAV_ERR_REQUEST,
+    wxWEBVIEW_NAV_ERR_USER_CANCELLED,
+    wxWEBVIEW_NAV_ERR_OTHER
 };
 
 enum wxWebViewReloadFlags
 {
-    wxWEB_VIEW_RELOAD_DEFAULT,
-    wxWEB_VIEW_RELOAD_NO_CACHE 
+    wxWEBVIEW_RELOAD_DEFAULT,
+    wxWEBVIEW_RELOAD_NO_CACHE 
 };
 
 enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_FIND_WRAP =             0x0001,
-    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
-    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
-    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
-    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
-    wxWEB_VIEW_FIND_DEFAULT =          0
+    wxWEBVIEW_FIND_WRAP =             0x0001,
+    wxWEBVIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEBVIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEBVIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEBVIEW_FIND_BACKWARDS =        0x0010,
+    wxWEBVIEW_FIND_DEFAULT =          0
 };
 
 wxString wxWebViewBackendDefault("");
@@ -161,7 +161,7 @@ public:
     virtual void LoadURL(const wxString& url) {}
     virtual void Print() {}
     virtual void RegisterHandler(wxSharedPtr<wxWebViewHandler> handler) {}
-    virtual void Reload(wxWebViewReloadFlags flags = wxWEB_VIEW_RELOAD_DEFAULT) {}
+    virtual void Reload(wxWebViewReloadFlags flags = wxWEBVIEW_RELOAD_DEFAULT) {}
     virtual void RunScript(const wxString& javascript) {}
     virtual void SetEditable(bool enable = true) {}
     virtual void SetPage(const wxString& html, const wxString& baseUrl) {}
@@ -193,8 +193,8 @@ public:
     virtual void Redo() {}
     virtual void Undo() {}
     virtual bool CanSetZoomType(wxWebViewZoomType type) const { return false; }
-    virtual wxWebViewZoom GetZoom() const { return wxWEB_VIEW_ZOOM_MEDIUM; }
-    virtual wxWebViewZoomType GetZoomType() const { return wxWEB_VIEW_ZOOM_TYPE_LAYOUT; }
+    virtual wxWebViewZoom GetZoom() const { return wxWEBVIEW_ZOOM_MEDIUM; }
+    virtual wxWebViewZoomType GetZoomType() const { return wxWEBVIEW_ZOOM_TYPE_LAYOUT; }
     virtual void SetZoom(wxWebViewZoom zoom) {}
     virtual void SetZoomType(wxWebViewZoomType zoomType) {}
 };
@@ -212,12 +212,12 @@ public:
 
 
 
-wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATING;
-wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATED;
-wxEventType wxEVT_COMMAND_WEB_VIEW_LOADED;
-wxEventType wxEVT_COMMAND_WEB_VIEW_ERROR;
-wxEventType wxEVT_COMMAND_WEB_VIEW_NEWWINDOW;
-wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
+wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATING;
+wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATED;
+wxEventType wxEVT_COMMAND_WEBVIEW_LOADED;
+wxEventType wxEVT_COMMAND_WEBVIEW_ERROR;
+wxEventType wxEVT_COMMAND_WEBVIEW_NEWWINDOW;
+wxEventType wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED;
 
 
 #endif  // !wxUSE_WEBVIEW
@@ -231,46 +231,46 @@ wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
 
 enum wxWebViewZoom
 {
-    wxWEB_VIEW_ZOOM_TINY,
-    wxWEB_VIEW_ZOOM_SMALL,
-    wxWEB_VIEW_ZOOM_MEDIUM, 
-    wxWEB_VIEW_ZOOM_LARGE,
-    wxWEB_VIEW_ZOOM_LARGEST
+    wxWEBVIEW_ZOOM_TINY,
+    wxWEBVIEW_ZOOM_SMALL,
+    wxWEBVIEW_ZOOM_MEDIUM, 
+    wxWEBVIEW_ZOOM_LARGE,
+    wxWEBVIEW_ZOOM_LARGEST
 };
 
 enum wxWebViewZoomType
 {
-    wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
-    wxWEB_VIEW_ZOOM_TYPE_TEXT
+    wxWEBVIEW_ZOOM_TYPE_LAYOUT,
+    wxWEBVIEW_ZOOM_TYPE_TEXT
 };
 
 
 enum wxWebViewNavigationError
 {
-    wxWEB_NAV_ERR_CONNECTION,
-    wxWEB_NAV_ERR_CERTIFICATE,
-    wxWEB_NAV_ERR_AUTH,
-    wxWEB_NAV_ERR_SECURITY,
-    wxWEB_NAV_ERR_NOT_FOUND,
-    wxWEB_NAV_ERR_REQUEST,
-    wxWEB_NAV_ERR_USER_CANCELLED,
-    wxWEB_NAV_ERR_OTHER
+    wxWEBVIEW_NAV_ERR_CONNECTION,
+    wxWEBVIEW_NAV_ERR_CERTIFICATE,
+    wxWEBVIEW_NAV_ERR_AUTH,
+    wxWEBVIEW_NAV_ERR_SECURITY,
+    wxWEBVIEW_NAV_ERR_NOT_FOUND,
+    wxWEBVIEW_NAV_ERR_REQUEST,
+    wxWEBVIEW_NAV_ERR_USER_CANCELLED,
+    wxWEBVIEW_NAV_ERR_OTHER
 };
 
 enum wxWebViewReloadFlags
 {
-    wxWEB_VIEW_RELOAD_DEFAULT,
-    wxWEB_VIEW_RELOAD_NO_CACHE 
+    wxWEBVIEW_RELOAD_DEFAULT,
+    wxWEBVIEW_RELOAD_NO_CACHE 
 };
 
 enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_FIND_WRAP =             0x0001,
-    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
-    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
-    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
-    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
-    wxWEB_VIEW_FIND_DEFAULT =          0
+    wxWEBVIEW_FIND_WRAP =             0x0001,
+    wxWEBVIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEBVIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEBVIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEBVIEW_FIND_BACKWARDS =        0x0010,
+    wxWEBVIEW_FIND_DEFAULT =          0
 };
 
 MAKE_CONST_WXSTRING(WebViewBackendDefault);
@@ -449,7 +449,7 @@ public:
         Reload the currently displayed URL.
         @param flags A bit array that may optionally contain reload options.
     */
-    virtual void Reload(wxWebViewReloadFlags flags = wxWEB_VIEW_RELOAD_DEFAULT);
+    virtual void Reload(wxWebViewReloadFlags flags = wxWEBVIEW_RELOAD_DEFAULT);
     
     /**
         Runs the given javascript code. 
@@ -482,8 +482,8 @@ public:
 
     /**
         Stop the current page loading process, if any.
-        May trigger an error event of type @c wxWEB_NAV_ERR_USER_CANCELLED.
-        TODO: make @c wxWEB_NAV_ERR_USER_CANCELLED errors uniform across ports.
+        May trigger an error event of type @c wxWEBVIEW_NAV_ERR_USER_CANCELLED.
+        TODO: make @c wxWEBVIEW_NAV_ERR_USER_CANCELLED errors uniform across ports.
     */
     virtual void Stop();
 
@@ -593,7 +593,7 @@ public:
     virtual void ClearSelection();
     
     /**
-        Deletes the current selection. Note that for @c wxWEB_VIEW_BACKEND_WEBKIT
+        Deletes the current selection. Note that for @c wxWEBVIEW_BACKEND_WEBKIT
         the selection must be editable, either through SetEditable or the 
         correct HTML attribute.
     */
@@ -708,20 +708,20 @@ public:
 
 
 
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATING;
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATED;
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_LOADED;
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_ERROR;
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_NEWWINDOW;
-%constant wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATING;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATED;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_LOADED;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_ERROR;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_NEWWINDOW;
+%constant wxEventType wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED;
 
 %pythoncode {
-    EVT_WEB_VIEW_NAVIGATING = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_NAVIGATING, 1 )
-    EVT_WEB_VIEW_NAVIGATED = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_NAVIGATED, 1 )
-    EVT_WEB_VIEW_LOADED = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_LOADED, 1 )
-    EVT_WEB_VIEW_ERROR = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_ERROR, 1 )
-    EVT_WEB_VIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_NEWWINDOW, 1 )
-    EVT_WEB_VIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED, 1 )
+    EVT_WEBVIEW_NAVIGATING = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATING, 1 )
+    EVT_WEBVIEW_NAVIGATED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATED, 1 )
+    EVT_WEBVIEW_LOADED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_LOADED, 1 )
+    EVT_WEBVIEW_ERROR = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_ERROR, 1 )
+    EVT_WEBVIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NEWWINDOW, 1 )
+    EVT_WEBVIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED, 1 )
 }
 
 //---------------------------------------------------------------------------
