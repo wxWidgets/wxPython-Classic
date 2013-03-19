@@ -2687,46 +2687,46 @@ namespace swig {
 
 enum wxWebViewZoom
 {
-    wxWEB_VIEW_ZOOM_TINY,
-    wxWEB_VIEW_ZOOM_SMALL,
-    wxWEB_VIEW_ZOOM_MEDIUM, 
-    wxWEB_VIEW_ZOOM_LARGE,
-    wxWEB_VIEW_ZOOM_LARGEST
+    wxWEBVIEW_ZOOM_TINY,
+    wxWEBVIEW_ZOOM_SMALL,
+    wxWEBVIEW_ZOOM_MEDIUM, 
+    wxWEBVIEW_ZOOM_LARGE,
+    wxWEBVIEW_ZOOM_LARGEST
 };
 
 enum wxWebViewZoomType
 {
-    wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
-    wxWEB_VIEW_ZOOM_TYPE_TEXT
+    wxWEBVIEW_ZOOM_TYPE_LAYOUT,
+    wxWEBVIEW_ZOOM_TYPE_TEXT
 };
 
 
 enum wxWebViewNavigationError
 {
-    wxWEB_NAV_ERR_CONNECTION,
-    wxWEB_NAV_ERR_CERTIFICATE,
-    wxWEB_NAV_ERR_AUTH,
-    wxWEB_NAV_ERR_SECURITY,
-    wxWEB_NAV_ERR_NOT_FOUND,
-    wxWEB_NAV_ERR_REQUEST,
-    wxWEB_NAV_ERR_USER_CANCELLED,
-    wxWEB_NAV_ERR_OTHER
+    wxWEBVIEW_NAV_ERR_CONNECTION,
+    wxWEBVIEW_NAV_ERR_CERTIFICATE,
+    wxWEBVIEW_NAV_ERR_AUTH,
+    wxWEBVIEW_NAV_ERR_SECURITY,
+    wxWEBVIEW_NAV_ERR_NOT_FOUND,
+    wxWEBVIEW_NAV_ERR_REQUEST,
+    wxWEBVIEW_NAV_ERR_USER_CANCELLED,
+    wxWEBVIEW_NAV_ERR_OTHER
 };
 
 enum wxWebViewReloadFlags
 {
-    wxWEB_VIEW_RELOAD_DEFAULT,
-    wxWEB_VIEW_RELOAD_NO_CACHE 
+    wxWEBVIEW_RELOAD_DEFAULT,
+    wxWEBVIEW_RELOAD_NO_CACHE 
 };
 
 enum wxWebViewFindFlags
 {
-    wxWEB_VIEW_FIND_WRAP =             0x0001,
-    wxWEB_VIEW_FIND_ENTIRE_WORD =      0x0002,
-    wxWEB_VIEW_FIND_MATCH_CASE =       0x0004,
-    wxWEB_VIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
-    wxWEB_VIEW_FIND_BACKWARDS =        0x0010,
-    wxWEB_VIEW_FIND_DEFAULT =          0
+    wxWEBVIEW_FIND_WRAP =             0x0001,
+    wxWEBVIEW_FIND_ENTIRE_WORD =      0x0002,
+    wxWEBVIEW_FIND_MATCH_CASE =       0x0004,
+    wxWEBVIEW_FIND_HIGHLIGHT_RESULT = 0x0008,
+    wxWEBVIEW_FIND_BACKWARDS =        0x0010,
+    wxWEBVIEW_FIND_DEFAULT =          0
 };
 
 wxString wxWebViewBackendDefault("");
@@ -2800,7 +2800,7 @@ public:
     virtual void LoadURL(const wxString& url) {}
     virtual void Print() {}
     virtual void RegisterHandler(wxSharedPtr<wxWebViewHandler> handler) {}
-    virtual void Reload(wxWebViewReloadFlags flags = wxWEB_VIEW_RELOAD_DEFAULT) {}
+    virtual void Reload(wxWebViewReloadFlags flags = wxWEBVIEW_RELOAD_DEFAULT) {}
     virtual void RunScript(const wxString& javascript) {}
     virtual void SetEditable(bool enable = true) {}
     virtual void SetPage(const wxString& html, const wxString& baseUrl) {}
@@ -2832,8 +2832,8 @@ public:
     virtual void Redo() {}
     virtual void Undo() {}
     virtual bool CanSetZoomType(wxWebViewZoomType type) const { return false; }
-    virtual wxWebViewZoom GetZoom() const { return wxWEB_VIEW_ZOOM_MEDIUM; }
-    virtual wxWebViewZoomType GetZoomType() const { return wxWEB_VIEW_ZOOM_TYPE_LAYOUT; }
+    virtual wxWebViewZoom GetZoom() const { return wxWEBVIEW_ZOOM_MEDIUM; }
+    virtual wxWebViewZoomType GetZoomType() const { return wxWEBVIEW_ZOOM_TYPE_LAYOUT; }
     virtual void SetZoom(wxWebViewZoom zoom) {}
     virtual void SetZoomType(wxWebViewZoomType zoomType) {}
 };
@@ -2851,12 +2851,12 @@ public:
 
 
 
-wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATING;
-wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATED;
-wxEventType wxEVT_COMMAND_WEB_VIEW_LOADED;
-wxEventType wxEVT_COMMAND_WEB_VIEW_ERROR;
-wxEventType wxEVT_COMMAND_WEB_VIEW_NEWWINDOW;
-wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
+wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATING;
+wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATED;
+wxEventType wxEVT_COMMAND_WEBVIEW_LOADED;
+wxEventType wxEVT_COMMAND_WEBVIEW_ERROR;
+wxEventType wxEVT_COMMAND_WEBVIEW_NEWWINDOW;
+wxEventType wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED;
 
 
 #endif  // !wxUSE_WEBVIEW
@@ -3978,7 +3978,7 @@ fail:
 SWIGINTERN PyObject *_wrap_WebView_Reload(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWebView *arg1 = (wxWebView *) 0 ;
-  wxWebViewReloadFlags arg2 = (wxWebViewReloadFlags) wxWEB_VIEW_RELOAD_DEFAULT ;
+  wxWebViewReloadFlags arg2 = (wxWebViewReloadFlags) wxWEBVIEW_RELOAD_DEFAULT ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -6978,40 +6978,40 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_InstallConstants(d,swig_const_table);
   
   
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_TINY",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_TINY)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_SMALL",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_SMALL)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_MEDIUM",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_MEDIUM)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_LARGE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_LARGE)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_LARGEST",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_LARGEST)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_TYPE_LAYOUT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_TYPE_LAYOUT)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_ZOOM_TYPE_TEXT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_ZOOM_TYPE_TEXT)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_CONNECTION",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_CONNECTION)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_CERTIFICATE",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_CERTIFICATE)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_AUTH",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_AUTH)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_SECURITY",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_SECURITY)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_NOT_FOUND",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_NOT_FOUND)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_REQUEST",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_REQUEST)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_USER_CANCELLED",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_USER_CANCELLED)));
-  SWIG_Python_SetConstant(d, "WEB_NAV_ERR_OTHER",SWIG_From_int(static_cast< int >(wxWEB_NAV_ERR_OTHER)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_RELOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_RELOAD_DEFAULT)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_RELOAD_NO_CACHE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_RELOAD_NO_CACHE)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_WRAP",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_WRAP)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_ENTIRE_WORD",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_ENTIRE_WORD)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_MATCH_CASE",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_MATCH_CASE)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_HIGHLIGHT_RESULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_HIGHLIGHT_RESULT)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_BACKWARDS",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_BACKWARDS)));
-  SWIG_Python_SetConstant(d, "WEB_VIEW_FIND_DEFAULT",SWIG_From_int(static_cast< int >(wxWEB_VIEW_FIND_DEFAULT)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_TINY",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_TINY)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_SMALL",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_SMALL)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_MEDIUM",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_MEDIUM)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_LARGE",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_LARGE)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_LARGEST",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_LARGEST)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_TYPE_LAYOUT",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_TYPE_LAYOUT)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_ZOOM_TYPE_TEXT",SWIG_From_int(static_cast< int >(wxWEBVIEW_ZOOM_TYPE_TEXT)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_CONNECTION",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_CONNECTION)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_CERTIFICATE",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_CERTIFICATE)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_AUTH",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_AUTH)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_SECURITY",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_SECURITY)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_NOT_FOUND",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_NOT_FOUND)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_REQUEST",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_REQUEST)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_USER_CANCELLED",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_USER_CANCELLED)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_NAV_ERR_OTHER",SWIG_From_int(static_cast< int >(wxWEBVIEW_NAV_ERR_OTHER)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_RELOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxWEBVIEW_RELOAD_DEFAULT)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_RELOAD_NO_CACHE",SWIG_From_int(static_cast< int >(wxWEBVIEW_RELOAD_NO_CACHE)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_WRAP",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_WRAP)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_ENTIRE_WORD",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_ENTIRE_WORD)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_MATCH_CASE",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_MATCH_CASE)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_HIGHLIGHT_RESULT",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_HIGHLIGHT_RESULT)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_BACKWARDS",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_BACKWARDS)));
+  SWIG_Python_SetConstant(d, "WEBVIEW_FIND_DEFAULT",SWIG_From_int(static_cast< int >(wxWEBVIEW_FIND_DEFAULT)));
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendDefault",WebViewBackendDefault_get, WebViewBackendDefault_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendIE",WebViewBackendIE_get, WebViewBackendIE_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"WebViewBackendWebKit",WebViewBackendWebKit_get, WebViewBackendWebKit_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"WebViewDefaultURLStr",WebViewDefaultURLStr_get, WebViewDefaultURLStr_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"WebViewNameStr",WebViewNameStr_get, WebViewNameStr_set);
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_NAVIGATING", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_NAVIGATING));
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_NAVIGATED", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_NAVIGATED));
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_LOADED", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_LOADED));
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_ERROR", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_ERROR));
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_NEWWINDOW", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_NEWWINDOW));
-  PyDict_SetItemString(d, "wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED", PyInt_FromLong(wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_NAVIGATING", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_NAVIGATING));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_NAVIGATED", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_NAVIGATED));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_LOADED", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_LOADED));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_ERROR", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_ERROR));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_NEWWINDOW", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_NEWWINDOW));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED", PyInt_FromLong(wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED));
 }
 
