@@ -43,16 +43,20 @@ MAKE_CONST_WXSTRING(DefaultTimeSpanFormat);
 // Convert a wxLongLong to a Python Long by getting the hi/lo dwords, then
 // shifting and oring them together
 %typemap(out) wxLongLong {
-    PyObject *hi, *lo, *shifter, *shifted;
-    hi = PyLong_FromLong( $1.GetHi() );
-    lo = PyLong_FromLong( $1.GetLo() );
-    shifter = PyLong_FromLong(32);
-    shifted = PyNumber_Lshift(hi, shifter);
-    $result = PyNumber_Or(shifted, lo);
-    Py_DECREF(hi);
-    Py_DECREF(lo);
-    Py_DECREF(shifter);
-    Py_DECREF(shifted);
+    #if wxUSE_LONGLONG_NATIVE
+        return PyLong_FromLongLong(sipCpp->GetValue());
+    #else
+        PyObject *hi, *lo, *shifter, *shifted;
+        hi = PyLong_FromLong( $1.GetHi() );
+        lo = PyLong_FromLong( $1.GetLo() );
+        shifter = PyLong_FromLong(32);
+        shifted = PyNumber_Lshift(hi, shifter);
+        $result = PyNumber_Or(shifted, lo);
+        Py_DECREF(hi);
+        Py_DECREF(lo);
+        Py_DECREF(shifter);
+        Py_DECREF(shifted);
+    #endif
 }
 
 
