@@ -31949,6 +31949,7 @@ SWIGINTERN PyObject *_wrap_TimeSpan_GetSeconds(PyObject *SWIGUNUSEDPARM(self), P
     Py_DECREF(lo);
     Py_DECREF(shifter);
     Py_DECREF(shifted);
+    
   }
   return resultobj;
 fail:
@@ -31988,6 +31989,7 @@ SWIGINTERN PyObject *_wrap_TimeSpan_GetMilliseconds(PyObject *SWIGUNUSEDPARM(sel
     Py_DECREF(lo);
     Py_DECREF(shifter);
     Py_DECREF(shifted);
+    
   }
   return resultobj;
 fail:
@@ -33335,6 +33337,7 @@ SWIGINTERN PyObject *_wrap_GetLocalTimeMillis(PyObject *SWIGUNUSEDPARM(self), Py
     Py_DECREF(lo);
     Py_DECREF(shifter);
     Py_DECREF(shifted);
+    
   }
   return resultobj;
 fail:

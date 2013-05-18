@@ -13081,7 +13081,7 @@ class TextEntryBase(object):
         """
         ChangeValue(self, String value)
 
-        Set the value in the text entry field.  Generates a text change event.
+        Set the value in the text entry field.  Does not generate a text change event.
         """
         return _core_.TextEntryBase_ChangeValue(*args, **kwargs)
 
