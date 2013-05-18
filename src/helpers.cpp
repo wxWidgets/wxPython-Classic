@@ -3035,7 +3035,8 @@ bool wxColour_helper(PyObject* source, wxColour** obj) {
     // otherwise check for a string
     else if (PyString_Check(source) || PyUnicode_Check(source)) {
         wxString spec = Py2wxString(source);
-        if (spec.GetChar(0) == '#' 
+        if (!spec.empty() 
+            && spec.GetChar(0) == '#' 
             && (spec.length() == 7 || spec.length() == 9)) {  // It's  #RRGGBB[AA]
             long red, green, blue;
             red = green = blue = 0;
