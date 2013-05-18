@@ -415,7 +415,7 @@ public:
     
     DocDeclStr(
         virtual void , ChangeValue(const wxString& value),
-        "Set the value in the text entry field.  Generates a text change event.", "");
+        "Set the value in the text entry field.  Does not generate a text change event.", "");
     
 
     DocDeclStr(
