@@ -1980,6 +1980,14 @@ class DataViewEvent(_core.NotifyEvent):
         """GetDataBuffer(self) -> void"""
         return _dataview.DataViewEvent_GetDataBuffer(*args, **kwargs)
 
+    def SetDragFlags(*args, **kwargs):
+        """SetDragFlags(self, int flags)"""
+        return _dataview.DataViewEvent_SetDragFlags(*args, **kwargs)
+
+    def GetDragFlags(*args, **kwargs):
+        """GetDragFlags(self) -> int"""
+        return _dataview.DataViewEvent_GetDragFlags(*args, **kwargs)
+
     Column = property(GetColumn,SetColumn) 
     Model = property(GetModel,SetModel) 
     Value = property(GetValue,SetValue) 
