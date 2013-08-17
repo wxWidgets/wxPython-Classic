@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 2.9.5.0
 -------
-*
+* 17-Aug-2013
 
 wx.media.MediaCtrl on OSX-cocoa now has a functioning back-end using
 the QTKit framework, so it works when running in either 32-bit or
@@ -22,6 +22,8 @@ Lots of fixes and improvements in the wxWidgets code.
 Changed the wx.DateTime.Parse* methods to work like they did in
 wxPython 2.8, they now return an integer indicating how far in to
 the string that the parser parsed, or -1 on error.
+
+Updated wx.lib.pdfviewer with patches from David Hughes.
 
 
 
