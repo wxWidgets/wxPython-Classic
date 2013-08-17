@@ -2512,7 +2512,10 @@ public:
     void SetCache(int from, int to);
     
     // For drag operations
+    %disownarg( wxDataObject *obj );
     void SetDataObject( wxDataObject *obj );
+    %cleardisown( wxDataObject *obj );
+
     wxDataObject *GetDataObject() const;
 
     // For drop operations
@@ -2526,6 +2529,10 @@ public:
     void SetDataBuffer( void* buf );
     void *GetDataBuffer() const;
 
+    void SetDragFlags(int flags);
+    int GetDragFlags() const;
+
+    
     %property(Column, GetColumn, SetColumn);
     %property(Model, GetModel, SetModel);
     %property(Value, GetValue, SetValue);
