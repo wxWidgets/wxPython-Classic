@@ -1822,7 +1822,7 @@ public:
 
 
 
-#ifndef __WXOSX_COCOA__
+#ifndef __WXMAC__
 //---------------------------------------------------------------------------
 // wxDataViewChoiceByIndexRenderer
 
