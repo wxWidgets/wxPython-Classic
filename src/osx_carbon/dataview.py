@@ -1401,18 +1401,6 @@ class DataViewChoiceRenderer(DataViewCustomRenderer):
 
 _dataview.DataViewChoiceRenderer_swigregister(DataViewChoiceRenderer)
 
-class DataViewChoiceByIndexRenderer(DataViewChoiceRenderer):
-    """Proxy of C++ DataViewChoiceByIndexRenderer class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, wxArrayString choices, int mode=DATAVIEW_CELL_EDITABLE, 
-            int alignment=DVR_DEFAULT_ALIGNMENT) -> DataViewChoiceByIndexRenderer
-        """
-        _dataview.DataViewChoiceByIndexRenderer_swiginit(self,_dataview.new_DataViewChoiceByIndexRenderer(*args, **kwargs))
-_dataview.DataViewChoiceByIndexRenderer_swigregister(DataViewChoiceByIndexRenderer)
-
 class DataViewDateRenderer(DataViewRenderer):
     """Proxy of C++ DataViewDateRenderer class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
