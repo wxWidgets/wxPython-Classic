@@ -16779,14 +16779,13 @@ class CallLater:
     availbale after it has been run with the `GetResult` method.
 
     If you don't need to get the return value or restart the timer
-    then there is no need to hold a reference to this object.  It will
-    hold a reference to itself while the timer is running (the timer
-    has a reference to self.Notify) but the cycle will be broken when
-    the timer completes, automatically cleaning up the wx.CallLater
-    object.
+    then there is no need to hold a reference to this object.
 
     :see: `wx.CallAfter`
     """
+
+    __RUNNING = set()
+    
     def __init__(self, millis, callableObj, *args, **kwargs):
         assert callable(callableObj), "callableObj is not callable"
         self.millis = millis
@@ -16798,9 +16797,6 @@ class CallLater:
         self.result = None
         self.timer = None
         self.Start()
-
-    def __del__(self):
-        self.Stop()
 
 
     def Start(self, millis=None, *args, **kwargs):
@@ -16816,6 +16812,7 @@ class CallLater:
         self.timer = wx.PyTimer(self.Notify)
         self.timer.Start(self.millis, wx.TIMER_ONE_SHOT)
         self.running = True
+        self.__RUNNING.add(self)
     Restart = Start
 
 
@@ -16826,6 +16823,7 @@ class CallLater:
         if self.timer is not None:
             self.timer.Stop()
             self.timer = None
+        self.__RUNNING.discard(self)
 
 
     def GetInterval(self):
@@ -16853,9 +16851,11 @@ class CallLater:
     def HasRun(self):
         return self.hasRun
 
+    
     def GetResult(self):
         return self.result
 
+    
     def Notify(self):
         """
         The timer has expired so call the callable.
