@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 2.9.5.0
 -------
-* 17-Aug-2013
+* 31-Aug-2013
 
 wx.media.MediaCtrl on OSX-cocoa now has a functioning back-end using
 the QTKit framework, so it works when running in either 32-bit or
