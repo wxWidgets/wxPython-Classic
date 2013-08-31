@@ -304,10 +304,11 @@ class PlateButton(wx.PyControl):
 
             self.__DrawHighlight(gc, width, height)
             txt_x = self.__DrawBitmap(gc)
+            t_x = max((width - tw - (txt_x + 2)) // 2, txt_x + 2)
             if wx.Platform == '__WXGTK__':
-                dc.DrawText(self.Label, txt_x + 2, txt_y)
+                dc.DrawText(self.Label, t_x, txt_y)
             else:
-                gc.DrawText(self.Label, txt_x + 2, txt_y)
+                gc.DrawText(self.Label, t_x, txt_y)
             self.__DrawDropArrow(gc, width - 10, (height // 2) - 2)
 
         else:
@@ -320,10 +321,11 @@ class PlateButton(wx.PyControl):
         # Draw bitmap and text
         if self._state['cur'] != PLATE_PRESSED:
             txt_x = self.__DrawBitmap(gc)
+            t_x = max((width - tw - (txt_x + 2)) // 2, txt_x + 2)
             if wx.Platform == '__WXGTK__':
-                dc.DrawText(self.Label, txt_x + 2, txt_y)
+                dc.DrawText(self.Label, t_x, txt_y)
             else:
-                gc.DrawText(self.Label, txt_x + 2, txt_y)
+                gc.DrawText(self.Label, t_x, txt_y)
             self.__DrawDropArrow(gc, width - 10, (height // 2) - 2)
 
     def __InitColors(self):
