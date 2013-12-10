@@ -69,7 +69,7 @@ option_dict = {
     "debug"         : (False, "Build wxPython with debug symbols"),
     "reswig"        : (False, "Allow SWIG to regenerate the wrappers"),
     "jobs"          : (defJobs, "Number of make jobs to run at one time, if supported. Default: %s" % defJobs),
-    "unicode"       : (True, "Build wxPython with unicode support (always on for wx2.9)"),
+    "unicode"       : (True, "Build wxPython with unicode support (always on for wx3.0)"),
     "osx_cocoa"     : (False, "Build the OS X Cocoa port on Mac"),
     "osx_carbon"    : (True,  "Build the Carbon port on Mac (default)"),
     "mac_arch"      : ("", "Build the specified architectures on Mac, (comma-separated list)"),
