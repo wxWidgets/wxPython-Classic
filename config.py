@@ -811,7 +811,10 @@ class MyUnixCCompiler(distutils.unixccompiler.UnixCCompiler):
         compiler_so = self.compiler_so
         if sys.platform == 'darwin':           
             compiler_so = _darwin_compiler_fixup(compiler_so, cc_args + extra_postargs)
-
+        # Mandriva / Mageia Hack ------------------------------------
+        #self.linker_so = [el for el in self.linker_so if el != '-Wl,--no-undefined']
+        #compiler_so = [el for el in compiler_so if el != '-Werror=format-security']
+        # Mandriva / Mageia Hack ------------------------------------
         try:
             self.spawn(compiler_so + cc_args + [src, '-o', obj] +
                        extra_postargs)
