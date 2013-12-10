@@ -96,6 +96,8 @@ wxString wxWebViewBackendWebKit("");
 wxString wxWebViewDefaultURLStr("");
 wxString wxWebViewNameStr("");
 
+class wxWebView;
+
 inline void _RaiseError()
 {
     wxPyRaiseNotImplementedMsg("wx.html2 is not available on this platform.");
