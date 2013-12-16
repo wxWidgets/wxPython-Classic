@@ -2735,6 +2735,8 @@ wxString wxWebViewBackendWebKit("");
 wxString wxWebViewDefaultURLStr("");
 wxString wxWebViewNameStr("");
 
+class wxWebView;
+
 inline void _RaiseError()
 {
     wxPyRaiseNotImplementedMsg("wx.html2 is not available on this platform.");
@@ -2785,10 +2787,10 @@ class wxWebView : public wxControl
 {
 public:
     virtual bool Create(wxWindow*, wxWindowID, const wxString&, const wxPoint&,
-                        const wxSize&, long style, const wxString&) { _RaiseError(); return false; }
-    static wxWebView* New(wxWebViewBackend) { _RaiseError(); return NULL; }
+                        const wxSize&, long, const wxString&) { _RaiseError(); return false; }
+    static wxWebView* New(const wxString&) { _RaiseError(); return NULL; }
     static wxWebView* New(wxWindow*, wxWindowID, const wxString&, const wxPoint& ,
-                          const wxSize& , const wxString&, long style,
+                          const wxSize& , const wxString&, long,
                           const wxString&) { _RaiseError(); return NULL; }
 
     virtual wxString GetCurrentTitle() const { return wxEmptyString; }
