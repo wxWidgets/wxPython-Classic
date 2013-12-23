@@ -782,6 +782,7 @@ public:
 
     // For catching Apple Events
     virtual void MacOpenFile(const wxString& fileName);
+    virtual void MacOpenFiles(const wxArrayString& fileNames);
     virtual void MacOpenURL(const wxString& url);
     virtual void MacPrintFile(const wxString& fileName);
     virtual void MacNewFile();

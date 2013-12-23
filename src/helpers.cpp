@@ -414,6 +414,17 @@ void wxPyApp::MacOpenFile(const wxString &fileName)
     wxPyEndBlockThreads(blocked);
 }
 
+void wxPyApp::MacOpenFiles(const wxArrayString& fileNames)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    if (wxPyCBH_findCallback(m_myInst, "MacOpenFiles")) {
+        PyObject* s = wxArrayString2PyList_helper(fileNames);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
+        Py_DECREF(s);
+    }
+    wxPyEndBlockThreads(blocked);
+}
+
 void wxPyApp::MacOpenURL(const wxString &url)
 {
     wxPyBlock_t blocked = wxPyBeginBlockThreads();
