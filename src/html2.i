@@ -199,6 +199,8 @@ public:
     virtual wxWebViewZoomType GetZoomType() const { return wxWEBVIEW_ZOOM_TYPE_LAYOUT; }
     virtual void SetZoom(wxWebViewZoom zoom) {}
     virtual void SetZoomType(wxWebViewZoomType zoomType) {}
+    virtual void* GetNativeBackend() const { return NULL; }
+    virtual long Find(const wxString& text, int flags = wxWEBVIEW_FIND_DEFAULT) { return 0; }
 };
 
 
@@ -683,6 +685,9 @@ public:
                         support all zoom types.
     */
     virtual void SetZoomType(wxWebViewZoomType zoomType);
+
+    virtual void* GetNativeBackend() const;
+    virtual long Find(const wxString& text, int flags = wxWEBVIEW_FIND_DEFAULT);
 };
 
 
@@ -709,6 +714,12 @@ public:
 };
 
 
+%constant wxEventType wxEVT_WEBVIEW_NAVIGATING;
+%constant wxEventType wxEVT_WEBVIEW_NAVIGATED;
+%constant wxEventType wxEVT_WEBVIEW_LOADED;
+%constant wxEventType wxEVT_WEBVIEW_ERROR;
+%constant wxEventType wxEVT_WEBVIEW_NEWWINDOW;
+%constant wxEventType wxEVT_WEBVIEW_TITLE_CHANGED;
 
 %constant wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATING;
 %constant wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATED;
@@ -718,12 +729,12 @@ public:
 %constant wxEventType wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED;
 
 %pythoncode {
-    EVT_WEBVIEW_NAVIGATING = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATING, 1 )
-    EVT_WEBVIEW_NAVIGATED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATED, 1 )
-    EVT_WEBVIEW_LOADED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_LOADED, 1 )
-    EVT_WEBVIEW_ERROR = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_ERROR, 1 )
-    EVT_WEBVIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NEWWINDOW, 1 )
-    EVT_WEBVIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED, 1 )
+    EVT_WEBVIEW_NAVIGATING = wx.PyEventBinder( wxEVT_WEBVIEW_NAVIGATING, 1 )
+    EVT_WEBVIEW_NAVIGATED = wx.PyEventBinder( wxEVT_WEBVIEW_NAVIGATED, 1 )
+    EVT_WEBVIEW_LOADED = wx.PyEventBinder( wxEVT_WEBVIEW_LOADED, 1 )
+    EVT_WEBVIEW_ERROR = wx.PyEventBinder( wxEVT_WEBVIEW_ERROR, 1 )
+    EVT_WEBVIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_WEBVIEW_NEWWINDOW, 1 )
+    EVT_WEBVIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_WEBVIEW_TITLE_CHANGED, 1 )
 }
 
 //---------------------------------------------------------------------------
