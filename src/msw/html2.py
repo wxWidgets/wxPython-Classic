@@ -323,6 +323,14 @@ class WebView(_core.Control):
         """SetZoomType(self, int zoomType)"""
         return _html2.WebView_SetZoomType(*args, **kwargs)
 
+    def GetNativeBackend(*args, **kwargs):
+        """GetNativeBackend(self) -> void"""
+        return _html2.WebView_GetNativeBackend(*args, **kwargs)
+
+    def Find(*args, **kwargs):
+        """Find(self, String text, int flags=WEBVIEW_FIND_DEFAULT) -> long"""
+        return _html2.WebView_Find(*args, **kwargs)
+
 _html2.WebView_swigregister(WebView)
 
 def WebView_PreNew(*args, **kwargs):
@@ -357,18 +365,24 @@ class WebViewEvent(_core.NotifyEvent):
 
 _html2.WebViewEvent_swigregister(WebViewEvent)
 
+wxEVT_WEBVIEW_NAVIGATING = _html2.wxEVT_WEBVIEW_NAVIGATING
+wxEVT_WEBVIEW_NAVIGATED = _html2.wxEVT_WEBVIEW_NAVIGATED
+wxEVT_WEBVIEW_LOADED = _html2.wxEVT_WEBVIEW_LOADED
+wxEVT_WEBVIEW_ERROR = _html2.wxEVT_WEBVIEW_ERROR
+wxEVT_WEBVIEW_NEWWINDOW = _html2.wxEVT_WEBVIEW_NEWWINDOW
+wxEVT_WEBVIEW_TITLE_CHANGED = _html2.wxEVT_WEBVIEW_TITLE_CHANGED
 wxEVT_COMMAND_WEBVIEW_NAVIGATING = _html2.wxEVT_COMMAND_WEBVIEW_NAVIGATING
 wxEVT_COMMAND_WEBVIEW_NAVIGATED = _html2.wxEVT_COMMAND_WEBVIEW_NAVIGATED
 wxEVT_COMMAND_WEBVIEW_LOADED = _html2.wxEVT_COMMAND_WEBVIEW_LOADED
 wxEVT_COMMAND_WEBVIEW_ERROR = _html2.wxEVT_COMMAND_WEBVIEW_ERROR
 wxEVT_COMMAND_WEBVIEW_NEWWINDOW = _html2.wxEVT_COMMAND_WEBVIEW_NEWWINDOW
 wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED = _html2.wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED
-EVT_WEBVIEW_NAVIGATING = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATING, 1 )
-EVT_WEBVIEW_NAVIGATED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NAVIGATED, 1 )
-EVT_WEBVIEW_LOADED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_LOADED, 1 )
-EVT_WEBVIEW_ERROR = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_ERROR, 1 )
-EVT_WEBVIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_NEWWINDOW, 1 )
-EVT_WEBVIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_WEBVIEW_TITLE_CHANGED, 1 )
+EVT_WEBVIEW_NAVIGATING = wx.PyEventBinder( wxEVT_WEBVIEW_NAVIGATING, 1 )
+EVT_WEBVIEW_NAVIGATED = wx.PyEventBinder( wxEVT_WEBVIEW_NAVIGATED, 1 )
+EVT_WEBVIEW_LOADED = wx.PyEventBinder( wxEVT_WEBVIEW_LOADED, 1 )
+EVT_WEBVIEW_ERROR = wx.PyEventBinder( wxEVT_WEBVIEW_ERROR, 1 )
+EVT_WEBVIEW_NEWWINDOW = wx.PyEventBinder( wxEVT_WEBVIEW_NEWWINDOW, 1 )
+EVT_WEBVIEW_TITLE_CHANGED = wx.PyEventBinder( wxEVT_WEBVIEW_TITLE_CHANGED, 1 )
 
 class WebViewHandler(object):
     """Proxy of C++ WebViewHandler class"""
