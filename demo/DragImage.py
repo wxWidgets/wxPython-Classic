@@ -47,7 +47,7 @@ class DragCanvas(wx.ScrolledWindow):
 
         self.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))
         self.bg_bmp = images.Background.GetBitmap()
-        self.SetBackgroundStyle(wx.BG_STYLE_CUSTOM)
+        self.SetBackgroundStyle(wx.BG_STYLE_ERASE)
 
         # Make a shape from an image and mask.  This one will demo
         # dragging outside the window
