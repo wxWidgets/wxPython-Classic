@@ -7,7 +7,10 @@ Recent Changes for wxPython
 -------
 * 25-12-2013
 
-Merry Christmas (or your holiday of choice)!
+Merry Christmas (or your December holiday of choice)!
+
+No new features but lots of bug fixes in wxWidgets and of course the
+bump (finally!) up to 3.0.
 
 
 
