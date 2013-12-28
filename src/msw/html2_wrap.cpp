@@ -2683,7 +2683,7 @@ namespace swig {
 
 #include <wx/sharedptr.h>
 #include <wx/vector.h>
-
+ 
 
 
 enum wxWebViewZoom
@@ -2850,11 +2850,19 @@ class wxWebViewEvent : public wxNotifyEvent
 public:
     wxWebViewEvent(wxEventType type, int id, const wxString href,
                    const wxString target) { _RaiseError(); }
-    const wxString& GetTarget() const { return wxEmptyString; }
-    const wxString& GetURL() const { return wxEmptyString; }
+    const wxString& GetTarget() const { return m_empty; }
+    const wxString& GetURL() const { return m_empty; }
+private:
+    wxString m_empty;
 };
 
 
+wxEventType wxEVT_WEBVIEW_NAVIGATING;
+wxEventType wxEVT_WEBVIEW_NAVIGATED;
+wxEventType wxEVT_WEBVIEW_LOADED;
+wxEventType wxEVT_WEBVIEW_ERROR;
+wxEventType wxEVT_WEBVIEW_NEWWINDOW;
+wxEventType wxEVT_WEBVIEW_TITLE_CHANGED;
 
 wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATING;
 wxEventType wxEVT_COMMAND_WEBVIEW_NAVIGATED;

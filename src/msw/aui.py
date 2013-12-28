@@ -1127,11 +1127,11 @@ class AuiTabContainer(object):
     __swig_destroy__ = _aui.delete_AuiTabContainer
     __del__ = lambda self : None;
     def SetArtProvider(*args, **kwargs):
-        """SetArtProvider(self, wxAuiTabArt art)"""
+        """SetArtProvider(self, AuiTabArt art)"""
         return _aui.AuiTabContainer_SetArtProvider(*args, **kwargs)
 
     def GetArtProvider(*args, **kwargs):
-        """GetArtProvider(self) -> wxAuiTabArt"""
+        """GetArtProvider(self) -> AuiTabArt"""
         return _aui.AuiTabContainer_GetArtProvider(*args, **kwargs)
 
     def SetFlags(*args, **kwargs):
@@ -1198,7 +1198,7 @@ class AuiTabContainer(object):
         return _aui.AuiTabContainer_GetPage(*args, **kwargs)
 
     def GetPages(*args, **kwargs):
-        """GetPages(self) -> wxAuiNotebookPageArray"""
+        """GetPages(self) -> AuiNotebookPageArray"""
         return _aui.AuiTabContainer_GetPages(*args, **kwargs)
 
     def SetNormalFont(*args, **kwargs):
@@ -1303,11 +1303,11 @@ class AuiNotebook(wxNavigationEnabled_BookCtrlBase):
         return _aui.AuiNotebook_Create(*args, **kwargs)
 
     def SetArtProvider(*args, **kwargs):
-        """SetArtProvider(self, wxAuiTabArt art)"""
+        """SetArtProvider(self, AuiTabArt art)"""
         return _aui.AuiNotebook_SetArtProvider(*args, **kwargs)
 
     def GetArtProvider(*args, **kwargs):
-        """GetArtProvider(self) -> wxAuiTabArt"""
+        """GetArtProvider(self) -> AuiTabArt"""
         return _aui.AuiNotebook_GetArtProvider(*args, **kwargs)
 
     def SetUniformBitmapSize(*args, **kwargs):
@@ -1435,11 +1435,11 @@ class AuiMDIParentFrame(_windows.Frame):
         return _aui.AuiMDIParentFrame_Create(*args, **kwargs)
 
     def SetArtProvider(*args, **kwargs):
-        """SetArtProvider(self, wxAuiTabArt provider)"""
+        """SetArtProvider(self, AuiTabArt provider)"""
         return _aui.AuiMDIParentFrame_SetArtProvider(*args, **kwargs)
 
     def GetArtProvider(*args, **kwargs):
-        """GetArtProvider(self) -> wxAuiTabArt"""
+        """GetArtProvider(self) -> AuiTabArt"""
         return _aui.AuiMDIParentFrame_GetArtProvider(*args, **kwargs)
 
     def GetWindowMenu(*args, **kwargs):
@@ -2272,6 +2272,118 @@ EVT_AUITOOLBAR_RIGHT_CLICK = wx.PyEventBinder( wxEVT_AUITOOLBAR_RIGHT_CLICK, 1 )
 EVT_AUITOOLBAR_MIDDLE_CLICK = wx.PyEventBinder( wxEVT_AUITOOLBAR_MIDDLE_CLICK, 1 )
 EVT_AUITOOLBAR_BEGIN_DRAG = wx.PyEventBinder( wxEVT_AUITOOLBAR_BEGIN_DRAG, 1 )
 
+class AuiTabArt(object):
+    """Proxy of C++ AuiTabArt class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _aui.delete_AuiTabArt
+    __del__ = lambda self : None;
+    def Clone(*args, **kwargs):
+        """Clone(self) -> AuiTabArt"""
+        return _aui.AuiTabArt_Clone(*args, **kwargs)
+
+    def SetFlags(*args, **kwargs):
+        """SetFlags(self, int flags)"""
+        return _aui.AuiTabArt_SetFlags(*args, **kwargs)
+
+    def SetSizingInfo(*args, **kwargs):
+        """SetSizingInfo(self, Size tabCtrlSize, size_t tabCount)"""
+        return _aui.AuiTabArt_SetSizingInfo(*args, **kwargs)
+
+    def SetNormalFont(*args, **kwargs):
+        """SetNormalFont(self, Font font)"""
+        return _aui.AuiTabArt_SetNormalFont(*args, **kwargs)
+
+    def SetSelectedFont(*args, **kwargs):
+        """SetSelectedFont(self, Font font)"""
+        return _aui.AuiTabArt_SetSelectedFont(*args, **kwargs)
+
+    def SetMeasuringFont(*args, **kwargs):
+        """SetMeasuringFont(self, Font font)"""
+        return _aui.AuiTabArt_SetMeasuringFont(*args, **kwargs)
+
+    def SetColour(*args, **kwargs):
+        """SetColour(self, Colour colour)"""
+        return _aui.AuiTabArt_SetColour(*args, **kwargs)
+
+    def SetActiveColour(*args, **kwargs):
+        """SetActiveColour(self, Colour colour)"""
+        return _aui.AuiTabArt_SetActiveColour(*args, **kwargs)
+
+    def DrawBorder(*args, **kwargs):
+        """DrawBorder(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiTabArt_DrawBorder(*args, **kwargs)
+
+    def DrawBackground(*args, **kwargs):
+        """DrawBackground(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiTabArt_DrawBackground(*args, **kwargs)
+
+    def ShowDropDown(*args, **kwargs):
+        """ShowDropDown(self, Window wnd, AuiNotebookPageArray items, int activeIdx) -> int"""
+        return _aui.AuiTabArt_ShowDropDown(*args, **kwargs)
+
+    def GetIndentSize(*args, **kwargs):
+        """GetIndentSize(self) -> int"""
+        return _aui.AuiTabArt_GetIndentSize(*args, **kwargs)
+
+    def GetBorderWidth(*args, **kwargs):
+        """GetBorderWidth(self, Window wnd) -> int"""
+        return _aui.AuiTabArt_GetBorderWidth(*args, **kwargs)
+
+    def GetAdditionalBorderSpace(*args, **kwargs):
+        """GetAdditionalBorderSpace(self, Window wnd) -> int"""
+        return _aui.AuiTabArt_GetAdditionalBorderSpace(*args, **kwargs)
+
+    def GetBestTabCtrlSize(*args, **kwargs):
+        """GetBestTabCtrlSize(self, Window wnd, AuiNotebookPageArray pages, Size requiredBmpSize) -> int"""
+        return _aui.AuiTabArt_GetBestTabCtrlSize(*args, **kwargs)
+
+    def DrawTab(*args, **kwargs):
+        """
+        DrawTab(self, DC dc, Window wnd, AuiNotebookPage pane, Rect in_rect, 
+            int close_button_state) -> PyObject
+        """
+        return _aui.AuiTabArt_DrawTab(*args, **kwargs)
+
+    def DrawButton(*args, **kwargs):
+        """
+        DrawButton(self, DC dc, Window wnd, Rect in_rect, int bitmap_id, int button_state, 
+            int orientation) -> PyObject
+        """
+        return _aui.AuiTabArt_DrawButton(*args, **kwargs)
+
+    def GetTabSize(*args, **kwargs):
+        """
+        GetTabSize(self, DC dc, Window wnd, String caption, Bitmap bitmap, bool active, 
+            int close_button_state) -> PyObject
+        """
+        return _aui.AuiTabArt_GetTabSize(*args, **kwargs)
+
+_aui.AuiTabArt_swigregister(AuiTabArt)
+
+class AuiGenericTabArt(AuiTabArt):
+    """Proxy of C++ AuiGenericTabArt class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> AuiGenericTabArt"""
+        _aui.AuiGenericTabArt_swiginit(self,_aui.new_AuiGenericTabArt(*args, **kwargs))
+    __swig_destroy__ = _aui.delete_AuiGenericTabArt
+    __del__ = lambda self : None;
+_aui.AuiGenericTabArt_swigregister(AuiGenericTabArt)
+
+class AuiSimpleTabArt(AuiTabArt):
+    """Proxy of C++ AuiSimpleTabArt class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> AuiSimpleTabArt"""
+        _aui.AuiSimpleTabArt_swiginit(self,_aui.new_AuiSimpleTabArt(*args, **kwargs))
+    __swig_destroy__ = _aui.delete_AuiSimpleTabArt
+    __del__ = lambda self : None;
+_aui.AuiSimpleTabArt_swigregister(AuiSimpleTabArt)
+
 class PyAuiDockArt(AuiDefaultDockArt):
     """
     This version of the `AuiDockArt` class has been instrumented to be
@@ -2297,7 +2409,7 @@ class PyAuiDockArt(AuiDefaultDockArt):
 
 _aui.PyAuiDockArt_swigregister(PyAuiDockArt)
 
-class PyAuiTabArt(object):
+class PyAuiTabArt(AuiGenericTabArt):
     """
     This version of the `TabArt` class has been instrumented to be
     subclassable in Python and to reflect all calls to the C++ base class
