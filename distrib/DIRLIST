@@ -78,7 +78,6 @@ samples/pubsub
 samples/pubsub/advanced
 samples/pubsub/basic_arg1
 samples/pubsub/basic_kwargs
-samples/pubsub/basic_v1
 samples/pySketch
 samples/pySketch/images
 samples/simple

@@ -25,7 +25,7 @@ svn co $BASEURL/AGW/agw                  wx/lib/agw
 svn co $BASEURL/AGW/demos                demo/agw
 svn co $BASEURL/FloatCanvas/floatcanvas  wx/lib/floatcanvas
 svn co $BASEURL/PubSub/pubsub            wx/lib/pubsub
-svn co $BASEURL/PubSub/examples          samples/pubsub
+svn co $BASEURL/PubSub/pubsub/examples   samples/pubsub
 svn co $BASEURL/PDFViewer/pdfviewer      wx/lib/pdfviewer
 svn co $BASEURL/Editra                   wx/tools/Editra
 svn co $BASEURL/XRCed                    wx/tools/XRCed

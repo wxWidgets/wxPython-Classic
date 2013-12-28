@@ -587,14 +587,13 @@ Source: "samples\hangman\*.py";             DestDir: "{app}\samples\hangman";
 Source: "samples\mainloop\*.py";            DestDir: "{app}\samples\mainloop";
 
 Source: "samples\pubsub\*.bat";            DestDir: "{app}\samples\pubsub";
+Source: "samples\pubsub\*.py";            DestDir: "{app}\samples\pubsub";
 Source: "samples\pubsub\advanced\*.txt";   DestDir: "{app}\samples\advanced";
 Source: "samples\pubsub\advanced\*.py";    DestDir: "{app}\samples\advanced";
 Source: "samples\pubsub\basic_arg1\*.txt";   DestDir: "{app}\samples\basic_arg1";
 Source: "samples\pubsub\basic_arg1\*.py";    DestDir: "{app}\samples\basic_arg1";
 Source: "samples\pubsub\basic_kwargs\*.txt";   DestDir: "{app}\samples\basic_kwargs";
 Source: "samples\pubsub\basic_kwargs\*.py";    DestDir: "{app}\samples\basic_kwargs";
-Source: "samples\pubsub\basic_v1\*.txt";   DestDir: "{app}\samples\basic_v1";
-Source: "samples\pubsub\basic_v1\*.py";    DestDir: "{app}\samples\basic_v1";
 
 Source: "samples\pySketch\*.py";            DestDir: "{app}\samples\pySketch";
 Source: "samples\pySketch\images\*.bmp";    DestDir: "{app}\samples\pySketch\images";
@@ -700,8 +699,8 @@ Type: files; Name: "{app}\samples\pubsub\basic_arg1\*.pyc";
 Type: files; Name: "{app}\samples\pubsub\basic_arg1\*.pyo"; 
 Type: files; Name: "{app}\samples\pubsub\basic_kwargs\*.pyc";
 Type: files; Name: "{app}\samples\pubsub\basic_kwargs\*.pyo"; 
-Type: files; Name: "{app}\samples\pubsub\basic_v1\*.pyc";   
-Type: files; Name: "{app}\samples\pubsub\basic_v1\*.pyo";    
+Type: files; Name: "{app}\samples\pubsub\*.pyc";   
+Type: files; Name: "{app}\samples\pubsub\*.pyo";    
 Type: files; Name: "{app}\samples\pySketch\*.pyc";
 Type: files; Name: "{app}\samples\pySketch\*.pyo";
 Type: files; Name: "{app}\samples\simple\*.pyc";
