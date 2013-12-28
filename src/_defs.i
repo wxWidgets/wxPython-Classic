@@ -531,7 +531,7 @@ class ListClass##_iterator
 {
 public:
     //ListClass##_iterator();
-    ~ListClass_iterator();
+    ~ListClass##_iterator();
     KeepGIL(next);
     ItemClass* next();
 };
@@ -657,7 +657,7 @@ class ListClass##_iterator
 {
 public:
     //ListClass##_iterator();
-    ~ListClass_iterator();
+    ~ListClass##_iterator();
     KeepGIL(next);
     ItemClass* next();
 };

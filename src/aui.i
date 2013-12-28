@@ -331,6 +331,7 @@ public:
 %include auibook.h
 %include tabmdi.h
 %include auibar.h
+%include tabart.h
 
 #undef wxColor
 

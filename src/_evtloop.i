@@ -28,7 +28,7 @@ class wxEventLoopBase
 {
 public:
     // wxEventLoopBase();    *** It's an ABC, can't instantiate
-    virtual ~wxEventLoop();
+    virtual ~wxEventLoopBase();
 
     // use this to check whether the event loop was successfully created before
     // using it

@@ -885,6 +885,17 @@ public:
 #include <wx/metafile.h>
 %}
 
+class wxMetaFile;
+
+class wxMetafileDataObject : public wxDataObjectSimple
+{
+public:
+    wxMetafileDataObject();
+
+    void SetMetafile(const wxMetaFile& metafile);
+    wxMetaFile GetMetafile() const;
+};
+
 #else
 %{
 class wxMetafileDataObject : public wxDataObjectSimple
@@ -902,17 +913,6 @@ public:
 
 #endif
 
-
-class wxMetaFile;
-
-class wxMetafileDataObject : public wxDataObjectSimple
-{
-public:
-    wxMetafileDataObject();
-
-    void SetMetafile(const wxMetaFile& metafile);
-    wxMetaFile GetMetafile() const;
-};
 
 
 
