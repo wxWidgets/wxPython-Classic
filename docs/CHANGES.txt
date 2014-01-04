@@ -15,7 +15,10 @@ http://trac.wxwidgets.org/ticket/13116
 
 Fixed "wxPyXmlSubclassFactory *', no destructor found." error.
 
+Some Pubsub and AGW updates.
+
 Various other bug fixes from wxWidgets.
+
 
 
 
