@@ -280,6 +280,8 @@ class XmlSubclassFactory(object):
         _xrc.XmlSubclassFactory_swiginit(self,_xrc.new_XmlSubclassFactory(*args, **kwargs))
         XmlSubclassFactory._setCallbackInfo(self, self, XmlSubclassFactory)
 
+    __swig_destroy__ = _xrc.delete_XmlSubclassFactory
+    __del__ = lambda self : None;
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _xrc.XmlSubclassFactory__setCallbackInfo(*args, **kwargs)
