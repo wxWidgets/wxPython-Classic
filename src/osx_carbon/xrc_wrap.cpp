@@ -3537,7 +3537,6 @@ fail:
 SWIGINTERN PyObject *_wrap_XmlResource_AddSubclassFactory(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPyXmlSubclassFactory *arg1 = (wxPyXmlSubclassFactory *) 0 ;
-  void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
   char *  kwnames[] = {
@@ -3545,11 +3544,10 @@ SWIGINTERN PyObject *_wrap_XmlResource_AddSubclassFactory(PyObject *SWIGUNUSEDPA
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:XmlResource_AddSubclassFactory",kwnames,&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyXmlSubclassFactory, 0 |  0 );
+  res1 = SWIG_ConvertPtr(obj0, SWIG_as_voidptrptr(&arg1), SWIGTYPE_p_wxPyXmlSubclassFactory, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "XmlResource_AddSubclassFactory" "', expected argument " "1"" of type '" "wxPyXmlSubclassFactory *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "XmlResource_AddSubclassFactory" "', expected argument " "1"" of type '" "wxPyXmlSubclassFactory *""'");
   }
-  arg1 = reinterpret_cast< wxPyXmlSubclassFactory * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     wxXmlResource::AddSubclassFactory(arg1);
@@ -5016,6 +5014,34 @@ SWIGINTERN PyObject *_wrap_new_XmlSubclassFactory(PyObject *SWIGUNUSEDPARM(self)
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPyXmlSubclassFactory, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_XmlSubclassFactory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyXmlSubclassFactory *arg1 = (wxPyXmlSubclassFactory *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyXmlSubclassFactory, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_XmlSubclassFactory" "', expected argument " "1"" of type '" "wxPyXmlSubclassFactory *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyXmlSubclassFactory * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -9427,6 +9453,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"XmlResource_swigregister", XmlResource_swigregister, METH_VARARGS, NULL},
 	 { (char *)"XmlResource_swiginit", XmlResource_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_XmlSubclassFactory", (PyCFunction)_wrap_new_XmlSubclassFactory, METH_NOARGS, NULL},
+	 { (char *)"delete_XmlSubclassFactory", (PyCFunction)_wrap_delete_XmlSubclassFactory, METH_O, NULL},
 	 { (char *)"XmlSubclassFactory__setCallbackInfo", (PyCFunction) _wrap_XmlSubclassFactory__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlSubclassFactory_swigregister", XmlSubclassFactory_swigregister, METH_VARARGS, NULL},
 	 { (char *)"XmlSubclassFactory_swiginit", XmlSubclassFactory_swiginit, METH_VARARGS, NULL},
