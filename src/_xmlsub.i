@@ -37,6 +37,7 @@ class wxPyXmlSubclassFactory {
 public:
     %pythonAppend wxPyXmlSubclassFactory setCallbackInfo(XmlSubclassFactory)
     wxPyXmlSubclassFactory();
+    ~wxPyXmlSubclassFactory();
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 };
 

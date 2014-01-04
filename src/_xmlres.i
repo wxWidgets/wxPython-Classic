@@ -128,7 +128,9 @@ public:
     // Registers subclasses factory for use in XRC. This function is not meant
     // for public use, please see the comment above wxXmlSubclassFactory
     // definition.
+    %disownarg( wxPyXmlSubclassFactory *factory );
     static void AddSubclassFactory(wxPyXmlSubclassFactory *factory);
+    %cleardisown( wxPyXmlSubclassFactory *factory );
 
 
     // Loads menu from resource. Returns NULL on failure.
