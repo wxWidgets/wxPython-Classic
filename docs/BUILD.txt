@@ -1,4 +1,4 @@
-Building wxPython 2.9
+Building wxPython 3.0
 =====================
 
 This file describes how I build wxWidgets and wxPython while doing
@@ -25,7 +25,7 @@ See the README.txt in the wxPython/SWIG dir for details about each
 patch.  You can also get a pre-patched version of the SWIG sources
 plus a Windows binary at::
 
-    http://wxpython.wxcommunity.com/tools/
+    http://wxpython.kosoftworks.com/tools/
 
 If you install this build of SWIG to a location that is not on the
 PATH (so it doesn't interfere with an existing SWIG install for
@@ -38,7 +38,7 @@ The build script
 
 To build wxPython, simply run the build script something like this::
 
-    cd wxPython-src-2.9.0.1/wxPython
+    cd wxPython-src-3.0.0.0/wxPython
     python2.6 build-wxpython.py --build_dir=../bld
 
 Be sure to use the same verison of Python to run the script that you
@@ -81,7 +81,7 @@ options as of this writing are::
       --prefix=PREFIX       Prefix value to pass to the wx build.
       --reswig              Allow SWIG to regenerate the wrappers
       --unicode             Build wxPython with unicode support (always on for
-                            wx2.9)
+                            wx3.0)
       --wxpy_installdir=WXPY_INSTALLDIR
                             Directory to install the wxPython binaries.
 
