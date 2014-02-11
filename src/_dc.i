@@ -2124,6 +2124,8 @@ MustHaveApp(wxPrinterDC);
 class  wxPrinterDC : public wxDC {
 public:
     wxPrinterDC(const wxPrintData& printData);
+
+    wxRect GetPaperRect() const;
 };
 
 
