@@ -40,6 +40,6 @@ class TestFrame(wx.Frame):
         return sizer
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 TestFrame().Show()
 app.MainLoop()

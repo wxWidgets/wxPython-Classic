@@ -201,7 +201,7 @@ class Ticker(wx.PyControl):
 
 #testcase/demo
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     f = wx.Frame(None)
     p = wx.Panel(f)
     t = Ticker(p, text="Some sample ticker text")   

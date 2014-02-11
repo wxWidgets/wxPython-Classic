@@ -208,7 +208,7 @@ def ensureMinimal(minVersion, optionsRequired=False):
         
         import wx, webbrowser
         versions = "\n".join(["      "+ver for ver in getInstalled()])
-        app = wx.PySimpleApp()
+        app = wx.App()
         result = wx.MessageBox("This application requires a version of wxPython "
                                "greater than or equal to %s, but a matching version "
                                "was not found.\n\n"

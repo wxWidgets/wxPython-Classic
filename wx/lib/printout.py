@@ -1135,7 +1135,7 @@ class SetPrintout(wx.Printout):
         return True
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = wx.Frame(None, -1, "Dummy wx frame for testing printout.py")
     frame.Show(True)
     ptbl = PrintTable(frame)

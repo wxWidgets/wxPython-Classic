@@ -17,7 +17,7 @@ class TestFrame(wx.Frame):
         grid.SetColSize(1, 125)  
         grid.SetRowSize(1, 100)
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

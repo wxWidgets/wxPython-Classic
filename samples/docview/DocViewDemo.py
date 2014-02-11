@@ -155,7 +155,7 @@ class MyTextWindow(wx.TextCtrl):
 # TextEdit Sample Application
 
 
-class MyApp(wx.PySimpleApp):
+class MyApp(wx.App):
 
 
     def OnInit(self):

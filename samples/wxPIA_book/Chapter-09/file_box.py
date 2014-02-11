@@ -2,7 +2,7 @@ import wx
 import os
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     wildcard = "Python source (*.py)|*.py|" \
             "Compiled Python (*.pyc)|*.pyc|" \
             "All files (*.*)|*.*"

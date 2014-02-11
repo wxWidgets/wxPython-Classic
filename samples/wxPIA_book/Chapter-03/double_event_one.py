@@ -21,7 +21,7 @@ class DoubleEventFrame(wx.Frame):
         event.Skip()
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = DoubleEventFrame(parent=None, id=-1)
     frame.Show()
     app.MainLoop()

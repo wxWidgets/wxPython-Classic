@@ -1,7 +1,7 @@
 import wx
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     dlg = wx.MessageDialog(None, "Is this explanation OK?",
                           'A Message Box',
                           wx.YES_NO | wx.ICON_QUESTION)

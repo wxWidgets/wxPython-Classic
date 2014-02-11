@@ -49,7 +49,7 @@ class GenericButtonFrame(wx.Frame):
         panel.SetSizer(sizer)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = GenericButtonFrame()
     frame.Show()
     app.MainLoop()        

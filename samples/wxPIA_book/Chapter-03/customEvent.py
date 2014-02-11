@@ -58,7 +58,7 @@ class CustomEventFrame(wx.Frame):
         self.SetTitle("Click Count: %s" % event.GetClickCount())
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = CustomEventFrame(parent=None, id=-1)
     frame.Show()
     app.MainLoop()

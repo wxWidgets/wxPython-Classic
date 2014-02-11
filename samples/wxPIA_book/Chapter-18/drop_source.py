@@ -64,7 +64,7 @@ class MyFrame(wx.Frame):
         sizer.Fit(self)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

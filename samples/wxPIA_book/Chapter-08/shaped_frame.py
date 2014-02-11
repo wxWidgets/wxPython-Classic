@@ -36,7 +36,7 @@ class ShapedFrame(wx.Frame):
         self.Close()
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     ShapedFrame().Show()
     app.MainLoop()
 

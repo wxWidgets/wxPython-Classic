@@ -36,7 +36,7 @@ class TestFrame(wx.Frame):
         table = TestTable()
         grid.SetTable(table, True)
         
-app = wx.PySimpleApp()
+app = wx.App()
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

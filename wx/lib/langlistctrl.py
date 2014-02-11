@@ -398,7 +398,7 @@ class LanguageListCtrl(wx.ListCtrl):
 
 
 if __name__ == '__main__':
-    a = wx.PySimpleApp()
+    a = wx.App()
     
     print GetLanguageFlag(wx.LANGUAGE_AFRIKAANS)
     

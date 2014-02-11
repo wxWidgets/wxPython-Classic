@@ -34,7 +34,7 @@ class MyFrame(wx.Frame):
         text.SetDropTarget(dt)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

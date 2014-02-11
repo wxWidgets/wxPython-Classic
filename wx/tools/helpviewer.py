@@ -50,7 +50,7 @@ def main(args=sys.argv):
     import wx
     import wx.html
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     #wx.Log.SetActiveTarget(wx.LogStderr())
     wx.Log.SetLogLevel(wx.LOG_Error)
 

@@ -78,7 +78,7 @@ class MyDialog(wx.Dialog):
         sizer.Fit(self)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 
 data = { "name" : "Jordyn Dunn" }
 dlg = MyDialog(data)

@@ -14,6 +14,6 @@ class RadioBoxFrame(wx.Frame):
                         sampleList, 3, wx.RA_SPECIFY_COLS | wx.NO_BORDER)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     RadioBoxFrame().Show()
     app.MainLoop()             

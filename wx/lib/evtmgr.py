@@ -485,7 +485,7 @@ eventManager  = EventManager()
 
 
 if __name__ == '__main__':
-    app    = wx.PySimpleApp()
+    app    = wx.App()
     frame  = wx.Frame(None, -1, 'Event Test', size=(300,300))
     button = wx.ToggleButton(frame, -1, 'Listen for Mouse Events')
     sizer  = wx.BoxSizer(wx.HORIZONTAL)

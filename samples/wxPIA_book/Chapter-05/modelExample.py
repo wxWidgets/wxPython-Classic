@@ -82,7 +82,7 @@ class ModelExample(wx.Frame):
         self.Destroy()
             
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = ModelExample(parent=None, id=-1)
     frame.Show()
     app.MainLoop()

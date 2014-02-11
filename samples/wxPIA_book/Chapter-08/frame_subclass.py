@@ -16,6 +16,6 @@ class SubclassFrame(wx.Frame):
         self.Destroy()
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     SubclassFrame().Show()
     app.MainLoop() 

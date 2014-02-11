@@ -32,7 +32,7 @@ class MyFrame(wx.Frame):
             wx.MessageBox("Invalid sound file", "Error")
     
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

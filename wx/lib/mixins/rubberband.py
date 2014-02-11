@@ -379,7 +379,7 @@ class RubberBand:
 
 
 if __name__ == '__main__':
-    app   = wx.PySimpleApp()
+    app   = wx.App()
     frame = wx.Frame(None, -1, title='RubberBand Test', size=(300,300))
 
     # Add a panel that the rubberband will work on.

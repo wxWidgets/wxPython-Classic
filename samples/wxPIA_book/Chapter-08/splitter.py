@@ -93,7 +93,7 @@ class SplitterExampleFrame(wx.Frame):
         self.Close()
 
 
-app = wx.PySimpleApp(redirect=True)
+app = wx.App(redirect=True)
 frm = SplitterExampleFrame(None, "Splitter Example")
 frm.SetSize((600,500))
 frm.Show()

@@ -147,6 +147,6 @@ class TestFrame(wx.Frame):
                 
     
 
-app = wx.PySimpleApp()
+app = wx.App()
 TestFrame().Show()
 app.MainLoop()

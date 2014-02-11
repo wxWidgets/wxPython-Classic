@@ -14,7 +14,7 @@ class MyFrame(wx.Frame):
         self.SetMenuBar(menuBar)
         
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = MyFrame()
     frame.Show()
     app.MainLoop()

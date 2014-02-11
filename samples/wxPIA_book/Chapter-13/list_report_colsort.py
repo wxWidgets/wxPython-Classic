@@ -64,7 +64,7 @@ class DemoFrame(wx.Frame, wx.lib.mixins.listctrl.ColumnSorterMixin):
         return (self.dn, self.up)
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = DemoFrame()
 frame.Show()
 app.MainLoop()

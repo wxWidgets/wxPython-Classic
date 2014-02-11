@@ -46,7 +46,7 @@ class TestNotebook(wx.Notebook):
             
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     f = wx.Frame(None, -1, "Notebook Test")
     nb = TestNotebook(f)
     s = wx.BoxSizer()

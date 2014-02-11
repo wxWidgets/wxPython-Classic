@@ -11,7 +11,7 @@ class MyHtmlFrame(wx.Frame):
         wx.CallAfter(
             html.LoadPage, "http://wxwidgets.org/manuals/2.6.2/wx_wxbutton.html")
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyHtmlFrame(None, "Simple HTML Browser")
 frm.Show()
 app.MainLoop()

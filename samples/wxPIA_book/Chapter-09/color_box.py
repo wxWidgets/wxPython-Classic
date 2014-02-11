@@ -1,7 +1,7 @@
 import wx
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     dialog = wx.ColourDialog(None)
     dialog.GetColourData().SetChooseFull(True)
     if dialog.ShowModal() == wx.ID_OK:

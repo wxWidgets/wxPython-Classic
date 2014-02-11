@@ -33,7 +33,7 @@ if os.access(basePath, os.W_OK):
     helpviewer.main(args)
 
 else:
-    app = wx.PySimpleApp()
+    app = wx.App()
     dlg = wx.MessageDialog(None,
         "The wxDocs need to be located in a directory that is writable by you.  "
         "I am unable to start the viewer in its current location.",

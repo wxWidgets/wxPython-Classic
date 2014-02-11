@@ -16,7 +16,7 @@ class SliderFrame(wx.Frame):
         slider.SetTickFreq(20, 1)
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = SliderFrame()
     frame.Show()
     app.MainLoop() 

@@ -27,6 +27,6 @@ class RadioButtonFrame(wx.Frame):
         self.selectedText = text
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     RadioButtonFrame().Show()
     app.MainLoop()             

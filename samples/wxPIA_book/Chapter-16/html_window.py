@@ -13,7 +13,7 @@ class MyHtmlFrame(wx.Frame):
             "loaded from a <font color=\"red\">string</font>.")
                 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyHtmlFrame(None, "Simple HTML")
 frm.Show()
 app.MainLoop()

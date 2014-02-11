@@ -113,7 +113,7 @@ tree = [
                       "wx.py.PyShell.App",
                       ["wx.py.filling.App", [
                             "wx.py.PyFilling.App ",]],
-                      ["wx.PySimpleApp", [
+                      ["wx.App", [
                             "wx.lib.masked.maskededit.test",]],
                       "wx.PyWidgetTester ",]]]],
           

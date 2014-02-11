@@ -10,7 +10,7 @@ class CheckBoxFrame(wx.Frame):
         wx.CheckBox(panel, -1, "Gamma", (35, 80), (150, 20))
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     CheckBoxFrame().Show()
     app.MainLoop()  
 

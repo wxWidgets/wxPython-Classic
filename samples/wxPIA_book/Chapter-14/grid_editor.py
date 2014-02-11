@@ -105,7 +105,7 @@ class TestFrame(wx.Frame):
         grid.SetDefaultEditor(UpCaseCellEditor())
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

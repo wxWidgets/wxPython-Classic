@@ -19,7 +19,7 @@ class TextFrame(wx.Frame):
         panel.SetSizer(sizer)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = TextFrame()
     frame.Show()
     app.MainLoop()

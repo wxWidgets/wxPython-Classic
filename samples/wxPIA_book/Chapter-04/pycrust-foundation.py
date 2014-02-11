@@ -54,7 +54,7 @@ class ToolbarFrame(wx.Frame):
         frame.Show()
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     app.frame = ToolbarFrame(parent=None, id=-1)
     app.frame.Show()
     app.MainLoop()

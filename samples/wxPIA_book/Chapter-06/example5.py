@@ -126,7 +126,7 @@ class SketchFrame(wx.Frame):
         self.Destroy()
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = SketchFrame(None)
     frame.Show(True)
     app.MainLoop()

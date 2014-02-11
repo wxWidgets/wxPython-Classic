@@ -18,6 +18,6 @@ class GaugeFrame(wx.Frame):
         self.gauge.SetValue(self.count)
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     GaugeFrame().Show()
     app.MainLoop()  

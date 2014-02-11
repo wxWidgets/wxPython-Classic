@@ -15,7 +15,7 @@ class ListBoxFrame(wx.Frame):
         listBox.SetSelection(3)
                 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     ListBoxFrame().Show()
     app.MainLoop()  
 

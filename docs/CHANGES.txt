@@ -13,7 +13,7 @@ DLL is dynamically loaded at runtime with LoadLibrary, such as how
 Python extension modules are loaded.  See
 http://trac.wxwidgets.org/ticket/13116
 
-Fixed "wxPyXmlSubclassFactory *', no destructor found." error.
+Fixed "wxPyXmlSubclassFactory, no destructor found." error.
 
 Some Pubsub and AGW updates.
 

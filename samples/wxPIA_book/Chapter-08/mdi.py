@@ -21,7 +21,7 @@ class MDIFrame(wx.MDIParentFrame):
         win.Show(True)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = MDIFrame()
     frame.Show()
     app.MainLoop()

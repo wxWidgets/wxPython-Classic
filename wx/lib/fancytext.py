@@ -443,7 +443,7 @@ We can use doctest/guitest to display this string in all its marked up glory.
 </font></font>
 The End"""
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     box = wx.BoxSizer(wx.VERTICAL)
     frame = wx.Frame(None, -1, "FancyText demo", wx.DefaultPosition)
     frame.SetBackgroundColour("light grey")

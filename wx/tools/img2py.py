@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------
-# Name:        wxPython.tools.img2py
+# Name:        wx.tools.img2py
 # Purpose:     Convert an image to Python code.
 #
 # Author:      Robin Dunn
@@ -147,7 +147,7 @@ def img2py(image_file, python_file,
         
     global app
     if not wx.GetApp():
-        app = wx.PySimpleApp()
+        app = wx.App()
         
     # convert the image file to a temporary file
     tfname = tempfile.mktemp()

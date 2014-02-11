@@ -14,6 +14,6 @@ class TestFrame(wx.Frame):
         center.SetMinSize((150,50))
         self.SetSizer(sizer)
         self.Fit()
-app = wx.PySimpleApp()
+app = wx.App()
 TestFrame().Show()
 app.MainLoop()

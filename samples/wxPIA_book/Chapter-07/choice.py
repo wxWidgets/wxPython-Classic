@@ -11,6 +11,6 @@ class ChoiceFrame(wx.Frame):
         wx.Choice(panel, -1, (85, 18), choices=sampleList)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     ChoiceFrame().Show()
     app.MainLoop() 

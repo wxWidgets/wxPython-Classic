@@ -68,7 +68,7 @@ class VBoxSizerMultiProportionalFrame(TestFrame):
         sizer.Add(bw, 2, flag=wx.EXPAND)
         return sizer
 
-app = wx.PySimpleApp()
+app = wx.App()
 frameList = [VBoxSizerFrame, HBoxSizerFrame, 
              VBoxSizerStretchableFrame, 
              VBoxSizerMultiProportionalFrame]

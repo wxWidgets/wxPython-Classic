@@ -33,7 +33,7 @@ class MyFrame(wx.Frame):
         ClockWindow(self)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

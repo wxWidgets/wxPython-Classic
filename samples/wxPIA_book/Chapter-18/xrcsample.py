@@ -37,7 +37,7 @@ class MyFrame(wx.Frame):
         self.Close()
     
 
-app = wx.PySimpleApp(redirect=True)
+app = wx.App(redirect=True)
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

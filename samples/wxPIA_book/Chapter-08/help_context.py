@@ -11,6 +11,6 @@ class HelpFrame(wx.Frame):
         self.PostCreate(pre)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     HelpFrame().Show()
     app.MainLoop()

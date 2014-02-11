@@ -18,7 +18,7 @@ class ScrollbarFrame(wx.Frame):
         self.scroll.Scroll(1, 1)
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = ScrollbarFrame()
     frame.Show()
     app.MainLoop()

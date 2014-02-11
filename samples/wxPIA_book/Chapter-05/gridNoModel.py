@@ -42,7 +42,7 @@ class TestFrame(wx.Frame):
         grid = SimpleGrid(self)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = TestFrame(None)
     frame.Show(True)
     app.MainLoop()

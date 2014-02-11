@@ -10,7 +10,7 @@ class SubclassDialog(wx.Dialog):
                 pos=(115, 15))
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     app.MainLoop() 
     dialog = SubclassDialog()
     result = dialog.ShowModal()

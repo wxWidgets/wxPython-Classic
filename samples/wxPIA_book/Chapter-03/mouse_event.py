@@ -27,7 +27,7 @@ class MouseEventFrame(wx.Frame):
         
     
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = MouseEventFrame(parent=None, id=-1)
     frame.Show()
     app.MainLoop()

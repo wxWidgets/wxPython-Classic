@@ -508,7 +508,7 @@ class ColourInfoPanel(wx.Panel):
 
         
 
-app = wx.PySimpleApp(redirect=False)
+app = wx.App(redirect=False)
 frame = LayoutTestFrame()
 app.SetTopWindow(frame)
 frame.Show()

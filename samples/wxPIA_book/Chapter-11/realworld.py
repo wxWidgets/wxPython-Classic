@@ -90,6 +90,6 @@ class TestFrame(wx.Frame):
         mainSizer.SetSizeHints(self)
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 TestFrame().Show()
 app.MainLoop()

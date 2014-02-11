@@ -55,7 +55,7 @@ class TestFrame(wx.Frame):
         print "OnActivated:    ", self.GetItemText(evt.GetItem())
 
 
-app = wx.PySimpleApp(redirect=True)
+app = wx.App(redirect=True)
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

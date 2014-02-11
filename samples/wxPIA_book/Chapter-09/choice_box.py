@@ -1,7 +1,7 @@
 import wx
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     choices = ["Alpha", "Baker", "Charlie", "Delta"]
     dialog = wx.SingleChoiceDialog(None, "Pick A Word", "Choices",
             choices)

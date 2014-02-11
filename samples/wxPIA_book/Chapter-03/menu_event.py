@@ -17,7 +17,7 @@ class MenuEventFrame(wx.Frame):
         self.Close(True)
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = MenuEventFrame(parent=None, id=-1)
     frame.Show()
     app.MainLoop()

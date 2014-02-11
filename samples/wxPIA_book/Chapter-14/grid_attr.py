@@ -27,7 +27,7 @@ class TestFrame(wx.Frame):
         grid.SetRowAttr(8, attr)
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

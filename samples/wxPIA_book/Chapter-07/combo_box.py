@@ -14,6 +14,6 @@ class ComboBoxFrame(wx.Frame):
                         sampleList, wx.CB_SIMPLE)
                         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     ComboBoxFrame().Show()
     app.MainLoop()                          

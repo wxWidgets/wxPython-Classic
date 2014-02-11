@@ -84,7 +84,7 @@ class MyDialog(wx.Dialog):
         sizer.Fit(self)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 
 dlg = MyDialog()
 dlg.ShowModal()

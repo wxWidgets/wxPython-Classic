@@ -106,7 +106,7 @@ def _test():
             self.show("goo = %s" % e.goo, "Got Goo (cmd2)")
             
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     f = Frame()
     f.Show(True)
     app.MainLoop()

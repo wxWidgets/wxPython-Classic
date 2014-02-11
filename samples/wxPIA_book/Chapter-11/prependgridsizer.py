@@ -13,6 +13,6 @@ class GridSizerFrame(wx.Frame):
         self.SetSizer(sizer)
         self.Fit()
 
-app = wx.PySimpleApp()
+app = wx.App()
 GridSizerFrame().Show()
 app.MainLoop()

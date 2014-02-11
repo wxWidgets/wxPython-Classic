@@ -239,7 +239,7 @@ the official form of the wxPython classes.  For example::
 	def JustDoIt(self, evt):
 	    print "It's done!"
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     f = MyFrame(None, "What's up?")
     f.Show()
     app.MainLoop()
@@ -693,7 +693,7 @@ OGL is dead! LONG LIVE OGL!
 
 The wx.ogl module was deprecated in version 2.5.2 in favor of the new
 Python port of the OGL library located at wx.lib.ogl contributed by
-Pierre Hjälm.  Starting in version 2.5.5 the old ogl is no longer
+Pierre Hjï¿½lm.  Starting in version 2.5.5 the old ogl is no longer
 being built in the distributed binaries, however the source code is
 still in the source tree so people can built it themselves if desired.
 

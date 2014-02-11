@@ -102,7 +102,7 @@ class MyFrame(wx.Frame):
 
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 app.SetAppName("wxprojview")
 app.SetVendorName("Robin Dunn")
 style = wx.STAY_ON_TOP

@@ -148,7 +148,7 @@ class TestFrame(wx.Frame):
             item, cookie = self.tree.GetNextChild(parent, cookie)
 
 
-app = wx.PySimpleApp(redirect=True)
+app = wx.App(redirect=True)
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

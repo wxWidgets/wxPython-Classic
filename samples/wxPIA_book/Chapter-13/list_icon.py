@@ -26,7 +26,7 @@ class DemoFrame(wx.Frame):
             self.list.InsertImageStringItem(x, 
                     "This is item %02d" % x, img)
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = DemoFrame()
 frame.Show()
 app.MainLoop()

@@ -29,7 +29,7 @@ class Frame(wx.Frame):
         
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = Frame(None)
     frame.Show()
     app.MainLoop()

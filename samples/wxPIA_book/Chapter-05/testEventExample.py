@@ -5,7 +5,7 @@ import wx
 class TestExample(unittest.TestCase):
 
     def setUp(self):
-        self.app = wx.PySimpleApp()
+        self.app = wx.App()
         self.frame = modelExample.ModelExample(parent=None, id=-1)
 
     def tearDown(self):

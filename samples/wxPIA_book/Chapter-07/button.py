@@ -13,7 +13,7 @@ class ButtonFrame(wx.Frame):
         self.button.SetLabel("Clicked")
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = ButtonFrame()
     frame.Show()
     app.MainLoop()

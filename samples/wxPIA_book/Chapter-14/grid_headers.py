@@ -18,7 +18,7 @@ class TestFrame(wx.Frame):
                 grid.SetCellValue(row, col, 
                         "(%s,%s)" % (self.rowLabels[row], self.colLabels[col]))
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = TestFrame()
 frame.Show()
 app.MainLoop()

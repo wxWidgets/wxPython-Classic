@@ -219,7 +219,7 @@ class ItemsPicker(wx.Panel):
         
 
 if __name__ == '__main__':
-    test = wx.PySimpleApp(0)
+    test = wx.App(0)
     frame = wx.Frame(None, -1)
     d = wx.Dialog(frame, style = wx.RESIZE_BORDER|wx.DEFAULT_DIALOG_STYLE)
     

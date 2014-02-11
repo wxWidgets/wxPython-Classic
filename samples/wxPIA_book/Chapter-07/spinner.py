@@ -10,6 +10,6 @@ class SpinnerFrame(wx.Frame):
         sc.SetValue(5)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     SpinnerFrame().Show()
     app.MainLoop()         

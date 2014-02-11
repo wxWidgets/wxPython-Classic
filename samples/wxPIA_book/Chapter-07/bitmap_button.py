@@ -17,7 +17,7 @@ class BitmapButtonFrame(wx.Frame):
         self.Destroy()
         
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = BitmapButtonFrame()
     frame.Show()
     app.MainLoop()

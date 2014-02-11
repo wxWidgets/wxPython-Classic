@@ -57,7 +57,7 @@ class MyHtmlFrame(wx.Frame):
         self.help.Display("sub book")
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyHtmlFrame(None, "HTML Help")
 frm.Show()
 app.MainLoop()

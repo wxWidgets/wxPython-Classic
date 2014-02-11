@@ -28,7 +28,7 @@ class DemoFrame(wx.Frame):
             
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = DemoFrame()
 frame.Show()
 app.MainLoop()

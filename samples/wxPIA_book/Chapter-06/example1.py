@@ -99,7 +99,7 @@ class SketchFrame(wx.Frame):
         self.sketch = SketchWindow(self, -1)
 
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = SketchFrame(None)
     frame.Show(True)
     app.MainLoop()

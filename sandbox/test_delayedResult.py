@@ -105,7 +105,7 @@ def testStartWorker():
         dr.startWorker(consumer, worker, cargs=(1,), ckwargs={'a':'a'}, 
             wargs=(2,), wkwargs={'b':'b'}, senderArg='sender')
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = wx.Frame(None) # need this otherwise MainLoop() returns immediately
     # pretend user has clicked: 
     import thread
@@ -139,7 +139,7 @@ def testStartWorkerEvent():
             cargs=(eventClass,), ckwargs={'a':'a','resultAttr':'result'}, 
             wargs=(2,), wkwargs={'b':'b'}, senderArg='sender')
 
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = wx.Frame(None) # need this otherwise MainLoop() returns immediately
     from wx.lib.newevent import NewEvent as wxNewEvent
     eventClass, eventBinder = wxNewEvent()
@@ -156,7 +156,7 @@ def testAbort():
     
     # create a wx app and a function that will cause 
     # app to close when abort occurs
-    app = wx.PySimpleApp()
+    app = wx.App()
     frame = wx.Frame(None) # need this otherwise MainLoop() returns immediately
     def exiter():
         abort.wait()

@@ -71,7 +71,7 @@ class MyFrame(wx.Frame):
                 "Error")
     
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyFrame()
 frm.Show()
 app.MainLoop()

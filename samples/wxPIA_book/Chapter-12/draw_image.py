@@ -40,7 +40,7 @@ class TestFrame(wx.Frame):
         win = RandomImagePlacementWindow(self, img)
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = TestFrame()
 frm.Show()
 app.MainLoop()

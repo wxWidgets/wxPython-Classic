@@ -65,7 +65,7 @@ class MyHtmlFrame(wx.Frame):
         html.SetPage(page)
                 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frm = MyHtmlFrame(None, "Custom HTML Tag Handler")
 frm.Show()
 app.MainLoop()

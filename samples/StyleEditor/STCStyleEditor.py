@@ -1319,7 +1319,7 @@ def initSTC(stc, config, lang):
 
 #-------------------------------------------------------------------------------
 if __name__ == '__main__':
-    app = wx.PySimpleApp()
+    app = wx.App()
 
     provider = wx.SimpleHelpProvider()
     wx.HelpProvider.Set(provider)

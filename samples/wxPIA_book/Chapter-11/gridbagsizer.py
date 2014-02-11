@@ -28,7 +28,7 @@ class TestFrame(wx.Frame):
         self.Fit()
         
 
-app = wx.PySimpleApp()
+app = wx.App()
 TestFrame().Show()
 
 app.MainLoop()

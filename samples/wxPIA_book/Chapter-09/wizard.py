@@ -15,7 +15,7 @@ class TitledPage(wx.wizard.WizardPageSimple):
                 wx.EXPAND | wx.ALL, 5)
 
 if __name__ == "__main__":
-    app = wx.PySimpleApp()
+    app = wx.App()
     wizard = wx.wizard.Wizard(None, -1, "Simple Wizard")
     page1 = TitledPage(wizard, "Page 1")
     page2 = TitledPage(wizard, "Page 2")

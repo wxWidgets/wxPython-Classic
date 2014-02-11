@@ -354,7 +354,7 @@ class FrogEditLauncher:
             return None
 
     def Main(self):
-        app = wx.PySimpleApp()
+        app = wx.App()
         win = self.MakeAppFrame()
         win.Show(True)
         win.LoadInitialFile(self.GetArgvFilename())

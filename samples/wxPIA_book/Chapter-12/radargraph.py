@@ -164,7 +164,7 @@ class TestFrame(wx.Frame):
         self.plot.SetData(data)
 
         
-app = wx.PySimpleApp()
+app = wx.App()
 frm = TestFrame()
 frm.Show()
 app.MainLoop()

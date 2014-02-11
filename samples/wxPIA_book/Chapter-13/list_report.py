@@ -36,7 +36,7 @@ class DemoFrame(wx.Frame):
         self.list.SetColumnWidth(3, wx.LIST_AUTOSIZE_USEHEADER)
 
 
-app = wx.PySimpleApp()
+app = wx.App()
 frame = DemoFrame()
 frame.Show()
 app.MainLoop()
