@@ -358,7 +358,11 @@ the window may be unsplit even if minimum size is non-zero.", "");
     DocDeclStr(
         virtual void , SizeWindows(),
         "Resizes subwindows", "");
-    
+
+    // Hide or show the sash and test whether it's currently hidden.
+    void SetSashInvisible(bool invisible = true);
+    bool IsSashInvisible() const { return HasFlag(wxSP_NOSASH); }
+
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
