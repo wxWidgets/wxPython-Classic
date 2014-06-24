@@ -79,7 +79,7 @@ def deprecated(item, msg=''):
     elif callable(item):
         %# wrap a new function around the callable
         def deprecated_func(*args, **kw):
-            warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
+            warnings.warn("Call to deprecated item. %s" %  msg,
                           wxPyDeprecationWarning, stacklevel=2)
             return item(*args, **kw)
         deprecated_func.__name__ = item.__name__
