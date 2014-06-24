@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 3.0.1
 -------
-* ???
+* 28-June-2014
 
 Turned on a workaround for a bug that caused crashes on Windows XP.
 This was due to a Micorsoft bug in optimizing access to TLS when a
@@ -17,9 +17,11 @@ Fixed "wxPyXmlSubclassFactory, no destructor found." error.
 
 Some Pubsub and AGW updates.
 
-Various other bug fixes from wxWidgets.
+Ignore some code in wxOSX that was preventing stock data format IDs
+from being used with custom data objects. (See
+https://groups.google.com/forum/#!topic/wx-dev/wFxevpvbhvQ/discussion) 
 
-
+Various other fixes and enhancements from wxWidgets.
 
 
 
