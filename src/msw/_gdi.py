@@ -5588,6 +5588,10 @@ class PrinterDC(DC):
     def __init__(self, *args, **kwargs): 
         """__init__(self, wxPrintData printData) -> PrinterDC"""
         _gdi_.PrinterDC_swiginit(self,_gdi_.new_PrinterDC(*args, **kwargs))
+    def GetPaperRect(*args, **kwargs):
+        """GetPaperRect(self) -> Rect"""
+        return _gdi_.PrinterDC_GetPaperRect(*args, **kwargs)
+
 _gdi_.PrinterDC_swigregister(PrinterDC)
 
 class SVGFileDC(DC):

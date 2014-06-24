@@ -2640,6 +2640,16 @@ class RichTextBuffer(RichTextParagraphLayoutBox):
         """SetScale(self, double scale)"""
         return _richtext.RichTextBuffer_SetScale(*args, **kwargs)
 
+    def GetFloatingLayoutMode(*args, **kwargs):
+        """GetFloatingLayoutMode() -> bool"""
+        return _richtext.RichTextBuffer_GetFloatingLayoutMode(*args, **kwargs)
+
+    GetFloatingLayoutMode = staticmethod(GetFloatingLayoutMode)
+    def SetFloatingLayoutMode(*args, **kwargs):
+        """SetFloatingLayoutMode(bool mode)"""
+        return _richtext.RichTextBuffer_SetFloatingLayoutMode(*args, **kwargs)
+
+    SetFloatingLayoutMode = staticmethod(SetFloatingLayoutMode)
 _richtext.RichTextBuffer_swigregister(RichTextBuffer)
 
 def RichTextBuffer_GetHandlers(*args):
@@ -2715,6 +2725,14 @@ def RichTextBuffer_GetBulletProportion(*args):
 def RichTextBuffer_SetBulletProportion(*args, **kwargs):
   """RichTextBuffer_SetBulletProportion(float prop)"""
   return _richtext.RichTextBuffer_SetBulletProportion(*args, **kwargs)
+
+def RichTextBuffer_GetFloatingLayoutMode(*args):
+  """RichTextBuffer_GetFloatingLayoutMode() -> bool"""
+  return _richtext.RichTextBuffer_GetFloatingLayoutMode(*args)
+
+def RichTextBuffer_SetFloatingLayoutMode(*args, **kwargs):
+  """RichTextBuffer_SetFloatingLayoutMode(bool mode)"""
+  return _richtext.RichTextBuffer_SetFloatingLayoutMode(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 

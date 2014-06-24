@@ -26203,6 +26203,55 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RichTextBuffer_GetFloatingLayoutMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"RichTextBuffer_GetFloatingLayoutMode",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxRichTextBuffer::GetFloatingLayoutMode();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextBuffer_SetFloatingLayoutMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  bool arg1 ;
+  bool val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "mode", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:RichTextBuffer_SetFloatingLayoutMode",kwnames,&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_bool(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "RichTextBuffer_SetFloatingLayoutMode" "', expected argument " "1"" of type '" "bool""'");
+  } 
+  arg1 = static_cast< bool >(val1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxRichTextBuffer::SetFloatingLayoutMode(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *RichTextBuffer_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -38840,6 +38889,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextBuffer_SetBulletProportion", (PyCFunction) _wrap_RichTextBuffer_SetBulletProportion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextBuffer_GetScale", (PyCFunction)_wrap_RichTextBuffer_GetScale, METH_O, NULL},
 	 { (char *)"RichTextBuffer_SetScale", (PyCFunction) _wrap_RichTextBuffer_SetScale, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RichTextBuffer_GetFloatingLayoutMode", (PyCFunction)_wrap_RichTextBuffer_GetFloatingLayoutMode, METH_NOARGS, NULL},
+	 { (char *)"RichTextBuffer_SetFloatingLayoutMode", (PyCFunction) _wrap_RichTextBuffer_SetFloatingLayoutMode, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextBuffer_swigregister", RichTextBuffer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"RichTextBuffer_swiginit", RichTextBuffer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_RichTextFileHandler", (PyCFunction)_wrap_delete_RichTextFileHandler, METH_O, NULL},

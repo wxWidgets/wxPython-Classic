@@ -95,7 +95,7 @@ def deprecated(item, msg=''):
     elif callable(item):
         # wrap a new function around the callable
         def deprecated_func(*args, **kw):
-            warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
+            warnings.warn("Call to deprecated item. %s" %  msg,
                           wxPyDeprecationWarning, stacklevel=2)
             return item(*args, **kw)
         deprecated_func.__name__ = item.__name__
@@ -8538,9 +8538,6 @@ class App(wx.PyApp):
     Normally you would derive from this class and implement an
     ``OnInit`` method that creates a frame and then calls
     ``self.SetTopWindow(frame)``.
-
-    :see: `wx.PySimpleApp` for a simpler app class that can be used
-           directly.
     """
     
     outputWindowClass = PyOnDemandOutputWindow
