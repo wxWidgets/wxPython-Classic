@@ -1632,6 +1632,14 @@ class SplitterWindow(_core.Window):
         """
         return _windows_.SplitterWindow_SizeWindows(*args, **kwargs)
 
+    def SetSashInvisible(*args, **kwargs):
+        """SetSashInvisible(self, bool invisible=True)"""
+        return _windows_.SplitterWindow_SetSashInvisible(*args, **kwargs)
+
+    def IsSashInvisible(*args, **kwargs):
+        """IsSashInvisible(self) -> bool"""
+        return _windows_.SplitterWindow_IsSashInvisible(*args, **kwargs)
+
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes

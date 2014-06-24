@@ -28644,6 +28644,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PrinterDC_GetPaperRect(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPrinterDC *arg1 = (wxPrinterDC *) 0 ;
+  wxRect result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPrinterDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PrinterDC_GetPaperRect" "', expected argument " "1"" of type '" "wxPrinterDC const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPrinterDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPrinterDC const *)arg1)->GetPaperRect();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxRect(static_cast< const wxRect& >(result))), SWIGTYPE_p_wxRect, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *PrinterDC_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -44751,6 +44779,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MetaFileDC_swigregister", MetaFileDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MetaFileDC_swiginit", MetaFileDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PrinterDC", (PyCFunction) _wrap_new_PrinterDC, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PrinterDC_GetPaperRect", (PyCFunction)_wrap_PrinterDC_GetPaperRect, METH_O, NULL},
 	 { (char *)"PrinterDC_swigregister", PrinterDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PrinterDC_swiginit", PrinterDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_SVGFileDC", (PyCFunction) _wrap_new_SVGFileDC, METH_VARARGS | METH_KEYWORDS, NULL},
