@@ -41,7 +41,7 @@ installed any libraries that they depend upon.  For example, on Linux
 you will likely need developer packages for gtk2, gconf, gstreamer,
 gstreamer-plugins, png, zlib, jpeg, tiff, etc.  Also, don't forget
 about Python's development packge. Package names and procedures for
-installing them will vary by distribution.  For Debian-base distros
+installing them will vary by distribution.  For Debian-based distros
 you may also need to install the build tools if they are not already
 there, you can install the build-essentials package to do that.  Keep
 an eye on the output from the start of the wxWdigets portion of the
