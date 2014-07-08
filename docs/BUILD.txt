@@ -33,6 +33,21 @@ example) then you can set a SWIG environment variable to the full path
 of this new binary to tell the build script which SWIG to use.
 
 
+Prerequisites
+-------------
+
+In order to build wxWidgets and wxPython you will need to have already
+installed any libraries that they depend upon.  For example, on Linux
+you will likely need developer packages for gtk2, gconf, gstreamer,
+gstreamer-plugins, png, zlib, jpeg, tiff, etc.  Also, don't forget
+about Python's development packge. Package names and procedures for
+installing them will vary by distribution.  For Debian-base distros
+you may also need to install the build tools if they are not already
+there, you can install the build-essentials package to do that.  Keep
+an eye on the output from the start of the wxWdigets portion of the
+build to see what other packages may be needed.
+
+
 The build script
 ----------------
 
