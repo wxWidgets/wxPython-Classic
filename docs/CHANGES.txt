@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 3.0.1
 -------
-* 28-June-2014
+* 5-July-2014
 
 Turned on a workaround for a bug that caused crashes on Windows XP.
 This was due to a Micorsoft bug in optimizing access to TLS when a

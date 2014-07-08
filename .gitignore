@@ -37,6 +37,7 @@ reswig
 /build-x11
 /build.local
 /build.unicode
+/wxpy-bld
 /build_options.py
 /dist
 /licence
