@@ -63,6 +63,8 @@ wx = _core
 __docfilter__ = wx.__DocFilter(globals()) 
 #---------------------------------------------------------------------------
 
+CC_SPECIAL_DCLICK = _combo.CC_SPECIAL_DCLICK
+CC_STD_BUTTON = _combo.CC_STD_BUTTON
 CC_BUTTON_OUTSIDE_BORDER = _combo.CC_BUTTON_OUTSIDE_BORDER
 CC_POPUP_ON_MOUSE_UP = _combo.CC_POPUP_ON_MOUSE_UP
 CC_NO_TEXT_AUTO_SELECT = _combo.CC_NO_TEXT_AUTO_SELECT
@@ -469,6 +471,14 @@ class ComboCtrl(_core.Control,_core.TextEntry):
         """
         return _combo.ComboCtrl_IsCreated(*args, **kwargs)
 
+    def GetBackgroundColour(*args, **kwargs):
+        """
+        GetBackgroundColour(self) -> Colour
+
+        Returns the background colour of the window.
+        """
+        return _combo.ComboCtrl_GetBackgroundColour(*args, **kwargs)
+
     def OnPopupDismiss(*args, **kwargs):
         """
         OnPopupDismiss(self, bool generateEvent)
@@ -682,6 +692,10 @@ class ComboPopup(object):
         """
         return _combo.ComboPopup_PaintComboControl(*args, **kwargs)
 
+    def FindItem(*args, **kwargs):
+        """FindItem(self, String item) -> bool"""
+        return _combo.ComboPopup_FindItem(*args, **kwargs)
+
     def OnComboKeyEvent(*args, **kwargs):
         """
         OnComboKeyEvent(self, KeyEvent event)
@@ -690,6 +704,10 @@ class ComboPopup(object):
         should be skipped, as usual.
         """
         return _combo.ComboPopup_OnComboKeyEvent(*args, **kwargs)
+
+    def OnComboCharEvent(*args, **kwargs):
+        """OnComboCharEvent(self, KeyEvent event)"""
+        return _combo.ComboPopup_OnComboCharEvent(*args, **kwargs)
 
     def OnComboDoubleClick(*args, **kwargs):
         """
