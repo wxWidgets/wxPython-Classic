@@ -45,6 +45,15 @@ MAKE_CONST_WXSTRING_NOSWIG(EmptyString);
     const wxArrayString wxPyEmptyStringArray;
 %}
 
+enum
+{
+    // Double-clicking a read-only combo triggers call to popup's OnComboPopup.
+    // In wxOwnerDrawnComboBox, for instance, it cycles item.
+    wxCC_SPECIAL_DCLICK             = 0x0100,
+
+    // Dropbutton acts like standard push button.
+    wxCC_STD_BUTTON                 = 0x0200
+};
 
 enum {
     // Button is preferred outside the border (GTK style)
@@ -555,6 +564,9 @@ flags are the same as wx.RendererNative flags:
         bool , IsCreated() const,
         "Return true if Create has finished", "");
 
+    wxColour GetBackgroundColour() const;
+    virtual bool SetForegroundColour(const wxColour& colour);
+    virtual bool SetBackgroundColour(const wxColour& colour);
 
     DocDeclStr(
         void , OnPopupDismiss(bool generateEvent),
@@ -650,6 +662,7 @@ public:
 
     DEC_PYCALLBACK_VOID_(Init);
     DEC_PYCALLBACK_BOOL_WXWIN_pure(Create);
+    DEC_PYCALLBACK_VOID_(DestroyPopup);
     DEC_PYCALLBACK_VOID_(OnPopup);
     DEC_PYCALLBACK_VOID_(OnDismiss);
     DEC_PYCALLBACK__STRING(SetStringValue);
@@ -677,7 +690,24 @@ public:
         return rval;
     }
 
-
+    virtual bool FindItem(const wxString& item, wxString* trueItem=NULL)
+    {
+        bool found;
+        bool rval;
+        
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "FindItem"))) {
+            // Ignoring truItem for now.
+            PyObject* s = wx2PyString(item);
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
+            Py_DECREF(s);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            return wxComboPopup::FindItem(item, trueItem);
+        return rval;
+    }
+    
     virtual void PaintComboControl( wxDC& dc, const wxRect& rect )
     {
         bool found;
@@ -707,6 +737,21 @@ public:
         wxPyEndBlockThreads(blocked);
         if (! found)
             wxComboPopup::OnComboKeyEvent(event);
+    }
+
+
+    virtual void OnComboCharEvent( wxKeyEvent& event )
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "OnComboCharEvent"))) {
+            PyObject* oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", oevt));
+            Py_DECREF(oevt);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxComboPopup::OnComboCharEvent(event);
     }
 
 
@@ -743,13 +788,13 @@ public:
 
 IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, Init);
 IMP_PYCALLBACK_BOOL_WXWIN_pure(wxPyComboPopup, wxComboPopup, Create);
+IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, DestroyPopup);
 IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnPopup);
 IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnDismiss);
 IMP_PYCALLBACK__STRING(wxPyComboPopup, wxComboPopup, SetStringValue);
 IMP_PYCALLBACK_STRING__constpure(wxPyComboPopup, wxComboPopup, GetStringValue);
 IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnComboDoubleClick);
 IMP_PYCALLBACK_BOOL_(wxPyComboPopup, wxComboPopup, LazyCreate);
-
 %}
 
 
@@ -851,12 +896,14 @@ used to display in the combo widget.", "");
         "This is called to custom paint in the combo control itself (ie. not
 the popup).  Default implementation draws the current value as string.", "");
 
-
+    virtual bool FindItem(const wxString& item);
+    
     DocDeclStr(
         virtual void , OnComboKeyEvent( wxKeyEvent& event ),
         "Receives key events from the parent ComboCtrl.  Events not handled
 should be skipped, as usual.", "");
 
+    virtual void OnComboCharEvent( wxKeyEvent& event );
 
     DocDeclStr(
         virtual void , OnComboDoubleClick(),

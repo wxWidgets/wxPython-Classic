@@ -69,7 +69,7 @@ class ListCtrlComboPopup(wx.ListCtrl, wx.combo.ComboPopup):
         self.log.write("ListCtrlComboPopup.Create")
         wx.ListCtrl.Create(self, parent,
                            style=wx.LC_LIST|wx.LC_SINGLE_SEL|wx.SIMPLE_BORDER)
-        #self.Bind(wx.EVT_MOTION, self.OnMotion)
+        self.Bind(wx.EVT_MOTION, self.OnMotion)
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
         return True
 
@@ -98,6 +98,7 @@ class ListCtrlComboPopup(wx.ListCtrl, wx.combo.ComboPopup):
     def OnPopup(self):
         self.log.write("ListCtrlComboPopup.OnPopup")
         wx.combo.ComboPopup.OnPopup(self)
+        self.SetFocus()
 
     # Called when popup is dismissed
     def OnDismiss(self):
