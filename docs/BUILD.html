@@ -4,12 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
-<title>Building wxPython 2.9</title>
+<title>Building wxPython 3.0</title>
 <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
 <body>
-<div class="document" id="building-wxpython-2-9">
-<h1 class="title">Building wxPython 2.9</h1>
+<div class="document" id="building-wxpython-3-0">
+<h1 class="title">Building wxPython 3.0</h1>
 
 <p>This file describes how I build wxWidgets and wxPython while doing
 development and testing, and is meant to help other people that want
@@ -33,17 +33,30 @@ See the README.txt in the wxPython/SWIG dir for details about each
 patch.  You can also get a pre-patched version of the SWIG sources
 plus a Windows binary at:</p>
 <pre class="literal-block">
-http://wxpython.wxcommunity.com/tools/
+http://wxpython.kosoftworks.com/tools/
 </pre>
 <p>If you install this build of SWIG to a location that is not on the
 PATH (so it doesn't interfere with an existing SWIG install for
 example) then you can set a SWIG environment variable to the full path
 of this new binary to tell the build script which SWIG to use.</p>
+<div class="section" id="prerequisites">
+<h1>Prerequisites</h1>
+<p>In order to build wxWidgets and wxPython you will need to have already
+installed any libraries that they depend upon.  For example, on Linux
+you will likely need developer packages for gtk2, gconf, gstreamer,
+gstreamer-plugins, png, zlib, jpeg, tiff, etc.  Also, don't forget
+about Python's development packge. Package names and procedures for
+installing them will vary by distribution.  For Debian-based distros
+you may also need to install the build tools if they are not already
+there, you can install the build-essentials package to do that.  Keep
+an eye on the output from the start of the wxWdigets portion of the
+build to see what other packages may be needed.</p>
+</div>
 <div class="section" id="the-build-script">
 <h1>The build script</h1>
 <p>To build wxPython, simply run the build script something like this:</p>
 <pre class="literal-block">
-cd wxPython-src-2.9.0.1/wxPython
+cd wxPython-src-3.0.0.0/wxPython
 python2.6 build-wxpython.py --build_dir=../bld
 </pre>
 <p>Be sure to use the same verison of Python to run the script that you
@@ -85,7 +98,7 @@ Options:
   --prefix=PREFIX       Prefix value to pass to the wx build.
   --reswig              Allow SWIG to regenerate the wrappers
   --unicode             Build wxPython with unicode support (always on for
-                        wx2.9)
+                        wx3.0)
   --wxpy_installdir=WXPY_INSTALLDIR
                         Directory to install the wxPython binaries.
 </pre>
