@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>Building wxPython 3.0</title>
+<link rel="stylesheet" href="default.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="building-wxpython-3-0">
+<h1 class="title">Building wxPython 3.0</h1>
+
+<p>This file describes how I build wxWidgets and wxPython while doing
+development and testing, and is meant to help other people that want
+to do the same thing.  Those readers who have attempted this in
+previous releases of the software will probably notice that this file
+is <em>much</em> smaller than it was before.  Much thanks for this goes to
+Kevin Ollivier who wrote the initial version of the new build scripts
+and then guilted me into starting to use and maintain them myself.</p>
+<p>Building of both wxWidgets and wxPython is now handled by the
+wxPython/build-wxpython.py script in the source tree.  It takes care
+of all the nasty and confusing details that used to be documented in
+this file.  Pretty much all you need to worry about now is having the
+build tools and dependent libraries installed on your system and
+specifying where to install the results, if other than the standard
+location.</p>
+<p>If you want to make changes to any of the <tt class="docutils literal">*.i</tt> files, (SWIG
+interface definition files,) then you will need to use a special
+patched version of SWIG.  Get the sources for version 1.3.29, and then
+apply the patches in wxPython/SWIG and then build SWIG like normal.
+See the README.txt in the wxPython/SWIG dir for details about each
+patch.  You can also get a pre-patched version of the SWIG sources
+plus a Windows binary at:</p>
+<pre class="literal-block">
+http://wxpython.kosoftworks.com/tools/
+</pre>
+<p>If you install this build of SWIG to a location that is not on the
+PATH (so it doesn't interfere with an existing SWIG install for
+example) then you can set a SWIG environment variable to the full path
+of this new binary to tell the build script which SWIG to use.</p>
+<div class="section" id="prerequisites">
+<h1>Prerequisites</h1>
+<p>In order to build wxWidgets and wxPython you will need to have already
+installed any libraries that they depend upon.  For example, on Linux
+you will likely need developer packages for gtk2, gconf, gstreamer,
+gstreamer-plugins, png, zlib, jpeg, tiff, etc.  Also, don't forget
+about Python's development packge. Package names and procedures for
+installing them will vary by distribution.  For Debian-based distros
+you may also need to install the build tools if they are not already
+there, you can install the build-essentials package to do that.  Keep
+an eye on the output from the start of the wxWdigets portion of the
+build to see what other packages may be needed.</p>
+</div>
+<div class="section" id="the-build-script">
+<h1>The build script</h1>
+<p>To build wxPython, simply run the build script something like this:</p>
+<pre class="literal-block">
+cd wxPython-src-3.0.0.0/wxPython
+python2.6 build-wxpython.py --build_dir=../bld
+</pre>
+<p>Be sure to use the same verison of Python to run the script that you
+would like to use the wxPython binaries with.  If you would also like
+to install wxWidgets and wxPython then simply add the --install flag.</p>
+<p>You should also check the --help output of the build-wxpython.py
+script to see what other options are available.  The current build
+options as of this writing are:</p>
+<pre class="literal-block">
+$ python2.6 build-wxpython.py --help
+Usage: build-wxpython.py [options]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  --build_dir=BUILD_DIR
+                        Directory to store wx build files. (Not used on
+                        Windows)
+  --clean               Clean files from build directories.  Default is all
+                        build files. Specify 'wx' to clean just the wx build,
+                        'py' for just the wxPython build, and 'pyext' for just
+                        the built extension modules.
+  --debug               Build wxPython with debug symbols
+  --extra_make=EXTRA_MAKE
+                        Extra args to pass on [n]make's command line.
+  --extra_setup=EXTRA_SETUP
+                        Extra args to pass on setup.py's command line.
+  --force_config        Run configure when building even if the script
+                        determines it's not necessary.
+  --install             Install the built wxPython into installdir or standard
+                        location
+  --installdir=INSTALLDIR
+                        Directory to install wxWidgets to.
+  --mac_framework       Build wxWidgets as a Mac framework.
+  --mac_lipo            EXPERIMENTAL: Create a universal binary by merging a
+                        PPC and Intel build together.
+  --no_config           Turn off configure step on autoconf builds
+  --osx_cocoa           Build the OS X Cocoa port on Mac (experimental)
+  --prefix=PREFIX       Prefix value to pass to the wx build.
+  --reswig              Allow SWIG to regenerate the wrappers
+  --unicode             Build wxPython with unicode support (always on for
+                        wx3.0)
+  --wxpy_installdir=WXPY_INSTALLDIR
+                        Directory to install the wxPython binaries.
+</pre>
+<p>Have fun.</p>
+</div>
+</div>
+</body>
+</html>
