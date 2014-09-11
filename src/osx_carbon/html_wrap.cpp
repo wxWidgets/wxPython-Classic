@@ -2938,6 +2938,7 @@ public:
 
         // and track it.
         m_objArray.Add(obj);
+        PySwigObject_disown(obj);
     }
 
 private:
@@ -2950,7 +2951,9 @@ private:
     void wxHtmlWinParser_AddTagHandler(PyObject* tagHandlerClass) {
         // Dynamically create a new wxModule.  Refcounts tagHandlerClass
         // and adds itself to the wxModules list and to the wxHtmlWinParser.
-        new wxPyHtmlTagsModule(tagHandlerClass);
+        wxModule* module = new wxPyHtmlTagsModule(tagHandlerClass);
+        wxModule::RegisterModule(module);
+        wxModule::InitializeModules();
     }
 
 
@@ -4138,7 +4141,6 @@ SWIGINTERN PyObject *_wrap_HtmlParser_AddTagHandler(PyObject *SWIGUNUSEDPARM(sel
   wxHtmlTagHandler *arg2 = (wxHtmlTagHandler *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -4152,11 +4154,10 @@ SWIGINTERN PyObject *_wrap_HtmlParser_AddTagHandler(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlParser_AddTagHandler" "', expected argument " "1"" of type '" "wxHtmlParser *""'"); 
   }
   arg1 = reinterpret_cast< wxHtmlParser * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxHtmlTagHandler, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxHtmlTagHandler, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlParser_AddTagHandler" "', expected argument " "2"" of type '" "wxHtmlTagHandler *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlParser_AddTagHandler" "', expected argument " "2"" of type '" "wxHtmlTagHandler *""'");
   }
-  arg2 = reinterpret_cast< wxHtmlTagHandler * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->AddTagHandler(arg2);
