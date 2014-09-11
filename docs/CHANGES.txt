@@ -12,6 +12,8 @@ The previous release managed to escape out into the wild before the
 includes the newest code from AGW and FloatCanvas which should have
 been in the last release.
 
+Fixed "wxPyHtmlWinTagHandler, no destructor found." error.
+
 
 
 3.0.1.0
