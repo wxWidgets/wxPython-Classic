@@ -214,10 +214,6 @@ class HtmlParser(_core.Object):
         """AddTagHandler(self, HtmlTagHandler handler)"""
         return _html.HtmlParser_AddTagHandler(*args, **kwargs)
 
-    def GetSource(*args, **kwargs):
-        """GetSource(self) -> String"""
-        return _html.HtmlParser_GetSource(*args, **kwargs)
-
     def PushTagHandler(*args, **kwargs):
         """PushTagHandler(self, HtmlTagHandler handler, String tags)"""
         return _html.HtmlParser_PushTagHandler(*args, **kwargs)
@@ -225,6 +221,10 @@ class HtmlParser(_core.Object):
     def PopTagHandler(*args, **kwargs):
         """PopTagHandler(self)"""
         return _html.HtmlParser_PopTagHandler(*args, **kwargs)
+
+    def GetSource(*args, **kwargs):
+        """GetSource(self) -> String"""
+        return _html.HtmlParser_GetSource(*args, **kwargs)
 
     def GetInnerSource(*args, **kwargs):
         """GetInnerSource(self, HtmlTag tag) -> String"""
