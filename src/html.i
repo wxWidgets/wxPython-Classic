@@ -169,11 +169,11 @@ public:
 
     %disownarg(wxHtmlTagHandler  *handler );
     void AddTagHandler(wxHtmlTagHandler *handler);
-    %cleardisown(wxHtmlTagHandler  *handler );
-    
-    wxString* GetSource();
     void PushTagHandler(wxHtmlTagHandler* handler, wxString tags);
     void PopTagHandler();
+    %cleardisown(wxHtmlTagHandler  *handler );
+
+    wxString* GetSource();
 
     // virtual wxFSFile *OpenURL(wxHtmlURLType type, const wxString& url) const;
 
@@ -406,7 +406,6 @@ public:
 
         // and track it.
         m_objArray.Add(obj);
-        PySwigObject_disown(obj);
     }
 
 private:
@@ -423,7 +422,6 @@ private:
         // Dynamically create a new wxModule.  Refcounts tagHandlerClass
         // and adds itself to the wxModules list and to the wxHtmlWinParser.
         wxModule* module = new wxPyHtmlTagsModule(tagHandlerClass);
-        wxModule::RegisterModule(module);
         wxModule::InitializeModules();
     }
 %}

@@ -957,6 +957,7 @@ if os.name == 'nt' and  COMPILER == 'msvc':
 
                 ('SWIG_TYPE_TABLE', WXPYTHON_TYPE_TABLE),
                 ('SWIG_PYTHON_OUTPUT_TUPLE', None),
+                ('SWIG_PYTHON_SILENT_MEMLEAK', None),
                 ('WXP_USE_THREAD', '1'),
                 ('ISOLATION_AWARE_ENABLED', None),
                 ]
