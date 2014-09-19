@@ -1,0 +1,239 @@
+# Global wildcards to ignore
+*.pyc
+*.pyd
+*.pdb
+*.dll
+
+
+# SVN subrepositories for items in the 3rdParty repo
+/wx/lib/agw
+/demo/agw
+/wx/lib/floatcanvas
+/wx/lib/pubsub
+/samples/pubsub
+/wx/lib/pdfviewer
+/wx/tools/Editra
+/wx/tools/XRCed
+
+mb
+reswig
+
+# /
+/.DS_Store
+/.emacs.desktop
+/.gdb_history
+/BUILD
+/MANIFEST
+/_build_dmg
+/_build_rpm
+/build
+/build-dbg
+/build-gtk
+/build-gtk2
+/build-gtk2-dbg.unicode
+/build-gtk2.unicode
+/build-pkg
+/build-pkg-debug
+/build-x11
+/build.local
+/build.unicode
+/wxpy-bld
+/build_options.py
+/dist
+/licence
+/s.bat
+/temp
+/tmp
+/update.log
+/build-options.cache
+/build.carbon.unicode
+/build.cocoa.unicode
+
+# /contrib/
+/contrib/update.log
+
+# /contrib/gizmos/
+/contrib/gizmos/contrib
+
+# /demo/
+/demo/*.pyc
+/demo/.DS_Store
+/demo/._demo.py
+/demo/.emacs.desktop
+/demo/.gdb_history
+/demo/.setup
+/demo/.setup.bat
+/demo/.setup.sh
+/demo/b.bat
+/demo/hangman_dict.txt
+/demo/mimetypes_wdr
+/demo/setup.bat
+/demo/test.out
+/demo/tmphtml.txt
+
+# /demo/bitmaps/
+/demo/bitmaps/new.bmp.test
+
+# /demo/data/
+/demo/data/*.pdf
+/demo/data/showTips
+
+# /demo/dllwidget/
+/demo/dllwidget/test_dll.dll
+/demo/dllwidget/test_dll.exp
+
+# /distrib/
+/distrib/*.gz
+/distrib/*.rpm
+/distrib/*.zip
+/distrib/build.pyc
+/distrib/filelist
+/distrib/wxp2.wse
+
+# /distrib/all/
+/distrib/all/*.pyc
+
+# /distrib/mac/
+/distrib/mac/.DS_Store
+
+# /distrib/mac/resources/
+/distrib/mac/resources/Welcome.txt
+/distrib/mac/resources/postflight
+/distrib/mac/resources/preflight
+
+# /docs/
+/docs/xml-raw
+/docs/api
+
+# /samples/
+
+# /samples/doodle/
+/samples/doodle/.DS_Store
+/samples/doodle/build
+/samples/doodle/dist
+
+# /samples/embedded/
+/samples/embedded/embedded
+/samples/embedded/embedded.dsp
+
+# /samples/pySketch/
+/samples/pySketch/errors.txt
+
+# /samples/roses/
+/samples/roses/*.pyc
+
+# /sandbox/
+/sandbox/build
+/sandbox/dist
+
+# /src/
+/src/*.dsp
+/src/.emacs.desktop
+/src/Makefile
+/src/Makefile.pre
+/src/Setup
+/src/Setup.in.new
+/src/Setup.save
+/src/Setup.save
+/src/Setup.test
+/src/_make.bat
+/src/b.bat
+/src/build.local
+/src/compile.py
+/src/config.c
+/src/glcanvas.h
+/src/glcanvasc.exp
+/src/libwxPyHelpers.2.1.so.16.0.0
+/src/libwxPyHelpers.2.2.so.0.0.0
+/src/libwxPyHelpers.2.2.so.1.0.0
+/src/libwxPyHelpers.2.2.so.2.0.0
+/src/make.bat
+/src/makefile.test
+/src/mt-try1
+/src/mt-try2-works
+/src/mt-try3
+/src/sedscript
+/src/templates
+/src/tests___Win32_Debug
+/src/transfer.zip
+/src/utilsc.exp
+/src/vc50.pdb
+/src/vc60.pdb
+/src/wx.pth
+/src/wx.py
+/src/wxPython.001
+/src/wxPython.dsp
+/src/wxPython.dsw
+/src/wxPython.ncb
+/src/wxPython.opt
+/src/wxSamples
+/src/wxc.exp
+/src/wxc.ilk
+/src/wxc.lib
+/src/wxc.pch
+/src/wxc.pyd
+/src/wxc.res
+/src/wxp.pch
+/src/wxpc.exp
+/src/wxpc.lib
+/src/wxpc.res
+/src/wxpc.res.save
+
+# /src/gtk/
+/src/gtk/_glcanvas.cpp
+/src/gtk/helpers.cpp
+/src/gtk/libpy.c
+
+# /src/msw/
+
+# /tests/
+/tests/pop.bat
+
+# /wx/
+/wx/*.py
+/wx/i18n
+/wx/locale
+/wx/*.pyc
+/wx/*.so
+
+# /wx/build/
+/wx/build/build_options.py
+/wx/build/cfg_version.py
+/wx/build/config.py
+/wx/build/*.pyc
+
+# /wx/lib/
+/wx/lib/*.pyc
+
+# /wx/lib/analogclock/
+/wx/lib/analogclock/*.pyc
+
+# /wx/lib/analogclock/lib_setup/
+/wx/lib/analogclock/lib_setup/*.pyc
+
+# /wx/lib/art/
+/wx/lib/art/*.pyc
+
+# /wx/lib/colourchooser/
+/wx/lib/colourchooser/*.pyc
+
+# /wx/lib/editor/
+/wx/lib/editor/*.pyc
+
+# /wx/lib/masked/
+/wx/lib/masked/*.pyc
+
+# /wx/lib/mixins/
+/wx/lib/mixins/*.pyc
+
+# /wx/lib/ogl/
+/wx/lib/ogl/*.pyc
+
+# /wx/py/
+/wx/py/*.pyc
+
+# /wx/tools/
+/wx/tools/*.pyc
+
+# /wxversion/
+/wxversion/*.pyc
