@@ -3,16 +3,17 @@
 Recent Changes for wxPython
 =====================================================================
 
-3.0.2.0  (or 3.0.1.2?)
+3.0.2.0
 -------
+* ??-Oct-2014
 
 Fixed wxPython bug on OSX that was preventing the wx.App's virtual
 methods related to handling App Events, like open-files or reopen-app,
 from being handled correctly.  
 
-NOTE: It appears that wxPython applications will now always be getting
-an initial Apple Event(s) sent to MacOpenFiles coresponding to the
-name of the script and args on the python command-line.
+NOTE: It appears that wxPython applications on OSX will now always be
+getting an initial Apple Event(s) sent to MacOpenFiles coresponding to
+the name of the script and args on the python command-line.
 
 
 
