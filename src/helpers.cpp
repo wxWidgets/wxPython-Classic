@@ -193,7 +193,7 @@ wxPyApp::~wxPyApp() {
 
 // This one isn't acutally called...  We fake it with _BootstrapApp
 bool wxPyApp::OnInit() {
-    return false;
+    return true;
 }
 
 
@@ -656,7 +656,15 @@ void wxPyApp::_BootstrapApp()
     if (! result) {
         PyErr_SetString(PyExc_SystemExit, "OnInit returned false, exiting...");
     }
-
+    else {
+        // On wxOSX_Cocoa a private m_inited flag is set in CallOnInit, (and
+        // pending events processed), and that flag controls things like
+        // whether the various apple-event virtuals in the App object are
+        // called.  So although we have already bootstrapped a call to OnInit,
+        // we still need to call this method to ensure that flag is set.
+        CallOnInit();
+    }
+    
  error:
     Py_XDECREF(retval);
     Py_XDECREF(pyint);

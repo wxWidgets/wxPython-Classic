@@ -1,4 +1,5 @@
 import wx
+print wx.version()
 
 class MyApp(wx.App):
     def OnInit(self):
@@ -7,9 +8,13 @@ class MyApp(wx.App):
         f.Show()
         return True
     
-    def MacOpenFile(self, filename):
-        # Code to load filename goes here.  We'll just print the names.
-        self.tc.AppendText("You requested to open: \"%s\"\n" % filename)
+    def MacOpenFiles(self, filenames):
+        self.tc.AppendText("You requested to open files:\n")
+        for name in filenames:
+            self.tc.AppendText("    %r\n" % name)
+
+    def MacReopenApp(self):
+        self.tc.AppendText("You requested to reopen the application\n")
 
 app = MyApp()
 app.MainLoop()
