@@ -308,7 +308,7 @@ enum wxBitmapBufferFormat {
                         p.OffsetY(pixData, 1);
                     }
                 }
-                if (depth = 32) {
+                if (depth == 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
                     for (int y=0; y<height; y++) {
                         rowStart = p;
