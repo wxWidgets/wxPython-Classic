@@ -597,10 +597,7 @@ void wxPyApp::_BootstrapApp()
 #if defined(__WXGTK__) && PY_VERSION_HEX < 0x02040000
         setlocale(LC_NUMERIC, "C");
 #endif
-
         wxPyEndBlockThreads(blocked);
-
-        haveInitialized = true;
     }
     else {
         this->argc = 0;
@@ -662,8 +659,11 @@ void wxPyApp::_BootstrapApp()
         // whether the various apple-event virtuals in the App object are
         // called.  So although we have already bootstrapped a call to OnInit,
         // we still need to call this method to ensure that flag is set.
-        CallOnInit();
+        if (! haveInitialized)
+            CallOnInit();
     }
+
+    haveInitialized = true;
     
  error:
     Py_XDECREF(retval);
