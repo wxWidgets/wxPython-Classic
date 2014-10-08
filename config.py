@@ -456,7 +456,7 @@ class wx_extra_clean(distutils.command.clean.clean):
                         os.rmdir(f)
                     log.info("removing '%s'", f)
                 except IOError:
-                    log.warning("unable to remove '%s'", f)
+                    log.warn("unable to remove '%s'", f)
 
             else:
                 try:
@@ -464,7 +464,7 @@ class wx_extra_clean(distutils.command.clean.clean):
                         os.remove(f)
                     log.info("removing '%s'", f)
                 except IOError:
-                    log.warning("unable to remove '%s'", f)
+                    log.warn("unable to remove '%s'", f)
 
 
 
