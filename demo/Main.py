@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/usr/bin/env python
 #----------------------------------------------------------------------------
 # Name:         Main.py
 # Purpose:      Testing lots of stuff, controls, window types, etc.
