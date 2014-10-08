@@ -1094,7 +1094,7 @@ class XMLMarshalWorker(object):
                 if hasattr(obj, "__xmlattrgroups__"):
                     attrGroups = obj.__xmlattrgroups__.copy()
                     if (not isinstance(attrGroups, dict)):
-                        raise "__xmlattrgroups__ is not a dict, but must be"
+                        raise Exception, "__xmlattrgroups__ is not a dict, but must be"
                     for n in attrGroups.iterkeys():
                         members_to_skip.extend(attrGroups[n])
                 else:

@@ -261,7 +261,7 @@ class rpcMixin:
         self.rpcPort = -1
 
     if self.rpcPort == -1:
-      raise 'RPCMixinError','Cannot initialize server'
+      raise Exception, 'RPCMixinError: Cannot initialize server'
     self.servThread = _ServerThread(xmlServ,verbose=self.verbose)
     self.servThread.setName('XML-RPC Server')
     self.servThread.start()

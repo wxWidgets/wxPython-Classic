@@ -752,7 +752,7 @@ class LineShape(Shape):
                 elif x2 > x1 and y2 < y1:
                     theta = 2 * math.pi + math.atan((y2 - y1) / (x2 - x1))
                 else:
-                    raise "Unknown arrowhead rotation case"
+                    raise Exception, "Unknown arrowhead rotation case"
 
                 # Rotate about the centre of the object, then place
                 # the object on the line.

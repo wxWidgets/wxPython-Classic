@@ -677,7 +677,7 @@ class _FileWrapper:
         elif self._file is not None:
             return self._file.read(nBytes)
         else:   
-            raise "FileHandle.read: no handle to read with"
+            raise Exception, "FileHandle.read: no handle to read with"
 
     def readline(self):
         if self._descriptor is not None or self._handle is not None:
@@ -700,7 +700,7 @@ class _FileWrapper:
         elif self._file is not None:
             return self._file.readline()
         else:
-            raise "FileHandle.readline: no handle to read with"
+            raise Exception, "FileHandle.readline: no handle to read with"
 
     def readlines(self):
         if self._descriptor is not None or self._handle is not None:
@@ -715,7 +715,7 @@ class _FileWrapper:
         elif self._file is not None:
             return self._file.readlines()
         else:
-            raise "FileHandle.readline: no handle to read with"
+            raise Exception, "FileHandle.readline: no handle to read with"
 
     def write(self, text):
         if self._descriptor is not None:
@@ -743,7 +743,7 @@ class _FileWrapper:
         elif self._file is not None:
             self._file.write(text)
         else:   
-            raise "FileHandle.write: nothing to write with"
+            raise Exception, "FileHandle.write: nothing to write with"
 
     def close(self):
         """Close all associated file objects and handles."""
