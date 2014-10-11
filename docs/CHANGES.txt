@@ -18,6 +18,9 @@ the name of the script and args on the python command-line.
 Added patch #15142 which adds support for building with and using GTK3
 as the wx platform.  Thanks kosenko!
 
+Fixed the OSX Carbon build to actually use Carbon. (Because of a
+change in defaults it was actually building the Cocoa build instead.) 
+
 
 
 
