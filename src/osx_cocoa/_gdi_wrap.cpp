@@ -2883,7 +2883,7 @@ SWIG_From_unsigned_SS_int  (unsigned int value)
 
 SWIGINTERN long wxColour_GetPixel(wxColour *self){
             #ifndef __WXGTK3__
-            return self->GetPixel();
+                return (long)self->GetPixel();
             #else
             return -1;
             #endif
