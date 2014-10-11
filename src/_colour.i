@@ -213,9 +213,9 @@ is returned if the pixel is invalid (on X, unallocated).", "");
 
         long GetPixel() {
             %#ifndef __WXGTK3__
-            return self->GetPixel();
+                return (long)self->GetPixel();
             %#else
-            return -1;
+                return -1;
             %#endif
         }
     }
