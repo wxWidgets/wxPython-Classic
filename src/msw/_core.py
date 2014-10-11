@@ -16646,6 +16646,8 @@ def version():
         port = 'gtk'
         if 'gtk2' in wx.PlatformInfo:
             port = 'gtk2'
+        elif 'gtk3' in wx.PlatformInfo:
+            port = 'gtk3'
     else:
         port = '?'
 

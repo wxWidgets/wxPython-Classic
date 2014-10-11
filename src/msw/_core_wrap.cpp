@@ -4212,7 +4212,7 @@ SWIGINTERN bool wxWindow_UnregisterHotKey(wxWindow *self,int hotkeyId){
         #endif
         }
 SWIGINTERN void wxWindow_SetDoubleBuffered(wxWindow *self,bool on){
-        #if defined(__WXGTK20__) || defined(__WXMSW__)
+        #if defined(__WXGTK20__) || defined(__WXGTK3__) || defined(__WXMSW__)
             self->SetDoubleBuffered(on);
         #endif
         }
