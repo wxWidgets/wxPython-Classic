@@ -7,7 +7,7 @@ class MyHtmlFrame(wx.Frame):
         self.CreateStatusBar()
         
         html = wx.html.HtmlWindow(self)
-        if "gtk2" in wx.PlatformInfo:
+        if "gtk2" in wx.PlatformInfo or "gtk3" in wx.PlatformInfo:
             html.SetStandardFonts()
         html.SetRelatedFrame(self, self.GetTitle() + " -- %s")
         html.SetRelatedStatusBar(0)

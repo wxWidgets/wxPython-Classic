@@ -15,6 +15,10 @@ NOTE: It appears that wxPython applications on OSX will now always be
 getting an initial Apple Event(s) sent to MacOpenFiles coresponding to
 the name of the script and args on the python command-line.
 
+Added patch #15142 which adds support for building with and using GTK3
+as the wx platform.  Thanks kosenko!
+
+
 
 
 3.0.1.1

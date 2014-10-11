@@ -1853,7 +1853,8 @@ window is automatically used).", "");
 
 // Epydoc doesn't like this for some strange reason...
 // %pythoncode {
-//     if 'wxMac' in wx.PlatformInfo or 'gtk2' in wx.PlatformInfo:
+//     if 'wxMac' in wx.PlatformInfo or 'gtk2' in wx.PlatformInfo or
+//         'gtk3' in wx.PlatformInfo:
 //         _AutoBufferedPaintDCBase = PaintDC
 //     else:
 //         _AutoBufferedPaintDCBase = BufferedPaintDC

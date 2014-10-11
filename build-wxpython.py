@@ -14,7 +14,6 @@ import cfg_version as cfg
 
 from distutils.dep_util  import newer
 
-
 version2 = "%d.%d" % (cfg.VER_MAJOR, cfg.VER_MINOR) 
 version3 = "%d.%d.%d" % (cfg.VER_MAJOR, cfg.VER_MINOR, cfg.VER_RELEASE)
 version2_nodot = version2.replace(".", "")
@@ -70,6 +69,7 @@ option_dict = {
     "reswig"        : (False, "Allow SWIG to regenerate the wrappers"),
     "jobs"          : (defJobs, "Number of make jobs to run at one time, if supported. Default: %s" % defJobs),
     "unicode"       : (True, "Build wxPython with unicode support (always on for wx3.0)"),
+    "gtk3"          : (False, "On Linux build for gtk3 (default gtk2)"),
     "osx_cocoa"     : (False, "Build the OS X Cocoa port on Mac"),
     "osx_carbon"    : (True,  "Build the Carbon port on Mac (default)"),
     "mac_arch"      : ("", "Build the specified architectures on Mac, (comma-separated list)"),
@@ -311,6 +311,10 @@ else:
         build_options.append("--mac_universal_binary=%s" % options.mac_arch)
         wxpy_build_options.append("ARCH=%s" % options.mac_arch)
 
+    if options.gtk3:
+        build_options.append('--gtk3')
+        wxpy_build_options.append('WXPORT=gtk3')
+        
 
 # now that we've done platform setup, start the common build process
 if options.unicode:

@@ -62,7 +62,7 @@ function show_help {
 }
 
 
-ARGS="--reswig --unicode --build_dir=build/wxbld --prefix=/opt/wx/2.9 --cairo"
+ARGS="--reswig --unicode --build_dir=build/wxbld --prefix=/opt/wx/3.0 --cairo"
 DEBUG="--debug"
 BOTH="no"
 

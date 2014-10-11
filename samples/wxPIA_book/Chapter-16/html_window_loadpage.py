@@ -5,7 +5,7 @@ class MyHtmlFrame(wx.Frame):
     def __init__(self, parent, title):
         wx.Frame.__init__(self, parent, -1, title, size=(600,400))
         html = wx.html.HtmlWindow(self)
-        if "gtk2" in wx.PlatformInfo:
+        if "gtk2" in wx.PlatformInfo or "gtk3" in wx.PlatformInfo:
             html.SetStandardFonts()
 
         wx.CallAfter(

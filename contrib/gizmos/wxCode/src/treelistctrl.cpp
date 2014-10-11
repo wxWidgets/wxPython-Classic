@@ -3086,7 +3086,7 @@ void wxTreeListMainWindow::PaintItem (wxTreeListItem *item, wxDC& dc) {
 #endif // !__WXMAC__
             dc.SetTextForeground (colTextHilight);
         }else if (item->IsSelected()) {
-#if defined(__WXGTK2__) || defined(__WXMAC__)
+#if defined(__WXGTK2__) || defined(__WXGTK3__) || defined(__WXMAC__)
         int flags = wxCONTROL_SELECTED;
         if (m_hasFocus)
         {
@@ -3105,13 +3105,13 @@ void wxTreeListMainWindow::PaintItem (wxTreeListItem *item, wxDC& dc) {
                 dc.SetPen (*wxTRANSPARENT_PEN);
             }
             dc.SetTextForeground (colTextHilight);
-#endif // defined(__WXGTK2__) || defined(__WXMAC__)
+#endif // defined(__WXGTK2__) || defined(__WXGTK3__) || defined(__WXMAC__)
         }else if (item == m_curItem) {
             dc.SetPen (m_hasFocus? *wxBLACK_PEN: *wxTRANSPARENT_PEN);
         }else{
             dc.SetTextForeground (colText);
         }
-#if !defined(__WXGTK2__) && !defined(__WXMAC__)
+#if !defined(__WXGTK2__) && !defined(__WXGTK3__) && !defined(__WXMAC__)
         dc.DrawRectangle (0, item->GetY() + off_h, total_w, total_h - off_h);
 #endif 
     }else{
@@ -3174,7 +3174,7 @@ void wxTreeListMainWindow::PaintItem (wxTreeListItem *item, wxDC& dc) {
 #endif // !__WXMAC__
                     dc.SetTextForeground (colTextHilight);
                 }else if (item->IsSelected()) {
-#if defined(__WXGTK2__) || defined(__WXMAC__)
+#if defined(__WXGTK2__) || defined(__WXGTK3__) || defined(__WXMAC__)
                     int flags = wxCONTROL_SELECTED;
                     if (m_hasFocus)
                     {
@@ -3193,13 +3193,13 @@ void wxTreeListMainWindow::PaintItem (wxTreeListItem *item, wxDC& dc) {
                         dc.SetPen (*wxTRANSPARENT_PEN);
                     }
                     dc.SetTextForeground (colTextHilight);
-#endif // defined(__WXGTK2__) || defined(__WXMAC__)
+#endif // defined(__WXGTK2__) || defined(__WXGTK3__) || defined(__WXMAC__)
                 }else if (item == m_curItem) {
                     dc.SetPen (m_hasFocus? *wxBLACK_PEN: *wxTRANSPARENT_PEN);
                 }else{
                     dc.SetTextForeground (colText);
                 }
-#if !defined(__WXGTK2__) && !defined(__WXMAC__)
+#if !defined(__WXGTK2__) && !defined(__WXGTK3__) && !defined(__WXMAC__)
                 dc.DrawRectangle (text_x, item->GetY() + off_h, text_w, total_h - off_h);
 #endif
             }else{

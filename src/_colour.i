@@ -205,12 +205,20 @@ components.", "");
     // wxColour ChangeLightness(int ialpha) const;
 
     
-    DocDeclStr(
-        long , GetPixel() const,
+    %extend {
+        DocStr(GetPixel, 
         "Returns a pixel value which is platform-dependent. On Windows, a
 COLORREF is returned. On X, an allocated pixel value is returned.  -1
 is returned if the pixel is invalid (on X, unallocated).", "");
-    
+
+        long GetPixel() {
+            %#ifndef __WXGTK3__
+            return self->GetPixel();
+            %#else
+            return -1;
+            %#endif
+        }
+    }
     
     %extend {
         KeepGIL(__eq__);

@@ -173,8 +173,8 @@ SYS_WX_CONFIG = None # When installing an in tree build, setup.py uses wx-config
 
 WXPORT = 'gtk2'    # On Linux/Unix there are several ports of wxWidgets available.
                    # Setting this value lets you select which will be used for
-                   # the wxPython build.  Possibilites are 'gtk', 'gtk2' and
-                   # 'x11'.  Currently only gtk and gtk2 works.
+                   # the wxPython build.  Possibilities are 'gtk', 'gtk2',
+                   # 'gtk3', and 'x11'.  Currently only gtk2, and gtk3 work.
 
 BUILD_BASE = "build" # Directory to use for temporary build files.
                      # This name will be appended to if the WXPORT or
@@ -904,7 +904,7 @@ if CORE_ONLY:
     BUILD_ACTIVEX = 0
 
 
-if UNICODE and WXPORT not in ['msw', 'gtk2', 'osx_carbon', 'osx_cocoa']:
+if UNICODE and WXPORT not in ['msw', 'gtk2', 'gtk3', 'osx_carbon', 'osx_cocoa']:
     raise SystemExit, "UNICODE mode not currently supported on this WXPORT: "+WXPORT
 
 
@@ -1103,6 +1103,10 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
             WXPLAT = '__WXGTK__'
             GENDIR = 'gtk' # no code differences so use the same generated sources
             portcfg = os.popen('pkg-config gtk+-2.0 --cflags', 'r').read()[:-1]
+        elif WXPORT == 'gtk3':
+            WXPLAT = '__WXGTK__'
+            GENDIR = 'gtk' # no code differences so use the same generated sources
+            portcfg = os.popen('pkg-config gtk+-3.0 --cflags', 'r').read()[:-1]
         elif WXPORT == 'x11':
             WXPLAT = '__WXX11__'
             portcfg = ''
