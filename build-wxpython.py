@@ -353,6 +353,10 @@ if sys.platform.startswith("darwin") and options.osx_cocoa:
     build_options.append("--osx_cocoa")
     wxpy_build_options.append("WXPORT=osx_cocoa")
 
+if sys.platform.startswith("darwin") and options.osx_carbon:
+    build_options.append("--osx_carbon")
+    wxpy_build_options.append("WXPORT=osx_carbon")
+
 if not sys.platform.startswith("win") and options.install:
     build_options.append('--installdir=%s' % DESTDIR)
     build_options.append("--install")
