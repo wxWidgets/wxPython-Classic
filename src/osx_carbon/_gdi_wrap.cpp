@@ -2881,6 +2881,13 @@ SWIG_From_unsigned_SS_int  (unsigned int value)
   return SWIG_From_unsigned_SS_long  (value);
 }
 
+SWIGINTERN long wxColour_GetPixel(wxColour *self){
+            #ifndef __WXGTK3__
+            return self->GetPixel();
+            #else
+            return -1;
+            #endif
+        }
 SWIGINTERN bool wxColour___eq__(wxColour *self,PyObject *other){
             wxColour  temp, *obj = &temp;
             if ( other == Py_None ) return false;
@@ -3277,7 +3284,7 @@ enum wxBitmapBufferFormat {
                         p.OffsetY(pixData, 1);
                     }
                 }
-                if (depth = 32) {
+                if (depth == 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
                     for (int y=0; y<height; y++) {
                         rowStart = p;
@@ -5309,12 +5316,12 @@ SWIGINTERN PyObject *_wrap_Colour_GetPixel(PyObject *SWIGUNUSEDPARM(self), PyObj
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxColour, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Colour_GetPixel" "', expected argument " "1"" of type '" "wxColour const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Colour_GetPixel" "', expected argument " "1"" of type '" "wxColour *""'"); 
   }
   arg1 = reinterpret_cast< wxColour * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxColour const *)arg1)->GetPixel();
+    result = (long)wxColour_GetPixel(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
