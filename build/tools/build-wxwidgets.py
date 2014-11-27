@@ -201,6 +201,7 @@ def main(scriptName, args):
         "jobs"          : (defJobs, "Number of jobs to run at one time in make. Default: %s" % defJobs),
         "install"       : (False, "Install the toolkit to the installdir directory, or the default dir."),
         "installdir"    : ("", "Directory where built wxWidgets will be installed"),
+        "gtk3"          : (False, "On Linux build for gtk3 (default gtk2)"),
         "mac_distdir"   : (None, "If set on Mac, will create an installer package in the specified dir."),
         "mac_universal_binary" 
                         : ("", "Comma separated list of architectures to include in the Mac universal binary"),
@@ -213,8 +214,8 @@ def main(scriptName, args):
         "rebake"        : (False, "Regenerate Bakefile and autoconf files"),
         "unicode"       : (False, "Build the library with unicode support"),
         "wxpython"      : (False, "Build the wxWidgets library with all options needed by wxPython"),
-        "cocoa"         : (False, "Build the old Mac Cocoa port."),
-        "osx_cocoa"     : (False, "Build the new Cocoa port"),
+        "osx_cocoa"     : (False, "Build the Cocoa port"),
+        "osx_carbon"    : (False, "Build the Carbon port"),
         "shared"        : (False, "Build wx as a dynamic library"),
         "extra_make"    : ("", "Extra args to pass on [n]make's command line."),
         "features"      : ("", "A comma-separated list of wxUSE_XYZ defines on Win, or a list of configure flags on unix."),
@@ -258,11 +259,13 @@ def main(scriptName, args):
         if options.debug:
             configure_opts.append("--enable-debug")
             
-        if options.cocoa:
-            configure_opts.append("--with-old_cocoa")
-            
         if options.osx_cocoa:
             configure_opts.append("--with-osx_cocoa")
+        elif options.osx_carbon:
+            configure_opts.append("--with-osx_carbon")
+            
+        if options.gtk3:
+            configure_opts.append("--with-gtk=3")
 
         wxpy_configure_opts = [
                             "--with-opengl",
