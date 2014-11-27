@@ -1813,7 +1813,11 @@ class DataViewCtrl(_core.Control):
         return _dataview.DataViewCtrl_EnsureVisible(*args, **kwargs)
 
     def HitTest(*args, **kwargs):
-        """HitTest(self, Point point, DataViewItem item, DataViewColumn column)"""
+        """
+        HitTest(point) -> (item, col)
+
+        Test where the given (in client coords) point lies
+        """
         return _dataview.DataViewCtrl_HitTest(*args, **kwargs)
 
     def GetItemRect(*args, **kwargs):
