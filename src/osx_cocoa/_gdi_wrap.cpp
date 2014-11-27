@@ -2885,7 +2885,7 @@ SWIGINTERN long wxColour_GetPixel(wxColour *self){
             #ifndef __WXGTK3__
                 return (long)self->GetPixel();
             #else
-            return -1;
+                return -1;
             #endif
         }
 SWIGINTERN bool wxColour___eq__(wxColour *self,PyObject *other){
