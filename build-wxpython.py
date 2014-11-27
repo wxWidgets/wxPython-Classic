@@ -128,6 +128,9 @@ for opt in keys:
         
 options, arguments = parser.parse_args()
 
+if options.osx_cocoa:
+    options.osx_carbon = False
+
 # Compare current command line options to the saved set. If they match then we
 # can save some time by skipping parts of the build.
 if set(sys.argv[1:]) == old_options:
