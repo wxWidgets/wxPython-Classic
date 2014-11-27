@@ -1,0 +1,44 @@
+#!/bin/bash
+# ---------------------------------------------------------------------------
+
+set -o errexit
+#set -o xtrace
+
+echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
+
+VERSION=$1
+VER2=$2
+CHARTYPE=$3
+
+
+export DEBFULLNAME="Robin Dunn"
+export DEBEMAIL=robin@alldunn.com
+export DEBSIGN_KEYID="Robin Dunn <robin@alldunn.com>"
+export DEBUILD_DPKG_BUILDPACKAGE_OPTS="-i -ICVS -I.svn"
+
+tar xzf wxwidgets${VER2}_${VERSION}.orig.tar.gz
+
+cd wxwidgets$VER2-$VERSION
+
+CLVERSION=`dpkg-parsechangelog  | sed -n 's/Version: //p' | sed 's/-.*//'`
+if [ $CLVERSION != $VERSION ]; then
+    dch --newversion $VERSION-0 "automated build"
+fi
+
+
+if [ $CHARTYPE = both ]; then
+    touch debian/control.in
+    WX_UNICODE=0 debian/rules debian/control
+    WX_UNICODE=0 dpkg-buildpackage -rfakeroot
+    fakeroot ./debian/rules clean
+fi
+
+touch debian/control.in
+debian/rules debian/control
+dpkg-buildpackage -rfakeroot 
+
+cd ..
+rm -r wxwidgets$VER2-$VERSION
+
+echo "-=-=-=-  Goodbye!  -=-=-=-"
+exit 0
