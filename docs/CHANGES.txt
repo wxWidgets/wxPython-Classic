@@ -21,6 +21,16 @@ as the wx platform.  Thanks kosenko!
 Fixed the OSX Carbon build to actually use Carbon. (Because of a
 change in defaults it was actually building the Cocoa build instead.) 
 
+Pythonize DataViewCtrl.HitTest.  It now takes just the Point parameter
+and returns the DataViewItem and DataViewColumn objects. If there is
+no item at that point then item will evaluate to False, (or you can
+use its IsOk method.)  For example::
+
+    item, col = ctrl.HitTest(point)
+    if item:
+        doSomething(item, col)
+
+
 
 
 
