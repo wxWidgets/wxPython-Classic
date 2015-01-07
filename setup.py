@@ -12,7 +12,7 @@
 #----------------------------------------------------------------------
 
 import sys, os
-
+import setuptools
 
 # The full contents of the wx.build.config module used to be located
 # here in setup.py.  They were split into a separate module so it will
@@ -905,25 +905,23 @@ WX_PKGLIST =      [ 'wx',
                     ]
 
 
-if NO_SCRIPTS or EGGing:
-    SCRIPTS = None
-else:
-    SCRIPTS = [opj('scripts/helpviewer'),
-               opj('scripts/img2png'),
-               opj('scripts/img2py'),
-               opj('scripts/img2xpm'),
-               opj('scripts/pyalacarte'),
-               opj('scripts/pyalamode'),
-               opj('scripts/pycrust'),
-               opj('scripts/pyshell'),
-               opj('scripts/pywrap'),
-               opj('scripts/pywxrc'),
-               opj('scripts/xrced'),
-               opj('scripts/editra'),
-               ]
-    if os.name == 'nt':
-        SCRIPTS.append( opj('scripts/genaxmodule') ) 
-
+# Use console_scripts so that the scripts will be native to any platform.
+ENTRY_POINTS = {
+    'console_scripts': [
+        'helpviewer = wx.tools.helpviewer:main',
+        'img2png = wx.tools.img2png:main',
+        'img2py = wx.tools.img2py:main',
+        'img2xpm = wx.tools.img2xpm:main',
+        'pyalacarte = wx.py.PyAlaCarte:main',
+        'pyalamode = wx.py.PyAlaMode:main',
+        'pycrust = wx.py.PyCrust:main',
+        'pyshell = wx.py.PyShell:main',
+        'pywrap = wx.py.PyWrap:main',
+        'pywxrc = wx.tools.pywxrc:main',
+        'xrced = wx.tools.XRCed.xrced:main',
+        'editra = wx.tools.Editra.src.Editra:Main',
+    ],
+}
 
 
 DATA_FILES += find_data_files('wx/lib/agw/data', '*.png', '*.html')
@@ -1058,7 +1056,7 @@ if __name__ == "__main__":
 
               options          = { 'build' : BUILD_OPTIONS,  },
 
-              scripts          = SCRIPTS,
+              entry_points     = ENTRY_POINTS,
               data_files       = DATA_FILES,
               headers          = HEADERS,
 
