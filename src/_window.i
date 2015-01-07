@@ -2313,6 +2313,11 @@ returns True on success.  The ``alpha`` value is an integer in the
 range of 0 to 255, where 0 is fully transparent and 255 is fully
 opaque.", "");
     
+
+    //bool   IsNativeWindowWrapper() const;
+    
+    double GetContentScaleFactor() const;
+
     
 
     %pythoncode {
