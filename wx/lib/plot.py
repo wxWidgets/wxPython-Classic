@@ -595,9 +595,9 @@ class PlotCanvas(wx.Panel):
 
         # set curser as cross-hairs
         self.canvas.SetCursor(wx.CROSS_CURSOR)
-        self.HandCursor = wx.Cursor(Hand.GetImage())
-        self.GrabHandCursor = wx.Cursor(GrabHand.GetImage())
-        self.MagCursor = wx.Cursor(MagPlus.GetImage())
+        self.HandCursor = wx.CursorFromImage(Hand.GetImage())
+        self.GrabHandCursor = wx.CursorFromImage(GrabHand.GetImage())
+        self.MagCursor = wx.CursorFromImage(MagPlus.GetImage())
 
         # Things for printing
         self._print_data = None
