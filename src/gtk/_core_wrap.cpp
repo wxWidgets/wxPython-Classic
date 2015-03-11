@@ -47009,6 +47009,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Window_GetContentScaleFactor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_GetContentScaleFactor" "', expected argument " "1"" of type '" "wxWindow const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (double)((wxWindow const *)arg1)->GetContentScaleFactor();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *Window_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -72398,6 +72426,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_GetMainWindowOfCompositeControl", (PyCFunction)_wrap_Window_GetMainWindowOfCompositeControl, METH_O, NULL},
 	 { (char *)"Window_CanSetTransparent", (PyCFunction)_wrap_Window_CanSetTransparent, METH_O, NULL},
 	 { (char *)"Window_SetTransparent", (PyCFunction) _wrap_Window_SetTransparent, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Window_GetContentScaleFactor", (PyCFunction)_wrap_Window_GetContentScaleFactor, METH_O, NULL},
 	 { (char *)"Window_swigregister", Window_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Window_swiginit", Window_swiginit, METH_VARARGS, NULL},
 	 { (char *)"FindWindowById", (PyCFunction) _wrap_FindWindowById, METH_VARARGS | METH_KEYWORDS, NULL},

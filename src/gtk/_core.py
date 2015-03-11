@@ -11626,6 +11626,10 @@ class Window(EvtHandler):
         """
         return _core_.Window_SetTransparent(*args, **kwargs)
 
+    def GetContentScaleFactor(*args, **kwargs):
+        """GetContentScaleFactor(self) -> double"""
+        return _core_.Window_GetContentScaleFactor(*args, **kwargs)
+
     def PostCreate(self, pre):
         """
         Phase 3 of the 2-phase create <wink!>
