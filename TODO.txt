@@ -1,0 +1,6 @@
+wxPython (classic) TODO list
+============================
+
+
+* Add build-wxpython.py option to disable INSTALL_MULTIVERSION.
+
