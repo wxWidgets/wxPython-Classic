@@ -1,0 +1,404 @@
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.99
+DATE 03/17/2012
+48th Alpha Release
+
+NEWS:
+Haven't had much time to work on Editra lately so though I would release the
+changes that have been integrated since previous release. Main improvements
+in this release are better handling of large files, improved Unicode handling,
+and improved find performance. See changelog below for more details.
+
+
+NEW: [features/improvements]
++Major performance improvements to Replace All action
++Backup file suffix can be customized (patch from dkuhlman)
++Moderate improvements to performance of working with large files.
++Improved support for R programming language.
++SingleInstanceChecker temp file moved from home directory to system temp directory.
++Add option to preferences for configuring the preferred caret width (1-4 pixels).
++Support Block caret for Vi emulation mode (requires wxPython 2.9)
+
+LIBRARY:
++Add InfoBar control for providing simple information messages without having to
+show a modal dialog.
+
+BUG FIXES:
++Fix minor control sizing issue in ControlBars created by ControlBox.CreateControlBar
+on GTK/MSW.
++Fix issue with Unicode normalization in search.
++Fix in buffer search operations to work better for Unicode by working around
+issues where StyledTextCtrl expects UTF-8 byte offsets for some methods (SetSelection,
+GetSelection, ...)
++Fix saved search flags not being propagated properly after application restart.
++Fix Calltip shortcut not working correctly due to incorrect lookup string being
+sent down to completer when character to left of cursor was a paren.
++Fix bug that could result in data loss when saving a file when all encodings
+failed.
++Fix MemoryError that could occur when saving large files.
++Fix some UTF-16 handling issues on Linux.
+
+#-----------------------------------------------------------------------------#
+Changes since last release:
+
+VERSION 0.6.89
+DATE 12/17/2011
+47th Alpha Release
+
+NEWS:
+
+This release adds support for highlighting some new file types and some minor
+improvements to the auto-completions support. The Python auto-completion has been
+improved to better handle updating when external modules that are analyzed
+from import statements have changed during runtime as well as improvements to
+the handling of properties and member attributes.
+
+In addition to the features listed above there has been some library and 
+framework enhancements to help support future plugin development.
+
+For details about additional changes and bug fixes please see the complete
+changelog below.
+
+NEW: [features/improvements]
++Improved Python auto-completion
++Add ability to customize spelling dictionary and behavior. Can now Ignore
+spellings (per session) or Add words to the dictionary (permanent). Optional
+feature only available when pyenchant is installed.
++Add partial support for CSS3 highlighting.
++Add support for GLSL programming language (patch from Auria)
++Auto-completion configuration (on/off) now only applies to completions that
+are provided automatically. Completions can always be requested with the
+auto-completion shortcut keys.
++Add partial Catalan, Eseranto, Farsi, Georgian, and Maylay translations.
+
+LIBRARY:
++Add new themed art resource for New Folder
++Minor extensions to file utility functions (AddFileExtension)
++Add DirectoryMonitor class to ebmlib to provide notifications to changes to
+files in a directory.
+
+BUG FIXES:
++Fix middle mouse button not closing correct tab when notebook view has been split.
++Fix some Unicode handling issues related to startup paths.
++Fix error case in updating session storage schema from older versions of application.
++Fix file filters not working with find in current directory option.
++Fix text selection foreground color in OutputBuffer derived windows.
++Fix issue with some style sheets not being able to be loaded in StyleEditor on
+case sensitive file systems.
++Fix some minor cosmetic issues when running under GTK.
++Fix crash that could occur during shutdown under some cases when a find dialog
+was open.
+
+#-----------------------------------------------------------------------------#
+Changes since last release:
+
+VERSION 0.6.77
+DATE 10/02/2011
+46th Alpha Release
+
+NEWS:
+
+Just a rebuild of 0.6.76 to fix some system compatibility issues that some ran
+in to while using the new Windows binaries.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.76
+DATE 10/01/2011
+45th Alpha Release
+
+NEWS:
+
+New in this release is the new Session Manager bar for managing editing sessions.
+Along with the Session Manager the session feature has had a change to its
+behavior, only the Default session will automatically update. All other custom
+sessions require explicit saves to configure the set of files that belong in it.
+See the changelog below for details of other changes and bug fixes that are
+included in this release.
+
+
+NEW: [features/improvements]
++Allow scrolling of the buffer from within the search bar with up/down keys.
++Can now change lexer from status bar context menu.
++Session management feature behavior has been changed in this release. When using
+custom sessions they will not automatically be saved as new files are opened or
+when the editor is closed. They must now be saved manually. Only the builtin
+'Default' session will retain the automatic behavior.
++Support folding docstrings in Python source code.
++Add Command Bar for managing editing sessions, default key binding of Ctrl+K.
++Add Delete All button to Bookmark manager Shelf window.
++Add close all option to shelf tab right click menu.
++New version of Launch Plugin (Bug fixes)
++New version of CodeBrowser (Python enhancements / wxPython 2.9 bug fixes)
+
+LIBRARY:
++Add FileTree class to eclib.
++Add FactoryMixin mixin class to ebmlib to simplify implementing factories for
+classes.
++Add new icon resource for Delete All (ID_DELETE_ALL).
++Add Freezer context manager class to eclib.
+
+BUG FIXES:
++Fix PyDeadObject error when opening new window from tab menu.
++Fix selection background not being shown when selecting whitespace when the
+buffers show whitespace option is turned on.
++Fix Select All not working in search bar.
++Fix issue during shutdown when IPC server isn't running.
++Fix loading custom key profiles that have duplicate entries.
++Fix handling the toggling of Maximize/Restore editor for some workflows so that
+the view is correctly toggled back and forth for all cases.
++Fix display issues when scrolling on GTK caused by overlay scrollbars.
++Fix issue with some obsolete plugins being shown in plugin manager download window.
++Fix issue with initial search from Find dialog always beginning at position 
+zero instead of the current caret position.
++Fix some inconsistencies with doing incremental searches and behavior when
+the search direction is changed for a find next action.
++Fix failure to detect correct syntax highlighting when extension manager
+had mappings with upper or mixed case letter.
++Fix some incorrect tab selection index issues when notebook was split.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.58
+DATE 07/23/2011
+44th Alpha Release
+
+NEWS:
+
+NEW: [features/improvements]
++Updated all translations from launchpad site
++Add right click menu to Shelf tab area to open Shelf items.
++UI Display font setting is now more uniformly applied across the interface.
++Use more understated style for brace matching in default style.
+
+LIBRARY:
++Fix PlateButton size being incorrectly calculated on GTK.
+
+BUG FIXES:
++Fix crash in handling corrupt style sheet data
++Fix frame title not updating correctly when only one tab is open on Linux.
++Partial fix for screen flashing issue on Linux when using dark syntax
+highlighting themes. Need to turn off code folding to stop the flashing.
++Fix tab context menu option for Close and Close All not working on Linux.
++Fix minor defect in OSX document icon (patch from auria)
++Fix GTK warning messages during startup on Linux.
++Fix missing definition of error_style for Guepardo syntax theme.
++Fix Unicode handling issue in xml handling for ipc server.
++Fix To Upper/Lower command not working with some characters.
++Properly handle searches with precomposed and decomposed Unicode data.
++Fix tab icon setting not being applied after restart.
++Fix toolbar when running under wxPython2.9 on OSX.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.48
+DATE 05/14/2011
+43rd Alpha Release
+
+NEWS:
+
+This release contains some noteable improvements to the Python autocompletion
+support. It is more accurate and capabable of producing results under more
+scenarios then before. These improvements also extend to the the calltip
+support.
+
+Big change in source distributions in this release as well. The primary launch
+script is now all lower case. So where as before you would run 'Editra' it is
+now standardized on 'editra' to fix a number of long running issues and confusion
+with the script that is installed by the wxPython tools package.
+
+For the complete change history please refer to the below changelog.
+
+NEW: [features/enhancements]:
++Improved Python autocompletion, better detect local variables, properties, and
+some minor performance improvements.
++Improved Python calltips. Calltips can now be shown more regularly and for
+more objects.
++Launch script for source installs is now a lower case 'editra'.
++Source install on Windows now overwrites launch script installed by wxPython
+for Editra to allow the separately installed version to be started.
++Expanded unittest suite to verify data in all bundled style sheets.
++Shelf window can now be maximized.
++Updated Launch to version 1.11 (bug fixes)
++Update CodeBrowser to version 1.3 (minor enhancements)
+
+LIBRARY:
++Add LintError and LintWarning markers.
+
+BUG FIXES:
++Fix crash that could occur when loading old format style sheet
++Fix bug in threaded file load that could lead to modified marker being
+incorrectly shown on the tab for the file.
++Fix crash that could occur under rare case when closing an editor page.
++Fix bug in preferences where clicking Cancel on changing the font could still
+result in the change being accepted.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.37
+DATE 04/24/2011
+42nd Alpha Release
+
+NEWS:
+
+This version includes a new version of the Launch plugin that now supports all
+file types recognized by Editra and will automatically support all future filetypes
+and filetypes added by extensions. It also fixes a handful of other minor issues
+as well. Note however that due to the framework changes any Launch settings from
+previous versions will be lost with this upgrade as the underlying data model
+has changed.
+
+There has also been a number of API extensions and bug fixes during this release,
+see the changelog below for more details about the changes in this release.
+
+NEW: [features/enhancements]
++New version of Launch v1.10 (now supports all filetypes)
++Session saved more frequently for better restore after unexpected shutdowns.
++Highlight php language constructs as keywords.
++Uninstaller on Windows can now optionally remove settings and plugins folder.
+
+LIBRARY:
++SegmentBar supports being shown in a vertical orientation
++SegmentBook adds styles SEGBOOK_STYLE_LEFT, SEGBOOK_STYLE_RIGHT, SEGBOOK_STYLE_BOTTOM
++SegmentBar and SegmentBook, show tool tips when labels are hidden.
++Expanded buffer margin marker api, added Error and Lint markers.
++Add ThreadPool interface EdThreadPool.
++New XML library ed_xml for easier XML management.
+
+BUG FIXES:
++Fix incorrect detection of UTF-32 BOM as UTF-16 BOM.
++Fix bug in restoring bookmarks after a file reload.
++Fix some visibility issues with the tab controls with dark themes on gtk.
++Fix Unicode handling issue in OutputBuffer.
++Fix window activation issue after canceling directory search job.
++Handle invalid encodings reported by system.
++Fix numerous printing issues.
++Don't show command prompt when running programs through output buffer.
++Fix Read Only tab image not updating when permissions change.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.6.26
+DATE 03/18/2011
+41st Alpha Release
+
+NEWS:
+This is a quick bug fix for a critical issue that could cause Editra to not
+be able to properly start again after part of the profile settings became
+corrupted. If you were affected by this in the previous release this release
+should fix it. The other workaround is to delete your Editra user profile from
+the configuration directory and restarting Editra.
+
+NEW: [features/enhancements]
++New icon for showing bookmarks in the bookmark margin.
+
+LIBRARY:
++New api for setting breakpoint markers in editor buffer margin.
++Improved API documentation available on website.
+
+BUG FIXES:
++Fix crash when restoring Shelf layout if a some tabs are not reloaded.
++Only save buffers that have modifications when Save All is called.
++Fix Delete Bookmark button being disabled while BookMarkMgr is docked.
++Fix issue with Find/Replace dialog popping up underneath OSX/Gnome global menubar.
+
+#-----------------------------------------------------------------------------#
+Changes since last release:
+
+VERSION 0.6.20
+DATE 02/26/2011
+40th Alpha Release
+
+NEWS:
+This release contains a number of fixes for long standing issues including a
+major rework of the Style Editor dialog. The window layout of the Shelf's tabs
+are now saved and restored between running sessions of Editra. New shelf window
+for managing, navigating, and viewing all set Bookmarks. See the changelog below
+for more details about this release.
+
+NEW: [features/enhancements]
++Remember Shelf layout and selected tab when application is restarted.
++Improve Python autoindenter to better handle more conditions in regards to
+brackets and parens.
++Autocomp and calltip shortcuts are now customizable.
++Add Bookmark manager window to Shelf
++Support storing/loading user configuration from XDG standard location on Linux.
++Persist find settings between sessions.
++Improvements to the Style Editor (ability to remove style sheets)
++Display Font setting now also applies to the font used by the tabs.
+
+LIBRARY:
++Support ControlBars in on left and right side of ControlBox.
++Add ProcessThreadBase class to allow for customizing the creation of the Popen object.
++Add support for displaying breakpoint markers in editor buffer.
+
+BUG FIXES:
++Fix issue that could result in crash when rapidly clicking on notebook buttons.
++Fix minor display issue in update checker gauge.
++Fix behavior of left/right arrow key motions in vim emulation mode to better
+emulate vi.
++Fix issue where an invalid encoding would be detected as the default encoding
+on some systems.
++Fix issue where ToolBar would not resize properly when appearance settings
+where changed to use different size icons.
++Fix screen refresh issue in tab control where it wouldn't get repainted properly
+in some cases.
++Fix crash in reload with encoding when the encoding fails to decode the text.
++Fix pipe character not being accepted in keybindings editor.
++Fix angle brackets not being handled properly in keybindings editor.
++Fix issue with window not being brought to front in all cases when opening
+file with "Edit with Editra..." shortcut on Windows.
++Fix issue with showing calltips for buffers that are not visible.
++Handle OverflowError that could occur when too large a value was passed to the
+busy indicator.
++Fix display inconsistencies in recently opened file menu.
++Fix some issues with the binary installer and uninstaller on Windows Vista/7
++Fix behavior of change word command to better emulate vi.
++Fix error handling in purging of old log files.
++Fix keybinding editor not applying cleared keybindings until restart.
++Fix hard crash that could occur when processing auto-completion data for some
+Python modules with a py2exe version of Editra.
++Clear existing keybinding when assigning to new action in keybinding editor.
++Fix issue with updating styles after overwriting or updating an existing
+style sheet with new settings.
++Fix bug in style editor that would warn about changes when no changes have been made.
++Handle styling some additional CSS2 keywords (outline, left).
++Correct some Unicode handling issues in style sheet handling and RTF output generator.
++Fix refresh issue with button highlighting in PluginManager dialog (MSW).
+
+#-----------------------------------------------------------------------------#
+VERSION 0.6.00
+DATE 01/15/2011
+39th Alpha Release
+
+NEWS:
+
+NEW: [features/enhancements]
++Improve Python AutoIndenter to better handle brackets (patch from Jens)
++Add Copy Filename option to tab menu (patch from Michael Rans)
++Extend Vi emulation mode to support motions for Enter, Space, and Backspace
++Improve file type detection for files that don't have file extensions.
++Add support for Cilk syntax highlighting (patch from michael.champigny)
+
+BUG FIXES:
++Fix Python 2.5 compatibility issue.
++Fix Unicode handling issue in Python completer.
++Fix issue with incorrect dwell events being sent causing the calltip popups
+to be shown when they shouldn't even after the mouse has left the window.
++Fix bug in RemoveAllBookmarks method when called from EditraStc instance.
++Fix Unicode handling issue in Replace All feature.
++Fix issue where cursor would still appear active in the text buffer even when
+it did not have the keyboard focus.
++Fix DeadObject error that could occur after deletion of a secondary main window.
++Fix incorrect tab activation that could occur after doing a tab drag and drop
+operation from an external notebook.
++Fix bug in update checker that would cause the check for an update to fail.
++Fix bug in style sheet parser that could lead to a crash when loading a
+malformed Editra style sheet.
++Fix Cut/Delete line commands for when the selection includes the last line.
++Fix Put command behavior in vi emulation to put it after the current carat position.
++Fix Python autocompletion for documents that have tabs in them.
++Fix some issues in the Xml/Html autocompleter that would incorrectly insert
+closing tags for tags that didn't require them.
++Fix bug in displaying errors for plugins that couldn't load.

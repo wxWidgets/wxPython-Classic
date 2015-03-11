@@ -1,0 +1,66 @@
+###############################################################################
+# Name:                                                                       #
+# Purpose:                                                                    #
+# Author: AUTHOR <email address>                                              #
+# Copyright: (c) 2008 Cody Precord <staff@editra.org>                         #
+# License: wxWindows License                                                  #
+###############################################################################
+
+"""
+FILE:
+AUTHOR:
+LANGUAGE: Python
+SUMMARY:
+
+"""
+
+__author__ = ""
+__svnid__ = "$Id: Exp $"
+__revision__ = "$Revision:  $"
+
+#--------------------------------------------------------------------------#
+# Dependancies
+import sys
+
+#--------------------------------------------------------------------------#
+
+class Completer:
+    """Code completer provider"""
+    def __init__(self):
+        """Initiliazes the completer"""
+        # Key values to activate autocompletion on
+        self._autocomp_keys = []
+        # Character values to stop autocompletion on
+        self._autocomp_stop = u' '
+        # Key values to activate a calltip call on
+        self._calltip_keys = []
+        # List for collecting atoms in
+        self._collector = []
+
+    def GetAutoCompKeys(self):
+        """Returns the list of key codes for activating the
+        autocompletion.
+
+        """
+        if hasattr(self, "_autocomp_keys"):
+            return self._autocomp_keys
+        else:
+            return list()
+
+    def GetAutoCompStops(self):
+        """Returns a string of characters that should cancel
+        the autocompletion lookup.
+
+        """
+        if hasattr(self, '_autocomp_stop'):
+            return self._autocomp_stop
+        else:
+            return u''
+
+    def GetCallTipKeys(self):
+        """Returns the list of keys to activate a calltip on"""
+        if hasattr(self, '_calltip_keys'):
+            return self._calltip_keys
+        else:
+            return list()
+

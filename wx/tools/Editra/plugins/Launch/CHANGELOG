@@ -1,0 +1,219 @@
+# encoding: utf-8
+#
+# Editra Launch Plugin
+# Author: Cody Precord
+# License: wxWindows License
+#
+
+#-----------------------------------------------------------------------------#
+Version 1.14
+Released: xx/xx/20xx
+
++Fix Save All prior to run option not saving all open buffers
+
+#-----------------------------------------------------------------------------#
+Version 1.13
+Released: 04/22/2011 
+
++Add configuration for number of lines to buffer in the output display.
++Fix incorrect behavior of Clear Between Runs feature that was clearing the
+buffer when the abort button was clicked instead of right before next launch.
++Add error highlighting and hotspot support for C/C++ compiler errors (patch from hradec).
+
+#-----------------------------------------------------------------------------#
+Version 1.12
+Released: 10/01/2011
+
++Fix bug with handling initialization of color preferences on new installs.
++Fix issue in class factory causing incorrect data display for handler classes
+that are generated dynamically on the fly.
++Fix issue with lock file failing to keep file locked after clicking on an error
+hotspot in the buffer.
+
+#-----------------------------------------------------------------------------#
+Version 1.11
+Released: 05/14/2011
+
++Fix bug in handling launch xml file for handlers that have empty command lists.
++Fix bug in configuration settings management.
+
+#-----------------------------------------------------------------------------#
+Version 1.10
+
+Due to a change in the underlying datamodel this update will force any existing
+Launch configuration to be reset.
+
++Major framework redesign - Adds support for all file types in Editra.
++Fix issue in detecting files that are already open from hotspot links.
++Fix output display truncating on NULL bytes.
++When an XML configuration is present the handlers defined in it can only be
+edited in the XML file, since XML handlers are now transient.
++Fix crash that could occur from holding F5 down for a long time
+
+#-----------------------------------------------------------------------------#
+Version 1.9
+
++Add Auto Save buffer before running option.
++Add default handlers for C/C++ files.
++Ensure that process exit status is output to a new line in the output buffer
++Trap and log XML parsing assertions instead of crashing when invalid Launch
+XML is encountered.
+
+#-----------------------------------------------------------------------------#
+Version 1.8
+
++Fix compatibility issue with Python 2.6.4 and later
++Fix some issues with the Lock File feature not always locking the selected file.
+
+#-----------------------------------------------------------------------------#
+Version 1.7:
+
++Fix crash that could occur when clicking on some hotspots where the pattern
+matching would return None.
++Add Word Wrap option to output buffer.
++Add Lock File option to control bar to prevent the notebook synchronization from
+happening.
+
+#-----------------------------------------------------------------------------#
+Version 1.6:
+
++Fix issue with run list not updating to enabled state properly when saving some
+files for the first time.
++Add logging of error messages when run command fails.
++Fix bug in custom xml hotspot handlers.
++Suppress showing command window when running scripts on Windows.
+
+#-----------------------------------------------------------------------------#
+Version 1.5:
+
++New filetype handlers can be added through the new xml interface
++Notification of invalid commands are now properly reported on windows.
++Add support for Stata (patch from Jean Eid)
++Fixed duplicate LaTeX handler in config dialog.
+
+#-----------------------------------------------------------------------------#
+Version 1.4:
+
++Fix handling for files that have spaces in their names.
++Add option to provide audible feedback for when errors are detected.
+
+#-----------------------------------------------------------------------------#
+Version 1.3
+
++Use context sensitive messages for signaling updates, fixes failure to upate
+on gtk when a subdialog has the focus.
+
+#-----------------------------------------------------------------------------#
+Version 1.2
+
++Make sure config is initialized for new installs when accessing config dialog
+from Plugin Manager.
+
+#-----------------------------------------------------------------------------#
+Version 1.1
+Date: 03/28/2009
+
++Add support for links in pylint output (patch from Erik Tollerud)
++Api compatibility changes.
+
+#-----------------------------------------------------------------------------#
+Version 1.0
+Date: 01/29/2009
+
++Add support for OCaml (patch from quode)
++Improved Haskell support (patch from quode)
++Add support for LaTex files.
++Right click on configure executables list will show an option to browse for
+the executable.
++Add error link support to VBScript (patch from Gaël)
++Add support for Dos Batch scripts (patch from Gaël)
+
+#-----------------------------------------------------------------------------#
+Version 0.9
+Date: 01/02/2009
+
++Add support for R
++Fix file type not being checked when window is first shown
+
+#-----------------------------------------------------------------------------#
+Version 0.8
+Date: 12/11/2008
+
++Add run last executed program function and shortcut.
++Automatically save the buffer to be excuted if it is modified.
++Fix file list not being populated on first opening.
++Fix incorrect tooltip on exe choice control.
+
+#-----------------------------------------------------------------------------#
+
+Version 0.7
+Date: 11/24/2008
+
++Add support for VBScript
++Number of general UI improvements
+
+#-----------------------------------------------------------------------------#
+
+Version 0.6
+Date: 10/27/2008
+
++Add support for D
++Fix bug with not unsubscribing to some messages on delete causing dead object
+errors.
+
+#-----------------------------------------------------------------------------#
+
+Version 0.5
+Date: 09/30/2008
+
++Add support for (HTML, Inno Setup Scripts, newLisp)
++Fix highlighting error in config dialog
++Fix not updating availability after a save as or lexer change
+
+#-----------------------------------------------------------------------------#
+
+Version 0.4
+Date: 07/11/2008
+
++Files of same type are now selectable without changing the buffer
++Fix some layout issues on Windows
+
+#-----------------------------------------------------------------------------#
+
+Version: 0.3
+Date: 06/08/2008
+
++Add shortcut for running Launch (defaults to F5)
++Option to automatically clear buffer between runs
++Output text colors are configurable
++Fix error hotspot highlighting from perl ouput
+
+#-----------------------------------------------------------------------------#
+
+Version: 0.2
+Date: 03/14/2008
+
++ Use aliases for command names
++ Use Primary Font from Profile settings for output
++ Fix improper updating from events taking place in other windows
++ Support for Ada, PHP, Haskell, haXe, PostScript
+
+#-----------------------------------------------------------------------------#
+
+Version: 0.1
+Date: 02/02/2008
+
+  - Initial Release
+    - Support for launching the following file types
+      + Bash Shell
+      + Boo
+      + C-Shell
+      + Ferite
+      + Korn Shell
+      + Lua
+      + NSIS
+      + Perl
+      + Pike
+      + Python
+      + Ruby
+      + Tcl/Tk

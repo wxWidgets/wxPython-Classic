@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+###############################################################################
+# Name:                                                                       #
+# Purpose: Setup script for building the PLUGIN_NAME plugin                   #
+# Usage: python setup.py bdist_egg                                            #
+# Author: AUTHOR <email@address>                                              #
+# Copyright: (c) 2008 Cody Precord <staff@editra.org>                         #
+# License: wxWindows License                                                  #
+###############################################################################
+"""
+Short description of this plugin
+"""
+
+import sys
+try:
+    from setuptools import setup
+except ImportError:
+    print "You must have setup tools installed in order to build this plugin"
+    setup = None
+
+__author__ = "AUTHOR NAME"
+if setup != None:
+    setup(
+        name='PLUGIN NAME',
+        version='VERSION STR',
+        description=__doc__,
+        author=__author__,
+        author_email="AUTHOR@SOMEWHERE",
+        license="wxWindows",
+        url="http://editra.org",
+        platforms=["Linux", "OS X", "Windows"],
+        packages=['PACKAGE_NAME'],
+        entry_points='''
+        [Editra.plugins]
+        PLUGIN_CLASS = PACKAGE_NAME:PLUGIN_CLASS
+        '''
+        )

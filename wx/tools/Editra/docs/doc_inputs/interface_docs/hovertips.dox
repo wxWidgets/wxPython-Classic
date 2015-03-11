@@ -1,0 +1,50 @@
+/**
+@page hovertip_iface Mouse Over Calltip Interface
+
+@section intro Introduction
+
+The source code text buffer class EdEditorView provides a callback interface to
+allow client code to provide calltip popups when text is hovered over by the
+mouse. The default behavior of this action calls into the current buffers
+AutoCompleter to provide the tip but can be overridden by client code that
+registers for this interface.
+
+@section usage Usage
+
+When the mouse pointer has dwelled over a piece of text in the buffer for a few
+moments the editor component will emit an ed_msg callback message to all observers
+that have subscribed to EDMSG_UI_STC_DWELL_START. The ed_msg handler
+for this message will be sent an in/out data param that is a Python dictionary
+object with the following keys.
+
+@subsection ctiphover_data 'In' Data
+@li @b stc - Reference to the EdEditorView that emitted the message
+@li @b pos - Position the mouse hovered over in the buffer (int)
+@li @b line - Line number that was hovered over (int)
+@li @b word - Word that was hovered over (Unicode)
+
+
+To provide a custom calltip the message handler needs to simply assign a value
+to the data dictionaries @b rdata key. If this key is not modified or has the
+value of @em None then the default behavior of the action will take place. If
+the client code has assigned a Unicode string as the value then that string will
+be displayed as the calltip.
+
+@section example Example
+
+@verbatim
+import ed_msg
+
+class MyClass:
+    def __init__(self):
+        ed_msg.Subscribe(self.OnCallTip, ed_msg.EDMSG_UI_STC_DWELL_START)
+
+    def __del__(self):
+        ed_msg.Unsubscribe(self.OnCallTip)
+
+    def OnCallTip(self, msg):
+        data = msg.GetData()
+        data['rdata'] = u"My Calltip Text"
+@endverbatim
+
+*/

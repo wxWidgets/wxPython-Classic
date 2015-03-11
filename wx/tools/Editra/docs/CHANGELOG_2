@@ -1,0 +1,253 @@
+Changlog for Alpha 0.1 releases
+
+#-----------------------------------------------------------------------------#
+VERSION 0.1.78
+DATE 09/01/2007
+5th Alpha Release
+
+NEWS:
+This version of Editra has support for a Vim Emulation mode that emulates
+Vim's Input and Normal modes. A good majority of Vi Normal Mode commands are 
+currently supported with more to come in future releases.
+
+There is also a new plugin interface available to work with in this version.
+The new interface is called 'The Shelf' its provides an easy interface for 
+plugins that want to allow multiple copies of their interface by managing the
+panes in a notebook that is docked by default to the bottom of the editor. The 
+Shelf can also be repositioned or pulled out to a separate floating window and
+saved in that position through the perspectives manager in the view menu.
+
+NEW: [features/improvements]
++Vim Emulation Mode / Key binding option
++New plugin interface 'The Shelf' for plugins that wish to allow multiple
+instances to be opened at once in a notebook interface.
++PyShell is now part of the Shelf, so multiple shells can be open at once
++Added support for (D, Flagship, Haskell) programming languages
++Highlighting for Diff/Patch files
++Basic session saving support for loading files from previous session on launch
++Remember file filter selection in file open dialog
++Improvements to windows installer/uninstaller
++Improved plugin downloaders performance and interface
+
+BUG FIXES:
++Fixed bug when closing font dialog with cancel button on MSW
++Fixed bug that would occure sometimes when closing find dialog
++Fixed a major bug in the setup file for source package installs that
+excluded copying some of the necessary files.
++Fixed bug in python autocomp for python files that have syntax errors
++Fixed bug in handling compatibility issues with older Editra Style Sheets.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.1.64
+DATE 07/27/2007
+4th Alpha Release
+
+NEWS:
+Thanks to everyone who reported errors and problems in the last release I was
+able to tie up a number loose ends and error cases in the programs operation.
+
+Major changes to profile system, the view of the the profile should not be much
+different from the perspective of usage but the underlying system has been
+completely rewritten to be more robust, reliable, and scalable. These changes
+have made the Pyshell-v0.2 and FileBrowser-v0.1 incompatible with this new
+version of Editra, however there are also new versions of both these plugins
+that are compatible and bundled with the binary versions.
+
+Some changes to the style sheet system have been made that make older syntax
+style sheets incompatible with this version. If you are just using the builtin
+styles there is no need to worry about this but if you have created a custom
+style sheet you will need to change the font face definitions not to use the 
+following format expressions (%(mono), %(helv), %(other), %(times)), and
+instead use the new tags of (%(primary), %(secondary)) these expressions are
+to ensure that the fonts that are set as the preferred fonts in the preference
+dialog are used instead of the defaults when applicable.
+
+NEW: [features/improvements]
++Improved notebook tab navigation
++Better Drag and Drop feedback for text and files
++Font preferences can be saved from session to session
++New User Profile system
++FileBrowser plugin is now bundled with Editra binary distrobutions
++Commandline option to enable debugging
++Error reporter can be disabled in the preference dialog
+
+BUG FIXES:
++Handled some unhandled error conditions in the python autocompleter
++Fixed a bug where a save would fail when clicking on Yes when the modify save
+ dialog was shown.
++Fixed a number of minor bugs in the plugin manager
++Fixed bug in the Preferences Dialog where some settings wouldn't get set
++Filehistory order is properly preserved
++Fixed a bug in the Style Editor where it would occasionally prompt for saving 
+ when it didn't need to.
++Style Editor and Plugin Manager now properly use Metal style when it is set on
+ OSX.
++Fixed a bug where the Find dialogs menu entries would get disabled after the
+ first showing.
+
+#-----------------------------------------------------------------------------#
+VERSION 0.1.50
+DATE 07/14/2007
+3rd Alpha Release
+
+NEWS:
+This release is mostly a bug fix and refactoring release. To help with further
+removing bugs and errors there is now an error reporter built into the editor
+that will open when an error condition is raised. Please help to improve Editra
+by clicking on "Report Error" when this dialog is shown.
+
+There are also a few new features that can be seen below, most notable is the
+support for a number of new languages and file encodings. For the specifics
+read the below changelog entries.
+
+NEW: [features/improvements]
++Support for utf-7, uft-16 encoded files
++New Preferences Dialog
++Improved command line support
++Better Error handling and notification
++File type detection is now configurable
++To upper/lower case formatting command
++CssOptimizer plugin available via the plugin manager
++Lots of new documentation
++Editra can be packaged as an Egg
++Support for (Caml, Eiffel, Lout, MatLab, Octave, YAML) syntax highlighting
++Improved SQL highlighting support
++Some minor improvements to the LaTeX generator
+
+BUG FIXES:
++Respects BOM byte if one is present in the file
++Cursor/Selection is now set properly after a comment/uncomment action
++Bracket highlighting can be toggled on/off properly
++Many bugs fixed in source package install
++Folding now works for xml files
++Fixed some styling errors for postscript files
++Fixed generated rtf documents display issue
++Incremental search works on Windows
++Goto line control now properly rejects non integer input (msw/gtk)
++Fixed cursor postioning bug when inserting lines via (Cmd+L) when CRLF is used
+
+#-----------------------------------------------------------------------------#
+VERSION 0.1.28
+DATE 06/15/2007
+2nd Alpha Release
+
+NEWS:
+The main addition to the release is the plugin manager dialog it offers a complete
+plugin management solution for the editor. The Configuration, downloading, and 
+installation of plugins are all managed by this dialog. I also wrote a couple of
+new plugins that can be downloaded and installed through the manager, so try it
+out.
+
+Also introduced in this release is as a tool to help manage the workspace. 
+The Perspectives manager will allow you to save any number custom workspace 
+views than can be used from session to session. This new feature can be found 
+in the View Menu.
+
+NEW: [features/improvements]
++Plugin Manager for configuring, downloading, and installing plugins
++A new File Browser plugin is available for download through the new
+plugin manager. It allows for quick file opening and bookmarking of
+frequently used paths.
++Perspective management for managing custom workspace layouts and views
++Many minor performance enhancements
++Support for Lua, Fortran77, Fortran95
++RTF generator/exporter
++Massive performance improvements to Html/Latex generators
++Drag and Drop now accepts folders of files
++New Commands (Save All, Close All)
++New Formatting options (Convert Tabs to Spaces, Convert Spaces to Tabs, 
+                         Trim Trailing Whitespace)
++Splash screen can be disabled
++Checks if other programs have modified the on disk file since the last
+savepoint and prompts to see if it should be reloaded or resaved in the
+case of it having been deleted.
++Mark tabs of modified files.
++If current page is empty and unmodified, opening a new file will open it
+in the current page instead of a new page.
++Adjustable edge column guide
++MAC a more HIG compliant document icon
+
+BUG FIXES:
++Tab images now get set properly regardless of how file is opened
++Correct path handling in the Launch script
++Launch script now properly handles commandline args.
++Manual setting of lexer works for all lexer menu items
++MAC the notebook now refreshes properly when all have been closed
++MSW  update downloader window displays properly
++Clicking in text area now properly updates line/column status
++Drag and Drop now works with files that have non ascii characters in
+their name/path.
+
+#-----------------------------------------------------------------------------#
+VERSION 0.1.0
+DATE 05/24/2007
+1st Alpha Release
+
+NEWS:
+  This is the first release in the alpha release series. The alpha releases will
+probably continue until version 0.5.0 or so when the beta phase begins and 
+most development energy will be shifted to stabilization of the editor and the 
+api as well as improving performance to prepare for a 1.0 release. What can be 
+expected during this alpha release series is the improvement of current features, 
+a few new minor features and more thorough testing prior to a release which will 
+lead to a more powerful, more stable and more usable program.
+
+  The big addition to this version is the support for extensions to the editor
+through plugins written in python. The plugins must be written and packaged
+in a certain way for them to work, but the api is fairly easy to learn and
+even easier to use. To learn more visit the documentation page at read the
+plugins how to in the user documentation section. This version of the editor
+comes with one plugin that can be used as an example of how to do things
+as well.
+
+  There is now a platform independent installer for Editra. It will install
+Editra as a python package. To install Editra as a python package just issue
+the following command from the command line in the source package base 
+directory.
+
+        python setup.py install
+
+   This is of course assuming that python is on your path. On Windows you
+may have to issue the command as follows. Where the XX is replaced with
+the version number of python you have installed (i.e 24, 25, ect...)
+
+        C:\\PythonXX\python.exe setup.py install
+
+   This installation method is in its first iteration and probably has some 
+compatibility issues, so please report bugs either on the bug tracker 
+(code.google.com/issues/list) or on the community page (editra.org/?page=community)
+to help improve it.
+
+NEW: [features/improvements]
++Extensibility through plugins written in python
++PyShell Plugin
++Source package build/install script (OS Independent Installer)
++Some minor improvements to the Windows Installer
++Improved OS X integration/behavior of applet
++More complete themeing support
++Improved UTF-8 and other non-ascii file handling
++Update Checker/Downloader (manual install is still required)
++Keyword helper now bound to Ctrl+K (Cmd+K on Mac)
++Minor refinement of the logging subsystem
++Improved (HTML, MASM, NASM, VB, Smalltalk) highlighting support
++LaTeX document generator
++Checks EOL characters and warns if mixed, otherwise preserves the EOL char
+used by the document.
++Extended file type autodetection (checks the shebang(#!) line if there is one)
++Some minor UI enhancements, and a few new menu icons
+
+BUG FIXES:
++GTK keybinding for Undo
++GTK command bar display issues
++No more lost text when generating HTML
++Added some missing c-shell keyword definitions
++Added a missing style region definitions to the CSS, NSIS, HTML highlighters
++Fixed improper highlighting in Visual Basic Highlighter
++Style Editor preview window display issues
++Addressed numerous issues related to how the text is displayed in documents
+ that don't have an associated lexer setting, or when highlighting is turned off.
++Opening a file from the command line with a relative path now works properly
++Tab images are set properly for files opened via command line
++MSW all menu icons now show properly
++All config directories are properly created on an upgrade/install

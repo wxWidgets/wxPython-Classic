@@ -1,0 +1,515 @@
+Old Changelog for Pre-Alpha Releases
+
+VERSION 0.0.97
+DATE 04/10/2007
+15th Snapshot Release
+
+NEWS:
+   Major bug fix for keybindings on Windows. Cut/Copy/Paste/Undo/Redo/Select
+All where aparently not working. This has probably been the case since version
+0.0.90 when I made changes to the event handling scheme. Many apologies for
+not noticing this sooner, I am usually working on a Mac and get to do very
+thourough cross checking on Windows all that often.
+
+NEW: [features/improvements]
++Block (un)commenting command for all supported languages
++Auto-Indent functionality
++New Line Before/After command
++Menu Icons
++Most changes in Preference dialog are now applied immediatly
++Updated Japanese Translations
+
+BUG FIXES:
++Toolbar image scaling now works properly on Windows
++Fixed broken keybindings on Windows (cut,copy,paste,undo,redo,select all,
+ zoom in, zoom out)
++Added missing style in Java highlighter
++Addressed numerous issues in the TeX/LaTex highlighter
++Fixed incorrect pascal file detection and highlighter errors
++Fixed some display issues that occured when switching styles
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.96
+DATE 04/05/2007
+14th Snapshot Release
+
+NEWS:
+    Included in this version is an experimental implimentation of an
+autocompletion/calltip provider for python documents. It is capable of looking
+up and providing autompletion lists and calltips for top level defined objects
+only. For example this means that if you have imported the wx namespace into
+the document with a statement like this.
+
+        import wx
+
+You will be able to get autocompletion/calltip help for anything in the wx
+namespace. (i.e if you type 'wx.' into the editor a list of possible items from
+the wx namespace will be provided). But this support does not extend to locally
+created objects in your file.
+
+        class MyFrame(wx.Frame):
+        ...
+
+If this class is defined in the current working file its namespace is unable to be
+looked up under the current model. Meaning that if you type 'MyFrame.' you will
+not recieve a list of autocomplete options for the MyFrame class or its parent
+wx.Frame class). This limitiation is being imposed on purpose currently do
+to some rather unpleasant issues that arise from time to time as well as some
+performance issues. Hopefully as soon as I think of somthing clever to get around
+these issues I will be able to lift this limitation.
+
+   There is also an update to the style sheet behavior in this version. Now when
+writing your own custom style sheets the only definition that needs to have all
+attributes specifed is the 'default_style' tag. All other tags with undefined
+attributes will inherit them from the 'default_style'. This saves allot of repition
+in defining style parameters for the various tags.
+
+NEW: [features/improvements]
++Experimental Autocompletion support for python files
++Custom Style Sheets are even easier to write
++Better handling of user level config/resource files
++Editor now checks when opening a file to see if the file is already open in an
+   existing buffer and asks if you want to open it again if its already open.
++Drag and Drop text is now supported
++Command Bar Search now has match case/ whole word options
++Line number margin visibilty can be toggled
++Generated HTML files are now on average 20-50% smaller in size.
++A first draft of a platform independent setup script.
++More complete Japanese Translations
++Remember and set carat positions between sessions
+
+BUG FIXES:
++Improper window sizing after removing toolbar from view
++Style editor now properly catches clicks on the frames close button
++Unicode handled properly in Style Editor
++Adding missing attribute to SQL highlighter
++Can now cut/copy/paste in and out of all dialogs
++Fixed some bugs in the style sheet parser
++Fixed some sizing issues when switching controls in the command bar
++Indentation Guide Visibility can be properly toggled again
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.94
+DATE 03/12/2007
+13th Snapshot Release
+
+NEWS:
+    Binaries built on updated wxPython 2.8.1.1 this fixed some performance issues
+with the some of the stc controls, most notably the python documents which now
+do not cause the cpu and ram usage to go out of control on the wxMAC platform.
+
+   New UI component, the "Command Bar" is a narrow bar that is shown directly 
+above the status bar. It is used to house various different controls that give 
+quick and convenient access to various common commands.
+
+   The text search system was completely rewritten and now has support for 
+regular expression search and replaces. The search procedure has also been
+fairly optimized over the previous one to use less memory and clock time. A new 
+"quick" search control can be opened in the Command Bar by hitting 
+"Ctrl+F" (MSW/GTK) or "Cmd+F" (MAC) which allows for searching text without 
+opening a separate dialog. The traditional dialog still offers more options
+and is available by hitting "Ctrl+Shift+F" (MSW/GTK) or "Cmd+Shift+F" (MAC)
+
+  An HTML generator that outputs a fully styled html page that is styled to
+look the same as the text does in the editor window.
+
+NEW: [features/improvements]
++Text control fold margin is now styled to match the syntax scheme's default
+foreground and background colors.
++Bookmark system for marking lines and quickly navigating to them
++New search system with support for regular expression search and replace
++Search history is saved from search to search in a single session
++Command Bar, a multi-purpose window for housing controls in the bottom of
+editing pane.
++A Firefox like Search Bar, housed in the Command Bar (Ctrl+F) to access
++A Goto Line control, housed in the Command Bar (Ctrl+G) to access
++Color printing modes
++Code Folding can be turned on and off
++An HTML generator for generating html pages from text files
++Broader Unicode support
+
+BUG FIXES:
++Fixed bug in config directory creation caused by the logger
++Improper file creation/deletion fixed in Windows Installer
++Improper keywordlist formatting in cpp syntax module
++EOL mode menu updating (GTK/MSW)
++Select All works again on (MSW)
++Printing now scales all text to fit within the print canvas size properly
++Writing of Unicode data to log files now works
++Save As no properly adds file to history under all conditions
++Fixed multiple Help menus from being displayed on OSX
++Fixed a dialog closer issues in the style editor
++Fixed various Unicode bugs/errors throughout the editor
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.90
+DATE 02/27/2007
+Twelfth Snapshot Release
+
+NEWS:
+ Updated program to run on Python 2.5 and wxPython 2.8
+
+ The translations of the editor now use the standard gettext system with mo/po
+ files. All display strings have been converted to be used in this system.
+
+ Highlighting color schemes can be customized through writing style sheets to
+ describe the theme you want the text to be highlighted in. Style sheets can be
+ written very easily by using the new builtin style editor which allows for on
+ the fly testing and customization of the text controls styles, can export all
+ settings to a style sheet in Editra Style Sheet format.
+
+ Fairly major rewrite of how events are handled and managed. Streamlined allot
+ of the code as well as removing redundant operations and old code that is no
+ longer in use.
+
+NEW: [features/improvements]
++New i18n management system / completed internationalization of editor
++A style management system for changing the highlighting theme of the syntax
+ highlighter. 
++A scripting language and parser for creating style sheets to define the style
+ of the highlighter. see docs/editra_style_sheet.txt for the complete v1.0 specifications.
++Some basic UTF-8 support is back
++A style editor dialog for customizing the syntax highlighting.
++Near complete Japanese Translation
++Printing Support
++New About Dialog
++Line Edit Commands (Join, Cut, Copy, Transpose)
++Line ending character(s) visibility can be toggled
++Line ending format can be toggled between (unix, macintosh, and windows)
+ format.
++Added (Ada, Smalltalk, tcl/tk) highlighting support
++More efficient event handling
++Support for Transparency on OS X and Windows
++More robust profile system
++Mac OS X version is now more compliant to Mac UI Standards
++Toolbar now supports custom icons and changing tool sizes
++More Help options in Help Menu
++Many minor performance tweaks.
+
+BUG FIXES:
++Negative window positioning now moves the window back into visible space on 
+ load
++Dropping multiple files on the editor now opens all of them instead of just
+ one.
++Debugging messages now properly handle Unicode output
++Fixed a number of layout issues in the preference dialog
++Fixed broken batch syntax configuration file
++File dialog filters now work properly for all supported file types
++Numerous event handling issues fixed on GTK/MSW
++Only allow one file dialog at a time to avoid lost object errors on destroy
++Profile loading now properly traps the menu event
++New installs now properly update user profiles
++Fixed path resolution to allow for script execution from any relative path
++Font dialog now actually changes the font
++Save profile dialog is now properly deleted on closer fixing a minor memory
+leak.
++All file handles are now properly closed after they are not needed
++Fixed minor display problem in debugging messages
+#-----------------------------------------------------------------------------#
+VERSION 0.0.83
+DATE 01/15/2007
+Eleventh Snapshot Release
+
+NEWS:
+  The goals of the work on this version were focused on a general cleanup and
+  refactoring of the core modules as much of the code in these modules has been
+  there since I first started getting my feet wet with python and wx widgets.
+
+  The main cleanup effort was focused on the text control code. This lead to a
+  complete reworking of the syntax management code into its own separate subsystem.
+  This allowed for some minor performance improvements as well as a slightly smaller
+  memory footprint since the editor now dynamically loads syntax settings/specs 
+  only when they are needed instead of preloading all supported syntax/style specs
+  like it previously did.
+
+  Also as of this release all changes where made using Editra to edit itself. 
+  Which has allowed me do bug testing while I work and see what parts of the 
+  editor are lacking. 
+
+NEW: [features/improvements]
++More configuration options available in Preference Dialog
++The editor now has 2 distinct modes of operation that can be configured by
+ setting the MODE value in your profile. The default mode is CODE which just
+ runs the editor in a normal mode. The second mode is DEBUG it will create and
+ run a debugging window that displays all the programs debugging information.
++Enhanced debugging messages
++Improved Syntax/Filetype Detection
++More Complete/Accurate Syntax definitions for all supported languages
++Improved Brace/Bracket Highlighting
++AutoComp/Keyword Helper is now bound to ALT key and toggles on/off by pushing 
+ button again.
++Optimized bytecode for Mac OS X binaries
++"Improved" Printing Support (its better but still mostly broken)
++Editor can remember its window size/position on exit and automatically restore 
+ it self to that size/position on next launch.
++More complete Japanese translation
+
+BUG FIXES:
++Proper setting of page images
++Menu Updating Fixes
++Proper handling of file save/saveas errors
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.80
+DATE 12/02/2006
+Tenth Snapshot Release
+
+NEWS:
+  I've been fairly busy and hopefully it shows. I did a more thorough testing
+  of the program and was able to flush out a fair number of bugs, while at the
+  same time making some big improvements in usability and new features.
+
+  Major UI upgrades and improvements to page management/layout system.
+
+  The initial implementation of the plugin system for customizing the
+  menus language is in place. It is a fairly simple system uses a custom
+  python module as the language source. For a more complete explanation see
+  the sample English module in the languages directory of your installation.
+
+  The Preferences Dialog can now be used to configure the interfaces language
+  and some of the other features such as Syntax Highlighting and Indentation Guides.
+  Changing the language however requires closing and restarting the editor before
+  the changes will take effect.
+
+  UTF-8 Support has temporarily been disabled until a number of bugs related to
+  it can be resolved.
+
+NEW: [Features/Improvements]
+  +New page tabbing system (Close buttons / file type images on each page,
+  drag 'n drop tabs)
+  +Language Plugin System for Menus
+  +Improved Language Support (cpp, php, html, sql)
+  +Font/Color refinement for text control.
+  +Improved file type support
+  +Find/Replace Optimizations/Improvements (Faster search, Match Case Option)
+  +File history depth can be configured through profile
+  +Tab/Indentation Width configurable through profile
+  +Some of the Preference Dialog is now active(Language, syntax on/off, ect)
+
+BUG FIXES:
+  +File history properly tracks files after a 'Save As'
+  +Language menu improperly checking currently language fixed
+  +Find/Replace All, now works when replace string differs in size from the
+  search string.
+  +Clipboard Bugs (Double/Triple copy/cut/pastes, improper event firing)
+  +Improper EOL characters on OSX
+  +Irregular window creation locations now appear predictable locations
+  +Exit not checking buffer modification properly
+  +Exit failure after save/saveas fixed
+  +Proper error handling when unsupported file type is opened
+  +Improper window sizing after toolbar is added/removed
+  +Toolbar now updates properly
+  +Misc minor memory leaks cleaned up
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.76
+Ninth Snapshot Release
+
+NEWS:
+  Project has new name "Editra", this was done in order to give the
+  project a name that was not being used by another project.
+  
+  Mac OSX applet now available (Universal Binary).
+
+NEW:
+  +Improved Language Support (C, CPP, Java, Header files)
+  +New toolbar module
+  +Bracket/Paren Highlighting can be toggled on and off
+  +Toolbar can be toggled on and off
+
+BUG FIXES:
+  +Fixed Drag and Drop open bug where it would prompt for save when new file
+  was dropped.
+  +Fixed problem with opening documents that are in the root directory of a
+  filesystem.
+  +Filenames can have spaces in them and be loaded into file history properly
+  +FileHistory is ordered properly on each application load
+
+#-----------------------------------------------------------------------------#
+Previous Releases:
+
+VERSION 0.0.70
+Eight Snapshot Release
+
+NEWS:
+  This version is the first release to be put out after migrating the code to
+  cvs. This should help manage the development in a more efficient manner.
+
+  Also added to the project during this release is the use of PyLint to check
+  the code for proper formatting and style. All modules are required to
+  maintain a score of 7/10 or higher.
+
+  Complete testing was also performed on OSX for this release and has shown
+  that all features work as expected on the platform at this time.
+
+  The source release has also been reorganized into a more proper directory
+  structure.
+
+NEW:
+  +Profile support for user customization (per user, dynamic loading,
+  					   remember last settings)
+  +Improved Language Support for (CSS, Visual Basic)
+  +FileHistory Support, remebers last 4 opened files
+  +New About Dialog
+  +Improved command line execution. Open multiple files at once from command line
+   or when dropping on link(msw)
+  +Preferences Dialog
+
+BUG FIXES:
+  +Language Menu now updates status properly
+  +Settings Menu now updates status properly
+  +View Menu properly displays zoom status
+  +Paste/Copy/Cut Menu's display status properly
+  +Redo/Undo display status properly
+  +ZoomDefault works properly now regardless of previous zoom event type
+  +When opening a file from the command line that doesnt exist the editor will
+   not crash and will now instead create a new empty file with that name.
+  +Fixed string not found dialog in Find/Replace
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.0.63
+Seventh Snapshot Release
+
+NEWS:
+
+NEW:
+  +New Language Support for (ASM, Batch, Html, Java, Pascal, 
+  			     PHP(linux only), PostScript, Tex, 
+			     VHDL(linux only))
+  +Improved Language Support for (CSS, Lisp, Perl, Shell Scripts)
+  +Indentation Guides
+  +Files can now be opened from commandline
+  +Manually Set Lexer from Settings Menu when autodetect doesnt work
+  +Uses Unix style EOL markers(LF) by default on all platforms
+
+BUG FIXES:
+  +Fixed Drag and Drop bug created when dropping a file from the root dir.
+  +Zoom In/Out display properly in menu, disabled when at max in/out.
+
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.0.55
+Sixth Snapshot Release
+
+NEWS:
+  This version is the result of a complete rewrite in order to better utilize
+  object oriented programming. Most components of the program are now objects and
+  have been reimplimented in there own modules. This has resulted in a drastic
+  cleanup of the code making it much easier to read and much easier to
+  impliment further improvements. Also during the rewrite a number of bugs
+  were fixed, making this the most stable version thus far.
+
+NEW:
+  +New Language Support for: BASH, KSH, SH, NSIS, Perl, Visual Basic)
+  +Code Completion Help Menu  for all supported languages 
+  	- (Hit CTRL to bring up list & ESC to close it) Windows
+	- (Hit CTRL SHIFT to bring it up & ESC to close) Linux
+  +Basic Printing Support (finally)
+  +Unicode Support
+  +AntiAliasing
+  +Holding Ctrl and scrolling mouse wheel will zoom in or out
+
+
+BUG FIXES:
+  +Fixed line column indicator to work with all pages
+  +Fixed loss of focus on find dlg close (Windows)
+  +Fixed segfault error that would occur on some exits
+  +Close page now performs proper checking before closing the page
+  +Fixed other minor errors caused from drag and drop files
+  +Minor Menu Bugs fixed
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.0.41
+Fifth Snapshot Release
+
+NEW:
+  +New Language support for: CSS, SQL
+  +Improved Language support for: Lisp
+  +Code Foldering for: Python, C, CPP, Header files, Lisp
+  +Tabbed file editing support for multiple files open in one window.
+  +Open, opens files to a new background tab
+  -Open now can not open documents in current open window
+  +Turn Syntax Highlighting on or off in settings menu
+  +Improved toolbar / added more tools
+  
+BUG FIXES:
+  +Lexer now accepts files with upper or lower case extensions (i.e hello.c == hello.C)
+  +Pressing the exit button (the X in the corner), now performs proper
+  checking before closing program.
+  +Save/Exit dialogs now show filenames when asking if user wants to save.
+  +Drag and Drop file support is now functional (opens doc in top page DOES NOT 
+						perform proper checking before open) 
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.0.30:
+Fourth Snapshot Release
+
+NEW:
++Color Contexting and bracket highlighting for code editing 
++Supported Languages Thus Far: Python (.py), C (.c), CPP (.cpp), C/CPP Header Files (.h)
+				       Makefiles, and Lisp (.lisp)  
++Color Contexting for Doxygen syntax in C and CPP file documentation
++Drag and Drop File support
++Now possible to change font / font style (Currently limited to 1 font/style per document)
++Find/Replace Dialog
++Settings menu added as place holder for future configuration options
++Theme Info file added to pixmaps directory
++Dockable toolbar (GTK ONLY)
++View Menu
++Zoom In, Zoom Out, Zoom Default
++Line Number Indication in left margin of control
+
+BUG FIXES:
+  +Fixed SaveAs dialog title bar display bug that was created once the Cancel button was pushed.
+  +Find works with highlighting and setting focus correctly
+  +Check if modified before doing open and ask for save instead of just opening new file
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.24:
+Third Snapshot Release
+
+NEW:
+  +Fixed Exit Menu Bugs / Added check modify to see if save is needed
+  +Added App Icon for windows and Linux (dont have mac hardware to test on)
+  +Added Redo Ability
+  +Improved on Undo function to remember previous save points
+  +Added Word Wrap on/off option
+  +Title bar file name notification
+  +Line / Column Notification in Status Bar
+  +Font Selection
+  +Find / Find Replace Text 
+  +Print Dialog (still no printing)
+  +Right Click Context Menu on text window
+  +Select All Function
+  +Basic Toolbar (new, open, save) 
+
+Windows Specific: 
+  +Improved Installer
+  +Uninstaller
+  +Optimized Byte Code
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.12:
+Second Snapshot Release
+
+NEW:
+  +Save As option
+  +Copy, Cut, Paste
+  +More advanced text control
+  +Limited Undo Capability
+  +Key Accelerators
+  +Status Bar Notifications
+
+#-----------------------------------------------------------------------------#
+VERSION 0.0.1:
+Initial Snapshot Release
+
+NEW:
+  +Basic text control
+  +Open and Save functions
+
+#-----------------------------------------------------------------------------#

@@ -1,0 +1,60 @@
+/** 
+@mainpage Editra API Manual
+
+@section intro Introduction
+
+Editra is a multi-platform text editor with an implementation that focuses on 
+creating an easy to use interface and features that aid in code development. 
+Currently it supports syntax highlighting and variety of other useful features 
+for over 60 programming languages.
+
+Editra provides a rich API for supporting 3rd party plugins and extensions. This
+manual is meant to serve as a guide for interfacing with Editra. It includes a 
+comprehensive guide to all internal components as well as a collection of examples
+and how-tos for using common interfaces.
+
+@section dev_env Setting up a Development Environment
+
+@subsection required_software Required Software
+
+@li Python 2.5+ (2.6/2.7 Suggested)
+@li wxPython 2.8.3 + (Latest release suggested)
+@li setuptools
+@li pyenchant (optional)
+
+@subsection get_editra Get Editra Source
+
+@verbatim
+svn checkout http://svn.wxwidgets.org/svn/wx/wxPython/3rdParty/Editra Editra
+@endverbatim
+
+@subsection get_plugins Get Editra Plugins Project
+
+Checkout the Editra-Plugins project source tree under the plugins directory
+of the Editra source tree.
+
+@verbatim
+svn checkout http://editra-plugins.googlecode.com/svn/trunk/ editra-plugins
+@endverbatim
+
+@subsection pythonpath Add Plugins directory to PYTHONPATH
+
+To work on plugins in development mode the Editra plugins directory needs to
+be on your PYTHONPATH environment variable. This will allow you to create
+a link using setuptools so that it is not necessary to build the plugin before
+testing.
+
+@subsection unix_pypath OSX/Linux
+
+Add the following line to your Bash rc file or similar.
+
+@verbatim
+export PYTHONPATH="$PYTHONPATH:/path/to/Editra/plugins"
+@endverbatim
+
+@subsection win_pypath Windows
+
+Create or modify the @em PYTHONPATH environmental variable in the Control Panel
+and add the path to where the @b plugins directory in the Editra source tree.
+
+*/

@@ -1,0 +1,1 @@
+Test file that has a not printable char in it  the character is to the left of here chr(20)

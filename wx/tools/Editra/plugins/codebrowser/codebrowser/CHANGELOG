@@ -1,0 +1,187 @@
+# Editra Plugin: CodeBrowser
+# Author: Cody Precord
+# License: wxWindows
+
+#-----------------------------------------------------------------------------#
+Version 1.5
+Released: 04/22/2011
+
++Fix parsing issue in Python tag generator for when line continuation characters
+are encountered.
++Fix case the could lead to infinite recursion in the display of XML/HTML due
+to issue in XML parser.
++Don't crash on errors caused by bad TreeCtrl data/ID.
+
+#-----------------------------------------------------------------------------#
+Version 1.4
+Released: 10/01/2011
+
++Workaround focus issue in wxPython 2.9 TreeCtrl
++Major improvements and fixes to Python scope handling.
+
+#-----------------------------------------------------------------------------#
+Version 1.3
+Released: 05/14/2011
+
++Add ed_msg callback interface "CodeBrowser.ContextMenu".
++Use EdThreadPool for running parsing jobs.
+
+#-----------------------------------------------------------------------------#
+
+Version 1.2
+Released: 
+
++Add configuration panel to plugin manager dialog
++Add outline sorting options to sort either alphabetically or by line number
++Fix bug in not refreshing tree when activated via toggle pane function in Editra.
+
+#-----------------------------------------------------------------------------#
+
+Version 1.1
+Released: 06/05/2010
+
++Fix display of C function names that had * or & prefixed to them
++Major improvement to Tcl/Tk support. Supports SNIT syntax, packages, variables.
++Expanded support for CSS (still needs work though)
+
+#-----------------------------------------------------------------------------#
+
+Version 1.0
+Released: 03/15/2010
+
++Add support for Java (patch from Eric Gaudet)
++Add support for Diff files (patch from Eric Gaudet)
+
+#-----------------------------------------------------------------------------#
+
+Version 0.9
+Released: 06/14/2009
+
+New:
++Synchronizes tree view with the current position in the document.
+(patch from Igor Dejanovic)
++Add support for XText. (patch from Igor Dejanovic)
+
+Bug Fixes:
++Fix incorrect string handling in php parser.
+
+#-----------------------------------------------------------------------------#
+
+Version 0.8
+Released: 05/02/2009
+
+New:
++Delay thread creation timing to reduce number of uneeded jobs that are started.
+
+Bug Fixes:
++Fix activation issue causing some updates to be missed on Linux.
+
+#-----------------------------------------------------------------------------#
+
+Version 0.7
+Released: 02/08/2009
+
+New:
++Add support for XML/Html patch from Rudi Pettazzi
++Add support for Vala (Classes, Class Methods, Functions)
++Add support for VBScript (Functions, Subs)
+
+Bug Fixes:
++Tree not being refreshed when browser window is first shown.
+
+#-----------------------------------------------------------------------------#
+
+Version 0.6
+Released: 12/11/2008
+
+New:
+
+Bug Fixes:
++Fix not getting cleared when the current buffer is a blank buffer
++Fix cpp method signatures with * or in & in them not being added to tree view
+
+#-----------------------------------------------------------------------------#
+
+Version 0.5
+Released: 11/02/2008
+
+New:
++Add some basic support for C++, D
++Improved support for TCL/Tk (Namespaces)
+
+Bug Fixes:
++Php browser now properly supports short tags <? as well as the long tag <?php
+
+#-----------------------------------------------------------------------------#
+
+Version 0.4
+Released: 07/11/2008
+
+New:
++Add C Support (Macros, Functions)
++Add Ruby Support (Classes, Modules, Functions, Methods)
+
+Bug Fixes:
++Prevent multiple duplicate jobs from being dispatched at startup
+
+#-----------------------------------------------------------------------------#
+
+Version 0.3
+Released: 06/15/2008
+
+New:
++ Use Pygments library to aid in parsing
++ Added support for the following filetypes
+  - SQL (Packages, Procedures, Functions)
+  - PL/SQL (Packages, Procedures, Functions)
+
+Bug Fixes:
++Fixed some string parsing errors in the python parser
++Fix improper parsing of comments in Editra Style Sheets
+
+#-----------------------------------------------------------------------------#
+
+Version 0.2
+Released: 04/25/2008
+
+New:
++Added support for the following filetypes
+  - Ferite (Namespaces, Classes, Functions, Protocols)
+  - haXe (Classes, Class Methods, Class Variables, Functions)
+  - MatLab (Functions)
+  - Octave (Functions)
+  - Scheme (Functions)
+  - System Verilog (Classes, Tasks)
+  - Verilog (Tasks)
+
+Bug Fixes:
++Notebook syncronization on session load
++Inaccurate parsing of php classes
++Missidentifying statements inside of strings as code in python parser
++Flashing when updating tree on Windows
++CSS comment parsing
+
+#-----------------------------------------------------------------------------#
+
+Version 0.1
+Released: 03/14/2008
+
+- Initial Release
+  + Support for generating browsing trees for elements of the following languages
+    - Ada (Procedure Definitions)
+    - Cascading Style Sheets (Global Classes, Global Identities)
+    - Configuration Files (ini) (sections, keys)
+    - Dos Batch Scripts (Labels)
+    - Editra Style Sheets (Style Tags Definitions)
+    - Fortran (Programs, Subroutines, Functions)
+    - Inno Setup Scripts (Sections, Procedures, Functions, Defines)
+    - Lisp (Function Definitions)
+    - Lua (Function Definitions)
+    - Nullsoft Installer Scripts (Defines, Functions, Sections)
+    - Perl (Packages, Subroutine Declarations, Subroutine Definitions)
+    - Php (Classes, Class Variables, Class Methods, Functions)
+    - Python (Classes, Class/Global Variables, Function Definitions)
+    - Shell Scripts (Function Definitions)
+    - Tcl/Tk (Procedure Definitions)
+  + Instant navigation to an items definition by double clicking on it
+  + Tree organized alphabetically by type and scope of object

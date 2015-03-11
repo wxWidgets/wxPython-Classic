@@ -1,0 +1,77 @@
+###############################################################################
+# Name: XXXDemo.py                                                    #
+# Purpose:                                      #
+# Author: Cody Precord <cprecord@editra.org>                                  #
+# Copyright: (c) 2009 Cody Precord <staff@editra.org>                         #
+# Licence: wxWindows Licence                                                  #
+###############################################################################
+
+"""
+Test file for testing the XXX control
+
+"""
+
+__author__ = "Cody Precord <cprecord@editra.org>"
+__svnid__ = "$Id:  $"
+__revision__ = "$Revision:  $"
+
+#-----------------------------------------------------------------------------#
+# Imports
+import os
+import sys
+import wx
+
+# Put local package on the path
+sys.path.insert(0, os.path.abspath('../../'))
+
+
+#-----------------------------------------------------------------------------#
+
+class TestPanel(wx.Panel):
+    def __init__(self, parent, log):
+        wx.Panel.__init__(self, parent, wx.ID_ANY, size=(500,500))
+
+        # Attributes
+        self.log = log
+
+        # Layout
+        self.__DoLayout()
+
+    def __DoLayout(self):
+        """Layout the panel"""
+        pass
+
+#----------------------------------------------------------------------
+
+def runTest(frame, nb, log):
+    win = TestPanel(nb, log)
+    return win
+
+class TestLog:
+    def __init__(self):
+        pass
+
+    def write(self, msg):
+        print msg
+
+#----------------------------------------------------------------------
+
+overview = __doc__
+
+#-----------------------------------------------------------------------------#
+if __name__ == '__main__':
+    try:
+        import sys
+        import run
+    except ImportError:
+        app = wx.PySimpleApp(False)
+        frame = wx.Frame(None, title="")
+        sizer = wx.BoxSizer(wx.HORIZONTAL)
+        sizer.Add(TestPanel(frame, TestLog()), 1, wx.EXPAND)
+        frame.CreateStatusBar()
+        frame.SetSizer(sizer)
+        frame.SetInitialSize()
+        frame.Show()
+        app.MainLoop()
+    else:
+        run.main(['', os.path.basename(sys.argv[0])] + sys.argv[1:])

@@ -1,0 +1,25 @@
+include *.py *.pyw *.cfg
+include AUTHORS
+include CHANGELOG
+include COPYING
+include editra
+include FAQ
+include INSTALL
+include MANIFEST
+include NEWS
+include README
+include THANKS
+include TODO
+include docs/*.txt
+include plugins/*.egg
+include tests/controls/*.py
+include tests/syntax/*
+recursive-include tests/unittests *.py *.txt *.png
+recursive-include include *.h
+recursive-include ekeys *.ekeys
+recursive-include locale *.mo
+recursive-include pixmaps *.png *.ico *.icns [A-Z]
+recursive-include scripts *.sh *.po *.py
+recursive-include src *.py [A-Z]
+recursive-include styles *.ess
+recursive-include templates *

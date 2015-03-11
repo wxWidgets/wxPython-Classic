@@ -1,0 +1,35 @@
+<!-- Launch Xml Specification -->
+
+<launch version="1">
+
+   <!-- Defines a Launch handler
+   name parameter is the file type name that the handler is associated with
+   -->
+   <handler name="Python" id="ID_LANG_PYTHON">
+
+      <!-- List of commands that are available to the launcher
+      default attribute specifies the default command to use
+      -->
+      <commandlist default="python">
+         <!-- Commands that are available to be executed
+         name attribute is the alias that will be shown in the dropdown list
+         execute attribute is the actual command that will be run
+         -->
+         <command name="python" execute="python2.5 -u"/>
+         <command name="pylint" execute="/usr/local/bin/pylint"/>
+      </commandlist>
+
+      <!-- Regular Expression patterns for highlighting error
+      lines in the processes output
+      -->
+      <error pattern="File &quot;(.+)&quot;, line ([0-9]+)"/>
+
+      <!-- Regular Expression for getting the filename and line number
+      from text that is highlighted as an error. This is usually the same as
+      the error pattern. This regular expression must have 2 groups in it the
+      first group is the filename and the second is a digit for the line number.
+      -->
+      <hotspot pattern="File &quot;(.+)&quot;, line ([0-9]+)"/>
+
+   </handler>
+</launch>

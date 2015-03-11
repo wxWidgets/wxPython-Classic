@@ -1,0 +1,71 @@
+<!-- Editra XML Interface Specification -->
+<!-- Editra Xml can be used to customize or add new syntax highlighting -->
+
+<!-- Opening tag
+version attribute used to tell Editra the file has changed since last load
+-->
+<editra version="1">
+
+   <!-- Specifies a syntax module and lexer
+   lang attribute specifies the filetypes name
+   lexer attribute specifies the scintilla lexer to use
+   -->
+   <syntax language="Python" lexer="STC_LEX_PYTHON">
+
+      <!-- KeywordList must be a child of syntax it specifies the keywords
+      used by the language.
+      -->
+      <keywordlist>
+         <!-- Keywords hold the actual keyword data in character data
+         value attribute specifies the keyword sets id/index.
+         -->
+         <keywords value="0">
+             if else elif for while in
+         </keywords>
+         <keywords value="1">
+             str len setattr getattr
+         </keywords>
+      </keywordlist>
+
+      <!-- SyntaxSpecList must be a child of syntax and it specifies how the
+      text is to be styled. For built in lexers the value attribute should be
+      a constant used for the set lexer. For custom lexers it should be an
+      integer that specifies the custom style id. The tag attribute specifies
+      the style used by Editra's internal styling system to highlight the text
+      -->
+      <syntaxspeclist>
+         <syntaxspec value="STC_P_DEFAULT" tag="default_style"/>
+         <syntaxspec value="STC_P_WORD" tag="keyword_style"/>
+      </syntaxspeclist>
+
+      <!-- PropertyList specifies additional properties for folding --> 
+      <propertylist>
+         <property value="fold" enable="1"/>
+         <property value="tab.timmy.whinge.level" enable="1"/>
+      </propertylist>
+
+      <!-- Specifies the comment pattern
+      value attribute should be a space separated list of characters that make
+      up the pattern for the comment.
+      -->
+      <commentpattern value="#"/>
+
+      <!-- FeatureList is used to specify extension features to override
+      builtin functionality.
+      method attribute is used to specify the name of the method that has
+      an implementation available.
+      source attribute specifies the relative path to where the implementation
+      can be found
+      
+      Current Method features that can be implemented
+      AutoIndenter: AutoIndenter(stc, pos, ichar)
+      StyleText: StyleText(stc, start, end)
+
+      -->
+      <featurelist>
+         <feature method="AutoIndenter" source="myextension.py"/>
+         <!-- <feature method="StyleText" source="myextension.py"/> -->
+      </featurelist>
+
+   </syntax>
+</editra>

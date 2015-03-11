@@ -1,0 +1,79 @@
+/**
+@page theme_notify Theme Change Notifications
+
+@section theme_notify_intro Introduction
+
+There are various callback notifications that can be subscribed to in order to
+get notified when the user has changed an appearance related setting. In order
+to provide consistent user interface appearance and experience it is important
+for Plugin components that provide user interfaces to register for these updates
+and update accordingly. Currently there are three notifications that can be
+subscribed to for different appearance related change events.
+
+@subsection theme_notify_icons Icon Theme Notification
+
+@li @b EDMSG_THEME_CHANGED
+
+The icon theme change notification is broadcast in response to the user changing 
+the Icon Theme setting in the preference dialog. This setting controls what set
+of bitmaps are used by the application. If the component is using any Bitmap
+resources from the wx.ArtProvider it should use this notification to reload the
+Bitmaps from the ArtProvider and refresh it's display.
+
+@subsection theme_notify_notebook Notebook Icon Display Notification
+
+@li @b EDMSG_THEME_NOTEBOOK
+
+The notebook theme notification is broadcast in response to the user preference
+change for displaying icons on notebook tabs. If a component supplies a tab
+based user interface that displays icons and text labels on the tabs it should
+subscribe to this message and respond by hiding or showing the tab icons appropriately.
+
+@subsection theme_notify_font Display Font Notification
+
+@li @b EDMSG_DSP_FONT
+
+This message is broadcast in response to a change in the user preferred interface
+font. This is the font that should be used by most UI controls such as TreeCtrls,
+Buttons, ect...
+
+@note This callback is handled automatically for EdBaseCtrlBox derived classes.
+
+
+@section theme_notify_example Example
+
+@verbatim
+import wx
+
+import ed_glob
+import eclib
+import ed_msg
+
+class MyClass(wx.Panel):
+    def __init__(self, parent):
+        super(MyClass, self).__init__(parent)
+
+        # Controls
+        bmp = wx.ArtProvider.GetBitmap(str(ed_glob.ID_COPY), wx.ART_MENU)
+        self.button = eclib.PlateButton(self, label="Label Text", bmp=bmp)
+
+        # Subscribe to notifications
+        ed_msg.Subscribe(self.OnTheme, ed_msg.EDMSG_THEME_CHANGED)
+        ed_msg.Subscribe(self.OnFont, ed_msg.EDMSG_DSP_FONT)
+
+    def __del__(self):
+        ed_msg.Unsubscribe(self.OnTheme)
+        ed_msg.Unsubscribe(self.OnFont)
+
+    def OnTheme(self, msg):
+        # Update Bitmap Resources
+        bmp = wx.ArtProvider.GetBitmap(str(ed_glob.ID_COPY), wx.ART_MENU)
+        self.button.SetBitmap(bmp)
+
+    def OnFont(self, msg):
+        # Update the font
+        font = msg.GetData()
+        self.button.SetFont(font)
+@endverbatim
+
+*/
