@@ -901,6 +901,13 @@ WX_PKGLIST =      [ 'wx',
                     'wx.tools.Editra.src.eclib',
                     'wx.tools.Editra.src.ebmlib',
                     'wx.tools.Editra.src.extern',
+                    'wx.tools.Editra.src.extern.aui',
+                    'wx.tools.Editra.src.extern.dexml',
+                    'wx.tools.Editra.src.extern.pygments',
+                    'wx.tools.Editra.src.extern.pygments.filters',
+                    'wx.tools.Editra.src.extern.pygments.formatters',
+                    'wx.tools.Editra.src.extern.pygments.lexers',
+                    'wx.tools.Editra.src.extern.pygments.styles',
                     'wx.tools.Editra.src.syntax',
                     ]
 
