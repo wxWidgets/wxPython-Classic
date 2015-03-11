@@ -1,0 +1,63 @@
+###############################################################################
+# Name:                                                                       #
+# Purpose:                                                                    #
+# Author: AUTHOR <email address>                                              #
+# Copyright: (c) 2009 Cody Precord <staff@editra.org>                         #
+# License: wxWindows License                                                  #
+###############################################################################
+
+"""
+FILE:
+AUTHOR:
+SUMMARY:
+Lexer configuration module for
+
+"""
+
+__author__ = ""
+__svnid__ = "$Id: Exp $"
+__revision__ = "$Revision:  $"
+
+#-----------------------------------------------------------------------------#
+# Imports
+import wx.stc as stc
+
+# Local Imports
+import synglob
+import syndata
+
+#-----------------------------------------------------------------------------#
+
+#---- Keyword Definitions ----#
+
+#---- End Keyword Definitions ----#
+
+#---- Syntax Style Specs ----#
+SYNTAX_ITEMS = []
+
+#---- Extra Properties ----#
+
+#-----------------------------------------------------------------------------#
+
+class SyntaxData(syndata.SyntaxDataBase):
+    def __init__(self, langid):
+        syndata.SyntaxDataBase.__init__(self, langid)
+
+        # Setup
+        self.SetLexer(stc.STC_LEX_XXXX)
+
+    def GetKeywords(self):
+        """Returns Specified Keywords List"""
+        return list()
+
+    def GetSyntaxSpec(self):
+        """Syntax Specifications"""
+        return SYNTAX_ITEMS
+
+    def GetProperties(self):
+        """Returns a list of Extra Properties to set"""
+        return list()
+
+    def GetCommentPattern(self):
+        """Returns a list of characters used to comment a block of code"""
+        return list()

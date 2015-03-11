@@ -1,0 +1,63 @@
+Editra Installation Instructions for installing from source
+
+Base Dependencies:
+python 2.6 or higher (http://www.python.org)
+wxPython 2.8.6 or higher (http://www.wxpython.org) (Unicode build suggested)
+setuptools 0.6 or higher (http://peak.telecommunity.com/DevCenter/setuptools)
+
+#--------------------------------------------------------------------------#
+Option 1) Install Editra as a source package: [Linux/Macintosh/Unix/Windows]
+
+When using the source scripts Editra doesn't actually need to be installed it
+can be run by un-tarring the source package and executing the script called 
+"Editra" in the the root of the un-tarred directory. Alternatively however, if 
+you want the setup.py script will allow you to install it using distutils.
+
+To install Editra using distutils just do the usual python thing and type:
+
+python setup.py install
+
+at your shells command prompt.
+
+#--------------------------------------------------------------------------#
+Option 2) Installing from Pypi: [Linux/Macintosh/Unix/Windows]
+
+Editra is also available in the python package index and can be installed
+from source using easy_install (bundled with setuptools).
+
+easy_install editra
+
+#--------------------------------------------------------------------------#
+Option 3) Build a Windows exe: [Windows]
+
+To build an exe of Editra for Windows, py2exe (http://www.py2exe.org) must 
+be installed. After installing py2exe just do the following.
+
+python setup.py py2exe --bundle 2
+
+This will build an exe and place it in .\dist\
+
+#--------------------------------------------------------------------------#
+Option 4) Build a MacOSX app: [Macintosh OSX]
+
+This requires having py2app (http://cheeseshop.python.org/pypi/py2app/) 
+installed. If they are installed just issue the following command to 
+build an applet.
+
+python setup.py py2app
+
+This will create a self contained applet in the ./dist/ directory
+
+#--------------------------------------------------------------------------#
+Option 5) Build as an egg: [Linux/Macintosh/Unix/Windows]
+
+To make an Python Egg from Editra, setuptools is required. If setuptools is
+installed the following command will build an egg that can be installed with
+easy install (ez_install.py).
+
+python setup.py bdist_egg
+
+The Egg will be placed in ./dist/ and can be installed by doing the following
+
+cd dist/
+ez_install Editra-x.x.xx-pyXX.egg

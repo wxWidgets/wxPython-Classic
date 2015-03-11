@@ -1,0 +1,247 @@
+Changelog for Alpha 0.3 releases
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.3.90
+DATE 11/03/2008
+16th Alpha Release
+
+NEWS:
+This is primarily a bug fix release which fixes a number of bugs. A few new
+features and improvements have also been added to improve usability. This is
+also the first release to be compatible with Python 2.6.
+
+NEW: [features/improvements]
++Python 2.6 compatibility
++Updated CodeBrowser with support for C++ and D
++Updated Launch plugin with support for D
++Add option for enable/disable regex search in quick find bar
++Automatically expire status bar info messages after 10 seconds
++Persist 5 most recent search locations between sessions
++Add option to auto-trim trailing whitespace when saving file
++Add Valencian translation
++New version of Launch (add support for D)
++Improved OSX cursor movement keybinding compliance (patch from Joe Strout)
++Improved search output window to include search term and options in output
+
+BUG FIXES:
++Fix case where encoding can be None in when initializing the preference dialog
++Fix some issues with switching search direction
++F3 causing search to skip every other match when search bar has focus
++Fix bug in updating status after a conrol object was already deleted
++Fix bug related to ? being in keyword helper lists for some languages
++Handle invalid regular expressions in find dialog
++Fix a number of bugs in the new Find All search features
++Fix not being able to open files mounted to /Volumes on OSX
++Fix issue of window scrolling horizontally when restoring cursor position
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.3.80
+DATE 10/02/2008
+15th Alpha Release
+
+NEWS:
+This release includes a number of major feature enhancements and bug fixes.
+Most notably is the all new text searching and replacing feature. The entire
+search backend was rewritten from scratch to to make a number of new searching,
+replaceing, and file grepping features availble. Whole directories of files
+can be grepped for matches, new convinient key shortcuts, and an improved ui
+with a number of new configuration options are just the begining.
+
+A large number of supported languages also now have improved auto-indent
+support. Added support for some new programming languages, and much much, more.
+See the below changelog for more details.
+
+NEW: [features/improvements]
++New find/replace dialog
++Add Find All feature (Current Document, All open documents, in files)
++Add Replace All (Current Document, All open documents)
++Shortcut for Find Next (OSX: Cmd+G, Other: F3)
++Option to set prefered encoding to use when detecting/guessing fails
++Action for reloading file with a specified encoding
++New Syntax Highlighting Scheme 'BlackBoard'
++Improved auto-indent functionality for
+    - ActionScript        - C              - CPP
+    - CSS                 - C#             - D
+    - Editra Style Sheets - Ferite         - Fortran 77
+    - Fortran 95          - haXe           - Inno Setup Scripts
+    - Java                - JavaScript     - Objective C
+    - PHP                 - Pike           - Ruby
+    - Squirrel            - TCL/Tk         - Vala
++Show Filetype and Encoding information in statusbar (from shaohao)
++Double click on statusbar line/column section opens goto line control (shaohao)
++Add support for newLISP (from Jeff)
++Add R and S highlighting support
++Add Czech translation (contributed by Tomas Fryda)
++Numerous general Ui improvements
++Add right click context menu to tab area for access to some quick file options
++Add Copy Full Path option (in tab context menu) to copy path of selected tab
++Add To Uppercase and To Lowercase items to text buffer context menu
++Shelf tabs can have icons in them
++Make configuration directory able to be placed in the installation location so
+that user configuration settings can be portable if the app is installed on a
+usb drive.
++Limit number of lines buffered by Editra Log to save memory
++New version of Launch plugin (support for html, newLisp, Inno Setup Scripts)
+
+BUG FIXES:
++Properly update titlebar and other contexts when page change is initiated from
+an error hotspot in Launch window.
++Fix source installer not installing pygments package
++Fix focus not getting set to text buffer when switching tabs with ctrl+tab on
+Windows.
++Fix some issues with the ipc server failing to connect
++Fix some export issues in the Style Editor
++Escape will properly hide the goto line control when it has focus
++Add missing mac icons to source bundles
++Bookmark margin getting over flow from line number margin when the number of
+lines in the document exceeds 10,000.
++Full line number not being visible when lines exceed 1,000,000
++Save As dialog not populating current file name under all execution paths
++Fix a number of bugs in the updater caused by website changes.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.3.38
+DATE 08/07/2008
+14th Alpha Release
+
+NEWS:
+
+This release adds a number of new features and is the start of a platform for
+future enhancements. The main items added in this round are the enhancements to
+the syntax management system to allow for extension through custom lexers and 
+providing language specific auto-indentation support. The ground work of an
+IPC server has also been added to allow for interprocess communication and some
+remote control support for controlling Editra from other applications.
+
+
+NEW: [features/improvements]
++Add IPC server for remotely controlling Editra and sending commands
++Add support for using container lexers to extend supported languages
++Add support for highlighting Mako and Django templates
++New version of CodeBrowser (Adds C and Ruby Support)
++New version of Launch (file to run can be selected without buffer change)
++Minor updates to FileBrowser
++Automatically fill search field with selected text in buffer when performing
+a search action.
++Show Shelf menu command keybinding is now configurable
++Some Vi emulation improvements
++More responsive notebook tab scrolling
++Improved Python auto-indentation
++Opening files after program launch will now be opened in the running instance
+instead of creating a separate running instance using the user preference
+settings for opening new files in tabs or windows.
++Updated translations
++Shelf window tabs are now shown on the bottom to keep the shelf controls
+closer to the editor buffer.
++Add Revert to Saved menu action for reverting a file back to the last save
+point.
++Option for hiding and showing tab icons
++Highlighting of Python builtins can be enabled by defining userkw_style
++Add support for multiple modifiers per style item in Editra Style Sheets.
++Add some unittests
+
+BUG FIXES:
++Add missing Portuguese locale files to setup script
++Fix some clipboard and dnd bugs
++Fix window scrolling issue when executing some vi commands
++Fix error when creating file position cache file fails
++Fix numerous Style Editor bugs
++Fix failure to abort processes running in Launch under some conditions
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.3.15
+DATE 06/15/2008
+13th Alpha Release
+
+NEWS:
+
+This release was originally intended to be a minor bug fix release but has
+expanded to include a number of new features and additions as well. The most
+visual change is the new application icon that was designed and submitted to
+the community forum by Kurt Schelin. 
+
+All of the bundled plugins have recieved overhauls and updates. From this
+version when the bundled plugins are updated the will only be available with
+the updated Editra code as they are often only compatible with the most recent
+release.
+
+
+NEW: [features/improvements]
++New application icon (designed by Kurt Schelin)
++Multi-line comments are foldable in C/CPP/D
++New version of CodeBrowser (improved python, added sql)
++New version of FileBrowser
++New version of Launch (add shortcut, custom colors, auto clear option)
++Interface font is configurable
++Add Norwegian Nynorsk Translation (contributed by JoNNeMaNN)
++Add French Translation
++Add Brazilian Portuguese Translation (contributed by Ricardo Crudo)
++Add Ukrainian Translation (contributed by Igor Chomko)
++New bundled style sheet 'Mocha'
++Improved context menu behavior
++Can toggle status bar visibility
+
+BUG FIXES:
++Add missing keywords for DOS Batch scripts
++Ensure text that is folded becomes visible when searching for it
++Save All action now properly updates tab status
++Replace All failing when begining of buffer matches search pattern.
++Replace All with Up flag set causing error to be raised
++Unable to load style sheets with mixed case lettering on gtk
++Don't try to provide autocomp/calltips when in a comment or string
++Shift+Click on a contracted node in fold margin now properly expands all sublevels
++Ctrl(Alt on Mac)+Click now properly does a recursive toggle of nodes
++Fix bug in not being able to revert key profile to default
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.3.0
+DATE 04/25/2008
+12th Alpha Release
+
+NEWS:
+  This release adds support for customizable keybindings and a keybinding
+editor to the preferences dialog. The keybindings can be saved in multiple key
+profiles to allow for switching keybindings on the fly.
+
+  The bundled CodeBrowser plugin has received an update to include a number of
+new languages and improvements to the previously existing ones. The Projects
+plugin has also been updated to fix a number of bugs that were mostly visible
+on the Windows platform.
+
+NEW: [features/improvements]
++Configurable Keybindings and Keybinding editor
++New version of CodeBrowser with added support for
+ (Ferite, haXe, Matlab, Octave, Scheme, System Verilog, Verilog)
++Add highlighting support for System Verilog (w/ help from Tim Corcoran)
++Add support for (C#, Vala, Squirrel)
++Improved support for (Caml, Objective C)
++Improved heuristics for guessing file encoding when regular detection fails
++Jump to matching Brace/Bracket command (default Ctrl+Shift+B)
++Combinded Add/Delete bookmark into single toggle action
++Add Serbian translation (contributed by Vladimir Lazic)
++Add Turkish translation (contributed by mustafa)
++Add Italian translation (contributed by Angelo)
++Improved api documentation
++Auto-(un)commenting support for Editra Style Sheets
++Fold Margin styling can be styled separate from rest of buffer
++Add option to set Indent Width separatly from Tab Width
++New bundled syntax highlighting style Dessert (contributed by Greg Allen)
++Option to highlight caret line
+
+BUG FIXES:
++Misc UI consistancy issues
++Add missing Objective C sample file for highlighting editor
++Add missing ActionScript sample file for highlighting editor
++Using 16x16 size toolbar icons on OSX
++Missing editra.ico file on source installs under Windows
++Handle PyDeadObjectErrors that can happen when one of the network threads
+started in the PluginManager returns after the manager has been closed.
++Fix bug in failing to convert file paths to unicode when opening from command
+line.
++Improper highlighting of documentation keywords
++Saving maximized state of window on Exit

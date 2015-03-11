@@ -1,0 +1,9 @@
+# coding=utf-8
+The above line is for testing the magic comment detection.
+
+Test File for doing simple reading commands.
+
+Some Japanese characters
+
+テースト
+ビールを飲みたい

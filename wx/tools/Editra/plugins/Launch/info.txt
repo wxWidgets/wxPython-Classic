@@ -1,0 +1,4 @@
+Name=Launch
+Author=Cody Precord
+Description=Run scripts and view output
+Version=1.14

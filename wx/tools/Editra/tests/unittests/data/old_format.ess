@@ -1,0 +1,187 @@
+/* Editra Style Sheet
+ * Name: Default
+ * Author: Cody Precord <cprecord@editra.org>
+ * License: wxWindows License
+ */
+
+/* Main Style all others inherit from */
+default_style { 
+        fore: #000000; 
+        back: #F6F6F6; 
+        face: %(primary)s; 
+        size: %(size)d;
+}
+
+brace_good {
+        fore: #FFFFFF;
+        back: #0000FF bold;
+}
+
+brace_bad {
+        back: #FF0000 bold;
+}
+
+calltip { 
+        fore: #404040;
+        back: #FFFFB8;
+}
+
+caret_line {
+        back: #D8F8FF;
+}
+
+ctrl_char {
+        fore: #000000;
+        back: #F6F6F6; 
+        face: %(primary)s;
+}
+
+line_num { 
+        back: #C0C0C0; 
+        face: %(secondary)s; 
+        size: %(size3)d;
+}
+
+array_style { 
+        fore: #EE8B02 bold; 
+        face: %(secondary)s;
+}
+
+btick_style { 
+        fore: #8959F6 bold; 
+        back: #FFFFFF;
+}
+
+char_style { 
+        fore: #FF3AFF; 
+        back: #FFFFFF;
+}
+
+class_style { 
+        fore: #2E8B57 bold; 
+}
+
+class2_style { 
+        fore: #2E8B57 bold; 
+        back: #FFFFFF;
+}
+
+comment_style { 
+        fore: #838383; 
+}
+
+decor_style {
+        fore: #BA0EEA italic;
+        face: %(secondary)s;
+}
+
+directive_style { 
+        fore: #0000FF bold; 
+        face: %(secondary)s; 
+}
+
+dockey_style { 
+        fore: #0000FF; 
+}
+
+error_style { 
+        fore: #DD0101 bold; 
+        face: %(secondary)s;
+}
+
+foldmargin_style {
+        back: #D1D1D1;
+}
+
+funct_style { 
+        fore: #008B8B italic; 
+}
+
+global_style { 
+        fore: #007F7F bold; 
+        face: %(secondary)s; 
+}
+
+guide_style {
+        fore: #838383;
+}
+
+here_style { 
+        fore: #CA61CA bold; 
+        face: %(secondary)s; 
+}
+
+ideol_style { 
+        fore: #E0C0E0; 
+        face: %(secondary)s; 
+}
+
+keyword_style { 
+        fore: #A52B2B bold;
+}
+
+keyword2_style { 
+        fore: #2E8B57 bold; 
+}
+
+keyword3_style { 
+        fore: #008B8B bold;
+}
+
+keyword4_style { 
+        fore: #9D2424;
+}
+
+margin_style { 
+        fore: #FFFFFF;
+        back: #000000;
+}
+
+number_style { 
+        fore: #DD0101;
+}
+
+number2_style { 
+        fore: #DD0101 bold;
+}
+
+operator_style { 
+        face: %(primary)s bold; 
+}
+
+pre_style { 
+        fore: #AB39F2 bold; 
+}
+
+pre2_style { 
+        fore: #AB39F2 bold; 
+        back: #FFFFFF;
+}
+
+regex_style { 
+        fore: #008B8B; 
+}
+
+scalar_style { 
+        fore: #AB37F2 bold; 
+        face: %(secondary)s; 
+}
+
+scalar2_style { 
+        fore: #AB37F2; 
+        face: %(secondary)s; 
+}
+
+string_style { 
+        fore: #FF3AFF bold;
+}
+
+stringeol_style { 
+        back: #EEC0EE eol;
+        face: %(secondary)s bold; 
+}
+
+unknown_style { 
+        fore: #FFFFFF bold; 
+        back: #DD0101 eol; 
+}

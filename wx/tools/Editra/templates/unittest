@@ -1,0 +1,36 @@
+###############################################################################
+# Name:                                                                       #
+# Purpose:                                                                    #
+# Author: AUTHOR <email address>                                              #
+# Copyright: (c) 2008 Cody Precord <staff@editra.org>                         #
+# License: wxWindows License                                                  #
+###############################################################################
+
+__author__ = ""
+__svnid__ = "$Id: Exp $"
+__revision__ = "$Revision:  $"
+
+#-----------------------------------------------------------------------------#
+# Imports
+import os
+import sys
+import unittest
+
+# Module to Test
+sys.path.insert(0, os.path.abspath("../../src"))
+
+
+#-----------------------------------------------------------------------------#
+# Test Class
+
+class TestMYTEST(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+#-----------------------------------------------------------------------------#
+
+if __name__ == '__main__':
+    unittest.main()

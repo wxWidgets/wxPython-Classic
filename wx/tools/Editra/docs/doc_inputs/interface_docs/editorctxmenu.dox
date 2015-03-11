@@ -1,0 +1,58 @@
+/**
+@page editorctx_iface Editor Context Menu Interface
+
+@section editorctx_iface_intro Introduction
+
+The source code text buffer class EdEditorView provides a callback interface to
+allow client code to customize the right click context menu. This document will
+describe this interface and how to use it.
+
+@section editorctx_iface_usage Usage
+
+When the EdEditorView receives a right mouse click it will emit a message callback
+to all observers that have subscribed to the EDMSG_UI_STC_CONTEXT_MENU message.
+The message data will consist of a ContextMenuManager object that can be used
+to modify the menu before it will be prompted to the user. The ContextMenuManager
+object will also have some additional user data attached to it that the observer
+can use to help it decide how to customize the menu.
+
+@subsection editorctx_iface_in_params ContextMenuManager
+@li \b GetUserData('buffer') - Reference to the EdEditorView that emitted the callback.
+
+
+To customize the menu the callback simply needs to append or insert wx.MenuItems 
+on the ContextMenuManager#'s Menu property using standard wx.Menu methods.
+
+Then to also get callbacks for when one of the custom Menu items is clicked on
+it is necessary to also attach an event handler to the ContextMenuManager#'s
+handler stack by using its AddHandler method. AddHandler requires two parameters
+the first being the ID of the menu item to associate the handler with and then
+the handler method. The handler method must accept two parameters, the first will
+be an EdEditorView instance and the second will be the wx.MenuEvent.
+
+@section editorctx_iface_example Example
+
+@verbatim
+import wx
+import ed_msg
+
+ID_CUSTOM_MENU_ITEM = wx.NewId()
+
+class MyClass:
+    def __init__(self):
+        ed_msg.Subscribe(self.OnContextMenu, ed_msg.EDMSG_UI_STC_CONTEXT_MENU)
+
+    def __del__(self):
+        ed_msg.Unsubscribe(self.OnContextMenu)
+
+    def OnContextMenu(self, msg):
+        data = msg.GetData()
+        data.Menu.Append(ID_CUSTOM_MENU_ITEM, "My Custom Item")
+        data.AddHandler(ID_CUSTOM_MENU_ITEM, self.OnMenuItemClicked)
+
+    def OnMenuItemClicked(self, editor, evt):
+        print "My Item was Clicked!"
+
+@endverbatim
+
+*/

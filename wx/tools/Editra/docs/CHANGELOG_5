@@ -1,0 +1,393 @@
+Changelog for Alpha 0.4 releases
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.95
+DATE 06/23/2009
+27th Alpha Release
+
+NEWS:
+
+Had planned to wait till 0.5 was ready before doing another release but there
+have been too many good enhancements added due to all the great patches submitted
+during this cycle to wait for the last push to 0.5 to complete before releasing.
+
+Some of the main new features include buffer synchronization with the codebrowser
+plugin, completely re-worked vi emulation support, position history, and
+clipboard ring. See below for more detailed list of changes.
+
+
+NEW: [features/improvements]
++Clipboard history feature, can now cycle through recent clipboard entries when
+pasting text into the document.
++Add automatic file backup option to periodically backup buffer contents.
++Add Search/Replace in selection option to find dialog.
++Remembers recent caret positions between jumps and allows for quick navigation
+between them.
++Patch from (Hasan Aljudy) to show cwd and add e! command to commandbar
++Automatically show path completion list when doing an e or cd command.
++Display the documents EOL mode in the status bar.
++Add support for XText (patch from Igor Dejanovic).
++Support XText in Codebrowser (patch from Igor Dejanovic).
++Complete re-write of vi emulation support (patch from Hasan Aljudy)
++Add option to start in Normal mode by default when using vi emulation (patch from Hasan Aljudy).
++Codebrowser synchronizes with caret position. (patch from Igor Dejanovic)
++Find dialog remembers last position throughout session.
++Add support for the Cobra programming language.
++Support opening files by a uri.
++Add Croatian translation, updated (Brazilian, French, and Russian).
+
+BUG FIXES:
++Fix python autocomp from failing when word was next to a boundary character.
++Don't do a replace when there is no selection.
++Fix number of minor bugs related to finding accented characters.
++Fix bug in batch file comment command, ensure a space is between 'rem' and the comment text.
++Fix bug on Windows that could cause an unhandled exception error when closing the
+preferences dialog after closing the last main window.
++Fix regression in html autocomp where cursor position would be incorrectly
+placed after the inserted tag.
++Fix Launch not updating after a Save As on Linux.
++Fix Unicode handling error in session file saving.
++Fix Editra Style Sheet output from Style Editor to be in sorted order.
++Fix improper highlighting in django and mako templates due to improper handling
+of Windows eol characters.
+
+#-----------------------------------------------------------------------------#
+Changes since last release:
+
+VERSION 0.4.88
+DATE 05/02/2009
+26th Alpha Release
+
+NEWS:
+
+Quick bug fix release for settings not being able to be saved on a new install.
+
+BUG FIXES:
++Fix major issue with profile not being properly initialized on a new install
+that would cause settings to not be saved.
++Fix attribute error that could occur with extended autocomp (patch from cowo)
++Properly escape text in body of Error Reporter message so that it is a proper
+link for webbrower to open.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.85
+DATE 04/26/2009
+25th Alpha Release
+
+NEWS:
+
+This release includes some important bug fixes and performance improvements
+for when loading large files (10MB+). In addition to this there are some new
+and improved vi commands as well as some alternate default key binding profiles.
+Hopefully this will be the last release of the 0.4 series as things are shaping
+up for the 0.5 development cycle. For further details on this release please
+review the following release notes.
+
+Please also note that if you are using the Projects plugin that you wil also
+need to update it to the newly released 1.0 version due to some api changes that
+make 0.9 incompatible with 1.0.
+
+NEW: [features/improvements]
++Greatly improved performance of loading large files.
++Add Count feature to find dialog for counting number of matches in a buffer.
++Add Vim find char motions (patch from hasan.aljudy).
++Add Vim bookmarks and navigation (patch from hasan.aljudy).
++Add support for the Groovy programming language (patch from omar.gomez).
++Add new syntax style sheet Guepardo (patch from omar.gomez).
++Add support for loading installation provided key profiles.
++Add VisualStudio keybindings option (from Vivian).
++Updater is only available if user account running program has access
+ permissions to the install directory.
++New version of FileBrowser plugin. (adds search in directory option).
++Add option for extended autocompletion to include results from the simple
+completer in with results.
++Add support for showing images in the autocompletion popup list.
+
+BUG FIXES:
++Fix Launch config not properly being initialized when config panel accessed
+from plugin dialog for first time.
++Fix command entry listing of paths (patch from hasan.aljudy).
++Fix autocompletion for when accented characters are in the command string
+ (modified patch from roman.chyla).
++Fix some unicode handling issues in search/replace. (patch from roman.chyla)
++Fix number of printout rendering issues.
++Update readonly status when permissions change on disk.
++Fix error in moving a tab from one window to another when the tab was the only
+tab left in the window it was moved from. (filebrowser bug).
++Fix condition where saving the session file could potentially potentially be
+passed the incorrect type.
++Fix error in loading files that have an improper magic encoding comment.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.75
+DATE 03/28/2009
+24th Alpha Release
+
+NEWS:
+
+This release fixes a handful of important bugs and new features. The Plugin
+Manager dialog has been completely reworked. Configuration options for plugins
+that provide them are now available in the dialog as well as better error
+reporting for plugins that could not properly be loaded.
+
+File session support has also been improved to allow for saving and loading of 
+multiple custom sessions. Due to format changes the upgrade will require any
+session from previous installations to be overwritten.
+
+NEW: [features/enhancements]
++New Plugin Manager Dialog.
++Improved configuration options for plugins.
++Incompatible plugins are now displayed in PluginManager with message explaining why.
++Some basic auto-completion support for CSS.
++Improved support for sessions. Multiple custom sessions can not be saved and
+reloaded (modified code from Erik Tollerud).
++Add shortcut for LineDelete to delete line without modifying clipboard.
++Add option for automatically reloading files when they have changed on disk.
++Remember last save location when opening save as dialog.
+
+BUG FIXES:
++Fix incorrect page count shown in print previews.
++Remember print settings throughout session and for every frame.
++Fix error when doing Copy Path from tab right click menu.
++Fix incorrectly showing auto-completion options under some cases in php files.
++Fix condition where window could be placed at (0, 0) on OSX which causes the
+ frame to be placed behind the menubar.
++Fix improper detection of when to auto-unindent in Python files.
++Fix Python auto-indent from incorrectly inserting space when the cursor is
+in the indentation space of a line.
++Fix Close All option in tab context menu not working on GTK.
++Fix Codebrowser not refreshing when files are opened from the file dialog
+on Linux.
++Fix error that could occur while trying to save filehistory on exit.
++Fix toolbar not resizing properly when changing icon size on osx.
++Fix error in highlighting of DTD.
++Fix titlebar showing incorrect text for untitled files.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.65
+DATE 02/20/2009
+23rd Alpha Release
+
+NEWS:
+This release contains a large number of bug fixes and improvements. Most notably
+there has been a fair amount of work done on the auto-completions support. All
+file types now have support for some basic word completion help. HTML and XML
+now have support for smart input assistance and completion tips.
+
+NEW: [features/improvements]
++Add autocompletion support for HTML/XML documents.
++Instantly start searching for selected text (Win/Lin Ctrl+F3, OSX Cmd+3)
++Launch adds support for OCaml (patch from quode),
+ Batch scripts (patch from GaÎl), and LaTex.
++Shortcut for maximizing/minimizing the editor pane (patch from Rudi Pettazzi)
++Add menu entry for Fold All action (patch from Giuseppe "Cowo" Corbelli)
++Codebrowser adds support for XML/HTML (patch from Rudi Pettazzi)
++Codebrowser adds support for Vala, VBScript
++Some minor changes to the default hightlighting style. The old default is now
+called Cream.
++Add simple generic autocompleter that provides completions based off of words
+in the current buffer (Ctrl+Space). (patch from Giuseppe "Cowo" Corbelli)
++Add Move Tab to New Window option on tab context menu.
++Keyword helper functionality moved into the simple completer.
+
+BUG FIXES:
++Update window being shown at same time as splash window causing lockups.
++Fix trim trailing whitespace from getting the wrong text position when certain
+unicode characters are present.
++Add some missing JavaScript keywords (patch from Rudi Pettazzi)
++Fix groups not being expanded on a regex replace action.
++Fix Cmd+Shift+Left/Right not selecting line on osx.
++Fix Comment command not working on Latex documents
++Fix some unicode errors in the log system.
++Fix platform detection for some components when running on Vista.
++Fix indentation guides preference not properly being applied on restart.
++Fix transparency settings not being set on Linux.
++Add some missing PHP keywords (patch from Giuseppe "Cowo" Corbelli)
++Fix Display Font preference not being applied.
++Fix error in handling modification event callbacks for mutiple file views.
++Fix text being shown behind busy indicator in status bar while it is busy.
++Fix application crashes that could happen on Linux when compiz is being used.
++Fix autocomp window not being hidden when switching tabs.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.40
+DATE 01/02/2009
+22nd Alpha Release
+
+NEWS:
+
+This is the first release of 2009. It was mostly focused on internal cleanup and
+api refactoring. Through this a number of bugs have been fixed and a number of
+existing features have recieved some refinements. The most noteable changes
+are listed below.
+
+NEW: [features/improvements]
++Some improvements to the Python autocompletion.
++Comment/Uncomment are now combined into a single toggle action
+ (modified patch from Giuseppe "Cowo" Corbelli).
++When mixed eol characters are detected a dialog warning of it is now shown,
+ that offers to convert them instead of toggling on eol visibility as it
+ previously did, since this was found to be confusing to many.
++Add option to enable/disable checking of eol characters.
++Add menu shortcut for toggle fold.
++Add a verbose debug mode for view stack tracebacks in editra log messages.
++Updated (Italian, Japanese, Latvian, Polish, Russian, Spanish, Turkish) Translations.
++Reuse existing find results screens more effectively.
++New version of Launch with support for R.
+
+BUG FIXES:
++Fix find options not properly being synchronized between dialog and find bar.
++Fix event handlers not properly getting connected when going from 2 -> 1 open windows.
++Fix eol mode settings in preferences.
++Fix search bar text not being colored properly on msw/gtk.
++Fix window not being raised from taskbar when opening file with 'Open with...'
++Fix drag and drop error for instlling plugins through plugin manager.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.28
+DATE 12/20/2008
+21st Alpha Release
+
+NEWS:
+This is yet another quick turnaround bug fix release. The previous build had
+an issue with some missing files. This release also adds the new pane navigator
+feature to make it easy to move from panel to panel with the keyboard.
+
+NEW: [features/improvements]
++Keyboard navigation of MainWindow panes (OSX: Alt+Tab, Others:Alt+1).
+ (modified patch from Giuseppe "Cowo" Corbelli).
+
+BUG FIXES:
++Fix search string not getting set from buffer selection in search bar.
++Fix error when clicking Regular Expression in Search Bar
++Add some missing sql keywords.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.25
+DATE 12/17/2008
+20th Alpha Release
+
+NEWS:
+This is another quick turnaround release to fix some fairly critical bugs in the
+last release.
+
+NEW: [features/improvements]
++Some autocompletion behavior improvements
++Some minor ui changes to the command bar
+
+BUG FIXES:
++Fix find in files where if the filter was empty no files were searched.
++Fix error in Find All where incorrect search flag parameters were set.
++Fix Find/Replace not working.
++Buffer context menu now works correctly on gtk version.
++Fix column mode keybinding on windows.
++Unicode fixes
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.20
+DATE 12/12/2008
+19th Alpha Release
+
+NEWS:
+
+This release fixes a number of of bugs and general stability issues introduced
+from the last few rounds of feature enhancements. In addition to these bug
+fixes a few new features such as a column edit mode and more improvements to
+the text searching features have been added.
+
+
+NEW: [features/improvements]
++Add shortcut for Find Previous
++Column edit mode
++New version of Launch plugin (Run last executed program)
++Read Only indicators on tabs
++Add support for Progress 4GL
++Middle click can close tabs in Shelf
++Add custom highlighting for Issue Lists (from Torsten Mohr)
++Report number of files searched when doing a Find in Files
++Improve performance of Find All.
++Add ability to filter file type to Find in Files.
++Add commandline option to run Editra in the hotshot profiler.
++Numerous minor performance improvements.
++Add Swedish translation (by Peter Magnusson)
+
+BUG FIXES:
++Middle click closes the tab that was clicked on and not the active tab.
++Fix Find dialog not preserving order of lookin choices.
++Fix searching in folded text not being exposed during search.
++Fix random jumping to top/bottom of file during incremental search.
++Fix text Drag n Drop not working on Windows.
++Don't show Python auto-comp choices after numbers.
++Fix file modified indicator not being hidden after saving file.
++Fix number of bugs with opening files from filebrowser on gtk versions.
++Fix statusbar line column number not being updated when clicking on.
+Find Results links.
++Fix drag and drop of text not scrolling window as the mouse is moved towards 
+top or bottom of buffer.
++Fix some python2.4 compatibility issues.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.01
+DATE 11/24/2008
+18th Alpha Release
+
+NEWS:
+
+Quick Bug fix release to fix some configuration related bugs.
+
+BUG FIXES:
++Language settings not being loaded
++Running Editra from command line on Mac/Linux would not load some config
+settings.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.4.0
+DATE 11/23/2008
+17th Alpha Release
+
+NEWS:
+
+On Macintosh and Windows the user configuration files have moved to more 
+platform specific locations. This transition should should happen automatically
+but if there are any problems follow the onscreen instructions to manually
+transition your preference settings to the new location. See the changelog
+below for the details of other major changes.
+
+NEW: [features/improvements]
++User configuration files are now kept at standard platform locations
++Support for multiple views of the same file
++Improved Python auto-indenter (patch from Ofer Schwarz)
++Show auto-completion choices with Ctrl+Space (patch from Ofer Schwarz)
++Add Paste After command (patch from Dario Ghilardi)
++Report number of matches that were replaced in a Replace All action
++Expand groups when doing a regular expression search and replace
++Add (Polish, Slovenian, Latvian) translations
++New version of PyShell. Supports custom styles.
++Middle click closes tabs (patch from craig.ds)
++Double click empty tab area opens new tab (patch from craig.ds)
++Add support for VBScript
++Improved text drag and drop
+
+BUG FIXES:
++Fix encoding errors when loading plugins on some systems
++Fix not being able to cut and copy from Shelf windows
++Fix bug in selecting Cancel when prompted to save modifications that would
+ cause the editor to block paint events and appear frozen.
++Ctrl+W properly closes the active window instead of always defaulting to the
+ tab of the top MainWindow.
++Fix not being able to search for strings with '.' in them in non-regex mode
++Fix bug in Launch output sometimes missing output data
++Fix inaccurate highlighting of words when doing incremental whole word search
++Fix regex not working with '^' (patch from craig.ds)
++Fix bug in populating quick finds search history menu
++Fix bug where selecting cancel when closing a tab would not cancel the action

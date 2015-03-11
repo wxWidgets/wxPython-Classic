@@ -1,0 +1,7 @@
+This directory holds modules for testing individual controls that are used in
+Editra. Each module is a simple application that can be run to see the control
+in action.
+
+To run one of the tests simply change to this directory type 
+'python demo.py' at the command line to open the test program.
+

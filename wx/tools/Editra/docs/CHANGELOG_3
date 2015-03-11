@@ -1,0 +1,336 @@
+Changlog for Alpha 0.2 releases
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.2.90
+DATE 03/15/2008
+11th Alpha Release
+
+NEWS:
+  This release introduces a number of major new features and improvements 
+throughout the editor. The biggest addition is the new bundled CodeBrowser 
+plugin for browsing classes, functions, variables and other significant 
+elements of a document. In this first release CodeBrowser has support for the 
+filetypes (Ada, CSS, ini, batch, ESS, Fortran, Inno Setup Scripts, Lisp, Lua, 
+NSIS, Perl, Php, Python, Shell Scripts, Tcl/Tk).
+
+In addition to the CodeBrowser there are new updated versions many other 
+plugins. Launch now has added support for (Ada, haXe, Php, and PostScript). 
+The Projects plugin now has added support for using the Bazaar source control 
+system in addition to some other minor feature additions. Another new version 
+of FileBrowser is also shipped with Editra fixing some bugs from the previous 
+release.
+
+As of this release Editra has now also been localized into Dutch and Simplified 
+Chinese, other translations have also been updated. For more details on other 
+changes and improvements please view the changelog below.
+
+
+NEW: [features/improvements]
++New CodeBrowser plugin for browsing classes, functions, variables and other
+significant objects in a code document.
++New version of Launch (add support for Ada, haXe, PHP, PostScript)
++New version of Projects Plugin (add support for Bazaar)
++Support for (Objective C, ActionScript, Scheme)
++Improved Perl and Lisp highlighting
++New version of FileBrowser with some minor fixes and enhancements
++Colorize Error and Warning messages in Log Viewer
++Use prefered font from preferences in Log and Launch output
++Notebook UI improvements
++Add option to automatically check for updates on startup
++Add menu mneomnics for navigating menus without mouse (gtk/msw)
++Added Dutch translation (contributed by Gerard Petersen)
++Added Simplified Chinese translation (contributed by heccj)
++Updated Russian translation (contributed by slavOnic)
++Updated German translation (by nireb, DR0ID)
++Updated Japanese translation
+
+BUG FIXES:
++Fix bug that would prevent opening files from command line or via drag/drop
++Editra Style Sheets allow fonts with non ascii characters in their names
++Editra Style Sheets parse error on fonts with spaces in their names
++Numerous minor unicode fixes throughout the editor
++Fix memory leak in the LogViewer and Launch
++Fix some dead object errors from improper event handling
++Fix BOM related file opening errors
++Php autocomment now works
++Error launching webbrowser from Editra under Windows
++Title bar correctly displays files modification status
+
+#-----------------------------------------------------------------------------#
+Changes since last release:
+
+VERSION 0.2.65
+DATE 02/08/2008
+10th Alpha Release
+
+NEWS:
+This release includes major improvements to the detection and handling of file
+encodings and reporting of related errors when they happen. As part of this
+enhancement support for magic encoding comments are now supported in the editor
+for specifying an encoding for a document. The comment must be found on either
+the first or second line of the file. All popular comment formats are supported,
+
+example1: # -*- encoding: utf-8 *-*
+example2: # vim: set fileencoding=latin-1 :
+example3: # coding=utf-16
+
+When no encoding is specified the default will be to use utf-8 for encoding text
+when possible and falling back to other available system encodings when utf-8
+fails.
+
+There is also a new bundled plugin that is distributed with this release. The
+plugin is called Launch ant it is the highly requested solution to be able to 
+run scripts from within Editra. It currently supports most of the scripting
+languages that Editra has support for and provides custom output parsing and
+filtering for some languages such as python. The special output handling will
+create hotspots on error messages in the output and allow you to instantly
+navigate to the error by clicking on the hotspot.
+
+
+NEW: [features/improvements]
++New bundled plugin "Launch" for running scripts and viewing output.
++Support for using C style (/* */) comments in Editra Style Sheets
++Improved syntax highlighting sample/test files
++Highlighting support for (Ferite, haXe)
++Use Softtabs by default
++Option to use backspace to dedent when in an indent region
++Support for magic comments as described in pep 0263 for setting the encoding
+ of a document. If an encoding is not explicitly set the default will still be
+ to use utf-8.
++Improved unicode support
++Option to set a preferred lexer for new files so highlighting and other 
+features are automatically applied when starting a new buffer.
++New plugin "CommentBrowser" for listing and browsing TODO statements in the
+current buffer is available.
++Two new icon themes available (Crystal Project and Ubuntoon)
++All existing icon themes have received some minor updates
++Improved Windows installer / Better Windows Desktop integration
++Log Viewer can filter messages based on their origin
++Updated Russian and Japanese Translations
+
+BUG FIXES:
++Fix bug with turning off syntax highlighting in the preference dialog
++Exiting Editra from a right click on the Windows taskbar saving invalid window
+size and position for next launch.
++Add some missing Ruby keywords
++Jump word pre/next keybindings (Ctrl+<- and Ctrl+->) now work on Linux/Windows
++Shelf plugins that don't allow multiple instances are now correctly shown as
+disabled in the Shelf menu when an instance is already open.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.2.50
+DATE 01/19/2008
+9th Alpha Release
+
+NEWS:
+
+I am happy to announce the first release of Editra for 2008. It has been a 
+slightly longer that usual development cycle for this release so hopefully 
+extra amount of work that went in will be visible. Here are some of the most 
+notable points in this release, there is a new version of the bundled 
+FileBrowser plugin that has been enhanced to be able handle most file system 
+operations. There were also a number of UI and usability improvements made to 
+the editor, as well as support for some new programming languages. Besides the 
+new features and improvements there are a number of bugs that have been fixed 
+to further stabilize the editor.
+
+NEW: [features/improvements]
++Number of major enhancements to the FileBrowser plugin
++Support for highlighting PL/SQL and improved SQL highlighting (contributed by Thomas Keul)
++Support for highlighting (Boo, Pike) programming languages
++New highlighting color scheme "BlueMonday" (by Thomas Keul)
++Shift+Ctrl+I will toggle usage of Tabs and Soft Tabs.
++Shift+Ctrl+C to duplicate current line
++F3/Shift+F3 can be used as shortcuts for Find Next/Find Previous in the quick
+ find bar. These bindings are in addition to the already existing 
+ Enter/Shift+Enter ones.
++Number of General UI improvements
++Minor python autocompletion improvements
++Add German Translation (contributed by DR0ID)
++Updated Spanish and Japanese translations
++New logging system
++Proxy support for downloading plugins/updates
++LogViewer for viewing Editra's log output in the Shelf
++Number of new backend libraries to make developing plugins and other
+enhancements easier.
+
+BUG FIXES:
++Fixed bug where potential infinite loop could happen when doing a replace all
++Fixed bug in handling Enter key in Quick Find bar on Windows
++Fixed graphical bug that occurred on osx after maximizing a window when multiple
+windows are open.
++Fixed bug that caused a failure to exit when notebook has no pages
++Fixed paste to quick find control bug on gtk version
++Style editor raises error when setting multiple extra style attributes on the
+default tag.
++Style editor slow input in preview window
++Properly save/restore indentation guides preferences between sessions
++Python autocompletion not working with python2.4
++Save preferences even when last window closed is not a main window
++Fixed unable to enter hex codes in style editor under gtk
+
+OTHER:
+-Removed support for Metal style windows on OS X
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.2.29
+DATE 12/01/2007
+8th Alpha Release
+
+NEWS:
+
+This release contains a number of important bug fixes and and improvements to
+existing features. Most notably is the major improvements that have been made to
+the python autocompletion. Editra is now able to provide autocompletion tips for
+most situations, including the local scope. It is still not perfect however so 
+may not be able to provide tips under certain conditions but it is still a major
+enhancement over the previous system.
+
+Editra is also now distributed with wxPython as of version 2.8.7. So if you are
+running the source versions, installing wxPython will also install Editra.
+
+NEW: [features/improvements]
++Major improvements to python autocompletion
++Tab completion for command buffer Edit and Change Directory commands
++Style Editor now exports optimized stylesheets
++Automatic perspective mode for saving window state on exit
++Styles are more configurable with custom settings for text selection,
+whitespace, and indentation guides now being configurable.
++New Blue color scheme for syntax highlighting can be enabled in preferences
++Russian translation of editor (contributed by Sergei Zivukov)
+
+BUG FIXES:
++Fixed a number of python2.4 compatibility issues
++Fixed bug in styling of code folding margin
++Fixed bugs in updating toolbar/menu items
++Only activate localization for locales that have translations available
++Default to crlf on windows for initial installs
++Fixed bug in management of search history items
++Fixed some minor bugs and consistancy issues in style editor
++Fixed error with getting page text of tabs
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.2.15
+DATE 10/30/2007
+7th Alpha Release
+
+NEWS:
+This is mostly a bug fix release that resolves a number of issues throughout the
+editor. Most notably are a correction to some performance issues on Mac OSX,
+a number of UI related issues on Linux, and a fair number of fixes to the
+Style Editor.
+
+From this release onwards updating to the new version of Editra will no longer 
+require you to reconfigure all of your preferences as profiles are now incrementally
+updated so only settings that need to be changed or added are while not affecting
+all the other saved settings.
+
+There is also a number of new plugins available with this release, most notably
+it is the first public release of the Projects plugin.  The Projects plugin 
+transparently works with your file system and source control.  When you add a 
+project (i.e., a directory) to the plugin, you can open files in the editor 
+simply by double-clicking them in the tree view.  Files that are selected in 
+the editor will automatically display in the tree view if that file exists in 
+one of your registered projects.  In addition, the Projects plugin tracks files 
+under source control (CVS, Subversion, and GIT).  The status of the file is 
+displayed in the file's icon, and most source control operations are available 
+from the right-click menu.  For more information on the plugin and it's 
+configuration options see <http://code.google.com/p/editra-plugins/wiki/ProjectsPlugin>.
+
+NEW: [features/improvements]
++Projects management plugin available through PluginManager.
++Icon themes are now part of the plugin system so themes can be created and
+installed through the plugin manager using python eggs.
++New icon themes based on the Humility and Oxygen icon sets available through plugin manager.
++Improved highlighting for python (decorators are now supported)
++Support for highlighting (Edje EDC files, Gui4Cli, Inno Setup Scripts, KIX, Verilog)
++Support for highlighting DOT files (contributed by Rob McMullen)
+
+BUG FIXES:
++Fixed a performance related bug that was most notable Editra was running on OSX.
++Clipboard related keybindings on GTK version
++Many UI fixes for when running on GTK
++Fixed a bug in adjusting theme colors for systems using themes that have lots
+of black in them.
++Fixed error when loading files was raised when trying to open files that don't
+have read permission.
++Fixed laggy checkboxes in Preferences Dialog
++Fixed errors that are caused when trying to drop some data type objects on the
+text control for drag and drop open, such as Mac OSX textClippings.
++Fixed a bug in that could cause a crash when opening the file dialog
++Fixed a number of bugs related to saving and loading custom user profiles
+during run time.
++Toolbar items status is now properly shown at all times
++Fixed a number of bugs related to the style editors behavior and how it affects
+the editor when changes are made.
++Fixed some layout issues with the update checker/downloader
++Fixed code folding for Pascal and Shell script files
++Fixed Editra Style Sheet parser error for style sheets that have Windows eol
+characters in them.
++Fixed flickering of toolbar when changing icon themes
++Don't send clipboard events to text control when it is not the control with the
+capture.
++Fixed flickering when opening new pages in the notebook, this was most noticeable
+on Windows and GTK.
++FileBrowser plugin can now properly open files under the "Home directory" and
+"Desktop" nodes.
++Fixed bug in CPP auto-commenting (patch from Rob McMullen)
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.2.0
+DATE 09/29/2007
+6th Alpha Release
+
+NEWS:
+This is the second major alpha release of Editra. It introduces a number of new 
+features to the editor, the biggest change being that having multiple top level 
+windows running under a single instance is now supported. In addition to the 
+enhancements there have been a fair number bug fixes, thanks again to all who 
+reported errors. More details can be viewed in the below changelog.
+
+NEW: [features/improvements]
++Opening multiple toplevel windows is now possible
++Tabs can be dragged between windows
++Command Mode for sending commands to the editor, when using Vi emulation it
+acts like an Ex command mode. (see documentation page for description of
+available commands)
++Faster file loading
++Bidirectional Text Search
++Some performance improvements for text input speed
++Highlighting support for (Apache Config files, ini files, Erlang)
++Link to project documentation and help guides in Help Menu
++Shortcut to close quick find bar (ESC will now hide the bar)
++Command bar now automatically hides it self after most actions
++Improvements to the Style Editor
++Updates to all plugins to work with multiple windows
++Theme system extended to all program icons
++New icon theme available, derived from the Tango icon set (http://tango.freedesktop.org)
++Improved file encoding detection and unicode handling
++Shelf visibility can be toggled with Ctrl+Alt+S
++Shelf Items are automatically assigned hotkeys Ctrl+Alt+(0-9)
++Added Abort button to the Error Reporter
++Spanish Translation of interface from Raul Gonzalez Duque.
+
+BUG FIXES:
++Fixed error raised when setting font from preferences dialog.
++Fixed session loading were files that had been deleted would be opened as new
+documents.
++Fixed bug with find dialog on windows that arose under certain usage cases
++Ensure file handle valid when reloading files
++Many bug and behavior fixes in the Calculator plugin
++Unicode handling error in file history loading
++Filename decoding bug in MacOpenFile handler
++Plugins now properly show activation status in View Menu
++Don't lose bookmarks on file reload
++Show Shelf is only enabled when their are shelf related plugins activated
++Check that Editra is not running before starting installation on Windows to
+avoid faulty installs from files that aren't able to be overwritten.
++Updater makes sure download file has a unique filename to avoid overwriting
+existing files.
++Fixed a bug that could crash the editor when style sheets are exported to a 
+location outside of where Edira can load them from.

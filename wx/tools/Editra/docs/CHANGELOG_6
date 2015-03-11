@@ -1,0 +1,387 @@
+Changelog for Alpha 0.5 releases
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.99
+DATE 12/05/2010
+38th Alpha Release
+
+NEWS:
+
+NEW: [features/enhancements]
++Improved consistency of Python auto-completion to provide results under more
+conditions.
++Show call tips on mouse over when available. 
++When in DEBUG mode trace statements are dumped to a log file in the systems
+temp directory and are kept for up to seven days.
++Update Launch plugin to version 1.8 (bug fixes)
+
+LIBRARY:
++Add observer interface for mouse dwell events in buffer.
++Add observer interface for when bookmarks are added or removed.
+
+BUG FIXES:
++Fix issue with tab activation after tabs had been reorganized via user
+drag and drop.
++Fix issue where using pane navigator would result in all event handlers being
+disconnected until main window received an deactivation followed by another
+activation event.
++Fix bug in reporting file errors under certain use cases.
++Fix incorrect highlighting for some css2 keywords.
++Don't crash when bitmap resource for tab navigator fails to load correctly.
++Fix issue where some UpdateUI events where not getting handled in modal dialogs.
++Fix inconsistency that could lead to an un-handled exception when switching between
+different saved perspectives.
++Fix crash caused by thread safety issue that could occur when updater fails 
+to get version info from the network.
++Fix bug where editor area would be readonly after a failed file load that
+required the user to select the proper encoding.
++Fix infinite recursion error that could occur when loading a non existent
+style set.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.86
+DATE 10/10/2010
+37th Alpha Release
+
+NEWS:
+This release includes some important Unicode and file loading issues as well
+as some new features. See the included change summary below for more details
+on what has changed for this release.
+
+NEW: [features/enhancements]
++Add Search in Current Directory option to Find/Replace Dialog
++Increase persistence limit for search in directory history
++Add support for DSP56K assembly
++Add support for OOC programming language
++Support multiple views of the same file within the same window.
++Add support for NONMEM Control Stream files (patch from Robert McLeay)
++Updated CodeBrowser plugin 1.2 (sort view by line number or alphabetically)
++Edge guide color can be configured through Style Editor Dialog.
+
+BUG FIXES:
++Fix major error in handling events when more than one window has been opened.
++Fix bug in style sheet parsing that was not properly setting undefined style
+tags to the default_style.
++Fix encoding detection issue that could lead to unhanded exception error.
++Fix handling of Unicode text by Django lexer.
++Fix issues with detecting UTF-16 encoded files that don't have a BOM.
++Fix not being able to run executables in Launch that have spaces in their
+paths on Windows.
++Fix issues with aborting processes with Launch plugin on Windows.
++Fix crash that could occur if text was dragged over PluginMgr ListBox.
++Fix issue in Shelf tabs not being restored in correct order
++Fix issue where context menu on editor tabs could refer to wrong tab.
++Fix error that could occur when showing statusbar popumenu for line endings
+caused by improper menu item type.
++Fix DeadObjectError in UpdateFileHistory
++Properly handle application exit when os is shutting down (patch from Eric Gaudet)
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.72
+DATE 06/24/2010
+36th Alpha Release
+
+NEWS:
+This release addresses a critical bug in the handling of HTML/XML files.
+
+BUG FIXES:
++Fix error in HTML autocompletion.
++Fix application icon not showing up on Windows Vista and 7.
++Fix spellchecker dependencies missing in Windows binary builds.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.70
+DATE 06/12/2010
+35th Alpha Release
+
+NEWS:
+
+NEW: [features/improvements]
++Improved TCL/Tk Highlighting
++Updated CodeBrowser Plugin 1.1 (improved Tcl/Tk, C, and CSS Support)
++Update Launch Plugin 1.7 (word wrap and lock file options)
++Improved AutoIndent functionality for HTML/XML
++Improve behavior of HTML autocomp
+
+LIBRARY:
++Syntax modules that provide AutoIndenters are now responsible for adding the
+text to the buffers them self instead of returning a string to the EditraStc.
+
+BUG FIXES:
++Fix braces not getting un-highlighted when toggling setting on and off.
++Fix incorrect handling of xml in IPC server (patch from rqsall)
++Fix file open from commandline not respecting open files in new windows option.
++Fix incorrect closer notifications that could occur when using the close tab shortcut.
++Fix crash that could occur due to Python autocompletion executing a SystemExit exception.
++Fix Shelf tabs not updating when show icons on tab option is toggled.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.60
+DATE 05/16/2010
+34th Alpha Release
+
+NEWS:
+This is primarily a bug fix release to address a number of issues from the
+big tab control change in the previous release as well as some other standing
+issues. This is a suggested update for all users of the previous release.
+
+NEW: [features/improvements]
++Improvements to Verilog and SysVerilog highlighting (patch from akhailtash)
+
+BUG FIXES:
++Fix issue with tab selection events not being sent in split notebook.
++Fix page change notifications not being sent under certain tab close scenarios.
++Unsubscribe from file history messages on window deletion.
++Fix issue in handling invalid data in custom style sheets.
++Fix issue with search being incremented when control key was pressed.
++Fix crash that could occur when iterating syntax globals during startup.
++Fix issue with portable profiles not loading when install directory path changes.
++Fix crash that could occur when tab menu handler is called with no context manager.
++Handle errors that can occur when adding items to file history.
++Fix crash from selecting invalid register when using vim mode.
++Ctrl+Tab functionality for switching tabs has been restored.
++Double click on split notebook sash now properly unsplits the notebook on OSX.
++Fix Python auto-indenter not indenting after 'with' statements.
++Fix handling of improper paths when typing in command mode.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.51
+DATE 03/14/2010
+33rd Alpha Release
+
+NEWS:
+
+This release was initially going to be held until wxPython 2.8.11 was released
+but it seems to be delayed so this release will still have some minor issues
+when running on OSX 10.6.
+
+There are a number of new features in this release. The tabs in the notebooks
+can be dragged out to split the notebook into separate views so that files can
+be viewed side by side. This feature has also been extended to the Shelf window.
+There are also new versions of the CodeBrowser and Launch plugins included with
+this release. For detailed changes please review the changelog below.
+
+NEW: [features/improvements]
++Tabs can be dragged out to split notebooks so that buffers and Shelf items
+can be viewed side by side.
++What items are displayed in the Lexer menu are now configurable.
++Basic support for highlighting asp script embedded in html files.
++New version of Launch plugin with some bug fixes.
++Add Close Others option to right click tab menu to close all but the selected tab.
++Add support for highlighting Forth source files.
++Add support for Java to CodeBrowser (patch from Eric Gaudet)
++Add support for Diff files to CodeBrowser (patch from Eric Gaudet)
++Custom autobackup directory can be configured.
++Extend HTML support to support HTML5 syntax (patch from Hagn99)
++Add --no-clean option to source file installer to skip old file cleanup.
+
+LIBRARY:
++New plugin interface for adding autocompletion providers added (iface.AutocompI)
++FilterDialog class added to eclib
+
+BUG FIXES:
++Fix segmentation fault on Linux when using right click context menu to paste.
++Fix some minor vhdl highlighting issues.
++Fix issue where typing over selected text would sometimes not overwrite it
++Fix exception that could occur when syntax highlighting extensions are removed.
++Fix issue where autocomp/callip popups would not get hidden when they should.
++Fix issue where window could be restored off screen when extra displays have
+been removed from the system between running the program.
++Fix issue where tab label would incorrectly show a modified state after loading
+a large file in incremental mode.
++Fix bug in python autocompleter that could raise an error when retrieving a 
+calltip under some conditions.
++Fix issue with detecting magic encoding if it was changed after the buffer
+was loaded on subsequent saves.
++Fix bug in reloading of buffers after encoding error is detected that would
+result in them always becoming a read only buffer.
++Fix bug in retrieving file extension for file types that have no extensions
+associated with them.
++Fix bad link to online documentation in Help menu
++Default to English local when localized resource for LANGUAGE_DEFAULT are not 
+available.
++Fix issue with folded code disappearing when folding option is toggled off.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.32
+DATE 12/28/2009
+32nd Alpha Release
+
+NEWS:
+
+Another quick bug fix release to address some critical issues that were still
+present after the last release.
+
+BUG FIXES:
++Fix error introduced into extended autocomp in previous release.
++Handle win32api errors from calls to GetLongPathName.
++Restore html/xml autocomp behavior to put cursor between tags that are inserted.
++Fix issue with custom key profiles being saved to system directory instead of
+ user config directory.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.30
+DATE 12/21/2009
+31st Alpha Release
+
+NEWS:
+
+Quick bug fix release for some issues that arose after the last release.
+
+BUG FIXES:
++Fix Unicode handling for file names when opening files from the command line.
++Fix bug in not properly shutting down ipc server on exit app event.
++Fix bug in not automatically continuing with the window closure when a modified
+file action takes place.
++Fix duplicate entries in autocomp lists that could occur when using extended
+autocomp (patch from cowo78)
++Fix replace action not being working when up is selected as the the find direction.
++Fix index error when accessing empty history cache.
++Fix error in returning a list instead of a string when getcalltip fails.
++Fix error handling for when select_style has no background color defined. 
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.25
+DATE 12/15/2009
+30th Alpha Release
+
+NEWS:
+
+Compatibility with older Editra Style Sheet's modifier syntax has been removed,
+style sheet made for pre 0.4 release version may have trouble properly loading 
+in this version.
+
+NEW: [features/improvements]
++New version of Launch plugin (new handlers can be added via xml interface)
++Clicking on encoding field in statusbar will allow encoding of current document
+ to be converted.
++Some performance improvements
++The -g command line switch now will work when existing instance of Editra is
+ already running.
+
+LIBRARY:
++Xml interface added to Launch plugin
+
+BUG FIXES:
++Fix error in handling of unknown encodings.
++Trim long python calltips to ensure that function signature is visible (patch from appliedmath)
++Fix issue with opening files via relative path from commandline
++Fix error when adding shelf items to an undocked shelf window
++Fix index error in page synchronization of filebrowser plugin
++Fix index error in BackTab functionality
++Fix BackTab at end of line deleting eol characters
++Fix startup errors caused by files that were left over from previous installs.
++Fix issue where Windows binary installer would misplace files that could cause
+subprocess commands to fail.
++Fix issue in handling short form paths on Windows by converting to long name.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.15
+DATE 10/31/2009
+30th Alpha Release
+
+NEWS:
+
+This release contains a a large number of internal changes. New features include
+the ability to customize syntax highlighting and add new file type support
+through xml files. Spell checking is now also supported through the use of the
+enchant spell checking library.
+
+NEW: [features/improvements]
++Syntax highlighting can be extended and overridden by user defined extensions.
++Spell checking support (requires enchant)
++Plugins can now be un-installed through plugin manager.
++Add support for STATA (patch from Jean Eid).
+
+LIBRARY:
++New api for plugins and other clients to customize buffer context menu.
++New profile api's for registering for notifications of profile changes.
+
+BUG FIXES:
++Fix crash that could occur when loading some binary data into buffer.
++Return unique sorted list of terms when using extended autocomp.
++Fix some color issues when running under GTK.
++Fix line number preference not being remembered on startup.
++Fix error in handling corrupted session files.
++Fix bug in auto clearing of status text that would let timer to continue
+ running unnecessarily.
++Fix errors that could occur occasionally when setting status text.
++Fix bug in error reporting when file reload fails.
++Fix some compatibility issues with wxPython 2.8.4
++Fix issue where search direction could get stuck in search previous when using
+ the quick search shortcuts.
++Fix crash that could occur when showing find dialog under certain cases.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.05
+DATE 09/02/2009
+29th Alpha Release
+
+NEWS:
+
+Important bug fix release to fix a critical regression with handling of files that have
+BOM characters in them. All users of release 0.5 should quickly update to this
+release as the bug could lead to data loss.
+
+NEW: [features/improvements]
++Find bar is now customizable via right click menu.
++Add Hungarian, Galician, Romanian, and Slovak translations.
++Updated translations
+
+BUG FIXES:
++Fix error in handling BOM when saving files that could result in data loss.
++Use wxversion to make sure that Editra is started with wxPython2.8 or later.
+
+#-----------------------------------------------------------------------------#
+
+VERSION 0.5.0
+DATE 08/20/2009
+28th Alpha Release
+
+NEWS:
+
+This release contains a large number of important bug fixes. Due to various
+outside issues that have limited my development time the last few months I have
+decided to change the focus to bug fixes for this release and most of the 
+features I had slated for 0.5 have been pushed back to the later 0.5 series 
+releases in order focus on stability for 0.5.
+
+NEW: [features/enhancements]
++BackTab can no be used to compress space that is embedded in a line.
++Record position changes from mouse clicks in position navigation history.
++Add command line switch -g for specifying line to open file to.
+
+BUG FIXES:
++Fix copying from OutputBuffer.
++Fix some error handling if file session handling.
++Fix some minor translation issues.
++Don't reposition caret if it was moved during a threaded load operation.
++Fix some errors with setting custom highlighting colors.
++Set highlight foreground colour to White when selection colour is dark.
++Fix search in directory message handler in search controller that caused
+ some issues when the dialog had already been created.
++Fix search in directory crash on windows when accessing it from filebrowser.
++Files with embedded NUL bytes can now be loaded properly.
++Properly handle filenames that have spaces in them in the Launch plugin.
++Fix saving of files where pasted in text would cause the encoding of the text
+ to fail on write to disk.
++Fix direction choices not being disabled for search in files operation in
+ Find dialog.
++Fix error handling for when incorrect regular expressions are used in a
+ replace statement.
++Fix error that could occur when right clicking on tab area.
++Fix off by one error in vim jump to line command.
++Fix some clipboard related issues when running under gtk.
++Fix tab scrolling rate on gtk
++Handle errors due to failed socket connection in IPC server

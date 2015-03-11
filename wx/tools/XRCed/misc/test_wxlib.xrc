@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<resource>
+  <object class="wxFrame">
+    <object class="FoldPanelBar">
+      <object class="foldpanel">
+        <object class="wxPanel">
+          <object class="wxBoxSizer">
+            <object class="sizeritem">
+              <object class="wxButton">
+                <label>butter</label>
+              </object>
+            </object>
+          </object>
+        </object>
+        <label>label</label>
+      </object>
+    </object>
+  </object>
+</resource>

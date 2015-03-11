@@ -1,0 +1,4 @@
+Name=Hello
+Author=Cody Precord
+Description=A simple hello world plugin
+Version=0.3

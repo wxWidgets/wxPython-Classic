@@ -1,0 +1,27 @@
+<!-- Test data for testing syntax lib xml serialization
+     this file contains errors to test error paths -->
+<editra version="1">
+   <syntax language="Python" lexer="STC_LEX_PYTHON" id="ID_LANG_PYTHON">
+      <associations value="py pyw"/>
+      <keywordlist>
+         <keywords value="0">
+             if else elif for while in
+         </keywords>
+         <keywords value="1">
+             str len setattr getattr
+         </keywords
+      </keywordlist>
+      <syntaxspeclist>
+         <syntaxspec value="STC_P_DEFAULT" tag="default_style"/>
+         <syntaxspec value="STC_P_WORD" tag="keyword_style"/>
+      </syntaxspeclist>
+      <propertylist>
+         <property value="fold" enable="1"/>
+         <property value="tab.timmy.whinge.level" enable="1"/>
+      </propertylist>
+      <commentpattern value="#"/>
+      <featurelist>
+         <feature method="AutoIndenter" source="myextension.py"/>
+      </featurelist>
+   </syntax>
+</editra>

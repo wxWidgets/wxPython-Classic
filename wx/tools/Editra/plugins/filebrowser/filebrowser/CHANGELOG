@@ -1,0 +1,113 @@
+FileBrowser Plugin for Editra
+Author: Cody Precord
+License: wxWindows
+
+Version 2.2:
+01/05/2013
+- Fix naming error in duplicate file
+- Fix various refresh issues
+
+Version 2.1:
+08/12/2012
+  - Handle PyDeadObject errors.
+  - Fix error when clicking in blank area.
+
+Version 2.0:
+06/08/2012
+   - Major re-write
+   - View filter configuration
+   - View Hidden files option moved to configuration dialog
+   - Use common ebmlib functions
+   - Add option to disable browser synchronization
+
+Version 1.6:
+10/02/2010
+    - More fixes for notebook sync feature
+
+Version 1.5:
+xx/xx/2009
+
+    - Fix crash due to improper page checking in notebook sync feature.
+    - Fix crash on windows when clicking on search in directory menu.
+
+Version 1.4:
+04/18/2009
+
+    - Api compatibility changes.
+    - Search in Directory context menu option.
+    - Fix bug that could happen in notebook notification of page change when
+      all pages have been closed in the notebook.
+
+Version 1.3:
+
+    - Fix platform detection for trash function when running on Vista
+
+Version 1.2:
+
+    - Navigate through filebrowser with keyboard.
+    - Minor UI changes
+
+Version 1.1:
+
+    - Fix not being able to open files from Home and Desktop nodes on gtk when
+      localizations are enabled.
+    - Fix notebook syncronization where sometimes it would jump to root
+
+Version 1.0:
+
+    - Fix not being able to open files on drives mounted to Volumes on OSX
+    - Fix expanding/contracting folders with double click on Gtk/OSX
+
+Version 0.9:
+
+    - Syncronize browser to file when first shown
+
+Version 0.8:
+
+    - Add Bookmark Selected Paths command to context menu
+    - Syncronize path in tree with currently selected notebook page
+    - Fix some translation strings
+
+Version 0.7:
+
+    - Syncronize icons with theme changes in Editra
+    - Minor compatibility fixes
+    - Menu item being improperly checked under some use cases
+
+Version 0.6:
+
+    - Number of Ui improvements
+    - Added right click menu for performing file system operations
+        - Open in Editor
+        - Open with system filemanager
+        - Show file in system filemanager
+        - Get File Info
+        - Rename File
+        - New Folder
+        - New File
+        - Duplicate File
+        - Create compressed zip archive of file/folder
+        - Move to Trash/Recycle Bin
+    - Rename files by clicking on lables
+    - Fixed bug in behavior of opening files and navigating directories
+
+Version 0.5:
+
+    - Fix bug with opening files on gtk
+
+Version 0.4:
+
+    - Bug Fixes
+    - New button for bookmark menu
+
+Version 0.3:
+
+    - Bug Fixes
+
+Version 0.2:
+
+    - Bug Fixes
+
+Version 0.1:
+
+    - Initial Release

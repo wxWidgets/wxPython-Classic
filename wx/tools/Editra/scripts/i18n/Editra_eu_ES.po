@@ -1,0 +1,3227 @@
+# Basque translation for editra
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the editra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: editra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-09 13:29-0500\n"
+"PO-Revision-Date: 2012-03-11 11:29+0000\n"
+"Last-Translator: Martín Nieves <erabilgarri@yahoo.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-04-22 23:32+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
+
+#: ../../src/ed_search.py:486
+#, python-format
+msgid "\"%s\" was not found"
+msgstr "\"%s\" ez da aurkitu"
+
+#: ../../src/ed_search.py:700
+#, python-format
+msgid "%d matches were replaced."
+msgstr "bat datorren %d aldatuak izan dira"
+
+#: ../../src/util.py:386
+#, python-format
+msgid "%s Source File"
+msgstr "%s iturburu fitxategia"
+
+#: ../../src/ed_main.py:584
+#, python-format
+msgid ""
+"%s could not be found.\n"
+"Perhaps it's been moved or deleted."
+msgstr "%s Ezin izan da aurkitu"
+
+#: ../../src/ed_stc.py:1854
+#, python-format
+msgid "%s does not exist"
+msgstr "%s ez dago"
+
+#: ../../src/ed_editv.py:558
+#, python-format
+msgid ""
+"%s has been deleted since its last save point.\n"
+"\n"
+"Would you like to save it again?"
+msgstr "%s ezabatua izan da bere azken gordetze puntua geroztik"
+
+#: ../../src/ed_editv.py:578
+#, python-format
+msgid ""
+"%s has been modified by another application.\n"
+"\n"
+"Would you like to reload it?"
+msgstr "%s beste aplikazio batek aldatu du"
+
+#: ../../src/ed_menu.py:916
+msgid "&About..."
+msgstr "%-ri buruz..."
+
+#: ../../src/ed_menu.py:600
+msgid "&Close Tab"
+msgstr "&Fitxa itxi"
+
+#: ../../src/ed_menu.py:660
+msgid "&Copy"
+msgstr "&Kopiatu"
+
+#: ../../src/ed_menu.py:730
+msgid "&Edit"
+msgstr "&Edizioa"
+
+#: ../../src/ed_menu.py:646
+msgid "&File"
+msgstr "&Fitxategiak"
+
+#: ../../src/ed_menu.py:714
+msgid "&Find"
+msgstr "&Bilatu"
+
+#: ../../src/ed_menu.py:804
+msgid "&Font"
+msgstr "&Letra mota"
+
+#: ../../src/ed_menu.py:774
+msgid "&Goto Line"
+msgstr "&Lerrora joan"
+
+#: ../../src/ed_main.py:132 ../../src/ed_menu.py:930
+msgid "&Help"
+msgstr "&Laguntza"
+
+#: ../../src/ed_menu.py:590
+msgid "&New Tab"
+msgstr "&Fitxa berria"
+
+#: ../../src/ed_menu.py:595
+msgid "&Open"
+msgstr "&Ireki"
+
+#: ../../src/ed_menu.py:662
+msgid "&Paste"
+msgstr "&Itsatsi"
+
+#: ../../src/ed_menu.py:641
+msgid "&Print"
+msgstr "&Inprimatu"
+
+#: ../../src/ed_menu.py:717
+msgid "&Quick Find"
+msgstr "%Bilaketa azkarra"
+
+#: ../../src/ed_menu.py:607
+msgid "&Save"
+msgstr "&Gorde"
+
+#: ../../src/ed_menu.py:878
+msgid "&Settings"
+msgstr "&Ezarpenak"
+
+#: ../../src/ed_menu.py:791
+msgid "&Toolbar"
+msgstr "&Tresna-barra"
+
+#: ../../src/ed_menu.py:907
+msgid "&Tools"
+msgstr "&Tresnak"
+
+#: ../../src/ed_menu.py:655
+msgid "&Undo"
+msgstr "&Desegin"
+
+#: ../../src/ed_menu.py:795
+msgid "&View"
+msgstr "&Ikusmena"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:273
+msgid "**Alias**"
+msgstr "**Ezizena**"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:273
+msgid "**New Commandline**"
+msgstr "**Komando lerro berria**"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:405
+msgid "0-50000 (0 unlimited)"
+msgstr "0-50000 (0 mugagabea)"
+
+#: ../../src/eclib/filterdlg.py:76
+msgid "<< Remove"
+msgstr "<< Kendu"
+
+#: ../../src/eclib/errdlg.py:320 ../../plugins/Launch/launch/launch.py:537
+msgid "Abort"
+msgstr "Ezeztatu"
+
+#: ../../src/ed_menu.py:917
+msgid "About"
+msgstr "Honi buruz"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:524
+#, fuzzy
+msgid "Access Denied"
+msgstr "Sarbidea ukatua: %s"
+
+#: ../../src/ed_cmdbar.py:802
+#, python-format
+msgid "Access Denied: %s"
+msgstr "Sarbidea ukatua: %s"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:61
+#, fuzzy
+msgid "Actions"
+msgstr "Atalak"
+
+#: ../../src/ed_editv.py:514
+#, python-format
+msgid "Add '%s' to dictionary"
+msgstr "'%s' gehitu hiztegiari"
+
+#: ../../src/eclib/filterdlg.py:75
+msgid "Add >>"
+msgstr "Gehitu >>"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:114
+#, fuzzy
+msgid "Add File Filters"
+msgstr "Fitxategi filtroak:"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:203
+msgid "Add a new executable"
+msgstr "Exekutagarri berria gehitu"
+
+#: ../../src/ed_menu.py:676
+msgid "Add a new line after the current line"
+msgstr "Uneko lerroaren ondoren lerro berri bat gehitu"
+
+#: ../../src/ed_menu.py:678
+msgid "Add a new line before the current line"
+msgstr "Uneko lerroan aurretik lerro berri bat gehitu"
+
+#: ../../src/ed_menu.py:706
+msgid "Add and remove bookmarks"
+msgstr "Gehitu eta kendu laster - markak"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:87
+msgid "Add filter"
+msgstr ""
+
+#: ../../src/prefdlg.py:815
+msgid "Adds extra scrolling room after last line"
+msgstr "Azken lerroaren ondoren  lekua gehitzen du"
+
+#: ../../src/prefdlg.py:193
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:583
+msgid "Alias"
+msgstr "Ezizena"
+
+#: ../../src/ed_log.py:165 ../../src/ed_log.py:244
+msgid "All"
+msgstr "Guztia"
+
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:42
+msgid "Alphabetically"
+msgstr "Alfabetikoki"
+
+#: ../../src/Editra.py:643
+#, python-format
+msgid ""
+"An updated version of Editra is available\n"
+"Would you like to download Editra %s now?"
+msgstr ""
+"Editra bertsio berri bat dago erabilgarri \n"
+"Nahi nahi al duzu Editra % s deskargatu ?"
+
+#: ../../src/prefdlg.py:801
+msgid "AntiAliasing"
+msgstr "AntiAliasing"
+
+#: ../../src/prefdlg.py:187
+msgid "Appearance"
+msgstr "Itxura"
+
+#: ../../src/prefdlg.py:1820
+msgid "Apply"
+msgstr "Aplikatu"
+
+#: ../../src/eclib/filemgrdlg.py:167
+#, python-format
+msgid "Are you sure want to delete %s?"
+msgstr "Zihur al zaude %s ezabatu nahi duzula ?"
+
+#: ../../src/plugdlg.py:1047
+#, python-format
+msgid ""
+"Are you sure you want to uninstall %s?\n"
+"This cannot be undone."
+msgstr ""
+"Ziur al zaude % s desinstalatu nahi duzula?\n"
+"Hau ezin da gero desegin."
+
+#: ../../plugins/Launch/launch/launch.py:172
+msgid "Arguments"
+msgstr "Argumentuak"
+
+#: ../../src/style_editor.py:765
+msgid "Attributes"
+msgstr "Ezaugarriak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:396
+msgid "Audible feedback when errors are detected"
+msgstr "Akatsak detektatzerakoan soinua entzungo da"
+
+#: ../../src/ed_main.py:1251
+msgid "Aui Pane Navigator"
+msgstr "Aui Pane Nabigatzailea"
+
+#: ../../src/plugdlg.py:933 ../../src/plugdlg.py:1119
+#, python-format
+msgid "Author: %s"
+msgstr "Egilea: %s"
+
+#: ../../src/ed_menu.py:863 ../../src/prefdlg.py:991
+msgid "Auto-Completion"
+msgstr "Osatze automatikoa"
+
+#: ../../src/ed_menu.py:865 ../../src/prefdlg.py:1001
+msgid "Auto-Indent"
+msgstr "Indentazio automatikoa"
+
+#: ../../src/perspective.py:86
+msgid "Automatic"
+msgstr "Automatikoa"
+
+#: ../../src/prefdlg.py:543
+msgid "Automatically Backup Files"
+msgstr "Fitxategien babeskopiak automatikoki sortu"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:393
+msgid "Automatically clear output buffer between runs"
+msgstr "Automatikoki garbitu irteerako bufferra exekuzioen tartean"
+
+#: ../../src/prefdlg.py:518
+msgid "Automatically reload files when changes are detected on disk"
+msgstr "Automatikoki fitxategiak berriro kargatu diskoan aldaketarik badago"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:544
+msgid "Automatically save all open files before running"
+msgstr "Automatikoki irekitako fitxategi guztiak gorde exekutatu baino lehen"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:541
+msgid "Automatically save current file before running"
+msgstr "Automatikoki irekitako fitxategia gorde exekutatu baino lehen"
+
+#: ../../src/perspective.py:87
+msgid "Automatically save/use window state from last session"
+msgstr "Automatikoki  gorde/erabili azken saioko lehioen egoera"
+
+#: ../../src/prefdlg.py:778
+msgid "Automatically trim whitespace on save"
+msgstr "Automatikoki hutsuneak kendu gordertzerakoan"
+
+#: ../../src/style_editor.py:754 ../../plugins/Launch/launch/cfgdlg.py:424
+msgid "Background"
+msgstr "Atzeko planoa"
+
+#: ../../src/prefdlg.py:784
+msgid "Backspace Unindents"
+msgstr "Atzera-tekla sinboloei indentazio-tartea kendu"
+
+#: ../../src/prefdlg.py:549
+msgid "Backup Path:"
+msgstr "Babes kopien gordelekua"
+
+#: ../../src/prefdlg.py:546
+msgid "Backup buffer to file periodically"
+msgstr "Tarteka Buffera gorde fitxategira"
+
+#: ../../src/prefdlg.py:566
+msgid "Backup file suffix:"
+msgstr ""
+
+#: ../../src/prefdlg.py:1794
+msgid "Binding"
+msgstr "Lotura"
+
+#: ../../src/prefdlg.py:2214
+msgid "Black/White"
+msgstr "Zuri/Beltza"
+
+#: ../../src/ed_bookmark.py:273
+msgid "Bookmark"
+msgstr "Laster-marka"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:644
+msgid "Bookmark Selected Path(s)"
+msgstr "Aukeratutako fitxategi bideari laster marka egin"
+
+#: ../../src/ed_bookmark.py:291
+#, python-format
+msgid "Bookmark%d"
+msgstr "%d Laster-marka"
+
+#: ../../src/ed_bookmark.py:79 ../../src/ed_menu.py:705
+msgid "Bookmarks"
+msgstr "Laster-markak"
+
+#: ../../src/ed_menu.py:868 ../../src/prefdlg.py:971
+msgid "Bracket Highlighting"
+msgstr "parentesien nabarmentzea"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:600
+msgid "Browse..."
+msgstr "Arakatu..."
+
+#: ../../src/ed_menu.py:925
+msgid "Bug Tracker..."
+msgstr "erroreen azterketa..."
+
+#: ../../src/ed_cmdbar.py:599
+#, python-format
+msgid "Can't change directory to: %s"
+msgstr "Ezin da %s direktoriora aldatu"
+
+#: ../../src/ed_search.py:1339 ../../src/style_editor.py:86
+#: ../../src/updater.py:582
+msgid "Cancel"
+msgstr "Ezeztatu"
+
+#: ../../src/updater.py:662
+msgid "Canceled"
+msgstr "Ezeztatuta"
+
+#: ../../src/prefdlg.py:817
+#, fuzzy
+msgid "Caret Width:"
+msgstr "Zabalera indentatu"
+
+#: ../../src/ed_statbar.py:193
+msgid "Change Encoding"
+msgstr "Aldatu kodeketa"
+
+#: ../../src/ed_menu.py:805
+msgid "Change Font Settings"
+msgstr "Aldatu letra-motaren ezaugarriak"
+
+#: ../../src/ed_statbar.py:62 ../../src/ed_statbar.py:65
+#: ../../src/ed_statbar.py:68
+#, python-format
+msgid "Change line endings to %s"
+msgstr "Aldatu %s-ra lerro bukaera"
+
+#: ../../src/ed_statbar.py:192
+msgid "Change the encoding of the current document."
+msgstr "Aldatu uneko dokumentuaren kodeketa"
+
+#: ../../src/perspective.py:146
+#, python-format
+msgid "Change view to \"%s\""
+msgstr "Aldatu ikuspegia \"%s\"-ra"
+
+#: ../../src/prefdlg.py:283
+msgid "Changes made in this dialog are saved in your current profile. Some Items such as Language require the program to be restarted before taking effect."
+msgstr "Elkarrizketa honetan egindako aldaketak zure une honetako profilean gordetzen ari dira. Hizkuntza bezalako elementu batzuek eskatzen dute berrabiaraztea programan eragina izan aurretik."
+
+#: ../../src/plugdlg.py:234
+msgid "Changes will take affect once the program has been restarted"
+msgstr "Aldaketek eragina izango dute programa berrabiaraztean"
+
+#: ../../src/prefdlg.py:1576
+msgid "Check"
+msgstr "Egiaztatu"
+
+#: ../../src/prefdlg.py:414
+msgid "Check for updates on startup"
+msgstr "Begiratu eguneratzeak programa abiatzerakoan"
+
+#: ../../src/prefdlg.py:513
+msgid "Check if on disk file has been modified by others"
+msgstr "Egiaztatu diskoko fitxategia beste baten batek aldatu duen"
+
+#: ../../src/prefdlg.py:584
+msgid "Check spelling while typing"
+msgstr "Egiaztatu ortografia idazten ari zaren bitartean"
+
+#: ../../src/prefdlg.py:1602
+msgid "Checking..."
+msgstr "Egiaztatzen..."
+
+#: ../../src/eclib/finddlg.py:810
+msgid "Choose Folder"
+msgstr "Aukeratu karpeta"
+
+#: ../../src/eclib/finddlg.py:1142
+msgid "Choose Search Folder"
+msgstr "Aukeratu nun bilatu"
+
+#: ../../src/ed_main.py:679
+msgid "Choose a Save Location"
+msgstr "Aukeratu nun gorde"
+
+#: ../../src/ed_pages.py:170
+msgid "Choose an Encoding"
+msgstr "Aukeratu kodeketa"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:609
+msgid "Choose and executable"
+msgstr "Aukeratu exekutagarria"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Class Definitions"
+msgstr "Klase definizioak"
+
+#: ../../src/ed_log.py:139 ../../src/ed_search.py:1343
+#: ../../plugins/Launch/launch/launch.py:181
+#: ../../plugins/PyShell/PyShell/__init__.py:112
+msgid "Clear"
+msgstr "Garbitu"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:580
+msgid "Click on an item to edit"
+msgstr "Klik egin elementu bat editatzeko"
+
+#: ../../src/ed_editv.py:281
+#, python-format
+msgid "Close \"%s\""
+msgstr "\"%s\" Itxi"
+
+#: ../../src/ed_editv.py:283
+msgid "Close All"
+msgstr "Dena itxi"
+
+#: ../../src/ed_shelf.py:173
+#, python-format
+msgid "Close All '%s'"
+msgstr "\"%s\" Denak itxi"
+
+#: ../../src/ed_menu.py:604
+msgid "Close All Tabs"
+msgstr "itxi fitxa guztiak"
+
+#: ../../src/ed_menu.py:601
+msgid "Close Current Tab"
+msgstr "Itxi uneko fitxa"
+
+#: ../../src/ed_editv.py:282
+msgid "Close Other Tabs"
+msgstr "Itxi beste fitxak"
+
+#: ../../src/ed_menu.py:603
+msgid "Close Window"
+msgstr "Itxi leihoa"
+
+#: ../../src/ed_menu.py:605
+msgid "Close all open tabs"
+msgstr "Itxi irekita dauden fitxa guztiak"
+
+#: ../../src/ed_menu.py:603
+msgid "Close the current window"
+msgstr "Itxi une hontako leihoa"
+
+#: ../../src/prefdlg.py:714
+msgid "Code"
+msgstr "Kodea"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:92
+msgid "Code Browser"
+msgstr "Kode harakatzailea"
+
+#: ../../src/ed_menu.py:765 ../../src/ed_menu.py:870 ../../src/prefdlg.py:973
+msgid "Code Folding"
+msgstr "Kode hizkutaketa"
+
+#: ../../src/ed_menu.py:766
+msgid "Code folding toggle actions"
+msgstr "Kode hizkutaketa aldatzean egin beharreko ekintzak"
+
+#: ../../plugins/codebrowser/codebrowser/__init__.py:48
+#: ../../plugins/codebrowser/codebrowser/__init__.py:95
+msgid "CodeBrowser"
+msgstr "Kode harakatzailea"
+
+#: ../../src/style_editor.py:737
+msgid "Color"
+msgstr "Kolorea"
+
+#: ../../src/ed_menu.py:873
+msgid "Color Highlight Code Syntax"
+msgstr "Kolore nabarmentzea kodearen sintaxian"
+
+#: ../../src/prefdlg.py:1141
+msgid "Color Scheme"
+msgstr "Kolore eredua"
+
+#: ../../plugins/PyShell/PyShell/__init__.py:108
+msgid "Color Scheme:"
+msgstr "Kolore eredua:"
+
+#: ../../src/prefdlg.py:2216
+msgid "Colour/Default"
+msgstr "Kolorea/Lehenetsia"
+
+#: ../../src/prefdlg.py:2215
+msgid "Colour/White"
+msgstr "Koloera/Zuria"
+
+#: ../../src/ed_menu.py:671
+msgid "Column Edit"
+msgstr "Zutabe Edizioa"
+
+#: ../../src/ed_cmdbar.py:438
+msgid "Command"
+msgstr "Komandoa"
+
+#: ../../src/ed_menu.py:699
+msgid "Commands that affect an entire line"
+msgstr "Lerro oso bateri eragiten dion komandoak"
+
+#: ../../src/prefdlg.py:1386
+msgid "Configuration"
+msgstr "Konfigurazioa"
+
+#: ../../src/plugdlg.py:195
+msgid "Configuration Changes Made"
+msgstr "Konfigurazio Aldaketa Eginda"
+
+#: ../../src/plugdlg.py:120 ../../src/plugdlg.py:942
+msgid "Configure"
+msgstr "Konfiguratu"
+
+#: ../../src/ed_menu.py:638
+msgid "Configure Printer"
+msgstr "Inpresora konfiguratu"
+
+#: ../../src/ed_menu.py:819
+msgid "Convert selected text to all lowercase letters"
+msgstr "Bihurtu hautatutako testua letra xehera(txikira)"
+
+#: ../../src/ed_menu.py:817
+msgid "Convert selected text to all uppercase letters"
+msgstr "Bihurtu hautatutako testuko letra guztiak haundira"
+
+#: ../../src/ed_menu.py:831
+msgid "Convert spaces to tabs in selected/all text"
+msgstr "Bihurtu espazioak tabuladoreetara hautatutakoan/testu guztian"
+
+#: ../../src/ed_menu.py:833
+msgid "Convert tabs to spaces in selected/all text"
+msgstr "Bihurtu tabuladoreak espazioetar hautatutakoan/testu guztian"
+
+#: ../../src/ed_editv.py:466 ../../src/ed_toolbar.py:88
+msgid "Copy"
+msgstr "Kopiatu"
+
+#: ../../src/ed_menu.py:685
+msgid "Copy Current Line"
+msgstr "Hautatutako lerroa kopiatu"
+
+#: ../../src/ed_editv.py:285
+msgid "Copy Filename"
+msgstr "Kopiatu fitxategiaren izena"
+
+#: ../../src/ed_editv.py:286
+msgid "Copy Full Path"
+msgstr "Kopiatu bide (path) guztia"
+
+#: ../../src/ed_menu.py:684
+msgid "Copy Line"
+msgstr "Kopiatu lerroa"
+
+#: ../../src/ed_menu.py:661 ../../src/ed_toolbar.py:89
+msgid "Copy Selected Text to Clipboard"
+msgstr "Kopiatu hautatutako testua arbelera (clipboard)"
+
+#: ../../src/ed_main.py:1572
+msgid "Copyright"
+msgstr "Copyright-a"
+
+#: ../../src/eclib/finddlg.py:865
+msgid "Count"
+msgstr "Kontatu"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:656
+#: ../../plugins/filebrowser/filebrowser/browser.py:678
+#, python-format
+msgid "Create Archive of \"%s\""
+msgstr "\"%s\"-tik sortu fitxategia"
+
+#: ../../src/style_editor.py:207
+msgid "Create a new style theme"
+msgstr "Sortu estilo berriko tema bat"
+
+#: ../../src/eclib/infodlg.py:193
+msgid "Created"
+msgstr "Sortuta"
+
+#: ../../src/ed_menu.py:658
+msgid "Cu&t"
+msgstr "&Ebaki"
+
+#: ../../src/eclib/finddlg.py:732
+msgid "Current Directory"
+msgstr "Uneko  direktorioa"
+
+#: ../../src/eclib/finddlg.py:731
+msgid "Current Document"
+msgstr "Uneko dokumentua"
+
+#: ../../src/ed_cmdbar.py:128
+msgid "Customize"
+msgstr "Pertsonalizatu"
+
+#: ../../src/ed_main.py:1448
+msgid "Customize Menu"
+msgstr "Menua pertsonalizatu"
+
+#: ../../src/ed_menu.py:541
+msgid "Customize the items shown in this menu."
+msgstr "Menu honetan azaltzen diren elementuak pertsonalizatu"
+
+#: ../../src/ed_menu.py:540
+msgid "Customize..."
+msgstr "Pertsonalizatu..."
+
+#: ../../src/ed_editv.py:465 ../../src/ed_toolbar.py:86
+msgid "Cut"
+msgstr "Ebaki"
+
+#: ../../src/ed_menu.py:681
+msgid "Cut Current Line"
+msgstr "Hautatutako lerroa ebaki"
+
+#: ../../src/ed_menu.py:680
+msgid "Cut Line"
+msgstr "Lerroa ebaki"
+
+#: ../../src/ed_menu.py:659 ../../src/ed_toolbar.py:87
+msgid "Cut Selected Text from File"
+msgstr "Hautatutako fitxategiaren testua ebaki"
+
+#: ../../src/ed_menu.py:666
+msgid "Cycle Clipboard"
+msgstr "Arbeleko (clipboard) elementuak mugitu"
+
+#: ../../src/ed_menu.py:667
+msgid "Cycle through recent clipboard text"
+msgstr "Arbeleko(clipboard) azkeneko testuen artean mugitu"
+
+#: ../../src/ed_search.py:66 ../../src/ed_search.py:70
+msgid "DECODING ERROR"
+msgstr "DESKODIFIKAZIO ERROREA"
+
+#: ../../src/ed_main.py:795 ../../src/ed_main.py:797 ../../src/ed_main.py:814
+#: ../../src/ed_main.py:826 ../../src/ed_session.py:277
+#: ../../plugins/Launch/launch/cfgdlg.py:191
+msgid "Default"
+msgstr "Lehenetsia"
+
+#: ../../src/prefdlg.py:796
+msgid "Default EOL Mode"
+msgstr "EOL (End of Line) modu lehenetsia"
+
+#: ../../src/prefdlg.py:964
+msgid "Default Lexer"
+msgstr "Lexiko aztertzaile lehenetsia"
+
+#: ../../src/prefdlg.py:1244
+msgid "Default Perspective"
+msgstr "Perspektiba lehenetsia"
+
+#: ../../src/prefdlg.py:962
+msgid "Default highlighing for new documents"
+msgstr "Dokumentu berrientzako nabarmendura lehenetsia"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Defines"
+msgstr "Definizioak"
+
+#: ../../src/ed_bookmark.py:142 ../../src/ed_session.py:186
+#: ../../src/prefdlg.py:1763
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: ../../src/ed_bookmark.py:145
+msgid "Delete All"
+msgstr "Ezabatu guztia"
+
+#: ../../src/ed_bookmark.py:144
+msgid "Delete Bookmark"
+msgstr "Ezabatu laster-marka"
+
+#: ../../src/eclib/filemgrdlg.py:175
+msgid "Delete Error"
+msgstr "Ezabatze Errorea"
+
+#: ../../src/eclib/filemgrdlg.py:168
+msgid "Delete File?"
+msgstr "Ezabatu fitxategia?"
+
+#: ../../src/ed_menu.py:682
+msgid "Delete Line"
+msgstr "Ezabatu lerroa"
+
+#: ../../src/perspective.py:294
+msgid "Delete Perspective"
+msgstr "Perspektiba ezabatu"
+
+#: ../../src/perspective.py:84
+msgid "Delete Saved View"
+msgstr "Gordetako ikuspegia ezabatu"
+
+#: ../../src/ed_bookmark.py:148
+msgid "Delete all bookmarks"
+msgstr "Laster-marka guztiak ezabatu"
+
+#: ../../src/ed_menu.py:683
+msgid "Delete the selected line(s)"
+msgstr "Aukeratutako lerroa(k) ezabatu"
+
+#: ../../src/prefdlg.py:591
+#, fuzzy
+msgid "Dictionary:"
+msgstr "Hiztegia"
+
+#: ../../src/eclib/finddlg.py:822
+msgid "Direction"
+msgstr "Norabidea"
+
+#: ../../src/prefdlg.py:401
+msgid "Disable Error Reporter"
+msgstr "Errore erreportaria ez-gaitu"
+
+#: ../../src/prefdlg.py:1286
+msgid "Display Font"
+msgstr "Erakutsi letra - mota"
+
+#: ../../src/plugdlg.py:182
+msgid "Do you wish to exit?"
+msgstr "Irten nahi duz ?"
+
+#: ../../src/ed_pages.py:985
+#, python-format
+msgid ""
+"Do you wish to open all %d files in this directory?\n"
+"\n"
+"Warning: opening many files at once may cause the editor to temporarily  freeze."
+msgstr "Direktorio honako %d fitxategi guztiak ireki nahi dituzu ?"
+
+#: ../../src/prefdlg.py:189
+msgid "Document"
+msgstr "Dokumentua"
+
+#: ../../src/eclib/finddlg.py:826
+msgid "Down"
+msgstr "Behera"
+
+#: ../../src/plugdlg.py:121 ../../src/plugdlg.py:451 ../../src/plugdlg.py:1097
+#: ../../src/prefdlg.py:1571
+msgid "Download"
+msgstr "deskargatu"
+
+#: ../../src/plugdlg.py:474
+msgid "Downloaded"
+msgstr "Deskargatua"
+
+#: ../../src/plugdlg.py:589 ../../src/updater.py:618
+msgid "Downloading"
+msgstr "Deskargatzen"
+
+#: ../../src/updater.py:581
+#, python-format
+msgid "Downloading To: %s"
+msgstr "%s-ra deskargatzen"
+
+#: ../../src/Editra.py:649 ../../src/prefdlg.py:1613
+msgid "Downloading Update"
+msgstr "Eguneraketa deskargatzen"
+
+#: ../../src/updater.py:579
+#, python-format
+msgid "Downloading: %s"
+msgstr "%s deskargatzen"
+
+#: ../../src/plugdlg.py:181
+msgid "Downloads are incomplete"
+msgstr "Deskargak ez dira osatu"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:655
+msgid "Duplicate"
+msgstr "Bikoiztu"
+
+#: ../../src/ed_menu.py:686
+msgid "Duplicate Line"
+msgstr "Bikoiztu lerroa"
+
+#: ../../src/ed_menu.py:687
+msgid "Duplicate the current line"
+msgstr "Bikoiztu hautatutako lerroa"
+
+#: ../../src/ed_menu.py:643
+msgid "E&xit"
+msgstr "&Irten"
+
+#: ../../src/ed_menu.py:850
+msgid "EOL Mode"
+msgstr "EOL (End of Line) modua"
+
+#: ../../src/ed_main.py:629
+#, python-format
+msgid "ERROR: %s"
+msgstr "ERROREA: %s"
+
+#: ../../src/ed_main.py:695
+#, python-format
+msgid "ERROR: Failed to save %s"
+msgstr "ERROREA: %s Ezin izan da gorde"
+
+#: ../../src/prefdlg.py:975
+msgid "Edge Guide"
+msgstr "Iskineko Gida"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:640
+msgid "Edit"
+msgstr "Editatu"
+
+#: ../../src/ed_menu.py:727
+msgid "Edit Preferences / Settings"
+msgstr "Editatu Hobespenak/ezarpenak"
+
+#: ../../src/ed_menu.py:896
+msgid "Edit the way syntax is highlighted"
+msgstr "Editatu nola nabarmentzen den sintaxia"
+
+#: ../../src/ed_menu.py:758
+msgid "Editor"
+msgstr "Editorea"
+
+#: ../../src/ed_menu.py:889
+msgid "Editor Command"
+msgstr "Editorearen komandoa"
+
+#: ../../src/prefdlg.py:385
+msgid "Editor Mode"
+msgstr "Editore modua"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:539
+msgid "Editor Options"
+msgstr "Editorearen aukerak"
+
+#: ../../src/ed_log.py:80
+msgid "Editra Log"
+msgstr "Editra Log"
+
+#: ../../src/ed_mdlg.py:85
+#, python-format
+msgid ""
+"Editra could not open %(filename)s\n"
+"\n"
+"Error:\n"
+"%(errormsg)s"
+msgstr ""
+"Editrak ezin du ireki %(filename)s\n"
+"\n"
+"Errorea:\n"
+"%(errormsg)s"
+
+#: ../../src/ed_main.py:1562
+msgid "Editra is a programmers text editor."
+msgstr "Editra programatzaileentzako testu editore bat da"
+
+#: ../../src/ed_menu.py:924
+msgid "Editra translations project"
+msgstr "Editra itzulketa proiektoa"
+
+#: ../../src/ed_main.py:433
+msgid "Editra: Open"
+msgstr "Editra:Ireki"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Elements"
+msgstr "Elementuak"
+
+#: ../../src/ed_pages.py:374
+msgid "Empty File"
+msgstr "Fitxategi hutsa"
+
+#: ../../src/plugdlg.py:934
+msgid "Enable"
+msgstr "Gaitu"
+
+#: ../../src/prefdlg.py:1003
+msgid "Enable Vi Emulation"
+msgstr "Gaitu Vi Emulazioa"
+
+#: ../../src/ed_menu.py:672
+msgid "Enable column edit mode."
+msgstr "Gaitu Zutabe edizio modua"
+
+#: ../../src/prefdlg.py:601
+#, fuzzy
+msgid "Enchant Path:"
+msgstr "Enchant bidea"
+
+#: ../../src/prefdlg.py:501
+msgid "Encoding to try when auto detection fails"
+msgstr "Kodeaketa sahiatu autodetekzioak huts egiten duenean"
+
+#: ../../src/ed_menu.py:851
+msgid "End of line character formatting"
+msgstr "Lerro bukaerako karaktere formatoa"
+
+#: ../../src/eclib/colorsetter.py:84
+msgid "Enter a hex color value"
+msgstr "Sartu hex kolore balore bat"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:826
+#, fuzzy
+msgid "Enter file name:"
+msgstr "Sartu estilo horriaren izena"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:817
+#, fuzzy
+msgid "Enter folder name:"
+msgstr "Sartu estilo horriaren izena"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:114
+#, fuzzy
+msgid "Enter new filter"
+msgstr "Lerro berria honen ondoren"
+
+#: ../../src/style_editor.py:364
+msgid "Enter style sheet name"
+msgstr "Sartu estilo horriaren izena"
+
+#: ../../src/prefdlg.py:1962
+msgid "Enter the name of the new key profile"
+msgstr "Sartu tekla profilaren izena"
+
+#: ../../src/ed_editv.py:221 ../../src/plugdlg.py:825
+msgid "Error"
+msgstr "Errorea"
+
+#: ../../src/ed_mdlg.py:87
+msgid "Error Opening File"
+msgstr "Errorea fitxategia irekitzean"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:434
+msgid "Error Text"
+msgstr "Errorearen testua"
+
+#: ../../src/eclib/errdlg.py:316
+msgid "Error Traceback:"
+msgstr "Errorearen segimendua(traceback):"
+
+#: ../../src/ed_search.py:606
+#, python-format
+msgid ""
+"Error in regular expression expansion.The replace action cannot be completed.\n"
+"\n"
+"Error Message: %s"
+msgstr ""
+"Errorea espresio erregularra hedatzean. Ordezkapena ekintza ezin izan da burutu.\n"
+"\n"
+"Errore mezua: %s"
+
+#: ../../src/dev_tool.py:260
+msgid ""
+"Error: Something unexpected happend\n"
+"Help improve Editra by clicking on Report Error\n"
+"to send the Error Traceback shown below."
+msgstr ""
+"Errorea: ustekabeko zerbait gertatu da.\n"
+"Lagundu Editra hobetzen, txosten errorean klik eginez.\n"
+"Era honetan erroreari buruzko informazioa bidaliko duzu."
+
+#: ../../src/ed_main.py:1499
+#, python-format
+msgid "Error: Unable to open %s"
+msgstr "Errorea: Ezin da %s ireki"
+
+#: ../../src/plugdlg.py:130
+msgid "Errors"
+msgstr "Erroreak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:584
+msgid "Executable Commands"
+msgstr "Komandu exekutagarriak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:176
+msgid "Executables"
+msgstr "Exekutagarriak"
+
+#: ../../plugins/Launch/launch/launch.py:703
+msgid "Exit Code"
+msgstr "Irteera kodea"
+
+#: ../../src/ed_menu.py:643
+msgid "Exit the Program"
+msgstr "Irten programatik"
+
+#: ../../src/eclib/errdlg.py:321
+msgid "Exit the application"
+msgstr "Irten aplikaziotik"
+
+#: ../../src/prefdlg.py:994
+msgid "Extended Auto-Comp"
+msgstr "Auto-Komp hedatua"
+
+#: ../../src/prefdlg.py:2103
+msgid "Extensions (space separated, no dots)"
+msgstr "Hedapenak (banandutako espazioak, punturik ez)"
+
+#: ../../src/ed_menu.py:854
+msgid "F&ormat"
+msgstr "&Formatua"
+
+#: ../../src/updater.py:700
+msgid "Failed"
+msgstr "Huts egin du"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:831
+#, fuzzy
+msgid "Failed to create file"
+msgstr "Impresio aurrebista sortzeak huts egin du"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:822
+#, fuzzy
+msgid "Failed to create folder"
+msgstr "Impresio aurrebista sortzeak huts egin du"
+
+#: ../../src/ed_print.py:120
+msgid "Failed to create print preview"
+msgstr "Impresio aurrebista sortzeak huts egin du"
+
+#: ../../src/style_editor.py:381
+#, python-format
+msgid ""
+"Failed to delete style sheet:\n"
+"Error:\n"
+"%s"
+msgstr ""
+"Huts egin du estilo orria ezabatzean:\n"
+"Errorea:\n"
+"% s"
+
+#: ../../src/ed_main.py:849
+msgid "Failed to get control reference for printing"
+msgstr ""
+
+#: ../../src/plugdlg.py:827
+#, python-format
+msgid "Failed to install %d plugins"
+msgstr "%d pluginak instalatzerakoan huts egin du"
+
+#: ../../src/prefdlg.py:677
+msgid "Failed to load Enchant"
+msgstr "Enchant kargatzerakoan huts egin du"
+
+#: ../../src/ed_pages.py:370
+#, python-format
+msgid ""
+"Failed to load the session: %(sessionname)s\n"
+"\n"
+"Error: %(error)s"
+msgstr ""
+"Sesioa kargatzerakoan huts egin du: %(sessionname)s\n"
+"\n"
+"Errorea: %(error)s"
+
+#: ../../src/ed_editv.py:219
+#, python-format
+msgid ""
+"Failed to reload %(filename)s:\n"
+"Error: %(errmsg)s"
+msgstr ""
+"Birkargatzerakoan huts egin du %(filename)s:\n"
+"Errorea: %(errmsg)s"
+
+#: ../../src/ed_editv.py:209
+#, fuzzy, python-format
+msgid ""
+"Failed to reload file\n"
+"\n"
+"Error:\n"
+"%s"
+msgstr ""
+"Birkargatzerakoan huts egin du %(filename)s:\n"
+"Errorea: %(errmsg)s"
+
+#: ../../src/ed_main.py:1231
+#, python-format
+msgid "Failed to reload the file with: %(encoding)s"
+msgstr "Fitxategia %(encoding)s birkargatzerakoan huts egin du"
+
+#: ../../src/ed_stc.py:1836
+#, python-format
+msgid "Failed to reload: %s"
+msgstr "%s birkargatzerakoa huts egin du"
+
+#: ../../src/ed_mdlg.py:104
+#, python-format
+msgid ""
+"Failed to save file: %(filename)s\n"
+"\n"
+"Error:\n"
+"%(errormsg)s"
+msgstr ""
+"Fitxategia gordetzerakoan huts egin du: %(filename)s\n"
+"\n"
+"Errorea:\n"
+"%(errormsg)s"
+
+#: ../../src/ed_menu.py:926
+msgid "Feedback"
+msgstr "Feedback"
+
+#: ../../src/prefdlg.py:540
+msgid "File Backups"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:211
+msgid "File Browser"
+msgstr "Fitxategi-arakatzailea"
+
+#: ../../src/eclib/finddlg.py:735
+msgid "File Filters:"
+msgstr "Fitxategi filtroak:"
+
+#: ../../src/prefdlg.py:482
+msgid "File History Length"
+msgstr "Fitxategi historialaren luzera"
+
+#: ../../src/ed_bookmark.py:274
+msgid "File Location"
+msgstr "Fitxategiaren kokalekua"
+
+#: ../../src/ed_main.py:586
+msgid "File Not Found"
+msgstr "Fitxategia ez da aurkitu"
+
+#: ../../src/prefdlg.py:529
+msgid "File Settings"
+msgstr "Fitxategiaren ezarpenak"
+
+#: ../../src/eclib/infodlg.py:115
+msgid "File Stat Failed"
+msgstr "Fitxategiaren estadistikak huts egin dute"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:171
+msgid "File Type"
+msgstr "Fitxategi mota"
+
+#: ../../src/ed_stc.py:624
+#, python-format
+msgid "File backup performed: %s"
+msgstr "Fitxategiaren babes kopia egin da: %s"
+
+#: ../../src/ed_stc.py:1898
+msgid "File is Read Only and cannot be saved"
+msgstr "Fitxategia irakurketarako soilik da eta ezin da gorde"
+
+#: ../../src/ed_pages.py:212
+msgid ""
+"File is already open in an existing page.\n"
+"Do you wish to open it again?"
+msgstr ""
+"Fitxategia dagoeneko irekita dago existitzen den orrialde batean.\n"
+"Berriro ireki nahi al duzu?"
+
+#: ../../src/ed_editv.py:210
+msgid "File read error"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/__init__.py:86
+#, fuzzy
+msgid "FileBrowser"
+msgstr "Fitxategi-arakatzailea"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:45
+#, fuzzy
+msgid "FileBrowser Config"
+msgstr "Fitxategi-arakatzailea"
+
+#: ../../src/prefdlg.py:306 ../../src/eclib/filemgrdlg.py:218
+msgid "Files"
+msgstr "Fitxategiak"
+
+#: ../../src/ed_search.py:1384
+#, python-format
+msgid "Files Searched: %d"
+msgstr "Bilatutako fitxategian: %d"
+
+#: ../../src/prefdlg.py:1135
+msgid "Filetype Associations"
+msgstr "Fitxategi motak"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:71
+#, fuzzy
+msgid "Filters"
+msgstr "Fitxategiak"
+
+#: ../../src/ed_cmdbar.py:293 ../../src/ed_search.py:157
+#: ../../src/ed_toolbar.py:93 ../../src/eclib/finddlg.py:651
+#: ../../src/eclib/finddlg.py:787 ../../src/eclib/finddlg.py:863
+msgid "Find"
+msgstr "Bilatu"
+
+#: ../../src/ed_cmdbar.py:309 ../../src/eclib/finddlg.py:866
+msgid "Find All"
+msgstr "Bilatu dena"
+
+#: ../../src/ed_search.py:371
+msgid "Find Count"
+msgstr "Bilatu zenbaketa"
+
+#: ../../src/ed_menu.py:721
+msgid "Find Next"
+msgstr "Bilatu hurrengoa"
+
+#: ../../src/eclib/finddlg.py:832
+msgid "Find Options"
+msgstr "Bilaketa-aukerak"
+
+#: ../../src/ed_menu.py:719
+msgid "Find Previous"
+msgstr "Bilatu aurrekoa"
+
+#: ../../src/ed_menu.py:723
+msgid "Find Selected"
+msgstr "Bilatu hautatutakoa"
+
+#: ../../src/ed_menu.py:714 ../../src/ed_toolbar.py:93
+msgid "Find Text"
+msgstr "Bilatu testua"
+
+#: ../../src/ed_menu.py:716 ../../src/ed_toolbar.py:95
+msgid "Find and Replace Text"
+msgstr "Bilatu eta aldatu testua"
+
+#: ../../src/eclib/finddlg.py:785
+msgid "Find what"
+msgstr "Zer bilatu"
+
+#: ../../src/ed_menu.py:715
+msgid "Find/R&eplace"
+msgstr "Bilatu/Aldatu"
+
+#: ../../src/ed_search.py:157 ../../src/ed_toolbar.py:94
+msgid "Find/Replace"
+msgstr "Bilatu/Aldatu"
+
+#: ../../src/updater.py:697
+msgid "Finished"
+msgstr "Amaitua"
+
+#: ../../src/plugdlg.py:477
+msgid "Finshed downloading plugins"
+msgstr "Pluginak jeisten amaitu dira"
+
+#: ../../src/util.py:374 ../../src/eclib/infodlg.py:292
+msgid "Folder"
+msgstr "Karpeta"
+
+#: ../../src/style_editor.py:786
+msgid "Font"
+msgstr "Letra-mota"
+
+#: ../../src/style_editor.py:781
+msgid "Font Settings"
+msgstr "letra-mota ezarpenak"
+
+#: ../../src/style_editor.py:742 ../../plugins/Launch/launch/cfgdlg.py:421
+msgid "Foreground"
+msgstr "Aurreko planoa"
+
+#: ../../src/prefdlg.py:841
+msgid "Format"
+msgstr "Formatua"
+
+#: ../../src/ed_stc.py:1215
+msgid "Format EOL?"
+msgstr "EOL formateatu ?"
+
+#: ../../src/ed_menu.py:842 ../../src/ed_menu.py:845 ../../src/ed_menu.py:848
+#, python-format
+msgid "Format all EOL characters to %s Mode"
+msgstr "EOL karaktere guztiak formateatu %s modura"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Function Definitions"
+msgstr "Funtzio definizioak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Functions"
+msgstr "Funtzioak"
+
+#: ../../src/prefdlg.py:185 ../../src/prefdlg.py:713 ../../src/prefdlg.py:1015
+#: ../../plugins/Launch/launch/cfgdlg.py:131
+msgid "General"
+msgstr "Orokorra"
+
+#: ../../src/generator.py:284 ../../src/generator.py:667
+#: ../../src/generator.py:870
+#, python-format
+msgid "Generate %s"
+msgstr "Sortu %s"
+
+#: ../../src/generator.py:114
+msgid "Generate Code and Documents"
+msgstr "Kodea eta dokumentuak sortu"
+
+#: ../../src/generator.py:285 ../../src/generator.py:871
+#, python-format
+msgid "Generate a %s version of the current document"
+msgstr "Uneko dokumentuaren %s bertsioa sortu"
+
+#: ../../src/generator.py:668
+#, python-format
+msgid "Generate an %s version of the current document"
+msgstr "Uneko dokumentuaren %s bertsioa sortu"
+
+#: ../../src/generator.py:113
+msgid "Generator"
+msgstr "Sortzailea"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:649
+msgid "Get Info"
+msgstr "Informazioa Eskuratu"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Global Variables"
+msgstr "Aldagai globalak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:398
+#, python-format
+msgid "Goto \"%s\""
+msgstr "\"%s\"-ra Joan"
+
+#: ../../src/ed_cmdbar.py:471
+msgid "Goto Line"
+msgstr "Lerrora joan"
+
+#: ../../src/ed_menu.py:775
+msgid "Goto Line Number"
+msgstr "Lerro zenbakira joan"
+
+#: ../../src/ed_menu.py:776
+msgid "Goto Matching Brace"
+msgstr "Joan beste giltza bikotera"
+
+#: ../../src/ed_menu.py:890
+msgid "Goto command buffer"
+msgstr "Komando buferrera joan"
+
+#: ../../src/ed_menu.py:780
+msgid "Goto next position in history."
+msgstr "Historikoaren hurrengo posizioara joan"
+
+#: ../../src/ed_menu.py:720
+msgid "Goto previous match"
+msgstr "Aurreko parekatzera joan"
+
+#: ../../src/ed_menu.py:782
+msgid "Goto previous position in history."
+msgstr "Historikoaren aurreko posiziora joan"
+
+#: ../../src/ed_menu.py:722
+msgid "Goto the next match"
+msgstr "Hurrengo parekatzera joan"
+
+#: ../../src/prefdlg.py:979
+msgid "Guide Column"
+msgstr "Zutabea zuzendu"
+
+#: ../../src/ed_menu.py:869
+msgid "Highlight Brackets/Braces"
+msgstr "Nabarmendu Parentesiak /Giltzak"
+
+#: ../../src/ed_menu.py:745 ../../src/prefdlg.py:984
+msgid "Highlight Caret Line"
+msgstr "Nabarmendu kurtsorearen Lerroa"
+
+#: ../../src/ed_menu.py:746
+msgid "Highlight the background of the current line"
+msgstr "Nabarmendu hautatutako lerroaren atzeko planoa"
+
+#: ../../src/ed_main.py:1564
+msgid "Homepage"
+msgstr "Webgunea"
+
+#: ../../src/prefdlg.py:1222
+msgid "Icon Theme"
+msgstr "Ikono tema"
+
+#: ../../src/prefdlg.py:1267
+msgid "Icons"
+msgstr "Ikonoak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Identities"
+msgstr "Identitateak"
+
+#: ../../src/ed_editv.py:511
+msgid "Ignore"
+msgstr "Ez ikusi egin"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Imports"
+msgstr "Inportazioak"
+
+#: ../../src/ed_menu.py:811
+msgid "Indent Lines"
+msgstr "Lerroak indentatu"
+
+#: ../../src/prefdlg.py:770
+msgid "Indent Width"
+msgstr "Zabalera indentatu"
+
+#: ../../src/ed_menu.py:812
+msgid "Indent the selected lines"
+msgstr "Autatutako lerroak indentatu"
+
+#: ../../src/ed_menu.py:748 ../../src/prefdlg.py:987
+msgid "Indentation Guides"
+msgstr "Indentazio gidak"
+
+#: ../../src/eclib/infodlg.py:58
+msgid "Info"
+msgstr "Argibideak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:441
+msgid "Info Text"
+msgstr "Argibide testua"
+
+#: ../../src/prefdlg.py:1024
+msgid "Input Helpers"
+msgstr "Sarrera Laguntzaileak"
+
+#: ../../src/ed_menu.py:822
+msgid "Insert spaces instead of tab characters with tab key"
+msgstr "Tabuladore teklarekin espazioak sartu tabulazioen partez"
+
+#: ../../src/plugdlg.py:122 ../../src/plugdlg.py:750
+msgid "Install"
+msgstr "Instalatu"
+
+#: ../../src/plugdlg.py:757
+msgid ""
+"Install the plugins for all users\n"
+" **requires administrative privileges**"
+msgstr ""
+"Plugina erabiltzaile guztientzat instalatu\n"
+" **administrazio baimenak behar dira**"
+
+#: ../../src/plugdlg.py:754
+msgid "Install the plugins only for the current user"
+msgstr "Pluginak uneko erabiltzailearentzat soilik instalatu"
+
+#: ../../src/plugdlg.py:829
+msgid "Installation Error"
+msgstr "Instalazio-errorea"
+
+#: ../../src/prefdlg.py:1552
+msgid "Installed Version"
+msgstr "Instalatutako bertsioa"
+
+#: ../../src/ed_cmdbar.py:817
+msgid "Invalid Path"
+msgstr "Baliogabeko bide-izena"
+
+#: ../../src/ed_search.py:412
+#, python-format
+msgid "Invalid expression \"%s\""
+msgstr "Baliogabeko \"%s\" espresioa"
+
+#: ../../src/ed_pages.py:969
+#, python-format
+msgid "Invalid file: %s"
+msgstr "Baliogabeko %s fitxategia"
+
+#: ../../src/prefdlg.py:2217
+msgid "Inverse"
+msgstr "Alderantzizkoa"
+
+#: ../../src/ed_menu.py:689
+msgid "Join Lines"
+msgstr "Lerroak elkartu"
+
+#: ../../src/ed_menu.py:690
+msgid "Join the Selected Lines"
+msgstr "Autatutako lerroak elkartu"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:94
+msgid "Jump to Saved Path"
+msgstr "Gordetako fitxategi bidera joan"
+
+#: ../../src/prefdlg.py:1790
+msgid "Key"
+msgstr "Gakoa"
+
+#: ../../src/prefdlg.py:1759
+msgid "Key Profile"
+msgstr "Garko perfila"
+
+#: ../../src/prefdlg.py:1670
+msgid "Keybindings"
+msgstr "Laster-teklak"
+
+#: ../../src/eclib/infodlg.py:182
+msgid "Kind"
+msgstr "Mota"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Labels"
+msgstr "Etiketak"
+
+#: ../../src/prefdlg.py:419
+msgid "Language"
+msgstr "Hizkuntza"
+
+#: ../../src/prefdlg.py:1558
+msgid "Latest Version"
+msgstr "Azken bertsioa"
+
+#: ../../plugins/Launch/launch/__init__.py:142
+msgid "Launch"
+msgstr "Abiarazi"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:99
+msgid "Launch Configuration"
+msgstr "Konfigurazioa abiarazi"
+
+#: ../../src/prefdlg.py:1272
+msgid "Layout"
+msgstr "Banaketa"
+
+#: ../../src/prefdlg.py:2101
+msgid "Lexer"
+msgstr "Lexiko-eragilea"
+
+#: ../../src/ed_menu.py:544
+msgid "Lexers"
+msgstr "Lexiko-eragileak"
+
+#: ../../src/prefdlg.py:678
+msgid "Library Error"
+msgstr "Libreri errorea"
+
+#: ../../src/ed_main.py:1566
+msgid "License: wxWindows (see COPYING.txt for full license)"
+msgstr "wxWindows lizentzia (ikusi COPYING.txt lizentzi osorako)"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:402
+msgid "Line Buffering:"
+msgstr "Lerroak buffer-etan gordetzea"
+
+#: ../../src/ed_menu.py:698
+msgid "Line Edit"
+msgstr "Lerro-edizioa"
+
+#: ../../src/ed_bookmark.py:275
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:44
+msgid "Line Number"
+msgstr "Lerro zenbakia"
+
+#: ../../src/ed_stc.py:764
+#, python-format
+msgid "Line: %(lnum)d  Column: %(cnum)d"
+msgstr "Lerroa: %(lnum)d Zutabea: %(cnum)d"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:84
+msgid ""
+"List of files patterns to exclude from view\n"
+"The use of wildcards (*) are permitted."
+msgstr ""
+
+#: ../../src/prefdlg.py:403
+msgid "Load Last Session"
+msgstr "Azken sesioa kargatu"
+
+#: ../../src/ed_menu.py:622
+msgid "Load Profile"
+msgstr "Kargatu profila"
+
+#: ../../src/ed_main.py:800 ../../src/ed_menu.py:631
+msgid "Load Session"
+msgstr "Sesioa kargatu"
+
+#: ../../src/ed_main.py:733 ../../src/ed_menu.py:623
+msgid "Load a Custom Profile"
+msgstr "Profila pertsonalizatua Kargatu"
+
+#: ../../src/ed_menu.py:632
+msgid "Load a saved session."
+msgstr "Gordetako sesio bat kargatu"
+
+#: ../../src/ed_menu.py:625
+msgid "Load and save custom Profiles"
+msgstr "Gorde eta kargatu pertsonalizatutako profila"
+
+#: ../../src/ed_menu.py:634
+msgid "Load and save custom sessions."
+msgstr "Gorde eta kargatu pertsonalizatutako sesioa"
+
+#: ../../src/prefdlg.py:405
+msgid "Load files from last session on startup"
+msgstr "Azken sesioko fitxategiak kargatu abitzerakoan"
+
+#: ../../src/ed_main.py:739
+#, python-format
+msgid "Loaded Profile: %s"
+msgstr "Kargatutako profila: %s"
+
+#: ../../src/ed_main.py:827
+#, python-format
+msgid "Loaded Session: %s"
+msgstr "Kargaturiko sesioa: %s"
+
+#: ../../src/prefdlg.py:440
+msgid "Locale Settings"
+msgstr "Aukera lokalak"
+
+#: ../../plugins/Launch/launch/launch.py:162
+msgid "Lock File"
+msgstr "Fitxategia giltzatu"
+
+#: ../../src/eclib/finddlg.py:813
+msgid "Look in"
+msgstr "Giltzatua"
+
+#: ../../src/ed_menu.py:818
+msgid "Lowercase"
+msgstr "Minuskulak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Macro Definitions"
+msgstr "Makro definizioak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Macros"
+msgstr "Makroak"
+
+#: ../../src/prefdlg.py:1262
+msgid "Main display font for various UI components"
+msgstr "Hainbat UI elementuentzako letra motaren lehio nagusia"
+
+#: ../../src/ed_menu.py:894
+msgid "Manage, Download, and Install plugins"
+msgstr "Gestionatu, jeitsi eta instalatu pluginak"
+
+#: ../../src/ed_menu.py:546
+msgid "Manually Set a Lexer/Syntax"
+msgstr "Lexiko-ergailea/Sintasia eskuz ezarri"
+
+#: ../../src/ed_cmdbar.py:315
+msgid "Match Case"
+msgstr "Maiuskula/minuskulak parekatu"
+
+#: ../../src/eclib/finddlg.py:834
+msgid "Match case"
+msgstr "Maiuskula/minuskulak parekatu"
+
+#: ../../src/ed_main.py:1427 ../../src/ed_menu.py:771
+msgid "Maximize Editor"
+msgstr "Editorea maximizatu"
+
+#: ../../src/prefdlg.py:1772
+msgid "Menu"
+msgstr "Menua"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:133
+msgid "Misc"
+msgstr "Hainbat"
+
+#: ../../src/ed_pages.py:393
+msgid "Missing session files"
+msgstr "Sesio fitxategiak falta dira"
+
+#: ../../src/ed_stc.py:1212
+msgid ""
+"Mixed EOL characters detected.\n"
+"\n"
+"Would you like to format them to all be the same?"
+msgstr ""
+"EOL karaktereak nahastuta daudela detektatu da.\n"
+"\n"
+"Nahi duzu formateatzea denak berdinak izan daitezen ?"
+
+#: ../../src/eclib/infodlg.py:163 ../../src/eclib/infodlg.py:195
+msgid "Modified"
+msgstr "Aldatuta"
+
+#: ../../src/prefdlg.py:1782
+msgid "Modifier 1"
+msgstr "Modifikadorea 1"
+
+#: ../../src/prefdlg.py:1786
+msgid "Modifier 2"
+msgstr "Modifikadorea 2"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Modules"
+msgstr "Moduluak"
+
+#: ../../src/ed_menu.py:696
+msgid "Move Current Line Down"
+msgstr "Mugitu uneko lerroa bera"
+
+#: ../../src/ed_menu.py:693
+msgid "Move Current Line Up"
+msgstr "Mugitu uneko lerroa gora"
+
+#: ../../src/ed_editv.py:278
+msgid "Move Tab to New Window"
+msgstr "Fitxa lehio berri batera mugitu"
+
+#: ../../src/ed_menu.py:777
+msgid "Move caret matching brace"
+msgstr "Mugitu kurtsorea dagoen giltzarekin bateratzen den giltzara"
+
+#: ../../src/ed_menu.py:697
+msgid "Move the current line down"
+msgstr "Mugitu uneko lerroa bera"
+
+#: ../../src/ed_menu.py:694
+msgid "Move the current line up"
+msgstr "Mugitu uneko lerroa gora"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:65
+msgid "Move to Recycle Bin"
+msgstr "Bota zakarrontzira"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:67
+msgid "Move to Trash"
+msgstr "Bota zakarrontzira"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Namespaces"
+msgstr "Izen-lekuak"
+
+#: ../../src/prefdlg.py:191
+msgid "Network"
+msgstr "Sarea"
+
+#: ../../src/ed_toolbar.py:77 ../../src/prefdlg.py:1762
+#: ../../src/style_editor.py:193
+msgid "New"
+msgstr "Berria"
+
+#: ../../src/ed_menu.py:592
+msgid "New &Window"
+msgstr "&Leiho berria"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:653
+#: ../../plugins/filebrowser/filebrowser/browser.py:826
+msgid "New File"
+msgstr "Fitxategi berria"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:652
+#: ../../plugins/filebrowser/filebrowser/browser.py:817
+msgid "New Folder"
+msgstr "Karpeta berria"
+
+#: ../../src/ed_menu.py:675
+msgid "New Line After"
+msgstr "Lerro berria honen ondoren"
+
+#: ../../src/ed_menu.py:677
+msgid "New Line Before"
+msgstr "Lerro berria honen atzetik"
+
+#: ../../src/prefdlg.py:1961
+msgid "New Profile"
+msgstr "Profila berria"
+
+#: ../../src/style_editor.py:365
+msgid "New Style Sheet"
+msgstr "Estilo horri berria"
+
+#: ../../src/ed_editv.py:277
+msgid "New Tab"
+msgstr "Fitxa berria"
+
+#: ../../src/ed_cmdbar.py:295
+msgid "Next"
+msgstr "Hurrengoa"
+
+#: ../../src/ed_menu.py:784
+msgid "Next Bookmark"
+msgstr "Hurrengo laster-marka"
+
+#: ../../src/ed_menu.py:779
+msgid "Next Position"
+msgstr "Hurrengo posiziora"
+
+#: ../../src/plugdlg.py:365 ../../src/plugin.py:708
+msgid "No Description Available"
+msgstr "Ez dago argibiderik eskuragarri"
+
+#: ../../src/ed_editv.py:495
+msgid "No Suggestions"
+msgstr "Iradokizunik ez"
+
+#: ../../src/ed_pages.py:979
+msgid "No Valid Files to Open"
+msgstr "Ez dago fitxategi egokiririk Irekitzeko"
+
+#: ../../src/prefdlg.py:1855
+msgid "None"
+msgstr "Bat ere ez"
+
+#: ../../src/prefdlg.py:2218
+msgid "Normal"
+msgstr "Normala"
+
+#: ../../src/ed_search.py:680
+msgid "Not implemented"
+msgstr "Inplementatu gabea"
+
+#: ../../src/style_editor.py:84
+msgid "Ok"
+msgstr "Ados"
+
+#: ../../src/ed_glob.py:396 ../../src/ed_mdlg.py:137
+msgid "Old Machintosh (\\r)"
+msgstr "Machintosh zaharra (\\r)"
+
+#: ../../src/ed_menu.py:841 ../../src/ed_menu.py:843 ../../src/prefdlg.py:791
+msgid "Old Macintosh (\\r)"
+msgstr "Machintosh zaharra (\\r)"
+
+#: ../../src/ed_menu.py:921
+msgid "Online Documentation..."
+msgstr "Dokumentazioa sarean"
+
+#: ../../src/ed_menu.py:922
+msgid "Online project documentation and help guides"
+msgstr "Proiekutaren dokumentazioa eta laguntza gidak sarean"
+
+#: ../../src/ed_menu.py:595 ../../src/ed_shelf.py:179
+#: ../../src/ed_toolbar.py:78
+msgid "Open"
+msgstr "Ireki"
+
+#: ../../src/ed_menu.py:597
+msgid "Open &Recent"
+msgstr "Ireki &Oraintsukoa"
+
+#: ../../plugins/PyShell/PyShell/__init__.py:67
+msgid "Open A Python Shell"
+msgstr "Python shell bat ireki"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:93
+msgid "Open Code Browser Sidepanel"
+msgstr "kode arakatzaile alboko panela"
+
+#: ../../src/ed_pages.py:990
+msgid "Open Directory?"
+msgstr "Direktorioa ireki ?"
+
+#: ../../src/eclib/finddlg.py:732
+msgid "Open Documents"
+msgstr "Irekitako dokumentuak"
+
+#: ../../src/ed_pages.py:214
+msgid "Open File"
+msgstr "Ireki fitxategia"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:212
+msgid "Open File Browser Sidepanel"
+msgstr "Ireki fitxategi arakatzaile alboko panela"
+
+#: ../../src/prefdlg.py:507
+msgid "Open files in new windows by default"
+msgstr "Ireki fitxategiak lehio berrietan era lehenetsian"
+
+#: ../../src/ed_menu.py:718
+msgid "Open the Quick Find Bar"
+msgstr "Ireki Bilaketa azkarraren tresna"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:641
+msgid "Open with "
+msgstr "Ireki honekin "
+
+#: ../../src/ed_pages.py:1010
+#, python-format
+msgid "Opened file: %s"
+msgstr "Irekitako fitxategia: %s"
+
+#: ../../src/ed_main.py:1496
+#, python-format
+msgid "Opening %s"
+msgstr "%s irekitzen"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:132
+msgid "Output"
+msgstr "Irteera"
+
+#: ../../src/ed_menu.py:664
+msgid "P&aste After"
+msgstr "&Kopiatu ondoren"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Packages"
+msgstr "Paketeak"
+
+#: ../../src/ed_menu.py:637
+msgid "Page Set&up"
+msgstr "Orria &konfiguratu"
+
+#: ../../src/ed_menu.py:769
+msgid "Pane Navigator"
+msgstr "Panel arakatzailea"
+
+#: ../../src/prefdlg.py:1452
+msgid "Password"
+msgstr "Pasahitza"
+
+#: ../../src/ed_editv.py:467 ../../src/ed_toolbar.py:90
+msgid "Paste"
+msgstr "Itsatsi"
+
+#: ../../src/ed_menu.py:663 ../../src/ed_toolbar.py:91
+msgid "Paste Text from Clipboard to File"
+msgstr "Kopiatu testua arbeletik fitxategira"
+
+#: ../../src/ed_menu.py:665
+msgid "Paste Text from Clipboard to File after the cursor"
+msgstr "Kopiatu  testua arbeletik fitxategira kursorearen ondoren"
+
+#: ../../src/prefdlg.py:608 ../../src/prefdlg.py:609
+msgid "Path to libenchant"
+msgstr "Libenchant-era bidea"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:105
+msgid "Pathmarks"
+msgstr "Bide laster markak"
+
+#: ../../src/eclib/infodlg.py:197
+msgid "Permissions"
+msgstr "Baimenak"
+
+#: ../../src/perspective.py:276
+msgid "Perspective Name"
+msgstr "Perspektiba izena"
+
+#: ../../src/perspective.py:293
+msgid "Perspective to Delete"
+msgstr "Borratu beharreko perspektiba"
+
+#: ../../src/ed_main.py:123
+msgid "Perspectives"
+msgstr "Prespektibak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:427
+msgid "Plain Text"
+msgstr "Testu arrunta"
+
+#: ../../src/ed_main.py:1565
+msgid "Platform Info"
+msgstr "Plataformaren informazioa"
+
+#: ../../src/Editra.py:955
+msgid "Please check the preferences dialog to check your preferences"
+msgstr "Mesedez zure hobespenak dialogoa egiaztatu zure hobespenak egiaztatzeko"
+
+#: ../../src/Editra.py:1165
+msgid "Please check the preferences dialog to verify your preferences"
+msgstr "Mesedez zure hobespenak dialogoa egiaztatu zure hobespenak zihurtatzeko"
+
+#: ../../src/ed_main.py:1081 ../../src/ed_menu.py:893
+msgid "Plugin Manager"
+msgstr "Pluginen kudeatzailea"
+
+#: ../../src/prefdlg.py:1437
+msgid "Port Number"
+msgstr "portu zenbakia"
+
+#: ../../src/ed_menu.py:726
+msgid "Pr&eferences"
+msgstr "&Hobespenak"
+
+#: ../../src/prefdlg.py:110
+msgid "Preferences - Editra"
+msgstr "Hobespenak - Editra"
+
+#: ../../src/prefdlg.py:503
+#, fuzzy
+msgid "Preferred Encoding"
+msgstr "Kodeaketa gogokoena"
+
+#: ../../src/style_editor.py:852
+msgid "Preview File"
+msgstr "Aurreikusi fitxategia"
+
+#: ../../src/ed_menu.py:640
+msgid "Preview Printout"
+msgstr "Aurrebista ikusketa"
+
+#: ../../src/ed_cmdbar.py:303
+msgid "Previous"
+msgstr "Aurrekoa"
+
+#: ../../src/ed_menu.py:786
+msgid "Previous Bookmark"
+msgstr "Aurreko laster-marka"
+
+#: ../../src/ed_menu.py:781
+msgid "Previous Position"
+msgstr "Aurreko posizioa"
+
+#: ../../src/prefdlg.py:858
+msgid "Primary Font"
+msgstr "Letra mota nagusia"
+
+#: ../../src/ed_toolbar.py:80
+msgid "Print"
+msgstr "Inprimatu"
+
+#: ../../src/ed_menu.py:641 ../../src/ed_toolbar.py:81
+msgid "Print Current File"
+msgstr "Inprimatu uneko fitxategia"
+
+#: ../../src/ed_print.py:121
+msgid "Print Error"
+msgstr "Inprimatze-errorea"
+
+#: ../../src/ed_menu.py:639
+msgid "Print Pre&view"
+msgstr "%Inprimaketa aurrebista"
+
+#: ../../src/ed_print.py:113
+msgid "Print Preview"
+msgstr "Inprimaketa aurrebista"
+
+#: ../../src/ed_main.py:850
+#, fuzzy
+msgid "Print failure"
+msgstr "Inprimaketa aurrebista"
+
+#: ../../src/ed_print.py:139
+msgid "Printer Error"
+msgstr "Inpresora errorea"
+
+#: ../../src/prefdlg.py:393
+msgid "Printer Mode"
+msgstr "Inpresora modua"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Procedure Definitions"
+msgstr "Prozedimentuen definizioak"
+
+#: ../../src/ed_main.py:715 ../../src/ed_main.py:735 ../../src/ed_menu.py:624
+msgid "Profile"
+msgstr "Profila"
+
+#: ../../src/ed_main.py:720
+#, python-format
+msgid "Profile Saved as: %s"
+msgstr "%s bezala profila gorde da"
+
+#: ../../src/Editra.py:957 ../../src/Editra.py:1167
+msgid "Profile Updated"
+msgstr "Profila eguneratu da"
+
+#: ../../plugins/Launch/launch/launch.py:156
+msgid "Program Executable Command"
+msgstr "Komandu esekutagarria programatu"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Programs"
+msgstr "Programak"
+
+#: ../../src/ed_menu.py:918
+msgid "Project Homepage..."
+msgstr "Proiektuaren webgunea..."
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Protocols"
+msgstr "Protokoloak"
+
+#: ../../src/prefdlg.py:1423
+msgid "Proxy Settings"
+msgstr "Proxy-aren ezarpenak"
+
+#: ../../src/prefdlg.py:1433
+msgid "Proxy URL"
+msgstr "Proxiaren URL"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Public Functions"
+msgstr "Funtzio publikoak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Public Subroutines"
+msgstr "Subrutina publikoak"
+
+#: ../../src/ed_shelf.py:100
+msgid "Put an item on the Shelf"
+msgstr "Elementu bat shelf-ean jarri"
+
+#: ../../src/updater.py:690
+#, python-format
+msgid "Rate: %.2f Kb/s"
+msgstr "Ratioa: %.2f Kb/s"
+
+#: ../../plugins/Launch/launch/__init__.py:100
+msgid "Re-run the last run program"
+msgstr "Azkeneko programa berriro exekutatu"
+
+#: ../../src/ed_stc.py:1899
+msgid "Read Only"
+msgstr "Irakurtzeko soilik"
+
+#: ../../src/ed_search.py:879
+msgid "Recent Searches"
+msgstr "Azken bilaketak"
+
+#: ../../src/ed_menu.py:598
+msgid "Recently Opened Files"
+msgstr "Duela gutxi irekitako fitxategiak"
+
+#: ../../src/ed_stc.py:1506
+msgid "Recording Finished"
+msgstr "Bukatu da grabazioa"
+
+#: ../../src/ed_stc.py:1493
+msgid "Recording Macro"
+msgstr "Makroa grabatzen"
+
+#: ../../src/ed_editv.py:463 ../../src/ed_menu.py:656
+#: ../../src/ed_toolbar.py:84
+msgid "Redo"
+msgstr "Berregin"
+
+#: ../../src/ed_menu.py:656 ../../src/ed_toolbar.py:84
+msgid "Redo Last Undo"
+msgstr "Azkeneko aldaketa desegin"
+
+#: ../../src/ed_search.py:413
+msgid "Regex Compile Error"
+msgstr "Regex konpilazio errorea"
+
+#: ../../src/ed_cmdbar.py:326
+msgid "Regular Expression"
+msgstr "Espresio erregularra"
+
+#: ../../src/eclib/finddlg.py:836
+msgid "Regular expression"
+msgstr "Espresio erregularra"
+
+#: ../../src/ed_editv.py:581
+msgid "Reload File?"
+msgstr "Fitxategia berriro kargatu ?"
+
+#: ../../src/ed_menu.py:615
+msgid "Reload the file with a specified encoding"
+msgstr "Aukeratutako kodeaketarekin berriz kargatu fitxategia"
+
+#: ../../src/ed_main.py:1219
+msgid "Reload with Encoding"
+msgstr "Kodeaketarekin kargatu fitxategia"
+
+#: ../../src/ed_menu.py:614
+msgid "Reload with Encoding..."
+msgstr "Kodeaketarekin kargatu fitxategia..."
+
+#: ../../src/prefdlg.py:510
+msgid "Remember File Position"
+msgstr "Gogoratu Fitxategiaren posizioa"
+
+#: ../../src/prefdlg.py:1252
+msgid "Remember Window Position on Exit"
+msgstr "Gogoratu lehioaren posizioa irteterakoan"
+
+#: ../../src/prefdlg.py:1249
+msgid "Remember Window Size on Exit"
+msgstr "Gogoratu lehioaren tamainua irteterakoan"
+
+#: ../../src/style_editor.py:198
+msgid "Remove"
+msgstr "Ezabatu"
+
+#: ../../src/ed_menu.py:703
+msgid "Remove All Bookmarks"
+msgstr "Markatzaile guztiak ezabatu"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:96
+msgid "Remove Saved Path"
+msgstr "Ezabatu gordetako fitxategi bidea"
+
+#: ../../src/style_editor.py:209
+msgid "Remove Style"
+msgstr "Estiloa ezabatu"
+
+#: ../../src/ed_menu.py:704
+msgid "Remove all bookmarks from the current document"
+msgstr "Uneko dokumentutik laster-markak ezabatu"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:88
+#, fuzzy
+msgid "Remove selected filter"
+msgstr "Ezabatu listako aukeraketa"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:206
+msgid "Remove selection from list"
+msgstr "Ezabatu listako aukeraketa"
+
+#: ../../src/ed_menu.py:835
+msgid "Remove trailing whitespace"
+msgstr "Ezabatu bukaerako hutsuneak"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:650
+msgid "Rename"
+msgstr "Aldatu izena"
+
+#: ../../src/eclib/finddlg.py:654 ../../src/eclib/finddlg.py:864
+msgid "Replace"
+msgstr "Ordezkatu"
+
+#: ../../src/eclib/finddlg.py:867
+msgid "Replace All"
+msgstr "Ordezkatu denak"
+
+#: ../../src/ed_search.py:609
+msgid "Replace Error"
+msgstr "Ordezkaketa errorea"
+
+#: ../../src/eclib/finddlg.py:798
+msgid "Replace with"
+msgstr "Ordezkatu honekin"
+
+#: ../../src/eclib/errdlg.py:322
+msgid "Report Error"
+msgstr "Informe errorea"
+
+#: ../../src/ed_editv.py:561
+msgid "Resave File?"
+msgstr "Berriz fitxategia gorde ?"
+
+#: ../../src/ed_main.py:1429
+msgid "Restore Editor"
+msgstr "Editorea leheneratu"
+
+#: ../../src/plugdlg.py:662
+msgid "Retrieving Plugin List"
+msgstr "Plugin listadua bereganatzen"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:642
+msgid "Reveal in "
+msgstr "Azaldu "
+
+#: ../../src/ed_menu.py:613
+msgid "Revert file to last save point"
+msgstr "Fitxategia azkenekoz gordetako egoerara bueltatu"
+
+#: ../../src/prefdlg.py:1152 ../../src/prefdlg.py:1818
+msgid "Revert to Default"
+msgstr "Lehenetsietara bueltatu"
+
+#: ../../src/ed_menu.py:612
+msgid "Revert to Saved"
+msgstr "Gordetakoetara bueltatu"
+
+#: ../../plugins/Launch/launch/__init__.py:93
+#: ../../plugins/Launch/launch/launch.py:179
+#: ../../plugins/Launch/launch/launch.py:543
+msgid "Run"
+msgstr "Exekutatu"
+
+#: ../../plugins/Launch/launch/__init__.py:98
+msgid "Run last executed"
+msgstr "Exekutatu azkenekoa"
+
+#: ../../plugins/Launch/launch/__init__.py:74
+msgid "Run script from current buffer"
+msgstr "Uneko bufferretik skripta exekutatu"
+
+#: ../../plugins/Launch/launch/__init__.py:95
+msgid "Run the file associated with the current buffer in Launch"
+msgstr "Exekutatu Abiaketan uneko bufferrarekin lotua dagoen fitxategia"
+
+#: ../../src/ed_session.py:182 ../../src/ed_toolbar.py:79
+#: ../../src/style_editor.py:88
+msgid "Save"
+msgstr "Gorde"
+
+#: ../../src/ed_editv.py:280
+#, python-format
+msgid "Save \"%s\""
+msgstr "\"%s\" gorde"
+
+#: ../../src/ed_menu.py:608
+msgid "Save &As"
+msgstr "Gorde &honela"
+
+#: ../../src/ed_menu.py:609
+msgid "Save All"
+msgstr "Gorde dena"
+
+#: ../../src/ed_menu.py:608 ../../src/ed_session.py:184
+#: ../../src/eclib/filemgrdlg.py:121
+msgid "Save As"
+msgstr "Gorde honela"
+
+#: ../../src/ed_editv.py:618
+msgid "Save Changes?"
+msgstr "Aldaketak gorde?"
+
+#: ../../src/ed_menu.py:607 ../../src/ed_toolbar.py:79
+msgid "Save Current File"
+msgstr "Uneko fitxategia gorde"
+
+#: ../../src/ed_menu.py:621
+msgid "Save Current Settings to a New Profile"
+msgstr "Uneko ezarpenak profil berri batera gorde"
+
+#: ../../src/perspective.py:82
+msgid "Save Current View"
+msgstr "Gorde uneko ikuspegia"
+
+#: ../../src/ed_mdlg.py:106
+msgid "Save Error"
+msgstr "Errorea gorde"
+
+#: ../../src/perspective.py:277
+msgid "Save Perspective"
+msgstr "Perspektiba gorde"
+
+#: ../../src/ed_menu.py:620
+msgid "Save Profile"
+msgstr "Gorde profila"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:93
+msgid "Save Selected Paths"
+msgstr "Aukeratutatko fitxategi bideak gorde"
+
+#: ../../src/ed_main.py:768 ../../src/ed_menu.py:629
+msgid "Save Session"
+msgstr "Gorde saioa"
+
+#: ../../src/style_editor.py:147 ../../src/style_editor.py:408
+msgid "Save Styles"
+msgstr "Estiloak gorde"
+
+#: ../../src/ed_menu.py:610
+msgid "Save all open pages"
+msgstr "Gorde irekita dauden horri guztiak"
+
+#: ../../src/ed_menu.py:630
+msgid "Save the current session."
+msgstr "Uneko saioa gorde"
+
+#: ../../src/perspective.py:83
+msgid "Save the current window layout"
+msgstr "Uneko lehioaren diseinua gorde"
+
+#: ../../src/ed_main.py:698
+#, python-format
+msgid "Saved File As: %s"
+msgstr "%s bezala gorde fitxategia"
+
+#: ../../src/ed_main.py:626
+#, python-format
+msgid "Saved File: %s"
+msgstr "%s Gordetako fitxategia"
+
+#: ../../src/ed_search.py:1383
+#, python-format
+msgid "Search Complete: %d matching lines where found."
+msgstr "Bilaketa osatu da: %d lerro aurkitu dira bat datozenak"
+
+#: ../../src/eclib/finddlg.py:837
+msgid "Search Recursively"
+msgstr "Errekurtsiboki bilatu"
+
+#: ../../src/ed_search.py:1357
+msgid "Search Started"
+msgstr "Bilaketa hasi da"
+
+#: ../../src/ed_search.py:1376
+msgid "Search complete"
+msgstr "Bilaketa amaitu da"
+
+#: ../../src/ed_menu.py:724
+msgid "Search for the currently selected phrase"
+msgstr "Une hontan hautatutako esaldia bilatu"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:647
+msgid "Search in directory"
+msgstr "Direktorioan bilatu"
+
+#: ../../src/ed_search.py:470
+msgid "Search wrapped to bottom"
+msgstr "Bilatu behera doituta"
+
+#: ../../src/ed_search.py:465
+msgid "Search wrapped to top"
+msgstr "Bilatu gora doituta"
+
+#: ../../src/prefdlg.py:861
+msgid "Secondary Font"
+msgstr "Bigarren mailako letra mota"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Sections"
+msgstr "Atalak"
+
+#: ../../src/ed_menu.py:669
+msgid "Select &All"
+msgstr "Hautatu &denak"
+
+#: ../../src/ed_editv.py:472
+msgid "Select All"
+msgstr "Hautatu Dena"
+
+#: ../../src/ed_menu.py:670
+msgid "Select All Text in Document"
+msgstr "Hautatu dokumentuko testu guztia"
+
+#: ../../src/ed_main.py:1218
+msgid "Select an encoding to reload the file with"
+msgstr "Aukeratu fitxategia birkargatzeko kodeaketa"
+
+#: ../../src/plugdlg.py:492
+msgid "Select plugins to download"
+msgstr "Aukeratu jeitsi beharreko pluginak"
+
+#: ../../src/eclib/finddlg.py:731
+msgid "Selected Text"
+msgstr "Hautatutako testua"
+
+#: ../../src/ed_menu.py:927
+msgid "Send bug reports and suggestions"
+msgstr "Bug txosten eta iradokizunak bidali"
+
+#: ../../src/ed_pages.py:369
+msgid "Session Load Error"
+msgstr "Saio kargatze errorea"
+
+#: ../../src/ed_menu.py:891
+msgid "Session Manager"
+msgstr "Saio kudeatzailea"
+
+#: ../../src/ed_main.py:768
+msgid "Session Name"
+msgstr "Saioaren izena"
+
+#: ../../src/ed_main.py:777
+#, python-format
+msgid "Session Saved as: %s"
+msgstr "%s bezala gorde da saioa"
+
+#: ../../src/ed_pages.py:374
+msgid "Session file is empty."
+msgstr "Saio fitxategia hutsa dago"
+
+#: ../../src/ed_main.py:799
+#, python-format
+msgid ""
+"Session to Load:\n"
+"Current Session: '%s'"
+msgstr ""
+"Kargatu beharreko saioa:\n"
+"Uneko saioa: '%s'"
+
+#: ../../src/ed_session.py:203
+msgid "Session:"
+msgstr "Saioa:"
+
+#: ../../src/ed_menu.py:633
+msgid "Sessions"
+msgstr "Saioak"
+
+#: ../../src/eclib/ecpickers.py:82
+msgid "Set Font"
+msgstr "Ezarri letra-tipoa"
+
+#: ../../src/style_editor.py:855
+msgid "Set the preview file type"
+msgstr "Aurrebista fitxategi mota ezarri"
+
+#: ../../src/prefdlg.py:834
+msgid "Sets a secondary font used for special regions when syntax highlighting is in use"
+msgstr "Zona berezietarako ezarri bigarrengo letra mota sintaxi nabarmenketa erabili behar denean"
+
+#: ../../src/prefdlg.py:829
+msgid "Sets the main/default font of the document"
+msgstr "Ezarri dokumentuaren letra mota nagusia/lehenetsia"
+
+#: ../../plugins/Launch/launch/launch.py:150
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: ../../src/ed_shelf.py:79 ../../src/ed_shelf.py:99
+msgid "Shelf"
+msgstr "Shelf"
+
+#: ../../src/ed_menu.py:711
+msgid "Show Calltip"
+msgstr "Erakutsi informazio hedatua"
+
+#: ../../src/ed_menu.py:752 ../../src/ed_menu.py:753 ../../src/prefdlg.py:803
+msgid "Show EOL Markers"
+msgstr "Erakutsi lerro bukaera (EOL) markadoreak"
+
+#: ../../src/ed_menu.py:750
+msgid "Show Edge Guide"
+msgstr "Erakutsi iskineko gidak"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:69
+msgid "Show Hidden Files"
+msgstr "Erakutsi ezkutuko fitxategiak"
+
+#: ../../src/prefdlg.py:1233
+msgid "Show Icons on Tabs"
+msgstr "Erakutsi fitxetan ikonoak"
+
+#: ../../src/ed_menu.py:749
+msgid "Show Indentation Guides"
+msgstr "Erakutsi indentazio gidak"
+
+#: ../../src/ed_menu.py:755
+msgid "Show Line Number Margin"
+msgstr "Erakutsi lerro zenbakien neurria"
+
+#: ../../src/ed_menu.py:754 ../../src/prefdlg.py:805
+msgid "Show Line Numbers"
+msgstr "Erakutsi lerro zenbakiak"
+
+#: ../../src/ed_shelf.py:485
+msgid "Show Shelf"
+msgstr "Erakutsi Shelf"
+
+#: ../../src/prefdlg.py:407
+msgid "Show Splash Screen"
+msgstr "Erakutsi hasiera lehioa"
+
+#: ../../src/ed_menu.py:790 ../../src/prefdlg.py:1254
+msgid "Show Status Bar"
+msgstr "Erakutsi estadu barra"
+
+#: ../../src/ed_menu.py:792 ../../src/prefdlg.py:1256
+msgid "Show Toolbar"
+msgstr "Erakutsi tresna barra"
+
+#: ../../src/ed_menu.py:756 ../../src/prefdlg.py:807
+msgid "Show Whitespace"
+msgstr "Erakutsi hutsuneak"
+
+#: ../../src/ed_menu.py:757
+msgid "Show Whitespace Markers"
+msgstr "Erakutsi hutsune sinboloen markadoreak"
+
+#: ../../src/ed_menu.py:712
+msgid "Show a calltip for the current word."
+msgstr "Erakutsi uneko hitzaren informazio hedatua"
+
+#: ../../src/ed_menu.py:710
+msgid "Show autocompletion hints."
+msgstr "Erakutsi auto-osaketa iradokizunak"
+
+#: ../../src/ed_log.py:134
+msgid "Show output from"
+msgstr "Erakutsi honako irteeratik"
+
+#: ../../src/ed_shelf.py:487
+msgid "Show the Shelf"
+msgstr "Shelf-a erakutsi"
+
+#: ../../src/ed_menu.py:751
+msgid "Show the edge column guide"
+msgstr "Erakutsi zutabe gida iskina"
+
+#: ../../src/ed_menu.py:892
+msgid "Show the session manager bar"
+msgstr "Erakutsi saio kudeatzaile barra"
+
+#: ../../src/style_editor.py:802 ../../src/eclib/infodlg.py:189
+msgid "Size"
+msgstr "Tamaina"
+
+#: ../../src/ed_pages.py:394
+msgid "Some files in saved session could not be found on disk:\n"
+msgstr "Gordetako saioko fitxategi batzuk ezin izan dira diskoan aurkitu:\n"
+
+#: ../../src/style_editor.py:141
+msgid "Some styles have been changed would you like to save before exiting?"
+msgstr "Estiloak aldatu dira, irten aurretik gorde nahi dituzu aldaketak ?"
+
+#: ../../src/ed_search.py:679
+msgid "Sorry will be ready for future version"
+msgstr "Barkatu, etorkizuneko bertsioan  prest egongo da"
+
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:40
+msgid "Sorting"
+msgstr "Ordenatzea"
+
+#: ../../src/ed_menu.py:830
+msgid "Spaces to Tabs"
+msgstr "Aldatu espazioak tabuladoreetara"
+
+#: ../../src/prefdlg.py:580
+msgid "Spell Checking"
+msgstr "Ortografia zuzenketa"
+
+#: ../../src/ed_editv.py:518
+msgid "Spelling"
+msgstr "Ortografia..."
+
+#: ../../src/ed_toolbar.py:77
+msgid "Start a New File"
+msgstr "Fitxategi berri bat  hasi"
+
+#: ../../src/ed_menu.py:591
+msgid "Start a new file in a new tab"
+msgstr "Fitxa berri batean fitxategi berri bat  hasi"
+
+#: ../../src/ed_menu.py:593
+msgid "Start a new file in a new window"
+msgstr "Lehio berri batean fitxategi berri bat  hasi"
+
+#: ../../src/prefdlg.py:1006
+msgid "Start in Normal Mode"
+msgstr "Modu normalean hasi"
+
+#: ../../src/prefdlg.py:305
+msgid "Startup"
+msgstr "Hasieratzea"
+
+#: ../../src/prefdlg.py:429
+msgid "Startup Settings"
+msgstr "Hasiera hobespenak"
+
+#: ../../src/prefdlg.py:1561 ../../src/updater.py:291
+msgid "Status Unknown"
+msgstr "Estadu ezezaguna"
+
+#: ../../src/ed_menu.py:895 ../../src/style_editor.py:70
+msgid "Style Editor"
+msgstr "Estilu editorea"
+
+#: ../../src/style_editor.py:723
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Style Tags"
+msgstr "Estilu etiketa"
+
+#: ../../src/style_editor.py:202
+msgid "Style Theme"
+msgstr "Estilu tema"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:57
+msgid "Subroutine Declarations"
+msgstr "Subrutina deklarazioak"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Subroutines"
+msgstr "Subrutinak"
+
+#: ../../src/plugdlg.py:818
+msgid "Successfully Installed Plugins"
+msgstr "Pluginak arrakastaz instalatu dira"
+
+#: ../../src/prefdlg.py:565
+msgid "Suffix for backup file names"
+msgstr ""
+
+#: ../../src/ed_menu.py:559 ../../src/syntax/syntax.py:314
+#, python-format
+msgid "Switch Lexer to %s"
+msgstr "Aldatu lexikaria %s-ra"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:64
+msgid "Synch tree with tab selection"
+msgstr ""
+
+#: ../../src/ed_menu.py:872 ../../src/prefdlg.py:715 ../../src/prefdlg.py:1125
+msgid "Syntax Highlighting"
+msgstr "Sintaxiaren nabarmentzea"
+
+#: ../../src/plugdlg.py:756
+msgid "System Directory"
+msgstr "Sistemaren direktorioa"
+
+#: ../../src/prefdlg.py:762
+msgid "Tab Width"
+msgstr "Tabulazio-zabalera"
+
+#: ../../src/ed_menu.py:832
+msgid "Tabs to Spaces"
+msgstr "Tabulazioak espaziotara aldatu"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:57
+msgid "Task Definitions"
+msgstr "Zereginene definizioak"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:385
+msgid "Text Colors"
+msgstr "Testuaren koloreak"
+
+#: ../../src/util.py:378
+msgid "Text Document"
+msgstr "Testu dokumentua"
+
+#: ../../src/ed_pages.py:160
+#, python-format
+msgid ""
+"The correct encoding of '%s' could not be determined.\n"
+"\n"
+"Choose an encoding and select Ok to open the file with the chosen encoding.\n"
+"Click Cancel to abort opening the file"
+msgstr ""
+"Ezin izan da zehaztu '% s'-ren kodeketa zuzena.\n"
+"\n"
+"Aukeratu kodeaketa bat eta sakatu Ados fitxategia kodeaketa horrekin irekitzeko.\n"
+"Sakatu Utzi fitxategia ez irekitzeko"
+
+#: ../../src/ed_editv.py:615
+#, python-format
+msgid ""
+"The file: \"%s\" has been modified since the last save point.\n"
+"\n"
+"Would you like to save the changes?"
+msgstr ""
+"\"%s\" fitxategia aldatu da azkenekoz gorde zenetik\n"
+"\n"
+"Aldaketak gorde nahi dituzu ?"
+
+#: ../../src/style_editor.py:144
+#, python-format
+msgid "The new style sheet '%s' has not been saved would you like to save before exiting?"
+msgstr "\"%s\" Estilo horri berria gorde gabe dago, irten baino lehen gorde nahi duzu ?"
+
+#: ../../src/style_editor.py:403
+#, python-format
+msgid ""
+"The new style theme '%s' has not been saved.\n"
+"\n"
+"Would you like to save it before changing themes?"
+msgstr ""
+"\"%s\"Estilo tema berria gorde gabe dago.\n"
+"\n"
+"Gorde nahi duzu  tema aldatu aurretik ?"
+
+#: ../../plugins/Launch/launch/launch.py:680
+msgid "The requested command could not be executed."
+msgstr "Eskatutako komandoa ezin izan da exekutatu."
+
+#: ../../src/ed_search.py:370
+#, python-format
+msgid "The search term '%(term)s' was found %(count)d times."
+msgstr "'%(term)s'  bilaketa terminoa %(count)d aldiz aurkitu da."
+
+#: ../../src/style_editor.py:371
+#, python-format
+msgid "The style %s already exists. Please choose a different name."
+msgstr "%s estiloa dagoeneko badago. Mesedez aukeratu beste izen bat."
+
+#: ../../src/ed_pages.py:977
+#, python-format
+msgid "There are no files that Editra can open in %s"
+msgstr "Ez dago %s -n Editrak ireki dezakeen fitxategirik"
+
+#: ../../src/ed_print.py:137
+msgid ""
+"There was an error when printing.\n"
+"Check that your printer is properly connected."
+msgstr ""
+"Errore bat gertatu da inprimatzerakoa.\n"
+"Zihurtatu inpresora egokiro konektaturik dagoela."
+
+#: ../../src/plugdlg.py:402
+msgid "This plugin requires a newer version of Editra."
+msgstr "Plugin honek Editra bertsio berriago bat behar du."
+
+#: ../../src/plugdlg.py:1053
+msgid "This plugin will be uninstalled on next program launch."
+msgstr "Plugin hau desistalatuko da programa berriro hasterakoan."
+
+#: ../../src/ed_editv.py:470
+msgid "To Lowercase"
+msgstr "Minuskulatara"
+
+#: ../../src/ed_editv.py:469
+msgid "To Uppercase"
+msgstr "Maiuskulatara"
+
+#: ../../src/plugdlg.py:741
+msgid ""
+"To add a new item drag and drop the plugin file into the list.\n"
+"\n"
+"To remove an item select it and hit Delete or Backspace."
+msgstr ""
+"Item berri bat gehitzeko arrastan eraman eta askatu listan.\n"
+"\n"
+"Item bat kentzeko aukeratu eta sakatu Ezabatu edo Atzera-tekla."
+
+#: ../../src/ed_menu.py:866
+msgid "Toggle Auto-Indentation functionality"
+msgstr "Auto-indentazio funtzionalitatea txandatu"
+
+#: ../../src/ed_menu.py:701
+msgid "Toggle Bookmark"
+msgstr "Lastermarkak txandatu"
+
+#: ../../src/ed_menu.py:871
+msgid "Toggle Code Folding"
+msgstr "Kode hizkutatketa txandatu"
+
+#: ../../src/ed_menu.py:807
+msgid "Toggle Comment"
+msgstr "Txandatu komentarioak"
+
+#: ../../src/ed_menu.py:772
+msgid "Toggle Editor Maximization"
+msgstr "Editorearen tamaina txandatu"
+
+#: ../../src/ed_menu.py:759
+msgid "Toggle Editor View Options"
+msgstr "Txandatu editorearen Ikuspegi Aukerak"
+
+#: ../../src/ed_menu.py:763 ../../src/ed_menu.py:764
+msgid "Toggle all folds"
+msgstr "Hizkutatze guztiak txandatu"
+
+#: ../../src/ed_menu.py:702
+msgid "Toggle bookmark of the current line"
+msgstr "Uneko lerroaren laster-marka txandatu"
+
+#: ../../src/ed_menu.py:808
+msgid "Toggle comment on the selected line(s)"
+msgstr "Txandatu aukeratutako lerroa(k) duen/duten komentarioak"
+
+#: ../../src/ed_menu.py:762
+msgid "Toggle current fold"
+msgstr "Uneko hizkutatzea txandatu"
+
+#: ../../src/ed_menu.py:761
+msgid "Toggle fold"
+msgstr "Hizkutatzea txandatu"
+
+#: ../../src/prefdlg.py:1227
+msgid "Toolbar Icon Size"
+msgstr "Herraminta tresnaren ikono neurria"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:208
+msgid "Transient XML Handler"
+msgstr "XML maneiatzaile transitorioa"
+
+#: ../../src/ed_menu.py:923
+msgid "Translate Editra..."
+msgstr "Editra itzuli..."
+
+#: ../../src/prefdlg.py:1280
+msgid "Transparency"
+msgstr "Gardentasuna"
+
+#: ../../src/ed_menu.py:691
+msgid "Transpose Line"
+msgstr "Irauli lerroa"
+
+#: ../../src/ed_menu.py:692
+msgid "Transpose the current line with the previous one"
+msgstr "Irauli uneko lerroa aurreko lerroarekin"
+
+#: ../../src/ed_menu.py:834
+msgid "Trim Trailing Whitespace"
+msgstr "Kendu bukaerako hutsuneak"
+
+#: ../../src/prefdlg.py:811
+msgid "Turn off for better performance"
+msgstr "Itzaldu errendimendu hobe baterako"
+
+#: ../../src/util.py:195
+msgid "Unable to accept dropped file or text"
+msgstr "Ezin da askatutako fitxategia edo testua onartu"
+
+#: ../../src/eclib/filemgrdlg.py:174
+#, python-format
+msgid "Unable to delete %s"
+msgstr "Ezin da %s borratu"
+
+#: ../../src/plugdlg.py:497
+msgid "Unable to retrieve plugin list"
+msgstr "Ezin da plugin lista eskuratu"
+
+#: ../../src/ed_editv.py:462 ../../src/ed_toolbar.py:83
+msgid "Undo"
+msgstr "Desegin"
+
+#: ../../src/ed_menu.py:655 ../../src/ed_toolbar.py:83
+msgid "Undo Last Action"
+msgstr "Azken ekintza desegin"
+
+#: ../../src/ed_menu.py:813
+msgid "Unindent Lines"
+msgstr "Lerroei indentazioa kendu"
+
+#: ../../src/ed_menu.py:814
+msgid "Unindent the selected lines"
+msgstr "Hautatutako lerroei indentazioa kendu"
+
+#: ../../src/plugdlg.py:937
+msgid "Uninstall"
+msgstr "Desinstalatu"
+
+#: ../../src/plugdlg.py:1049
+msgid "Uninstall Plugin"
+msgstr "Plugina desistalatu"
+
+#: ../../src/ed_glob.py:397 ../../src/ed_mdlg.py:137 ../../src/ed_menu.py:844
+#: ../../src/ed_menu.py:846 ../../src/prefdlg.py:791
+msgid "Unix (\\n)"
+msgstr "Unix (\\n)"
+
+#: ../../src/plugdlg.py:359 ../../src/plugdlg.py:367 ../../src/plugdlg.py:413
+#: ../../src/plugdlg.py:417 ../../src/plugin.py:709 ../../src/util.py:384
+#: ../../src/eclib/infodlg.py:298
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: ../../src/eclib/finddlg.py:824
+msgid "Up"
+msgstr "Gora"
+
+#: ../../src/prefdlg.py:1390
+msgid "Update"
+msgstr "Eguneratu"
+
+#: ../../src/Editra.py:645
+msgid "Update Available"
+msgstr "Eguneraketa eskuragarri"
+
+#: ../../src/ed_menu.py:816
+msgid "Uppercase"
+msgstr "Maiuskula"
+
+#: ../../src/ed_menu.py:864
+msgid "Use Auto Completion when available"
+msgstr "Erabili auto-osatzea aukera dagoen bakoitzean"
+
+#: ../../src/prefdlg.py:1428
+msgid "Use Proxy"
+msgstr "Proxya erabili"
+
+#: ../../src/ed_menu.py:821
+msgid "Use Soft Tabs"
+msgstr "Erabili Soft Tabuladoreak"
+
+#: ../../src/prefdlg.py:781
+msgid "Use Tabs Instead of Spaces"
+msgstr "Erabili tabuladoreak espazioen lekuan"
+
+#: ../../src/prefdlg.py:554
+msgid "Used to set a custom backup path. If not specified the backup will be put in the same directory as the file."
+msgstr "Babes kopia leku bat ezartzeko erabilia. Ezartzen ez bada, babeskopia fitxategia dagoen direktorio berdinean jarriko da."
+
+#: ../../src/plugdlg.py:752
+msgid "User Directory"
+msgstr "Erabiltzailearen direktorioa"
+
+#: ../../src/prefdlg.py:1445
+msgid "Username"
+msgstr "Erabiltzailea"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:66
+#, fuzzy
+msgid "View"
+msgstr "&Ikusmena"
+
+#: ../../src/ed_log.py:81
+msgid "View Editra's console log"
+msgstr "Ikusi Editraren konsolaren log-ak"
+
+#: ../../src/ed_menu.py:785
+msgid "View Line of Next Bookmark"
+msgstr "Ikusi hurrengo lastermarkaren lerroa"
+
+#: ../../src/ed_menu.py:787
+msgid "View Line of Previous Bookmark"
+msgstr "Ikusi aurreko lastermarkaren lerroa"
+
+#: ../../src/prefdlg.py:849
+msgid "View Options"
+msgstr "Ikuspegi aukerak"
+
+#: ../../src/prefdlg.py:813
+msgid "View Virtual Space After Last Line"
+msgstr "Ikusi espazio birtuala azken lerroaren ondoren"
+
+#: ../../src/ed_bookmark.py:80
+msgid "View all bookmarks"
+msgstr "Ikusi lastermarka guztiak"
+
+#: ../../src/ed_menu.py:770
+msgid "View pane selection list"
+msgstr "Ikusi panelaren aukeraketa lista"
+
+#: ../../src/ed_menu.py:919
+#, python-format
+msgid "Visit the project homepage %s"
+msgstr "Bisitatu %s proiektuaren web horria"
+
+#: ../../src/prefdlg.py:969
+msgid "Visual Helpers"
+msgstr "Laguntzaile bisuala"
+
+#: ../../src/prefdlg.py:523
+msgid "Warn when mixed eol characters are detected"
+msgstr "Abisatu EOL karaktereak nahasturik detektatzen direnean"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:448
+msgid "Warning Text"
+msgstr "Abisu testua"
+
+#: ../../src/prefdlg.py:997
+msgid "Warning suggestions will include context insensitive results"
+msgstr "Adi,  iradokizunek kontestuarekin bat ez datozen emaitzak dituzte"
+
+#: ../../src/eclib/infodlg.py:191
+msgid "Where"
+msgstr "Non"
+
+#: ../../src/ed_main.py:713
+msgid "Where to Save Profile?"
+msgstr "Profila nun gordeko da ?"
+
+#: ../../src/ed_menu.py:836
+msgid "Whitespace"
+msgstr "Hutsunea"
+
+#: ../../src/ed_menu.py:837
+msgid "Whitespace formating commands"
+msgstr "Hutsuneak formateatze komandoak"
+
+#: ../../src/ed_cmdbar.py:322
+msgid "Whole Word"
+msgstr "Mundu guztia"
+
+#: ../../src/eclib/finddlg.py:835
+msgid "Whole word"
+msgstr "Mundu guztia"
+
+#: ../../src/eclib/finddlg.py:843
+msgid "Wildcard shell patterns for matching files (*.txt *.html)."
+msgstr "(*.txt *.html) fitxategiak parekatzeko komodinak"
+
+#: ../../src/ed_glob.py:398 ../../src/ed_mdlg.py:138 ../../src/ed_menu.py:847
+#: ../../src/ed_menu.py:849 ../../src/prefdlg.py:792
+msgid "Windows (\\r\\n)"
+msgstr "Windows (\\r\\n)"
+
+#: ../../src/ed_menu.py:709
+msgid "Word Completion"
+msgstr "Hitz osaketa"
+
+#: ../../src/ed_menu.py:824 ../../src/prefdlg.py:809
+msgid "Word Wrap"
+msgstr "Hitz doiketa"
+
+#: ../../src/style_editor.py:398
+#, python-format
+msgid ""
+"Would you like to save the changes to '%s' before changing themes?\n"
+"\n"
+"Selecting No will result in all changes being lost."
+msgstr ""
+"Aldaketak '%s' -ra gordetzea nahi duzu temak aldatu baino lehen ?\n"
+"\n"
+"Ez aukeratzen badezu aldaketa guztiak galduko dira"
+
+#: ../../src/ed_menu.py:825
+msgid "Wrap Text Horizontally"
+msgstr "Testua horizontalki itzulbiratu"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:399
+msgid "Wrap lines in output buffer"
+msgstr "irteera bufferrean lerroak itzulbiratu"
+
+#: ../../src/ed_main.py:1563
+#, python-format
+msgid "Written in 100%% Python."
+msgstr "100%% Python-en idatzia"
+
+#: ../../src/plugdlg.py:193
+msgid "You must restart Editra before your changes will take full affect."
+msgstr "Editra berriz abiatu behar da aldaketak eragin osoa izan dezaten."
+
+#: ../../src/Editra.py:953 ../../src/Editra.py:1163
+msgid "Your profile has been updated to the latest version"
+msgstr "Zure profila eguneratua izan da azkeneko bertsiora"
+
+#: ../../src/ed_menu.py:741 ../../src/ed_menu.py:742
+msgid "Zoom Default"
+msgstr "Zoom lehenetsia"
+
+#: ../../src/ed_menu.py:740
+msgid "Zoom In"
+msgstr "Handiagotu"
+
+#: ../../src/ed_menu.py:739
+msgid "Zoom Out"
+msgstr "Txikiagotu"
+
+#: ../../plugins/Launch/launch/launch.py:169
+msgid "args"
+msgstr "argumentuak"
+
+#: ../../src/style_editor.py:769
+msgid "bold"
+msgstr "lodia"
+
+#: ../../src/ed_cmdbar.py:912
+msgid "cwd: "
+msgstr "cwd: "
+
+#: ../../src/style_editor.py:770
+msgid "eol"
+msgstr "eol"
+
+#: ../../plugins/Launch/launch/launch.py:153
+msgid "exec"
+msgstr "exekutatu"
+
+#: ../../src/style_editor.py:771
+msgid "italic"
+msgstr "italikoa"
+
+#: ../../src/style_editor.py:772
+msgid "underline"
+msgstr "azpimarra"
+
+#: ../../src/ed_pages.py:236
+msgid "untitled"
+msgstr "izenik gabea"
+
+#: ../../src/ed_pages.py:234
+#, python-format
+msgid "untitled %d"
+msgstr "%d izengabea"
+
+#~ msgid "Desktop"
+#~ msgstr "Mahaigaina"
+
+#~ msgid "Home directory"
+#~ msgstr "Etxea direktorioa"
+
+#~ msgid "Searching in: %s"
+#~ msgstr "%s-an bilatzen"
+
+#~ msgid "To open multiple files at once %s+Click to select the desired files/folders then hit Enter to open them all at once"
+#~ msgstr "Hainbat fitxategi batera irekitzeko, %s+klik egin fitxategi/direktorioak hautatzeko eta sakatu Enter denak batera irekitzeko."
+
+#~ msgid "Untitled_File"
+#~ msgstr "Izen_gabeko_Fitxategia"
+
+#~ msgid "Untitled_Folder"
+#~ msgstr "Izenik_gabeko_Direktorioa"

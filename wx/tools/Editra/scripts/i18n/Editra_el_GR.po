@@ -1,0 +1,3196 @@
+# Greek translation for editra
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the editra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: editra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-09 13:29-0500\n"
+"PO-Revision-Date: 2011-10-05 13:52+0000\n"
+"Last-Translator: Andriopoulos Nikolaos <Unknown>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-06-09 18:20+0000\n"
+"X-Generator: Launchpad (build 15376)\n"
+"X-Poedit-Country: GREECE\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../../src/ed_search.py:486
+#, python-format
+msgid "\"%s\" was not found"
+msgstr "\"%s\" δεν βρέθηκε"
+
+#: ../../src/ed_search.py:700
+#, python-format
+msgid "%d matches were replaced."
+msgstr "Έγιναν %d αντικαταστάσεις."
+
+#: ../../src/util.py:386
+#, python-format
+msgid "%s Source File"
+msgstr "%s Αρχείο Κώδικα"
+
+#: ../../src/ed_main.py:584
+#, python-format
+msgid ""
+"%s could not be found.\n"
+"Perhaps it's been moved or deleted."
+msgstr "%s δεν βρέθηκε"
+
+#: ../../src/ed_stc.py:1854
+#, python-format
+msgid "%s does not exist"
+msgstr "%s δεν υπάρχει"
+
+#: ../../src/ed_editv.py:558
+#, python-format
+msgid ""
+"%s has been deleted since its last save point.\n"
+"\n"
+"Would you like to save it again?"
+msgstr ""
+"το %s διαγράφηκε μετά την τελευταία αποθήκευση του.\n"
+"\n"
+"Θέλετε να το αποθηκεύσετε ξανά;"
+
+#: ../../src/ed_editv.py:578
+#, python-format
+msgid ""
+"%s has been modified by another application.\n"
+"\n"
+"Would you like to reload it?"
+msgstr "%s τροποποιήθηκε από μια άλλη εφαρμογή"
+
+#: ../../src/ed_menu.py:916
+msgid "&About..."
+msgstr "&Σχετικά"
+
+#: ../../src/ed_menu.py:600
+msgid "&Close Tab"
+msgstr "&Κλείσιμο καρτέλας"
+
+#: ../../src/ed_menu.py:660
+msgid "&Copy"
+msgstr "&Αντιγραφή"
+
+#: ../../src/ed_menu.py:730
+msgid "&Edit"
+msgstr "Επ&εξεργασία"
+
+#: ../../src/ed_menu.py:646
+msgid "&File"
+msgstr "Αρχείο"
+
+#: ../../src/ed_menu.py:714
+msgid "&Find"
+msgstr "Εύρεση"
+
+#: ../../src/ed_menu.py:804
+msgid "&Font"
+msgstr "Γραμματοσειρά"
+
+#: ../../src/ed_menu.py:774
+msgid "&Goto Line"
+msgstr "Μετάβαση στη Γραμμή"
+
+#: ../../src/ed_main.py:132 ../../src/ed_menu.py:930
+msgid "&Help"
+msgstr "Βοήθεια"
+
+#: ../../src/ed_menu.py:590
+msgid "&New Tab"
+msgstr "&Νέα καρτέλα"
+
+#: ../../src/ed_menu.py:595
+msgid "&Open"
+msgstr "Άν&οιγμα"
+
+#: ../../src/ed_menu.py:662
+msgid "&Paste"
+msgstr "Ε&πικόλληση"
+
+#: ../../src/ed_menu.py:641
+msgid "&Print"
+msgstr "Εκτύ&πωση"
+
+#: ../../src/ed_menu.py:717
+msgid "&Quick Find"
+msgstr "Γρήγορη Εύρεση"
+
+#: ../../src/ed_menu.py:607
+msgid "&Save"
+msgstr "Αποθήκευ&ση"
+
+#: ../../src/ed_menu.py:878
+msgid "&Settings"
+msgstr "Ρυθμί&σεις"
+
+#: ../../src/ed_menu.py:791
+msgid "&Toolbar"
+msgstr "Γραμμή εργαλείων"
+
+#: ../../src/ed_menu.py:907
+msgid "&Tools"
+msgstr "Εργαλεία"
+
+#: ../../src/ed_menu.py:655
+msgid "&Undo"
+msgstr "Αναίρεση"
+
+#: ../../src/ed_menu.py:795
+msgid "&View"
+msgstr "Προβολή"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:273
+msgid "**Alias**"
+msgstr "**Ψευδώνυμο**"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:273
+msgid "**New Commandline**"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:405
+msgid "0-50000 (0 unlimited)"
+msgstr ""
+
+#: ../../src/eclib/filterdlg.py:76
+msgid "<< Remove"
+msgstr "<< Αφαίρεση"
+
+#: ../../src/eclib/errdlg.py:320 ../../plugins/Launch/launch/launch.py:537
+msgid "Abort"
+msgstr "Ματαίωση"
+
+#: ../../src/ed_menu.py:917
+msgid "About"
+msgstr "Περί"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:524
+#, fuzzy
+msgid "Access Denied"
+msgstr "Δεν επιτρέπεται η πρόσβαση: %s"
+
+#: ../../src/ed_cmdbar.py:802
+#, python-format
+msgid "Access Denied: %s"
+msgstr "Δεν επιτρέπεται η πρόσβαση: %s"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:61
+#, fuzzy
+msgid "Actions"
+msgstr "Συναρτήσεις"
+
+#: ../../src/ed_editv.py:514
+#, python-format
+msgid "Add '%s' to dictionary"
+msgstr ""
+
+#: ../../src/eclib/filterdlg.py:75
+msgid "Add >>"
+msgstr "Προσθήκη >>"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:114
+#, fuzzy
+msgid "Add File Filters"
+msgstr "Φίλτρα Αρχείων"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:203
+msgid "Add a new executable"
+msgstr "Προσθήκε νέου εκτελέσιμου αρχείου"
+
+#: ../../src/ed_menu.py:676
+msgid "Add a new line after the current line"
+msgstr "Προσθήξη νέας γραμμής μετά την τρέχουσα"
+
+#: ../../src/ed_menu.py:678
+msgid "Add a new line before the current line"
+msgstr "Προσθήξη νέας γραμμής πριν την τρέχουσα"
+
+#: ../../src/ed_menu.py:706
+msgid "Add and remove bookmarks"
+msgstr "Προσθήκη και Αφαίρεση Σελιδοδεικτών"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:87
+msgid "Add filter"
+msgstr ""
+
+#: ../../src/prefdlg.py:815
+msgid "Adds extra scrolling room after last line"
+msgstr ""
+
+#: ../../src/prefdlg.py:193
+msgid "Advanced"
+msgstr "Για προχωρημένους"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:583
+msgid "Alias"
+msgstr "Ψευδώνυμο"
+
+#: ../../src/ed_log.py:165 ../../src/ed_log.py:244
+msgid "All"
+msgstr "Όλα"
+
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:42
+msgid "Alphabetically"
+msgstr ""
+
+#: ../../src/Editra.py:643
+#, python-format
+msgid ""
+"An updated version of Editra is available\n"
+"Would you like to download Editra %s now?"
+msgstr ""
+"Μια νεώτερη έκδοση του Editra είναι διαθέσιμη\n"
+"Θέλετε να κατεβάσετε το Editra %s τώρα;"
+
+#: ../../src/prefdlg.py:801
+msgid "AntiAliasing"
+msgstr "AntiAliasing"
+
+#: ../../src/prefdlg.py:187
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+#: ../../src/prefdlg.py:1820
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+#: ../../src/eclib/filemgrdlg.py:167
+#, python-format
+msgid "Are you sure want to delete %s?"
+msgstr "Θέλετε σίγουρα την διαγραφή του %s ;"
+
+#: ../../src/plugdlg.py:1047
+#, python-format
+msgid ""
+"Are you sure you want to uninstall %s?\n"
+"This cannot be undone."
+msgstr "Θέλετε σίγουρα την απεγκατάσταση του %s"
+
+#: ../../plugins/Launch/launch/launch.py:172
+msgid "Arguments"
+msgstr ""
+
+#: ../../src/style_editor.py:765
+msgid "Attributes"
+msgstr "Ιδιότητες"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:396
+msgid "Audible feedback when errors are detected"
+msgstr "Ηχητική ανατροφοδότηση όταν ανιχνεύονται λάθη"
+
+#: ../../src/ed_main.py:1251
+msgid "Aui Pane Navigator"
+msgstr "Aui Pane Πλοηγός"
+
+#: ../../src/plugdlg.py:933 ../../src/plugdlg.py:1119
+#, python-format
+msgid "Author: %s"
+msgstr "Δημιουργός: %s"
+
+#: ../../src/ed_menu.py:863 ../../src/prefdlg.py:991
+msgid "Auto-Completion"
+msgstr "Αυτόματη Συμπλήρωση"
+
+#: ../../src/ed_menu.py:865 ../../src/prefdlg.py:1001
+msgid "Auto-Indent"
+msgstr "Αυτόματη Εσοχή"
+
+#: ../../src/perspective.py:86
+msgid "Automatic"
+msgstr "Αυτόματο"
+
+#: ../../src/prefdlg.py:543
+msgid "Automatically Backup Files"
+msgstr "Δημιουργία αντιγράφων αρχείων αυτόματα"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:393
+msgid "Automatically clear output buffer between runs"
+msgstr ""
+
+#: ../../src/prefdlg.py:518
+msgid "Automatically reload files when changes are detected on disk"
+msgstr "Αυτόματη επαναφόρτωση αρχείων όταν αλλαγές εντοπίζονται στο δίσκο"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:544
+msgid "Automatically save all open files before running"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:541
+msgid "Automatically save current file before running"
+msgstr ""
+
+#: ../../src/perspective.py:87
+msgid "Automatically save/use window state from last session"
+msgstr "Αυτόματη αποθήκευση της κατάστασης των παραθύρων από την τελευταία συνεδρία"
+
+#: ../../src/prefdlg.py:778
+msgid "Automatically trim whitespace on save"
+msgstr "Αυτόματη διαγραφή των κενών στην αποθήκευση"
+
+#: ../../src/style_editor.py:754 ../../plugins/Launch/launch/cfgdlg.py:424
+msgid "Background"
+msgstr "Παρασκήνιο"
+
+#: ../../src/prefdlg.py:784
+msgid "Backspace Unindents"
+msgstr "Το πλήκτρο backspace αναιρεί την εσοχή"
+
+#: ../../src/prefdlg.py:549
+msgid "Backup Path:"
+msgstr "Backup Μονοπάτι:"
+
+#: ../../src/prefdlg.py:546
+msgid "Backup buffer to file periodically"
+msgstr "Backup buffer στο αρχείο περιοδικά"
+
+#: ../../src/prefdlg.py:566
+msgid "Backup file suffix:"
+msgstr ""
+
+#: ../../src/prefdlg.py:1794
+msgid "Binding"
+msgstr "Σύνδεση"
+
+#: ../../src/prefdlg.py:2214
+msgid "Black/White"
+msgstr "Άσπρο/μαύρο"
+
+#: ../../src/ed_bookmark.py:273
+msgid "Bookmark"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:644
+msgid "Bookmark Selected Path(s)"
+msgstr "Δημιούργησε σελιδοδείκτη στις επιλεγμένες διαδρομές"
+
+#: ../../src/ed_bookmark.py:291
+#, python-format
+msgid "Bookmark%d"
+msgstr ""
+
+#: ../../src/ed_bookmark.py:79 ../../src/ed_menu.py:705
+msgid "Bookmarks"
+msgstr "Σελιδοδείκτες"
+
+#: ../../src/ed_menu.py:868 ../../src/prefdlg.py:971
+msgid "Bracket Highlighting"
+msgstr "Επισήμανση Αγκυλών"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:600
+msgid "Browse..."
+msgstr ""
+
+#: ../../src/ed_menu.py:925
+msgid "Bug Tracker..."
+msgstr "Καταγραφέας Bugs..."
+
+#: ../../src/ed_cmdbar.py:599
+#, python-format
+msgid "Can't change directory to: %s"
+msgstr "Δεν είναι δυνατή η αλλαγή του καταλόγου στο: %s"
+
+#: ../../src/ed_search.py:1339 ../../src/style_editor.py:86
+#: ../../src/updater.py:582
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: ../../src/updater.py:662
+msgid "Canceled"
+msgstr "Ακυρώθηκε"
+
+#: ../../src/prefdlg.py:817
+msgid "Caret Width:"
+msgstr ""
+
+#: ../../src/ed_statbar.py:193
+msgid "Change Encoding"
+msgstr "Αλλαγή της κωδικοποίησης"
+
+#: ../../src/ed_menu.py:805
+msgid "Change Font Settings"
+msgstr "Αλλαγή ρυθμίσεων γραμματοσειράς"
+
+#: ../../src/ed_statbar.py:62 ../../src/ed_statbar.py:65
+#: ../../src/ed_statbar.py:68
+#, python-format
+msgid "Change line endings to %s"
+msgstr "Αλλαγή των καταλήξεων γραμμών σε %s"
+
+#: ../../src/ed_statbar.py:192
+msgid "Change the encoding of the current document."
+msgstr "Αλλαγή της κωδικοποίησης του παρόντος εγγράφου"
+
+#: ../../src/perspective.py:146
+#, python-format
+msgid "Change view to \"%s\""
+msgstr "Αλλαγή προβολής σε %s"
+
+#: ../../src/prefdlg.py:283
+msgid "Changes made in this dialog are saved in your current profile. Some Items such as Language require the program to be restarted before taking effect."
+msgstr "Οι τρέχοντες αλλαγές σώθηκαν στο προφίλ σας. Κάποιες από αυτές όπως η γλώσσα, απαιτούν επανεκκίνηση του προγράμματος για να εφαρμοστούν."
+
+#: ../../src/plugdlg.py:234
+msgid "Changes will take affect once the program has been restarted"
+msgstr "Οι αλλαγές θα εφαρμοστούν, αφού το πρόγραμμα επανεκιννηθεί."
+
+#: ../../src/prefdlg.py:1576
+msgid "Check"
+msgstr "Έλεγχος"
+
+#: ../../src/prefdlg.py:414
+msgid "Check for updates on startup"
+msgstr "Έλεγχος για ενημερώσεις κατά την εκκίνηση"
+
+#: ../../src/prefdlg.py:513
+msgid "Check if on disk file has been modified by others"
+msgstr "Έλεγχος αν το αρχείο στο δίσκο έχει τροποποιηθεί από άλλους"
+
+#: ../../src/prefdlg.py:584
+msgid "Check spelling while typing"
+msgstr "Έλεγχος της ορθογραφίας κατά την γραφή"
+
+#: ../../src/prefdlg.py:1602
+msgid "Checking..."
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:810
+msgid "Choose Folder"
+msgstr "Επιλογή Φακέλου"
+
+#: ../../src/eclib/finddlg.py:1142
+msgid "Choose Search Folder"
+msgstr "Επιλογή καταλόγου έρευνας"
+
+#: ../../src/ed_main.py:679
+msgid "Choose a Save Location"
+msgstr "Επιλογή Καταλόγου Αποθήκευσης"
+
+#: ../../src/ed_pages.py:170
+msgid "Choose an Encoding"
+msgstr "Επιλογή κωδικοποίησης"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:609
+msgid "Choose and executable"
+msgstr "Επιλογή και εκτελέσιμο"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Class Definitions"
+msgstr "Ορισμοί Κλάσης"
+
+#: ../../src/ed_log.py:139 ../../src/ed_search.py:1343
+#: ../../plugins/Launch/launch/launch.py:181
+#: ../../plugins/PyShell/PyShell/__init__.py:112
+msgid "Clear"
+msgstr "Καθαρισμός"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:580
+msgid "Click on an item to edit"
+msgstr "Κάντε κλικ σε ένα στοιχείο για να το επεξεργαστείτε"
+
+#: ../../src/ed_editv.py:281
+#, python-format
+msgid "Close \"%s\""
+msgstr "Κλείστε το \"%s\""
+
+#: ../../src/ed_editv.py:283
+msgid "Close All"
+msgstr "Κλείτε τα όλα"
+
+#: ../../src/ed_shelf.py:173
+#, python-format
+msgid "Close All '%s'"
+msgstr ""
+
+#: ../../src/ed_menu.py:604
+msgid "Close All Tabs"
+msgstr "Κλείστε όλες τις καρτέλες"
+
+#: ../../src/ed_menu.py:601
+msgid "Close Current Tab"
+msgstr "Κλείστε την τρέχουσα καρτέλα"
+
+#: ../../src/ed_editv.py:282
+msgid "Close Other Tabs"
+msgstr "Κλείσιμο των άλλων καρτελών"
+
+#: ../../src/ed_menu.py:603
+msgid "Close Window"
+msgstr "Κλείστε το παράθυρο"
+
+#: ../../src/ed_menu.py:605
+msgid "Close all open tabs"
+msgstr "Κλείστε όλες τις ανοικτέ καρτέλες"
+
+#: ../../src/ed_menu.py:603
+msgid "Close the current window"
+msgstr "Κλείστε το τρέχον παράθυρο"
+
+#: ../../src/prefdlg.py:714
+msgid "Code"
+msgstr "Κώδικας"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:92
+msgid "Code Browser"
+msgstr "Περιηγητής Κώδικα"
+
+#: ../../src/ed_menu.py:765 ../../src/ed_menu.py:870 ../../src/prefdlg.py:973
+msgid "Code Folding"
+msgstr "Δίπλωμα κώδικα"
+
+#: ../../src/ed_menu.py:766
+msgid "Code folding toggle actions"
+msgstr "Δίπλωμα κώδικα εναλλαγή δράσεων"
+
+#: ../../plugins/codebrowser/codebrowser/__init__.py:48
+#: ../../plugins/codebrowser/codebrowser/__init__.py:95
+msgid "CodeBrowser"
+msgstr "Περιηγητής Κώδικα"
+
+#: ../../src/style_editor.py:737
+msgid "Color"
+msgstr "Χρώμα"
+
+#: ../../src/ed_menu.py:873
+msgid "Color Highlight Code Syntax"
+msgstr "Χρώμα για τον τονισμό, στη σύνταξη κώδικα"
+
+#: ../../src/prefdlg.py:1141
+msgid "Color Scheme"
+msgstr "Χρωματικό Σχήμα"
+
+#: ../../plugins/PyShell/PyShell/__init__.py:108
+msgid "Color Scheme:"
+msgstr ""
+
+#: ../../src/prefdlg.py:2216
+msgid "Colour/Default"
+msgstr "Χρώμα/Προεπιλεγμένο"
+
+#: ../../src/prefdlg.py:2215
+msgid "Colour/White"
+msgstr "Χρώμα/Λευκό"
+
+#: ../../src/ed_menu.py:671
+msgid "Column Edit"
+msgstr ""
+
+#: ../../src/ed_cmdbar.py:438
+msgid "Command"
+msgstr "Εντολή"
+
+#: ../../src/ed_menu.py:699
+msgid "Commands that affect an entire line"
+msgstr "Εντολές που επηρεάζουν μια ολόκληρη γραμμή"
+
+#: ../../src/prefdlg.py:1386
+msgid "Configuration"
+msgstr "Ρύθμιση"
+
+#: ../../src/plugdlg.py:195
+msgid "Configuration Changes Made"
+msgstr "Έγιναν Αλλαγές Ρυθμίσεων"
+
+#: ../../src/plugdlg.py:120 ../../src/plugdlg.py:942
+msgid "Configure"
+msgstr "Διαμόρφωση"
+
+#: ../../src/ed_menu.py:638
+msgid "Configure Printer"
+msgstr "Ρύθμιση Εκτυπωτή"
+
+#: ../../src/ed_menu.py:819
+msgid "Convert selected text to all lowercase letters"
+msgstr "Μετατροπή επιλεγμένου κειμένου σε μικρά γράμματα"
+
+#: ../../src/ed_menu.py:817
+msgid "Convert selected text to all uppercase letters"
+msgstr "Μετατροπή επιλεγμένου κειμένου σε κεφαλαία γράμματα"
+
+#: ../../src/ed_menu.py:831
+msgid "Convert spaces to tabs in selected/all text"
+msgstr "Μετατροπή χαρακτήρων διαστήματος σε στηλοθέτες στην επιλογή/όλο το κείμενο"
+
+#: ../../src/ed_menu.py:833
+msgid "Convert tabs to spaces in selected/all text"
+msgstr "Μετατροπή στηλοθετών σε χαρακτήρες διαστήματος στην επιλογή/όλο το κείμενο"
+
+#: ../../src/ed_editv.py:466 ../../src/ed_toolbar.py:88
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: ../../src/ed_menu.py:685
+msgid "Copy Current Line"
+msgstr "Αντιγραφή Τρέχουσας Γραμμής"
+
+#: ../../src/ed_editv.py:285
+msgid "Copy Filename"
+msgstr ""
+
+#: ../../src/ed_editv.py:286
+msgid "Copy Full Path"
+msgstr "Αντιγραφή πλήρους διαδρομής μονοπατιού"
+
+#: ../../src/ed_menu.py:684
+msgid "Copy Line"
+msgstr "Αντιγραφή Γραμμής"
+
+#: ../../src/ed_menu.py:661 ../../src/ed_toolbar.py:89
+msgid "Copy Selected Text to Clipboard"
+msgstr "Αντιγραφή Επιλεγμένου Κειμένου στο Πρόχειρο"
+
+#: ../../src/ed_main.py:1572
+msgid "Copyright"
+msgstr "Πνευματική ιδιοκτησία"
+
+#: ../../src/eclib/finddlg.py:865
+msgid "Count"
+msgstr "Αρίθμηση"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:656
+#: ../../plugins/filebrowser/filebrowser/browser.py:678
+#, python-format
+msgid "Create Archive of \"%s\""
+msgstr "Δημιουργία Αρχείου των \"%s\""
+
+#: ../../src/style_editor.py:207
+msgid "Create a new style theme"
+msgstr ""
+
+#: ../../src/eclib/infodlg.py:193
+msgid "Created"
+msgstr "Δημιουργήθηκε"
+
+#: ../../src/ed_menu.py:658
+msgid "Cu&t"
+msgstr "Απ&οκοπή"
+
+#: ../../src/eclib/finddlg.py:732
+msgid "Current Directory"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:731
+msgid "Current Document"
+msgstr "Τρέχον Έγγραφο"
+
+#: ../../src/ed_cmdbar.py:128
+msgid "Customize"
+msgstr "Προσάρμοσε"
+
+#: ../../src/ed_main.py:1448
+msgid "Customize Menu"
+msgstr "Προσαρμογή Μενού"
+
+#: ../../src/ed_menu.py:541
+msgid "Customize the items shown in this menu."
+msgstr "Προσαρμογή των αντικειμένων που φαίνονται σε αυτό το μενού"
+
+#: ../../src/ed_menu.py:540
+msgid "Customize..."
+msgstr "Προσαρμογή.."
+
+#: ../../src/ed_editv.py:465 ../../src/ed_toolbar.py:86
+msgid "Cut"
+msgstr "Κόψιμο"
+
+#: ../../src/ed_menu.py:681
+msgid "Cut Current Line"
+msgstr "Αποκοπή Τρέχουσας Γραμμής"
+
+#: ../../src/ed_menu.py:680
+msgid "Cut Line"
+msgstr "Αποκοπή Γραμμής"
+
+#: ../../src/ed_menu.py:659 ../../src/ed_toolbar.py:87
+msgid "Cut Selected Text from File"
+msgstr "Κόψιμο Επιλεγμένου Κειμένου απο το Αρχείο"
+
+#: ../../src/ed_menu.py:666
+msgid "Cycle Clipboard"
+msgstr "Κύκλος Πρόχειρο"
+
+#: ../../src/ed_menu.py:667
+msgid "Cycle through recent clipboard text"
+msgstr "Κύκλος μέσω προσφάτου κειμένου στο πρόχειρο"
+
+#: ../../src/ed_search.py:66 ../../src/ed_search.py:70
+msgid "DECODING ERROR"
+msgstr "ΣΦΑΛΜΑ ΑΠΟΚΩΔΙΚΟΠΟΙΗΣΗΣ"
+
+#: ../../src/ed_main.py:795 ../../src/ed_main.py:797 ../../src/ed_main.py:814
+#: ../../src/ed_main.py:826 ../../src/ed_session.py:277
+#: ../../plugins/Launch/launch/cfgdlg.py:191
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: ../../src/prefdlg.py:796
+msgid "Default EOL Mode"
+msgstr "Προεπιλογή Κατάσταση EOL"
+
+#: ../../src/prefdlg.py:964
+msgid "Default Lexer"
+msgstr "Προεπιλογή Λεκτικό"
+
+#: ../../src/prefdlg.py:1244
+msgid "Default Perspective"
+msgstr "Προεπιλογή Προοπτική"
+
+#: ../../src/prefdlg.py:962
+msgid "Default highlighing for new documents"
+msgstr "Προεπιλογή τονισμός για τα νέα έγγραφα"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Defines"
+msgstr "Ορίζει"
+
+#: ../../src/ed_bookmark.py:142 ../../src/ed_session.py:186
+#: ../../src/prefdlg.py:1763
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../../src/ed_bookmark.py:145
+msgid "Delete All"
+msgstr ""
+
+#: ../../src/ed_bookmark.py:144
+msgid "Delete Bookmark"
+msgstr ""
+
+#: ../../src/eclib/filemgrdlg.py:175
+msgid "Delete Error"
+msgstr "Διαγραφή Σφάλμα"
+
+#: ../../src/eclib/filemgrdlg.py:168
+msgid "Delete File?"
+msgstr "Διαγραφή του Aρχείου;"
+
+#: ../../src/ed_menu.py:682
+msgid "Delete Line"
+msgstr "Διαγραφή Γραμμής"
+
+#: ../../src/perspective.py:294
+msgid "Delete Perspective"
+msgstr "Διαγραφή Προοπτικής;"
+
+#: ../../src/perspective.py:84
+msgid "Delete Saved View"
+msgstr "Διαγραφή αποθηκευμένης προβολής"
+
+#: ../../src/ed_bookmark.py:148
+msgid "Delete all bookmarks"
+msgstr ""
+
+#: ../../src/ed_menu.py:683
+msgid "Delete the selected line(s)"
+msgstr "Διαγραφή επιλεγμένων γραμμών"
+
+#: ../../src/prefdlg.py:591
+msgid "Dictionary:"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:822
+msgid "Direction"
+msgstr "Κατεύθυνση"
+
+#: ../../src/prefdlg.py:401
+msgid "Disable Error Reporter"
+msgstr "Απενεργοποίηση Ανταποκριτή Σφαλμάτων"
+
+#: ../../src/prefdlg.py:1286
+msgid "Display Font"
+msgstr "Γραμματοσειρά παρουσίασης"
+
+#: ../../src/plugdlg.py:182
+msgid "Do you wish to exit?"
+msgstr "Επιθυμείτε την έξοδο σας;"
+
+#: ../../src/ed_pages.py:985
+#, python-format
+msgid ""
+"Do you wish to open all %d files in this directory?\n"
+"\n"
+"Warning: opening many files at once may cause the editor to temporarily  freeze."
+msgstr ""
+"Επιθυμείτε το άνοιγμα όλων των %d αρχείων σε αυτό τον κατάλογο;\n"
+"\n"
+"Προειδοποίηση: το άνοιγμα πολλών αρχείων ταυτόχρονα ίσως επιφέρει το προσωρινό πάγωμα της εφαρμογής"
+
+#: ../../src/prefdlg.py:189
+msgid "Document"
+msgstr "Έγγραφο"
+
+#: ../../src/eclib/finddlg.py:826
+msgid "Down"
+msgstr "Κάτω"
+
+#: ../../src/plugdlg.py:121 ../../src/plugdlg.py:451 ../../src/plugdlg.py:1097
+#: ../../src/prefdlg.py:1571
+msgid "Download"
+msgstr "Λήψη"
+
+#: ../../src/plugdlg.py:474
+msgid "Downloaded"
+msgstr "Ληφθέντα"
+
+#: ../../src/plugdlg.py:589 ../../src/updater.py:618
+msgid "Downloading"
+msgstr "Λήψη σε εξέλιξη"
+
+#: ../../src/updater.py:581
+#, python-format
+msgid "Downloading To: %s"
+msgstr "Κατέβασμα στο: %s"
+
+#: ../../src/Editra.py:649 ../../src/prefdlg.py:1613
+msgid "Downloading Update"
+msgstr "Λήψη Ενημέρωση"
+
+#: ../../src/updater.py:579
+#, python-format
+msgid "Downloading: %s"
+msgstr "Λήψη: %s"
+
+#: ../../src/plugdlg.py:181
+msgid "Downloads are incomplete"
+msgstr "Τα ληφθέντα είναι μισοτελειωμένα"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:655
+msgid "Duplicate"
+msgstr "Δημιουργία αντίγραφου"
+
+#: ../../src/ed_menu.py:686
+msgid "Duplicate Line"
+msgstr "Αντιγραφή Γραμμής"
+
+#: ../../src/ed_menu.py:687
+msgid "Duplicate the current line"
+msgstr "Αντέγραψε την τρέχουσα γραμμή"
+
+#: ../../src/ed_menu.py:643
+msgid "E&xit"
+msgstr "E&ξοδος"
+
+#: ../../src/ed_menu.py:850
+msgid "EOL Mode"
+msgstr "EOL Κατάσταση"
+
+#: ../../src/ed_main.py:629
+#, python-format
+msgid "ERROR: %s"
+msgstr "ΣΦΑΛΜΑ: %s"
+
+#: ../../src/ed_main.py:695
+#, python-format
+msgid "ERROR: Failed to save %s"
+msgstr "ΛΑΘΟΣ: Αποτυχία εγγραφής στο %s"
+
+#: ../../src/prefdlg.py:975
+msgid "Edge Guide"
+msgstr "Οδηγός Περιθωρίου"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:640
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: ../../src/ed_menu.py:727
+msgid "Edit Preferences / Settings"
+msgstr "Επεξεργασίας Προτιμήσεων / Ρυθμίσεων"
+
+#: ../../src/ed_menu.py:896
+msgid "Edit the way syntax is highlighted"
+msgstr "Επεξεργασία του τρόπου επισήμανσης της σύνταξης"
+
+#: ../../src/ed_menu.py:758
+msgid "Editor"
+msgstr "Συντάκτης"
+
+#: ../../src/ed_menu.py:889
+msgid "Editor Command"
+msgstr "Εντολή Συντάκτη"
+
+#: ../../src/prefdlg.py:385
+msgid "Editor Mode"
+msgstr "Κατάσταση Συντάκτη"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:539
+msgid "Editor Options"
+msgstr ""
+
+#: ../../src/ed_log.py:80
+msgid "Editra Log"
+msgstr "Καταγραφέας Editra"
+
+#: ../../src/ed_mdlg.py:85
+#, python-format
+msgid ""
+"Editra could not open %(filename)s\n"
+"\n"
+"Error:\n"
+"%(errormsg)s"
+msgstr ""
+"Δεν κατέστη δυνατό το άνοιγμα %(filename)s\n"
+"\n"
+"Σφάλμα:\n"
+"%(errormsg)s"
+
+#: ../../src/ed_main.py:1562
+msgid "Editra is a programmers text editor."
+msgstr "Το Editra είναι ένας συντάκτης κειμένου για προγραμματιστές"
+
+#: ../../src/ed_menu.py:924
+msgid "Editra translations project"
+msgstr "Editra έργο μεταφράσεων"
+
+#: ../../src/ed_main.py:433
+msgid "Editra: Open"
+msgstr "Editra: Άνοιγμα"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Elements"
+msgstr ""
+
+#: ../../src/ed_pages.py:374
+msgid "Empty File"
+msgstr "Κενό Αρχείο"
+
+#: ../../src/plugdlg.py:934
+msgid "Enable"
+msgstr "Ενεργοποίηση"
+
+#: ../../src/prefdlg.py:1003
+msgid "Enable Vi Emulation"
+msgstr "Ενεργοποίηση Vi Emulation"
+
+#: ../../src/ed_menu.py:672
+msgid "Enable column edit mode."
+msgstr "Ενεργοποίηση κατάστασης επεξεργασίας στήλης"
+
+#: ../../src/prefdlg.py:601
+msgid "Enchant Path:"
+msgstr ""
+
+#: ../../src/prefdlg.py:501
+msgid "Encoding to try when auto detection fails"
+msgstr "Κωδικοποίηση που θα χρησιμοποιηθεί όταν η αυτόματη αναγνώριση αποτύχει"
+
+#: ../../src/ed_menu.py:851
+msgid "End of line character formatting"
+msgstr "Τέλος της γραμμής μορφοποίηση χαρακτήρων"
+
+#: ../../src/eclib/colorsetter.py:84
+msgid "Enter a hex color value"
+msgstr "Εισάγετε μια δεκαεξαδική τιμή χρώματος"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:826
+#, fuzzy
+msgid "Enter file name:"
+msgstr "Εισάγετε το όνομα των ρυθμίσεων στυλ"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:817
+#, fuzzy
+msgid "Enter folder name:"
+msgstr "Εισάγετε το όνομα των ρυθμίσεων στυλ"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:114
+#, fuzzy
+msgid "Enter new filter"
+msgstr "Νέα Γραμμή Μετά"
+
+#: ../../src/style_editor.py:364
+msgid "Enter style sheet name"
+msgstr "Εισάγετε το όνομα των ρυθμίσεων στυλ"
+
+#: ../../src/prefdlg.py:1962
+msgid "Enter the name of the new key profile"
+msgstr "Δώστε το όνομα του νέου key profile"
+
+#: ../../src/ed_editv.py:221 ../../src/plugdlg.py:825
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: ../../src/ed_mdlg.py:87
+msgid "Error Opening File"
+msgstr "Λάθος κατά το άνοιγμα του αρχείου"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:434
+msgid "Error Text"
+msgstr "Σφάλμα Κειμένου"
+
+#: ../../src/eclib/errdlg.py:316
+msgid "Error Traceback:"
+msgstr "Σφάλμα Traceback:"
+
+#: ../../src/ed_search.py:606
+#, python-format
+msgid ""
+"Error in regular expression expansion.The replace action cannot be completed.\n"
+"\n"
+"Error Message: %s"
+msgstr ""
+"Σφάλμα στην προέκταση του regular expression. Η προσπάθεια αντικατάστασης δεν ολοκληρώθηκε.\n"
+"\n"
+"Μύνημα Σφάλματος: %s"
+
+#: ../../src/dev_tool.py:260
+msgid ""
+"Error: Something unexpected happend\n"
+"Help improve Editra by clicking on Report Error\n"
+"to send the Error Traceback shown below."
+msgstr ""
+"Σφάλμα: Κάτι μη αναμενόμενο συνέβη\n"
+"Βοηθήστε στην βελτίωση του Editra κάνοντας κλικ στην Αναφορά Σφάλματος\n"
+"για να στείλετε το Λάθος που εμφανίζεται παρακάτω."
+
+#: ../../src/ed_main.py:1499
+#, python-format
+msgid "Error: Unable to open %s"
+msgstr "Σφάλμα: Αδυναμία ανοίγματος %s"
+
+#: ../../src/plugdlg.py:130
+msgid "Errors"
+msgstr "Σφάλματα"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:584
+msgid "Executable Commands"
+msgstr "Εντολές Εκτελέσιμου"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:176
+msgid "Executables"
+msgstr "Εκτελέσιμα"
+
+#: ../../plugins/Launch/launch/launch.py:703
+msgid "Exit Code"
+msgstr "Κώδικας Εξόδου"
+
+#: ../../src/ed_menu.py:643
+msgid "Exit the Program"
+msgstr "Τερματισμός Προγράμματος"
+
+#: ../../src/eclib/errdlg.py:321
+msgid "Exit the application"
+msgstr "Τερματισμός της εφαρμογής"
+
+#: ../../src/prefdlg.py:994
+msgid "Extended Auto-Comp"
+msgstr "Επεκατάσιμο Auto-Comp"
+
+#: ../../src/prefdlg.py:2103
+msgid "Extensions (space separated, no dots)"
+msgstr "Επεκτάσεις (καινό χωρισμένο, όχι τελείες)"
+
+#: ../../src/ed_menu.py:854
+msgid "F&ormat"
+msgstr "Μ&ορφή"
+
+#: ../../src/updater.py:700
+msgid "Failed"
+msgstr "Απέτυχε"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:831
+#, fuzzy
+msgid "Failed to create file"
+msgstr "Αποτυχία δημιουργίας προεπισκόπησης εκτύπωσης"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:822
+#, fuzzy
+msgid "Failed to create folder"
+msgstr "Αποτυχία δημιουργίας προεπισκόπησης εκτύπωσης"
+
+#: ../../src/ed_print.py:120
+msgid "Failed to create print preview"
+msgstr "Αποτυχία δημιουργίας προεπισκόπησης εκτύπωσης"
+
+#: ../../src/style_editor.py:381
+#, python-format
+msgid ""
+"Failed to delete style sheet:\n"
+"Error:\n"
+"%s"
+msgstr ""
+
+#: ../../src/ed_main.py:849
+msgid "Failed to get control reference for printing"
+msgstr ""
+
+#: ../../src/plugdlg.py:827
+#, python-format
+msgid "Failed to install %d plugins"
+msgstr "Αποτυχία εγκατάστασης %d προσθέ"
+
+#: ../../src/prefdlg.py:677
+msgid "Failed to load Enchant"
+msgstr "Αποτυχία φόρτωσης Enchant"
+
+#: ../../src/ed_pages.py:370
+#, python-format
+msgid ""
+"Failed to load the session: %(sessionname)s\n"
+"\n"
+"Error: %(error)s"
+msgstr ""
+
+#: ../../src/ed_editv.py:219
+#, python-format
+msgid ""
+"Failed to reload %(filename)s:\n"
+"Error: %(errmsg)s"
+msgstr ""
+"Αποτυχία φορτώματος %(filename)s:\n"
+"Σφάλμα: %(errmsg)s"
+
+#: ../../src/ed_editv.py:209
+#, fuzzy, python-format
+msgid ""
+"Failed to reload file\n"
+"\n"
+"Error:\n"
+"%s"
+msgstr ""
+"Αποτυχία φορτώματος %(filename)s:\n"
+"Σφάλμα: %(errmsg)s"
+
+#: ../../src/ed_main.py:1231
+#, python-format
+msgid "Failed to reload the file with: %(encoding)s"
+msgstr "Αποτυχία επαναφόρτωσης του αρχείου με: %(encoding)s"
+
+#: ../../src/ed_stc.py:1836
+#, python-format
+msgid "Failed to reload: %s"
+msgstr ""
+
+#: ../../src/ed_mdlg.py:104
+#, python-format
+msgid ""
+"Failed to save file: %(filename)s\n"
+"\n"
+"Error:\n"
+"%(errormsg)s"
+msgstr ""
+"Αποτυχία εγγραφής στο αρχείο: %(filename)s\n"
+"\n"
+"Λάθος:\n"
+"%(errormsg)s"
+
+#: ../../src/ed_menu.py:926
+msgid "Feedback"
+msgstr "Ανατροφοδότηση"
+
+#: ../../src/prefdlg.py:540
+msgid "File Backups"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:211
+msgid "File Browser"
+msgstr "Περιηγητής Αρχείων"
+
+#: ../../src/eclib/finddlg.py:735
+msgid "File Filters:"
+msgstr "Φίλτρα Αρχείων"
+
+#: ../../src/prefdlg.py:482
+msgid "File History Length"
+msgstr "Μέγεθος του Αρχείου Ιστορικού"
+
+#: ../../src/ed_bookmark.py:274
+msgid "File Location"
+msgstr ""
+
+#: ../../src/ed_main.py:586
+msgid "File Not Found"
+msgstr "Το αρχείο δεν βρέθηκε"
+
+#: ../../src/prefdlg.py:529
+msgid "File Settings"
+msgstr "Ρυθμίσεις Αρχείων"
+
+#: ../../src/eclib/infodlg.py:115
+msgid "File Stat Failed"
+msgstr "Τα Στατιστικά του Αρχείου Απέτυχαν"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:171
+msgid "File Type"
+msgstr "Τύπος Αρχείου"
+
+#: ../../src/ed_stc.py:624
+#, python-format
+msgid "File backup performed: %s"
+msgstr "Αντίγραφο Ασφαλείας που έχει Πραγματοποιηθεί: %s"
+
+#: ../../src/ed_stc.py:1898
+msgid "File is Read Only and cannot be saved"
+msgstr "Το αρχείο είναι μόνο για εγγραφή και δε μπορεί να αποθηκευτεί"
+
+#: ../../src/ed_pages.py:212
+msgid ""
+"File is already open in an existing page.\n"
+"Do you wish to open it again?"
+msgstr ""
+"Το αρχείο είναι είδη ανοιχτό.\n"
+"Θέλετε πάλι να το ανοίξετε;"
+
+#: ../../src/ed_editv.py:210
+msgid "File read error"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/__init__.py:86
+#, fuzzy
+msgid "FileBrowser"
+msgstr "Περιηγητής Αρχείων"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:45
+#, fuzzy
+msgid "FileBrowser Config"
+msgstr "Περιηγητής Αρχείων"
+
+#: ../../src/prefdlg.py:306 ../../src/eclib/filemgrdlg.py:218
+msgid "Files"
+msgstr "Αρχεία"
+
+#: ../../src/ed_search.py:1384
+#, python-format
+msgid "Files Searched: %d"
+msgstr "Αρχεία που έχουν Αναζητηθεί: %d"
+
+#: ../../src/prefdlg.py:1135
+msgid "Filetype Associations"
+msgstr "Συσχετίσεις Αρχείων"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:71
+#, fuzzy
+msgid "Filters"
+msgstr "Αρχεία"
+
+#: ../../src/ed_cmdbar.py:293 ../../src/ed_search.py:157
+#: ../../src/ed_toolbar.py:93 ../../src/eclib/finddlg.py:651
+#: ../../src/eclib/finddlg.py:787 ../../src/eclib/finddlg.py:863
+msgid "Find"
+msgstr "Αναζήτηση"
+
+#: ../../src/ed_cmdbar.py:309 ../../src/eclib/finddlg.py:866
+msgid "Find All"
+msgstr "Αναζήτηση Όλων"
+
+#: ../../src/ed_search.py:371
+msgid "Find Count"
+msgstr "Καταμέτρηση Αναζήτησης"
+
+#: ../../src/ed_menu.py:721
+msgid "Find Next"
+msgstr "Εύρεση Επόμενου"
+
+#: ../../src/eclib/finddlg.py:832
+msgid "Find Options"
+msgstr "Επιλογές Εύρεσης"
+
+#: ../../src/ed_menu.py:719
+msgid "Find Previous"
+msgstr "Εύρεση Προηγούμενου"
+
+#: ../../src/ed_menu.py:723
+msgid "Find Selected"
+msgstr "Αναζήτηση Επιλεγμένου"
+
+#: ../../src/ed_menu.py:714 ../../src/ed_toolbar.py:93
+msgid "Find Text"
+msgstr "Αναζήτηση Κειμένου"
+
+#: ../../src/ed_menu.py:716 ../../src/ed_toolbar.py:95
+msgid "Find and Replace Text"
+msgstr "Αναζήτηση και Αντικατάσταση Κειμένου"
+
+#: ../../src/eclib/finddlg.py:785
+msgid "Find what"
+msgstr "Αναζήτηση του"
+
+#: ../../src/ed_menu.py:715
+msgid "Find/R&eplace"
+msgstr "Αναζήτηση/Α%ντικατάσταση"
+
+#: ../../src/ed_search.py:157 ../../src/ed_toolbar.py:94
+msgid "Find/Replace"
+msgstr "Αναζήτηση/Αντικατάσταση"
+
+#: ../../src/updater.py:697
+msgid "Finished"
+msgstr "Ολοκληρώθηκε"
+
+#: ../../src/plugdlg.py:477
+msgid "Finshed downloading plugins"
+msgstr "Ολοκλήρωση μεταφορτώσεως plugins"
+
+#: ../../src/util.py:374 ../../src/eclib/infodlg.py:292
+msgid "Folder"
+msgstr "Φάκελος"
+
+#: ../../src/style_editor.py:786
+msgid "Font"
+msgstr "Γραμματοσειρά"
+
+#: ../../src/style_editor.py:781
+msgid "Font Settings"
+msgstr "Ρυθμίσεις Γραμματοσειράς"
+
+#: ../../src/style_editor.py:742 ../../plugins/Launch/launch/cfgdlg.py:421
+msgid "Foreground"
+msgstr "Προσκήνιο"
+
+#: ../../src/prefdlg.py:841
+msgid "Format"
+msgstr "Μορφοποίηση"
+
+#: ../../src/ed_stc.py:1215
+msgid "Format EOL?"
+msgstr "Μορφοποίηση χαρακτήρα στο τέλος της γραμμής (EOL)"
+
+#: ../../src/ed_menu.py:842 ../../src/ed_menu.py:845 ../../src/ed_menu.py:848
+#, python-format
+msgid "Format all EOL characters to %s Mode"
+msgstr "Μορφοποίηση χαρακτήρα στο τέλος της γραμμής ως %s"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:52
+msgid "Function Definitions"
+msgstr "Ορισμοί Συναρτήσεων"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Functions"
+msgstr "Συναρτήσεις"
+
+#: ../../src/prefdlg.py:185 ../../src/prefdlg.py:713 ../../src/prefdlg.py:1015
+#: ../../plugins/Launch/launch/cfgdlg.py:131
+msgid "General"
+msgstr "Γενικά"
+
+#: ../../src/generator.py:284 ../../src/generator.py:667
+#: ../../src/generator.py:870
+#, python-format
+msgid "Generate %s"
+msgstr "Δημιουργία %s"
+
+#: ../../src/generator.py:114
+msgid "Generate Code and Documents"
+msgstr "Δημιουργία Κώδικα και Τεκμηρίωσης"
+
+#: ../../src/generator.py:285 ../../src/generator.py:871
+#, python-format
+msgid "Generate a %s version of the current document"
+msgstr "Δημιουργία μιας %s έκδοσης του παρόν εγγράφου"
+
+#: ../../src/generator.py:668
+#, python-format
+msgid "Generate an %s version of the current document"
+msgstr "Δημιουργία μιας %s έκδοσης του παρόν εγγράφου"
+
+#: ../../src/generator.py:113
+msgid "Generator"
+msgstr "Πρόγραμμα δημιουργίας"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:649
+msgid "Get Info"
+msgstr "Λήψη Πληροφοριών"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Global Variables"
+msgstr "Γενικές Μεταβλητές"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:398
+#, python-format
+msgid "Goto \"%s\""
+msgstr "Πήγαινε στο \"%s\""
+
+#: ../../src/ed_cmdbar.py:471
+msgid "Goto Line"
+msgstr "Πήγαινε στη Γραμμή"
+
+#: ../../src/ed_menu.py:775
+msgid "Goto Line Number"
+msgstr "Πήγαινε στη Γραμμή Νο."
+
+#: ../../src/ed_menu.py:776
+msgid "Goto Matching Brace"
+msgstr "Πήγαινε στην Αντίστοιχη Αγγύλη"
+
+#: ../../src/ed_menu.py:890
+msgid "Goto command buffer"
+msgstr "Πήγαινε σε εντολή απο τη μνήμη (buffer)"
+
+#: ../../src/ed_menu.py:780
+msgid "Goto next position in history."
+msgstr "Πήγαινε στην επόμενη θέση στο ιστορικό."
+
+#: ../../src/ed_menu.py:720
+msgid "Goto previous match"
+msgstr "Πήγαινε στο προηγούμενο ταίρι"
+
+#: ../../src/ed_menu.py:782
+msgid "Goto previous position in history."
+msgstr "Πήγαινε στη προηγούμενη θέση στο ιστορικό."
+
+#: ../../src/ed_menu.py:722
+msgid "Goto the next match"
+msgstr "Πήγαινε στο επόμενο ταίρι"
+
+#: ../../src/prefdlg.py:979
+msgid "Guide Column"
+msgstr "Οδηγός Κολώνας"
+
+#: ../../src/ed_menu.py:869
+msgid "Highlight Brackets/Braces"
+msgstr "Έμφαση στα Άγκιστρα/Αγκύλες"
+
+#: ../../src/ed_menu.py:745 ../../src/prefdlg.py:984
+msgid "Highlight Caret Line"
+msgstr "Έμφαση στη Γραμμή του Κέρσορα"
+
+#: ../../src/ed_menu.py:746
+msgid "Highlight the background of the current line"
+msgstr "Τόνισε το φόντο της παρούσας γραμμής"
+
+#: ../../src/ed_main.py:1564
+msgid "Homepage"
+msgstr "Αρχική σελίδα"
+
+#: ../../src/prefdlg.py:1222
+msgid "Icon Theme"
+msgstr "Θέμα Εικονιδίων"
+
+#: ../../src/prefdlg.py:1267
+msgid "Icons"
+msgstr "Εικονίδια"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Identities"
+msgstr "Ταυτότητες"
+
+#: ../../src/ed_editv.py:511
+msgid "Ignore"
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Imports"
+msgstr "Εισαγωγές"
+
+#: ../../src/ed_menu.py:811
+msgid "Indent Lines"
+msgstr "Δημιούργησε εσοχή στις γραμμές"
+
+#: ../../src/prefdlg.py:770
+msgid "Indent Width"
+msgstr "Μήκος εσοχής"
+
+#: ../../src/ed_menu.py:812
+msgid "Indent the selected lines"
+msgstr "Οδόντωση επιλεγμένων γραμμών"
+
+#: ../../src/ed_menu.py:748 ../../src/prefdlg.py:987
+msgid "Indentation Guides"
+msgstr "Οδηγοί Οδόντωσης"
+
+#: ../../src/eclib/infodlg.py:58
+msgid "Info"
+msgstr "Πληροφορίες"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:441
+msgid "Info Text"
+msgstr "Κείμενο Πληροφοριών"
+
+#: ../../src/prefdlg.py:1024
+msgid "Input Helpers"
+msgstr "Βοηθοί Εισαγωγής"
+
+#: ../../src/ed_menu.py:822
+msgid "Insert spaces instead of tab characters with tab key"
+msgstr "Εισαγωγή κενών χαρακτήρων αντι στηλωθετών με το πλήκτρο tab"
+
+#: ../../src/plugdlg.py:122 ../../src/plugdlg.py:750
+msgid "Install"
+msgstr "Εγκατάσταση"
+
+#: ../../src/plugdlg.py:757
+msgid ""
+"Install the plugins for all users\n"
+" **requires administrative privileges**"
+msgstr ""
+"Εγκατάσταση των plugins για όλους τους χρήστες\n"
+" **απαιτούνται προνόμια διαχειριστή**"
+
+#: ../../src/plugdlg.py:754
+msgid "Install the plugins only for the current user"
+msgstr "Εγκατάσταση των plugins μόνο για τον παρόν χρήστη"
+
+#: ../../src/plugdlg.py:829
+msgid "Installation Error"
+msgstr "Σφάλμα Εγκατάστασης"
+
+#: ../../src/prefdlg.py:1552
+msgid "Installed Version"
+msgstr "Εγκατεστημένη Έκδοση"
+
+#: ../../src/ed_cmdbar.py:817
+msgid "Invalid Path"
+msgstr "Μη Έγκυρη Διαδρομή"
+
+#: ../../src/ed_search.py:412
+#, python-format
+msgid "Invalid expression \"%s\""
+msgstr "Μη έγκυρη έκφραση \"%s\""
+
+#: ../../src/ed_pages.py:969
+#, python-format
+msgid "Invalid file: %s"
+msgstr "Μη έγκυρο αρχείο: %s"
+
+#: ../../src/prefdlg.py:2217
+msgid "Inverse"
+msgstr "Αντιστροφή"
+
+#: ../../src/ed_menu.py:689
+msgid "Join Lines"
+msgstr "Ένωση Γραμμών"
+
+#: ../../src/ed_menu.py:690
+msgid "Join the Selected Lines"
+msgstr "Ένωση Επιλεγμένων Γραμμών"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:94
+msgid "Jump to Saved Path"
+msgstr "Μετακίνηση στη διαδρομή αποθήκευσης"
+
+#: ../../src/prefdlg.py:1790
+msgid "Key"
+msgstr "Κλειδί"
+
+#: ../../src/prefdlg.py:1759
+msgid "Key Profile"
+msgstr "Προφίλ Κλειδιού"
+
+#: ../../src/prefdlg.py:1670
+msgid "Keybindings"
+msgstr "Συνδυασμοί πλήκτων"
+
+#: ../../src/eclib/infodlg.py:182
+msgid "Kind"
+msgstr "Είδος"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Labels"
+msgstr "Ετικέτες"
+
+#: ../../src/prefdlg.py:419
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: ../../src/prefdlg.py:1558
+msgid "Latest Version"
+msgstr "Τελευταία Έκδοση"
+
+#: ../../plugins/Launch/launch/__init__.py:142
+msgid "Launch"
+msgstr "Εκκίνηση"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:99
+msgid "Launch Configuration"
+msgstr "Επιλογές Εκκίνησης"
+
+#: ../../src/prefdlg.py:1272
+msgid "Layout"
+msgstr "Διάταξη"
+
+#: ../../src/prefdlg.py:2101
+msgid "Lexer"
+msgstr "Λεξικός Αναλυτής"
+
+#: ../../src/ed_menu.py:544
+msgid "Lexers"
+msgstr "Λεξικοί Αναλυτές"
+
+#: ../../src/prefdlg.py:678
+msgid "Library Error"
+msgstr "Λάθος Βιβλιοθήκης"
+
+#: ../../src/ed_main.py:1566
+msgid "License: wxWindows (see COPYING.txt for full license)"
+msgstr "Άδεια Χρήσης: wxWindows (δείτε το COPYING.txt για το πλήρες κείμενο της άδειας)"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:402
+msgid "Line Buffering:"
+msgstr ""
+
+#: ../../src/ed_menu.py:698
+msgid "Line Edit"
+msgstr "Επεξεργασία Γραμμής"
+
+#: ../../src/ed_bookmark.py:275
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:44
+msgid "Line Number"
+msgstr ""
+
+#: ../../src/ed_stc.py:764
+#, python-format
+msgid "Line: %(lnum)d  Column: %(cnum)d"
+msgstr "Line: %(lnum)d  Column: %(cnum)d"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:84
+msgid ""
+"List of files patterns to exclude from view\n"
+"The use of wildcards (*) are permitted."
+msgstr ""
+
+#: ../../src/prefdlg.py:403
+msgid "Load Last Session"
+msgstr "Φόρτωση της Τελευταίας Συνεδρίας"
+
+#: ../../src/ed_menu.py:622
+msgid "Load Profile"
+msgstr "Φόρτωμα Προφίλ"
+
+#: ../../src/ed_main.py:800 ../../src/ed_menu.py:631
+msgid "Load Session"
+msgstr "Φόρτωση Συνεδρίας"
+
+#: ../../src/ed_main.py:733 ../../src/ed_menu.py:623
+msgid "Load a Custom Profile"
+msgstr "Φόρτωση Τροποποιημένου Προφίλ"
+
+#: ../../src/ed_menu.py:632
+msgid "Load a saved session."
+msgstr "Φόρτωση αποθηκευμένης συνεδρίας."
+
+#: ../../src/ed_menu.py:625
+msgid "Load and save custom Profiles"
+msgstr "Φόρτωση και αποθήκευση προσαρμοσμένων προφίλ"
+
+#: ../../src/ed_menu.py:634
+msgid "Load and save custom sessions."
+msgstr "Φόρτωση και αποθήκευση τροποποιημένων συνεδριών."
+
+#: ../../src/prefdlg.py:405
+msgid "Load files from last session on startup"
+msgstr "Φόρτωση αρχείων απο την προηγρούμενη συνεδρία κατα την εκκίνηση"
+
+#: ../../src/ed_main.py:739
+#, python-format
+msgid "Loaded Profile: %s"
+msgstr "Φορτωμένο Προφίλ: %s"
+
+#: ../../src/ed_main.py:827
+#, python-format
+msgid "Loaded Session: %s"
+msgstr "Φορτωμένη Συνεδρία: %s"
+
+#: ../../src/prefdlg.py:440
+msgid "Locale Settings"
+msgstr "Τοπικές Ρυθμίσεις Γλώσσας"
+
+#: ../../plugins/Launch/launch/launch.py:162
+msgid "Lock File"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:813
+msgid "Look in"
+msgstr "Ψάξε στο"
+
+#: ../../src/ed_menu.py:818
+msgid "Lowercase"
+msgstr "Πεζά"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Macro Definitions"
+msgstr "Ορισμοί Μακροεντολών"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:53
+msgid "Macros"
+msgstr "Μακροεντολές"
+
+#: ../../src/prefdlg.py:1262
+msgid "Main display font for various UI components"
+msgstr "Γραμματοσειρά κύριας οθόνης για τα διάφορα στοιχεία διεπαφής"
+
+#: ../../src/ed_menu.py:894
+msgid "Manage, Download, and Install plugins"
+msgstr "Διαχείριση, Μεταφόρτωση και εγκατάσταση plugins"
+
+#: ../../src/ed_menu.py:546
+msgid "Manually Set a Lexer/Syntax"
+msgstr "Χειροκίνητος Ορισμός Λεξικού Διαχειριστή/Σύνταξης"
+
+#: ../../src/ed_cmdbar.py:315
+msgid "Match Case"
+msgstr "Ταίριασμα Πεζών/Κεφαλαίων"
+
+#: ../../src/eclib/finddlg.py:834
+msgid "Match case"
+msgstr "Ταίριασμα πεζών/κεφαλαίων"
+
+#: ../../src/ed_main.py:1427 ../../src/ed_menu.py:771
+msgid "Maximize Editor"
+msgstr "Μεγέθυνση Κειμενογράφου"
+
+#: ../../src/prefdlg.py:1772
+msgid "Menu"
+msgstr "Μενού"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:133
+msgid "Misc"
+msgstr "Διάφορα"
+
+#: ../../src/ed_pages.py:393
+msgid "Missing session files"
+msgstr "Τα αρχεία συνεδριών λείπουν"
+
+#: ../../src/ed_stc.py:1212
+msgid ""
+"Mixed EOL characters detected.\n"
+"\n"
+"Would you like to format them to all be the same?"
+msgstr ""
+"Έχουν ανιχνευθεί μικτοί χαρακτήρες τέλους γραμμής\n"
+"\n"
+"Θέλετε να διαμορφωθούν έτσι ώστε να είναι όλοι το ίδιο;"
+
+#: ../../src/eclib/infodlg.py:163 ../../src/eclib/infodlg.py:195
+msgid "Modified"
+msgstr "Τροποποιήθηκε"
+
+#: ../../src/prefdlg.py:1782
+msgid "Modifier 1"
+msgstr "Τροποποιητής 1"
+
+#: ../../src/prefdlg.py:1786
+msgid "Modifier 2"
+msgstr "Τροποποιητής 2"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Modules"
+msgstr "Μονάδες"
+
+#: ../../src/ed_menu.py:696
+msgid "Move Current Line Down"
+msgstr "Μετακίνηση της Παρούσας Γραμμής Κάτω"
+
+#: ../../src/ed_menu.py:693
+msgid "Move Current Line Up"
+msgstr "Μετακίνηση της Παρούσας Γραμμής Επάνω"
+
+#: ../../src/ed_editv.py:278
+msgid "Move Tab to New Window"
+msgstr "Μετακίνηση Καρτέλας σε Νέο Παράθυρο"
+
+#: ../../src/ed_menu.py:777
+msgid "Move caret matching brace"
+msgstr "Μετακίνηση κέρσορα στην αντίστοιχη αγκύλη"
+
+#: ../../src/ed_menu.py:697
+msgid "Move the current line down"
+msgstr "Μετακίνηση της παρούσας γραμμής κάτω"
+
+#: ../../src/ed_menu.py:694
+msgid "Move the current line up"
+msgstr "Μετακίνηση της παρούσας γραμμής επάνω"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:65
+msgid "Move to Recycle Bin"
+msgstr "Μετακίνηση στον Κάδο Ανακύκλωσης"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:67
+msgid "Move to Trash"
+msgstr "Μετακίνηση στον Κάδο Απορριμμάτων"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Namespaces"
+msgstr "Χώροι ονομάτων"
+
+#: ../../src/prefdlg.py:191
+msgid "Network"
+msgstr "Δίκτυο"
+
+#: ../../src/ed_toolbar.py:77 ../../src/prefdlg.py:1762
+#: ../../src/style_editor.py:193
+msgid "New"
+msgstr "Νέο"
+
+#: ../../src/ed_menu.py:592
+msgid "New &Window"
+msgstr "Νέο &Παράθυρο"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:653
+#: ../../plugins/filebrowser/filebrowser/browser.py:826
+msgid "New File"
+msgstr "Νέο Αρχείο"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:652
+#: ../../plugins/filebrowser/filebrowser/browser.py:817
+msgid "New Folder"
+msgstr "Νέος Φάκελος"
+
+#: ../../src/ed_menu.py:675
+msgid "New Line After"
+msgstr "Νέα Γραμμή Μετά"
+
+#: ../../src/ed_menu.py:677
+msgid "New Line Before"
+msgstr "Νέα Γραμμή Πριν"
+
+#: ../../src/prefdlg.py:1961
+msgid "New Profile"
+msgstr "Νέο Προφίλ"
+
+#: ../../src/style_editor.py:365
+msgid "New Style Sheet"
+msgstr ""
+
+#: ../../src/ed_editv.py:277
+msgid "New Tab"
+msgstr "Νέα καρτέλα"
+
+#: ../../src/ed_cmdbar.py:295
+msgid "Next"
+msgstr "Επόμενο"
+
+#: ../../src/ed_menu.py:784
+msgid "Next Bookmark"
+msgstr "Επόμενος Σελιδοδείκτης"
+
+#: ../../src/ed_menu.py:779
+msgid "Next Position"
+msgstr "Επόμενη Θέση"
+
+#: ../../src/plugdlg.py:365 ../../src/plugin.py:708
+msgid "No Description Available"
+msgstr "Δεν Υπάρχει Διαθέσιμη Περιγραφή"
+
+#: ../../src/ed_editv.py:495
+msgid "No Suggestions"
+msgstr "Δεν Υπάρχουν Προτάσεις"
+
+#: ../../src/ed_pages.py:979
+msgid "No Valid Files to Open"
+msgstr "Δεν Υπάρχουν Έγκυρα Αρχεία προς Άνοιγμα"
+
+#: ../../src/prefdlg.py:1855
+msgid "None"
+msgstr "Κανένα"
+
+#: ../../src/prefdlg.py:2218
+msgid "Normal"
+msgstr "Κανονικό"
+
+#: ../../src/ed_search.py:680
+msgid "Not implemented"
+msgstr "Μη υλοποιημένο"
+
+#: ../../src/style_editor.py:84
+msgid "Ok"
+msgstr "Εντάξει"
+
+#: ../../src/ed_glob.py:396 ../../src/ed_mdlg.py:137
+msgid "Old Machintosh (\\r)"
+msgstr "Παλαιό Machintosh (\\r)"
+
+#: ../../src/ed_menu.py:841 ../../src/ed_menu.py:843 ../../src/prefdlg.py:791
+msgid "Old Macintosh (\\r)"
+msgstr "Παλαιό Macintosh (\\r)"
+
+#: ../../src/ed_menu.py:921
+msgid "Online Documentation..."
+msgstr "Τεκμηρίωση στον Ιστό"
+
+#: ../../src/ed_menu.py:922
+msgid "Online project documentation and help guides"
+msgstr "Τεκμηρίωση και οδηγοί βοήθειας στον ιστό"
+
+#: ../../src/ed_menu.py:595 ../../src/ed_shelf.py:179
+#: ../../src/ed_toolbar.py:78
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: ../../src/ed_menu.py:597
+msgid "Open &Recent"
+msgstr "Άνοιγμα &Προσφάτου"
+
+#: ../../plugins/PyShell/PyShell/__init__.py:67
+msgid "Open A Python Shell"
+msgstr "Άνοιγμα Κελύφους Python"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:93
+msgid "Open Code Browser Sidepanel"
+msgstr "Άνοιγμα  Πλευρικού Πλαισίου Περιηγητή Κώδικα"
+
+#: ../../src/ed_pages.py:990
+msgid "Open Directory?"
+msgstr "Άνοιγμα Καταλόγου;"
+
+#: ../../src/eclib/finddlg.py:732
+msgid "Open Documents"
+msgstr "Άνοιγμα Εγγράφων"
+
+#: ../../src/ed_pages.py:214
+msgid "Open File"
+msgstr "Άνοιγμα Αρχείου"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:212
+msgid "Open File Browser Sidepanel"
+msgstr "Άνοιγμα Πλευρικού Πλαισίου Περιηγητή Αρχείων"
+
+#: ../../src/prefdlg.py:507
+msgid "Open files in new windows by default"
+msgstr "Άνοιγμα αρχείων σε νέα παράθυρα ως προεπιλογή"
+
+#: ../../src/ed_menu.py:718
+msgid "Open the Quick Find Bar"
+msgstr "Άνοιγμα Μπάρας Γρήγορης Αναζήτησης"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:641
+msgid "Open with "
+msgstr "Άνοιγμα με "
+
+#: ../../src/ed_pages.py:1010
+#, python-format
+msgid "Opened file: %s"
+msgstr "Ανοιχτό αρχείο: %s"
+
+#: ../../src/ed_main.py:1496
+#, python-format
+msgid "Opening %s"
+msgstr "Γίνεται άνοιγμα του %s"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:132
+msgid "Output"
+msgstr ""
+
+#: ../../src/ed_menu.py:664
+msgid "P&aste After"
+msgstr "Ε&πικόλληση Μετά"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:54
+msgid "Packages"
+msgstr "Πακέτα"
+
+#: ../../src/ed_menu.py:637
+msgid "Page Set&up"
+msgstr "&Ρύθμιση σελίδας"
+
+#: ../../src/ed_menu.py:769
+msgid "Pane Navigator"
+msgstr ""
+
+#: ../../src/prefdlg.py:1452
+msgid "Password"
+msgstr "Κωδικός Πρόσβασης"
+
+#: ../../src/ed_editv.py:467 ../../src/ed_toolbar.py:90
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: ../../src/ed_menu.py:663 ../../src/ed_toolbar.py:91
+msgid "Paste Text from Clipboard to File"
+msgstr "Επικόλληση Κειμένου απο το Πρόχειρο στο Αρχείο"
+
+#: ../../src/ed_menu.py:665
+msgid "Paste Text from Clipboard to File after the cursor"
+msgstr "Επικόλληση Κειμένου απο το Πρόχειρο στο Αρχείο μετά τον κέρσορα"
+
+#: ../../src/prefdlg.py:608 ../../src/prefdlg.py:609
+msgid "Path to libenchant"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:105
+msgid "Pathmarks"
+msgstr ""
+
+#: ../../src/eclib/infodlg.py:197
+msgid "Permissions"
+msgstr "Δικαιώματα"
+
+#: ../../src/perspective.py:276
+msgid "Perspective Name"
+msgstr ""
+
+#: ../../src/perspective.py:293
+msgid "Perspective to Delete"
+msgstr ""
+
+#: ../../src/ed_main.py:123
+msgid "Perspectives"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:427
+msgid "Plain Text"
+msgstr "Κείμενο Απλό"
+
+#: ../../src/ed_main.py:1565
+msgid "Platform Info"
+msgstr "Πληροφορίες πλατφόρμας"
+
+#: ../../src/Editra.py:955
+msgid "Please check the preferences dialog to check your preferences"
+msgstr "Παρακαλώ ελέγξτε τον διάλογο προτιμήσεων για να ελέγξετε τις προτιμήσεις"
+
+#: ../../src/Editra.py:1165
+msgid "Please check the preferences dialog to verify your preferences"
+msgstr ""
+
+#: ../../src/ed_main.py:1081 ../../src/ed_menu.py:893
+msgid "Plugin Manager"
+msgstr "Διαχείριση Προσθέτων"
+
+#: ../../src/prefdlg.py:1437
+msgid "Port Number"
+msgstr "Αριθμός Πόρτας"
+
+#: ../../src/ed_menu.py:726
+msgid "Pr&eferences"
+msgstr "Πρ&οτιμήσεις"
+
+#: ../../src/prefdlg.py:110
+msgid "Preferences - Editra"
+msgstr "Προτιμήσεις - Editra"
+
+#: ../../src/prefdlg.py:503
+msgid "Preferred Encoding"
+msgstr ""
+
+#: ../../src/style_editor.py:852
+msgid "Preview File"
+msgstr ""
+
+#: ../../src/ed_menu.py:640
+msgid "Preview Printout"
+msgstr "Προεπισκόπηση Εκτύπωσης"
+
+#: ../../src/ed_cmdbar.py:303
+msgid "Previous"
+msgstr "Προηγούμενο"
+
+#: ../../src/ed_menu.py:786
+msgid "Previous Bookmark"
+msgstr "Προηγούμενος Σελιδοδείκτης"
+
+#: ../../src/ed_menu.py:781
+msgid "Previous Position"
+msgstr "Προηγούμενη Θέση"
+
+#: ../../src/prefdlg.py:858
+msgid "Primary Font"
+msgstr "Βασική Γραμματοσειρά"
+
+#: ../../src/ed_toolbar.py:80
+msgid "Print"
+msgstr "Εκτύπωση"
+
+#: ../../src/ed_menu.py:641 ../../src/ed_toolbar.py:81
+msgid "Print Current File"
+msgstr "Εκτύπωση τρέχοντος αρχείου"
+
+#: ../../src/ed_print.py:121
+msgid "Print Error"
+msgstr "Λάθος Εκτύπωσης"
+
+#: ../../src/ed_menu.py:639
+msgid "Print Pre&view"
+msgstr "Εκτύπωση Προ&επικόπισης"
+
+#: ../../src/ed_print.py:113
+msgid "Print Preview"
+msgstr "Προεπισκόπηση Εκτύπωσης"
+
+#: ../../src/ed_main.py:850
+msgid "Print failure"
+msgstr ""
+
+#: ../../src/ed_print.py:139
+msgid "Printer Error"
+msgstr "Σφάλμα Εκτυπωτή"
+
+#: ../../src/prefdlg.py:393
+msgid "Printer Mode"
+msgstr "Κατάσταση Εκυπωτή"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Procedure Definitions"
+msgstr "Διαδικασία Ορισμοί"
+
+#: ../../src/ed_main.py:715 ../../src/ed_main.py:735 ../../src/ed_menu.py:624
+msgid "Profile"
+msgstr "Προφίλ"
+
+#: ../../src/ed_main.py:720
+#, python-format
+msgid "Profile Saved as: %s"
+msgstr "Το προφίλ αποθηκεύτηκε ως: %s"
+
+#: ../../src/Editra.py:957 ../../src/Editra.py:1167
+msgid "Profile Updated"
+msgstr "Ενημέρωση Προφίλ"
+
+#: ../../plugins/Launch/launch/launch.py:156
+msgid "Program Executable Command"
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Programs"
+msgstr "Προγράμματα"
+
+#: ../../src/ed_menu.py:918
+msgid "Project Homepage..."
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:55
+msgid "Protocols"
+msgstr "Πρωτόκολλα"
+
+#: ../../src/prefdlg.py:1423
+msgid "Proxy Settings"
+msgstr "Ρυθμίσεις Διαμεσολαβητή"
+
+#: ../../src/prefdlg.py:1433
+msgid "Proxy URL"
+msgstr "Διακομιστής διαμεσολάβησης URL (proxy)"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:58
+msgid "Public Functions"
+msgstr "Δημόσιες Συναρτήσεις"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:59
+msgid "Public Subroutines"
+msgstr "Δημόσιες Υπορουτίνες"
+
+#: ../../src/ed_shelf.py:100
+msgid "Put an item on the Shelf"
+msgstr ""
+
+#: ../../src/updater.py:690
+#, python-format
+msgid "Rate: %.2f Kb/s"
+msgstr "Αξιοόγηση: %.2f Kb/s"
+
+#: ../../plugins/Launch/launch/__init__.py:100
+msgid "Re-run the last run program"
+msgstr "Επανεκτέλεση του τελευταίου προγράμματος"
+
+#: ../../src/ed_stc.py:1899
+msgid "Read Only"
+msgstr "Μόνο προς Ανάγνωση"
+
+#: ../../src/ed_search.py:879
+msgid "Recent Searches"
+msgstr "Πρόσφατες Αναζητήσεις"
+
+#: ../../src/ed_menu.py:598
+msgid "Recently Opened Files"
+msgstr "Πρόσφατα Ανοιγμένα Αρχεία"
+
+#: ../../src/ed_stc.py:1506
+msgid "Recording Finished"
+msgstr "Η Εγγραφή Τελείωσε"
+
+#: ../../src/ed_stc.py:1493
+msgid "Recording Macro"
+msgstr "Εγγραφή Μακροεντολής"
+
+#: ../../src/ed_editv.py:463 ../../src/ed_menu.py:656
+#: ../../src/ed_toolbar.py:84
+msgid "Redo"
+msgstr "Επανεκτέλεση"
+
+#: ../../src/ed_menu.py:656 ../../src/ed_toolbar.py:84
+msgid "Redo Last Undo"
+msgstr "Επανεκτέλεση Τελευταίας Αναίρεσης"
+
+#: ../../src/ed_search.py:413
+msgid "Regex Compile Error"
+msgstr "Regex Σφάλμα Μεταγλώτισης"
+
+#: ../../src/ed_cmdbar.py:326
+msgid "Regular Expression"
+msgstr "Κανονική Εκφραση"
+
+#: ../../src/eclib/finddlg.py:836
+msgid "Regular expression"
+msgstr "Κανονική εκφραση"
+
+#: ../../src/ed_editv.py:581
+msgid "Reload File?"
+msgstr "Επαναφόρτωση Αρχείου;"
+
+#: ../../src/ed_menu.py:615
+msgid "Reload the file with a specified encoding"
+msgstr "Επαναφόρτωση αρχείου με συγκεκριμένη κωδικοποίηση"
+
+#: ../../src/ed_main.py:1219
+msgid "Reload with Encoding"
+msgstr "Επαναφόρτωση με Κωδικοποίηση"
+
+#: ../../src/ed_menu.py:614
+msgid "Reload with Encoding..."
+msgstr "Επαναφόρτωση με Κωδικοποίηση..."
+
+#: ../../src/prefdlg.py:510
+msgid "Remember File Position"
+msgstr ""
+
+#: ../../src/prefdlg.py:1252
+msgid "Remember Window Position on Exit"
+msgstr ""
+
+#: ../../src/prefdlg.py:1249
+msgid "Remember Window Size on Exit"
+msgstr ""
+
+#: ../../src/style_editor.py:198
+msgid "Remove"
+msgstr ""
+
+#: ../../src/ed_menu.py:703
+msgid "Remove All Bookmarks"
+msgstr "Αφαίρεση Όλων των Σελιδόδεικτών"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:96
+msgid "Remove Saved Path"
+msgstr "Διαγραφή αποθηκευμένης διαδρομής"
+
+#: ../../src/style_editor.py:209
+msgid "Remove Style"
+msgstr ""
+
+#: ../../src/ed_menu.py:704
+msgid "Remove all bookmarks from the current document"
+msgstr "Αφαίρεση όλων των σελιδοδεικτών απο το παρών έγγραφο"
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:88
+#, fuzzy
+msgid "Remove selected filter"
+msgstr "Αφαίρεση επιλογής απο τη λίστα"
+
+#: ../../plugins/Launch/launch/cfgdlg.py:206
+msgid "Remove selection from list"
+msgstr "Αφαίρεση επιλογής απο τη λίστα"
+
+#: ../../src/ed_menu.py:835
+msgid "Remove trailing whitespace"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:650
+msgid "Rename"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:654 ../../src/eclib/finddlg.py:864
+msgid "Replace"
+msgstr "Αντικατάσταση"
+
+#: ../../src/eclib/finddlg.py:867
+msgid "Replace All"
+msgstr "Αντικατάσταση Όλων"
+
+#: ../../src/ed_search.py:609
+msgid "Replace Error"
+msgstr "Αντικατάσταση Λάθους"
+
+#: ../../src/eclib/finddlg.py:798
+msgid "Replace with"
+msgstr "Αντικατάσταση με το"
+
+#: ../../src/eclib/errdlg.py:322
+msgid "Report Error"
+msgstr "Αναφορά Λάθους"
+
+#: ../../src/ed_editv.py:561
+msgid "Resave File?"
+msgstr "Αποθήκευση του αρχείου ξανά;"
+
+#: ../../src/ed_main.py:1429
+msgid "Restore Editor"
+msgstr "Επαναφορά Συντάκτη"
+
+#: ../../src/plugdlg.py:662
+msgid "Retrieving Plugin List"
+msgstr "Ανάκτηση Λίστας Προσθέτων"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:642
+msgid "Reveal in "
+msgstr "Αποκάλυψη σε "
+
+#: ../../src/ed_menu.py:613
+msgid "Revert file to last save point"
+msgstr "Επαναφορά αρχείου στη τελευταία αποθήκευση"
+
+#: ../../src/prefdlg.py:1152 ../../src/prefdlg.py:1818
+msgid "Revert to Default"
+msgstr "Επαναφορά στην Προεπιλογή"
+
+#: ../../src/ed_menu.py:612
+msgid "Revert to Saved"
+msgstr "Επαναφορά στο ποθηκευμένο"
+
+#: ../../plugins/Launch/launch/__init__.py:93
+#: ../../plugins/Launch/launch/launch.py:179
+#: ../../plugins/Launch/launch/launch.py:543
+msgid "Run"
+msgstr "Εκτέλεση"
+
+#: ../../plugins/Launch/launch/__init__.py:98
+msgid "Run last executed"
+msgstr ""
+
+#: ../../plugins/Launch/launch/__init__.py:74
+msgid "Run script from current buffer"
+msgstr "Εκτέλεση script απο το παρών buffer"
+
+#: ../../plugins/Launch/launch/__init__.py:95
+msgid "Run the file associated with the current buffer in Launch"
+msgstr ""
+
+#: ../../src/ed_session.py:182 ../../src/ed_toolbar.py:79
+#: ../../src/style_editor.py:88
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: ../../src/ed_editv.py:280
+#, python-format
+msgid "Save \"%s\""
+msgstr "Αποθήκευση \"%s\""
+
+#: ../../src/ed_menu.py:608
+msgid "Save &As"
+msgstr "&Αποθήκευση ως"
+
+#: ../../src/ed_menu.py:609
+msgid "Save All"
+msgstr "Αποθήκευση όλων"
+
+#: ../../src/ed_menu.py:608 ../../src/ed_session.py:184
+#: ../../src/eclib/filemgrdlg.py:121
+msgid "Save As"
+msgstr "Αποθήκευση ως"
+
+#: ../../src/ed_editv.py:618
+msgid "Save Changes?"
+msgstr "Αποθήκευση αλλαγών;"
+
+#: ../../src/ed_menu.py:607 ../../src/ed_toolbar.py:79
+msgid "Save Current File"
+msgstr "Αποθήκευση τρέχοντος αρχείου"
+
+#: ../../src/ed_menu.py:621
+msgid "Save Current Settings to a New Profile"
+msgstr "Αποθήκευση τρεχουσών ρυθμίσεων σε Νέο Προφίλ"
+
+#: ../../src/perspective.py:82
+msgid "Save Current View"
+msgstr "Αποθήκευση τρέχουσας προβολής"
+
+#: ../../src/ed_mdlg.py:106
+msgid "Save Error"
+msgstr "Αποθήκευση λάθους"
+
+#: ../../src/perspective.py:277
+msgid "Save Perspective"
+msgstr ""
+
+#: ../../src/ed_menu.py:620
+msgid "Save Profile"
+msgstr "Αποθήκευση προφίλ"
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:93
+msgid "Save Selected Paths"
+msgstr "Αποθήκευση επιλεγμένων διαδρομών"
+
+#: ../../src/ed_main.py:768 ../../src/ed_menu.py:629
+msgid "Save Session"
+msgstr ""
+
+#: ../../src/style_editor.py:147 ../../src/style_editor.py:408
+msgid "Save Styles"
+msgstr "Αποθήκευση στυλ"
+
+#: ../../src/ed_menu.py:610
+msgid "Save all open pages"
+msgstr "Αποθήκευση όλων των ανοικτών σελίδων"
+
+#: ../../src/ed_menu.py:630
+msgid "Save the current session."
+msgstr ""
+
+#: ../../src/perspective.py:83
+msgid "Save the current window layout"
+msgstr "Αποθήκευση τρέχουσας διαρρύθμισης παραθύρου"
+
+#: ../../src/ed_main.py:698
+#, python-format
+msgid "Saved File As: %s"
+msgstr "Το αρχείο αποθηκεύτηκε ως: %s"
+
+#: ../../src/ed_main.py:626
+#, python-format
+msgid "Saved File: %s"
+msgstr "Αποθηκευμένο αρχείο: %s"
+
+#: ../../src/ed_search.py:1383
+#, python-format
+msgid "Search Complete: %d matching lines where found."
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:837
+msgid "Search Recursively"
+msgstr ""
+
+#: ../../src/ed_search.py:1357
+msgid "Search Started"
+msgstr ""
+
+#: ../../src/ed_search.py:1376
+msgid "Search complete"
+msgstr ""
+
+#: ../../src/ed_menu.py:724
+msgid "Search for the currently selected phrase"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/browser.py:647
+msgid "Search in directory"
+msgstr ""
+
+#: ../../src/ed_search.py:470
+msgid "Search wrapped to bottom"
+msgstr ""
+
+#: ../../src/ed_search.py:465
+msgid "Search wrapped to top"
+msgstr ""
+
+#: ../../src/prefdlg.py:861
+msgid "Secondary Font"
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Sections"
+msgstr ""
+
+#: ../../src/ed_menu.py:669
+msgid "Select &All"
+msgstr ""
+
+#: ../../src/ed_editv.py:472
+msgid "Select All"
+msgstr ""
+
+#: ../../src/ed_menu.py:670
+msgid "Select All Text in Document"
+msgstr ""
+
+#: ../../src/ed_main.py:1218
+msgid "Select an encoding to reload the file with"
+msgstr ""
+
+#: ../../src/plugdlg.py:492
+msgid "Select plugins to download"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:731
+msgid "Selected Text"
+msgstr ""
+
+#: ../../src/ed_menu.py:927
+msgid "Send bug reports and suggestions"
+msgstr ""
+
+#: ../../src/ed_pages.py:369
+msgid "Session Load Error"
+msgstr ""
+
+#: ../../src/ed_menu.py:891
+msgid "Session Manager"
+msgstr ""
+
+#: ../../src/ed_main.py:768
+msgid "Session Name"
+msgstr ""
+
+#: ../../src/ed_main.py:777
+#, python-format
+msgid "Session Saved as: %s"
+msgstr ""
+
+#: ../../src/ed_pages.py:374
+msgid "Session file is empty."
+msgstr ""
+
+#: ../../src/ed_main.py:799
+#, python-format
+msgid ""
+"Session to Load:\n"
+"Current Session: '%s'"
+msgstr ""
+
+#: ../../src/ed_session.py:203
+msgid "Session:"
+msgstr ""
+
+#: ../../src/ed_menu.py:633
+msgid "Sessions"
+msgstr ""
+
+#: ../../src/eclib/ecpickers.py:82
+msgid "Set Font"
+msgstr ""
+
+#: ../../src/style_editor.py:855
+msgid "Set the preview file type"
+msgstr ""
+
+#: ../../src/prefdlg.py:834
+msgid "Sets a secondary font used for special regions when syntax highlighting is in use"
+msgstr ""
+
+#: ../../src/prefdlg.py:829
+msgid "Sets the main/default font of the document"
+msgstr ""
+
+#: ../../plugins/Launch/launch/launch.py:150
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: ../../src/ed_shelf.py:79 ../../src/ed_shelf.py:99
+msgid "Shelf"
+msgstr ""
+
+#: ../../src/ed_menu.py:711
+msgid "Show Calltip"
+msgstr ""
+
+#: ../../src/ed_menu.py:752 ../../src/ed_menu.py:753 ../../src/prefdlg.py:803
+msgid "Show EOL Markers"
+msgstr ""
+
+#: ../../src/ed_menu.py:750
+msgid "Show Edge Guide"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:69
+msgid "Show Hidden Files"
+msgstr ""
+
+#: ../../src/prefdlg.py:1233
+msgid "Show Icons on Tabs"
+msgstr ""
+
+#: ../../src/ed_menu.py:749
+msgid "Show Indentation Guides"
+msgstr ""
+
+#: ../../src/ed_menu.py:755
+msgid "Show Line Number Margin"
+msgstr ""
+
+#: ../../src/ed_menu.py:754 ../../src/prefdlg.py:805
+msgid "Show Line Numbers"
+msgstr ""
+
+#: ../../src/ed_shelf.py:485
+msgid "Show Shelf"
+msgstr ""
+
+#: ../../src/prefdlg.py:407
+msgid "Show Splash Screen"
+msgstr ""
+
+#: ../../src/ed_menu.py:790 ../../src/prefdlg.py:1254
+msgid "Show Status Bar"
+msgstr ""
+
+#: ../../src/ed_menu.py:792 ../../src/prefdlg.py:1256
+msgid "Show Toolbar"
+msgstr ""
+
+#: ../../src/ed_menu.py:756 ../../src/prefdlg.py:807
+msgid "Show Whitespace"
+msgstr ""
+
+#: ../../src/ed_menu.py:757
+msgid "Show Whitespace Markers"
+msgstr ""
+
+#: ../../src/ed_menu.py:712
+msgid "Show a calltip for the current word."
+msgstr ""
+
+#: ../../src/ed_menu.py:710
+msgid "Show autocompletion hints."
+msgstr ""
+
+#: ../../src/ed_log.py:134
+msgid "Show output from"
+msgstr ""
+
+#: ../../src/ed_shelf.py:487
+msgid "Show the Shelf"
+msgstr ""
+
+#: ../../src/ed_menu.py:751
+msgid "Show the edge column guide"
+msgstr ""
+
+#: ../../src/ed_menu.py:892
+msgid "Show the session manager bar"
+msgstr ""
+
+#: ../../src/style_editor.py:802 ../../src/eclib/infodlg.py:189
+msgid "Size"
+msgstr ""
+
+#: ../../src/ed_pages.py:394
+msgid "Some files in saved session could not be found on disk:\n"
+msgstr ""
+
+#: ../../src/style_editor.py:141
+msgid "Some styles have been changed would you like to save before exiting?"
+msgstr "Ορισμένα στυλ έχουν αλλάξει. Θέλετε να τα αποθηκεύσετε προτού κλείσετε;"
+
+#: ../../src/ed_search.py:679
+msgid "Sorry will be ready for future version"
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbconfig.py:40
+msgid "Sorting"
+msgstr ""
+
+#: ../../src/ed_menu.py:830
+msgid "Spaces to Tabs"
+msgstr ""
+
+#: ../../src/prefdlg.py:580
+msgid "Spell Checking"
+msgstr ""
+
+#: ../../src/ed_editv.py:518
+msgid "Spelling"
+msgstr ""
+
+#: ../../src/ed_toolbar.py:77
+msgid "Start a New File"
+msgstr ""
+
+#: ../../src/ed_menu.py:591
+msgid "Start a new file in a new tab"
+msgstr ""
+
+#: ../../src/ed_menu.py:593
+msgid "Start a new file in a new window"
+msgstr ""
+
+#: ../../src/prefdlg.py:1006
+msgid "Start in Normal Mode"
+msgstr ""
+
+#: ../../src/prefdlg.py:305
+msgid "Startup"
+msgstr ""
+
+#: ../../src/prefdlg.py:429
+msgid "Startup Settings"
+msgstr "Ρυθμίσεις έναρξης"
+
+#: ../../src/prefdlg.py:1561 ../../src/updater.py:291
+msgid "Status Unknown"
+msgstr "Άγνωστη κατάσταση"
+
+#: ../../src/ed_menu.py:895 ../../src/style_editor.py:70
+msgid "Style Editor"
+msgstr "Επεξεργαστής στυλ"
+
+#: ../../src/style_editor.py:723
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Style Tags"
+msgstr "Ετικέτες στυλ"
+
+#: ../../src/style_editor.py:202
+msgid "Style Theme"
+msgstr "Θέμα του στυλ"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:57
+msgid "Subroutine Declarations"
+msgstr "Δηλώσεις υπορουτινών"
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:56
+msgid "Subroutines"
+msgstr "Υπορουτίνες"
+
+#: ../../src/plugdlg.py:818
+msgid "Successfully Installed Plugins"
+msgstr "Επιτυχής εγκατάσταση προσθέτων"
+
+#: ../../src/prefdlg.py:565
+msgid "Suffix for backup file names"
+msgstr ""
+
+#: ../../src/ed_menu.py:559 ../../src/syntax/syntax.py:314
+#, python-format
+msgid "Switch Lexer to %s"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:64
+msgid "Synch tree with tab selection"
+msgstr ""
+
+#: ../../src/ed_menu.py:872 ../../src/prefdlg.py:715 ../../src/prefdlg.py:1125
+msgid "Syntax Highlighting"
+msgstr "Τονισμός σύνταξης"
+
+#: ../../src/plugdlg.py:756
+msgid "System Directory"
+msgstr ""
+
+#: ../../src/prefdlg.py:762
+msgid "Tab Width"
+msgstr ""
+
+#: ../../src/ed_menu.py:832
+msgid "Tabs to Spaces"
+msgstr ""
+
+#: ../../plugins/codebrowser/codebrowser/cbrowser.py:57
+msgid "Task Definitions"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:385
+msgid "Text Colors"
+msgstr "Χρώματα κειμένου"
+
+#: ../../src/util.py:378
+msgid "Text Document"
+msgstr ""
+
+#: ../../src/ed_pages.py:160
+#, python-format
+msgid ""
+"The correct encoding of '%s' could not be determined.\n"
+"\n"
+"Choose an encoding and select Ok to open the file with the chosen encoding.\n"
+"Click Cancel to abort opening the file"
+msgstr ""
+
+#: ../../src/ed_editv.py:615
+#, python-format
+msgid ""
+"The file: \"%s\" has been modified since the last save point.\n"
+"\n"
+"Would you like to save the changes?"
+msgstr ""
+"Το αρχείο: \"%s\" τροποποιήθηκε μετά την τελευταία αποθήκευση του.\n"
+"\n"
+"Θέλετε να αποθηκεύσετε τις αλλαγές;"
+
+#: ../../src/style_editor.py:144
+#, python-format
+msgid "The new style sheet '%s' has not been saved would you like to save before exiting?"
+msgstr ""
+
+#: ../../src/style_editor.py:403
+#, python-format
+msgid ""
+"The new style theme '%s' has not been saved.\n"
+"\n"
+"Would you like to save it before changing themes?"
+msgstr ""
+
+#: ../../plugins/Launch/launch/launch.py:680
+msgid "The requested command could not be executed."
+msgstr ""
+
+#: ../../src/ed_search.py:370
+#, python-format
+msgid "The search term '%(term)s' was found %(count)d times."
+msgstr ""
+
+#: ../../src/style_editor.py:371
+#, python-format
+msgid "The style %s already exists. Please choose a different name."
+msgstr ""
+
+#: ../../src/ed_pages.py:977
+#, python-format
+msgid "There are no files that Editra can open in %s"
+msgstr ""
+
+#: ../../src/ed_print.py:137
+msgid ""
+"There was an error when printing.\n"
+"Check that your printer is properly connected."
+msgstr ""
+
+#: ../../src/plugdlg.py:402
+msgid "This plugin requires a newer version of Editra."
+msgstr "Αυτό το πρόσθετο απαιτεί μια νεότερη έκδοση του Editra."
+
+#: ../../src/plugdlg.py:1053
+msgid "This plugin will be uninstalled on next program launch."
+msgstr "Αυτό το πρόσθετο θ'απεγκατασταθεί στην επόμενη εκκίνηση του προγράμματος."
+
+#: ../../src/ed_editv.py:470
+msgid "To Lowercase"
+msgstr "Σε Πεζά"
+
+#: ../../src/ed_editv.py:469
+msgid "To Uppercase"
+msgstr "Σε Κεφαλαία"
+
+#: ../../src/plugdlg.py:741
+msgid ""
+"To add a new item drag and drop the plugin file into the list.\n"
+"\n"
+"To remove an item select it and hit Delete or Backspace."
+msgstr ""
+
+#: ../../src/ed_menu.py:866
+msgid "Toggle Auto-Indentation functionality"
+msgstr ""
+
+#: ../../src/ed_menu.py:701
+msgid "Toggle Bookmark"
+msgstr ""
+
+#: ../../src/ed_menu.py:871
+msgid "Toggle Code Folding"
+msgstr ""
+
+#: ../../src/ed_menu.py:807
+msgid "Toggle Comment"
+msgstr ""
+
+#: ../../src/ed_menu.py:772
+msgid "Toggle Editor Maximization"
+msgstr ""
+
+#: ../../src/ed_menu.py:759
+msgid "Toggle Editor View Options"
+msgstr ""
+
+#: ../../src/ed_menu.py:763 ../../src/ed_menu.py:764
+msgid "Toggle all folds"
+msgstr ""
+
+#: ../../src/ed_menu.py:702
+msgid "Toggle bookmark of the current line"
+msgstr ""
+
+#: ../../src/ed_menu.py:808
+msgid "Toggle comment on the selected line(s)"
+msgstr ""
+
+#: ../../src/ed_menu.py:762
+msgid "Toggle current fold"
+msgstr ""
+
+#: ../../src/ed_menu.py:761
+msgid "Toggle fold"
+msgstr ""
+
+#: ../../src/prefdlg.py:1227
+msgid "Toolbar Icon Size"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:208
+msgid "Transient XML Handler"
+msgstr ""
+
+#: ../../src/ed_menu.py:923
+msgid "Translate Editra..."
+msgstr ""
+
+#: ../../src/prefdlg.py:1280
+msgid "Transparency"
+msgstr ""
+
+#: ../../src/ed_menu.py:691
+msgid "Transpose Line"
+msgstr ""
+
+#: ../../src/ed_menu.py:692
+msgid "Transpose the current line with the previous one"
+msgstr ""
+
+#: ../../src/ed_menu.py:834
+msgid "Trim Trailing Whitespace"
+msgstr ""
+
+#: ../../src/prefdlg.py:811
+msgid "Turn off for better performance"
+msgstr ""
+
+#: ../../src/util.py:195
+msgid "Unable to accept dropped file or text"
+msgstr ""
+
+#: ../../src/eclib/filemgrdlg.py:174
+#, python-format
+msgid "Unable to delete %s"
+msgstr ""
+
+#: ../../src/plugdlg.py:497
+msgid "Unable to retrieve plugin list"
+msgstr ""
+
+#: ../../src/ed_editv.py:462 ../../src/ed_toolbar.py:83
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: ../../src/ed_menu.py:655 ../../src/ed_toolbar.py:83
+msgid "Undo Last Action"
+msgstr "Αναίρεση Τελευταίας Ενέργειας"
+
+#: ../../src/ed_menu.py:813
+msgid "Unindent Lines"
+msgstr ""
+
+#: ../../src/ed_menu.py:814
+msgid "Unindent the selected lines"
+msgstr ""
+
+#: ../../src/plugdlg.py:937
+msgid "Uninstall"
+msgstr "Απεγκατάσταση"
+
+#: ../../src/plugdlg.py:1049
+msgid "Uninstall Plugin"
+msgstr ""
+
+#: ../../src/ed_glob.py:397 ../../src/ed_mdlg.py:137 ../../src/ed_menu.py:844
+#: ../../src/ed_menu.py:846 ../../src/prefdlg.py:791
+msgid "Unix (\\n)"
+msgstr ""
+"Unix(\n"
+")"
+
+#: ../../src/plugdlg.py:359 ../../src/plugdlg.py:367 ../../src/plugdlg.py:413
+#: ../../src/plugdlg.py:417 ../../src/plugin.py:709 ../../src/util.py:384
+#: ../../src/eclib/infodlg.py:298
+msgid "Unknown"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:824
+msgid "Up"
+msgstr ""
+
+#: ../../src/prefdlg.py:1390
+msgid "Update"
+msgstr ""
+
+#: ../../src/Editra.py:645
+msgid "Update Available"
+msgstr ""
+
+#: ../../src/ed_menu.py:816
+msgid "Uppercase"
+msgstr ""
+
+#: ../../src/ed_menu.py:864
+msgid "Use Auto Completion when available"
+msgstr ""
+
+#: ../../src/prefdlg.py:1428
+msgid "Use Proxy"
+msgstr ""
+
+#: ../../src/ed_menu.py:821
+msgid "Use Soft Tabs"
+msgstr ""
+
+#: ../../src/prefdlg.py:781
+msgid "Use Tabs Instead of Spaces"
+msgstr ""
+
+#: ../../src/prefdlg.py:554
+msgid "Used to set a custom backup path. If not specified the backup will be put in the same directory as the file."
+msgstr ""
+
+#: ../../src/plugdlg.py:752
+msgid "User Directory"
+msgstr ""
+
+#: ../../src/prefdlg.py:1445
+msgid "Username"
+msgstr ""
+
+#: ../../plugins/filebrowser/filebrowser/fbcfg.py:66
+#, fuzzy
+msgid "View"
+msgstr "Προβολή"
+
+#: ../../src/ed_log.py:81
+msgid "View Editra's console log"
+msgstr ""
+
+#: ../../src/ed_menu.py:785
+msgid "View Line of Next Bookmark"
+msgstr ""
+
+#: ../../src/ed_menu.py:787
+msgid "View Line of Previous Bookmark"
+msgstr ""
+
+#: ../../src/prefdlg.py:849
+msgid "View Options"
+msgstr ""
+
+#: ../../src/prefdlg.py:813
+msgid "View Virtual Space After Last Line"
+msgstr ""
+
+#: ../../src/ed_bookmark.py:80
+msgid "View all bookmarks"
+msgstr ""
+
+#: ../../src/ed_menu.py:770
+msgid "View pane selection list"
+msgstr ""
+
+#: ../../src/ed_menu.py:919
+#, python-format
+msgid "Visit the project homepage %s"
+msgstr ""
+
+#: ../../src/prefdlg.py:969
+msgid "Visual Helpers"
+msgstr ""
+
+#: ../../src/prefdlg.py:523
+msgid "Warn when mixed eol characters are detected"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:448
+msgid "Warning Text"
+msgstr ""
+
+#: ../../src/prefdlg.py:997
+msgid "Warning suggestions will include context insensitive results"
+msgstr ""
+
+#: ../../src/eclib/infodlg.py:191
+msgid "Where"
+msgstr ""
+
+#: ../../src/ed_main.py:713
+msgid "Where to Save Profile?"
+msgstr "Που να αποθηκευτεί το προφίλ;"
+
+#: ../../src/ed_menu.py:836
+msgid "Whitespace"
+msgstr ""
+
+#: ../../src/ed_menu.py:837
+msgid "Whitespace formating commands"
+msgstr ""
+
+#: ../../src/ed_cmdbar.py:322
+msgid "Whole Word"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:835
+msgid "Whole word"
+msgstr ""
+
+#: ../../src/eclib/finddlg.py:843
+msgid "Wildcard shell patterns for matching files (*.txt *.html)."
+msgstr ""
+
+#: ../../src/ed_glob.py:398 ../../src/ed_mdlg.py:138 ../../src/ed_menu.py:847
+#: ../../src/ed_menu.py:849 ../../src/prefdlg.py:792
+msgid "Windows (\\r\\n)"
+msgstr "Windows (\\r\\n)"
+
+#: ../../src/ed_menu.py:709
+msgid "Word Completion"
+msgstr ""
+
+#: ../../src/ed_menu.py:824 ../../src/prefdlg.py:809
+msgid "Word Wrap"
+msgstr ""
+
+#: ../../src/style_editor.py:398
+#, python-format
+msgid ""
+"Would you like to save the changes to '%s' before changing themes?\n"
+"\n"
+"Selecting No will result in all changes being lost."
+msgstr ""
+
+#: ../../src/ed_menu.py:825
+msgid "Wrap Text Horizontally"
+msgstr ""
+
+#: ../../plugins/Launch/launch/cfgdlg.py:399
+msgid "Wrap lines in output buffer"
+msgstr ""
+
+#: ../../src/ed_main.py:1563
+#, python-format
+msgid "Written in 100%% Python."
+msgstr ""
+
+#: ../../src/plugdlg.py:193
+msgid "You must restart Editra before your changes will take full affect."
+msgstr ""
+
+#: ../../src/Editra.py:953 ../../src/Editra.py:1163
+msgid "Your profile has been updated to the latest version"
+msgstr ""
+
+#: ../../src/ed_menu.py:741 ../../src/ed_menu.py:742
+msgid "Zoom Default"
+msgstr ""
+
+#: ../../src/ed_menu.py:740
+msgid "Zoom In"
+msgstr ""
+
+#: ../../src/ed_menu.py:739
+msgid "Zoom Out"
+msgstr ""
+
+#: ../../plugins/Launch/launch/launch.py:169
+msgid "args"
+msgstr ""
+
+#: ../../src/style_editor.py:769
+msgid "bold"
+msgstr ""
+
+#: ../../src/ed_cmdbar.py:912
+msgid "cwd: "
+msgstr ""
+
+#: ../../src/style_editor.py:770
+msgid "eol"
+msgstr ""
+
+#: ../../plugins/Launch/launch/launch.py:153
+msgid "exec"
+msgstr ""
+
+#: ../../src/style_editor.py:771
+msgid "italic"
+msgstr ""
+
+#: ../../src/style_editor.py:772
+msgid "underline"
+msgstr ""
+
+#: ../../src/ed_pages.py:236
+msgid "untitled"
+msgstr ""
+
+#: ../../src/ed_pages.py:234
+#, python-format
+msgid "untitled %d"
+msgstr ""
+
+#~ msgid "Desktop"
+#~ msgstr "Επιφάνεια Εργασίας"
+
+#~ msgid "Home directory"
+#~ msgstr "Αρχικός κατάλογος"
