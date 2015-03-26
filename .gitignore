@@ -5,16 +5,6 @@
 *.dll
 
 
-# SVN subrepositories for items in the 3rdParty repo
-/wx/lib/agw
-/demo/agw
-/wx/lib/floatcanvas
-/wx/lib/pubsub
-/samples/pubsub
-/wx/lib/pdfviewer
-/wx/tools/Editra
-/wx/tools/XRCed
-
 mb
 reswig
 
