@@ -28,7 +28,10 @@ class SpeedMeterDemo(wx.Panel):
     def __init__(self, parent, log):
 
         wx.Panel.__init__(self, parent, style=wx.TAB_TRAVERSAL|wx.NO_FULL_REPAINT_ON_RESIZE)
-        
+
+        wx.CallLater(50, self.laterStuff)
+
+    def laterStuff(self):
         panel = wx.Panel(self, -1)
         sizer = wx.FlexGridSizer(2, 3, 2, 5)
 
@@ -331,7 +334,7 @@ class SpeedMeterDemo(wx.Panel):
 
         # If You Use The Style SM_DRAW_FANCY_TICKS, Refer To wx.lib.fancytext To Create
         # Correct XML Strings To Put Here
-        ticks = ["0", "<pi/>/6", "sq(<pi/>)", "2<pi/>/3", "<pi/><sup>2</sup>/4", "<pi/>", "7<pi/>/6", "4<pi/>/3"]
+        ticks = [u"0", u"<pi/>/6", u"sq(<pi/>)", u"2<pi/>/3", u"<pi/><sup>2</sup>/4", u"<pi/>", u"7<pi/>/6", u"4<pi/>/3"]
         self.SpeedWindow6.SetTicks(ticks)
         self.SpeedWindow6.SetTicksColour(wx.Colour(0, 90, 0))
         self.SpeedWindow6.SetTicksFont(wx.Font(6, wx.ROMAN, wx.NORMAL, wx.BOLD))
@@ -513,6 +516,8 @@ class SpeedMeterDemo(wx.Panel):
         mainSizer.Add(panel, 1, wx.EXPAND)
         self.SetSizer(mainSizer)
         mainSizer.Layout()
+
+        self.SendSizeEvent()
 
         self.timer.Start(1000)
         self.timer3.Start(500)
