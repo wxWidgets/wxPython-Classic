@@ -227,7 +227,7 @@ def _addGreek():
     for i, name in enumerate(_greek_letters):
         def start(self, attrs, code=chr(alpha+i)):
             self.start_font({"encoding" : _greekEncoding})
-            self.characterData(code)
+            self.characterData(code.decode('iso8859-7'))
             self.end_font()
         setattr(Renderer, "start_%s" % name, start)
         setattr(Renderer, "end_%s" % name, end)
@@ -235,7 +235,7 @@ def _addGreek():
             continue # There is no capital for altsigma
         def start(self, attrs, code=chr(Alpha+i)):
             self.start_font({"encoding" : _greekEncoding})
-            self.characterData(code)
+            self.characterData(code.decode('iso8859-7'))
             self.end_font()
         setattr(Renderer, "start_%s" % name.capitalize(), start)
         setattr(Renderer, "end_%s" % name.capitalize(), end)
