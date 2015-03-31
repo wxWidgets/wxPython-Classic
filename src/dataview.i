@@ -1958,7 +1958,7 @@ public:
             return ret;
     }
 
-    virtual bool GetValueFromEditorCtrl(wxControl * editor,
+    virtual bool GetValueFromEditorCtrl(wxWindow * editor,
                                         wxVariant& value)
     {
         // The wxPython version of this method returns the variant as
