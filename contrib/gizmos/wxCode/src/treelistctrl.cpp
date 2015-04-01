@@ -726,7 +726,7 @@ public:
                     const wxString &name = wxTextCtrlNameStr );
 
     void OnChar( wxKeyEvent &event );
-    void OnKeyUp( wxKeyEvent &event );
+    void OnText( wxCommandEvent &event );
     void OnKillFocus( wxFocusEvent &event );
 
 private:
@@ -977,7 +977,7 @@ void wxTreeListRenameTimer::Notify()
 
 BEGIN_EVENT_TABLE (wxEditTextCtrl,wxTextCtrl)
     EVT_CHAR           (wxEditTextCtrl::OnChar)
-    EVT_KEY_UP         (wxEditTextCtrl::OnKeyUp)
+    EVT_TEXT           (wxID_ANY, wxEditTextCtrl::OnText)
     EVT_KILL_FOCUS     (wxEditTextCtrl::OnKillFocus)
 END_EVENT_TABLE()
 
@@ -1038,7 +1038,7 @@ void wxEditTextCtrl::OnChar( wxKeyEvent &event )
     event.Skip();
 }
 
-void wxEditTextCtrl::OnKeyUp( wxKeyEvent &event )
+void wxEditTextCtrl::OnText( wxCommandEvent &event )
 {
     if (m_finished)
     {
@@ -1050,11 +1050,16 @@ void wxEditTextCtrl::OnKeyUp( wxKeyEvent &event )
     wxSize parentSize = m_owner->GetSize();
     wxPoint myPos = GetPosition();
     wxSize mySize = GetSize();
-    int sx, sy;
+    int sx, sy, ip;
     GetTextExtent(GetValue() + _T("M"), &sx, &sy);
     if (myPos.x + sx > parentSize.x) sx = parentSize.x - myPos.x;
     if (mySize.x > sx) sx = mySize.x;
     SetSize(sx, -1);
+
+    ip = GetInsertionPoint();
+    SetInsertionPoint(0);
+    SetInsertionPointEnd();
+    SetInsertionPoint(ip);
 
     event.Skip();
 }
@@ -3793,6 +3798,7 @@ void wxTreeListMainWindow::EditLabel (const wxTreeItemId& item, int column) {
                                                this, m_editItem->GetText (column),
                                                wxPoint (x, y), wxSize (w, h), style);
     text->SetFocus();
+    text->SelectAll();
 }
 
 void wxTreeListMainWindow::OnRenameTimer() {
