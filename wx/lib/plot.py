@@ -1452,6 +1452,9 @@ class PlotCanvas(wx.Panel):
                 self._Draw(graphics, xAxis, yAxis)
 
     def OnMouseLeftDown(self, event):
+        if self._zoomEnabled:
+            self.wxoverlay = wx.Overlay()
+
         self._zoomCorner1[0], self._zoomCorner1[1] = self._getXY(event)
         self._screenCoordinates = np.array(event.GetPosition())
         if self._dragEnabled:
@@ -1461,8 +1464,8 @@ class PlotCanvas(wx.Panel):
     def OnMouseLeftUp(self, event):
         if self._zoomEnabled:
             if self._hasDragged == True:
-                self._drawRubberBand(
-                    self._zoomCorner1, self._zoomCorner2)  # remove old
+                self.wxoverlay.Reset()
+                del self.wxoverlay
                 self._zoomCorner2[0], self._zoomCorner2[1] = self._getXY(event)
                 self._hasDragged = False  # reset flag
                 minX, minY = np.minimum(self._zoomCorner1, self._zoomCorner2)
@@ -1669,14 +1672,31 @@ class PlotCanvas(wx.Panel):
         """Draws/erases rect box from corner1 to corner2"""
         ptx, pty, rectWidth, rectHeight = self._point2ClientCoord(
             corner1, corner2)
-        # draw rectangle
-        dc = wx.ClientDC(self.canvas)
-        dc.SetPen(wx.Pen(wx.BLACK))
-        dc.SetBrush(wx.Brush(wx.WHITE, wx.BRUSHSTYLE_TRANSPARENT))
-        dc.SetLogicalFunction(wx.INVERT)
-        dc.DrawRectangle(ptx, pty, rectWidth, rectHeight)
-        dc.SetLogicalFunction(wx.COPY)
 
+        dc = wx.ClientDC(self.canvas)
+        odc = wx.DCOverlay(self.wxoverlay, dc)
+        odc.Clear()
+
+        # Mac's DC is already the same as a GCDC, and it causes
+        # problems with the overlay if we try to use an actual
+        # wx.GCDC so don't try it.
+        if 'wxMac' not in wx.PlatformInfo:
+            dc = wx.GCDC(dc)
+
+        rect = wx.Rect(ptx, pty rectWidth, rectHeight)
+
+        rubberBandColor = '#C0C0FF' # or load from config?
+
+        # Set a pen for the border
+        color = wx.NamedColour(rubberBandColor)
+        dc.SetPen(wx.Pen(color, 1))
+
+        # use the same color, plus alpha for the brush
+        r, g, b = color.Get()
+        color.Set(r,g,b, 0x60)
+        dc.SetBrush(wx.Brush(color))
+        dc.DrawRectangleRect(rect)
+        
     def _getFont(self, size):
         """Take font size, adjusts if printing and returns wx.Font"""
         s = size * self.printerScale * self._fontScale
