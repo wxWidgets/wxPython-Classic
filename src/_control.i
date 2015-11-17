@@ -324,7 +324,7 @@ than the number of items in the control.", "");
         "Sets the label for the given item.", "");
     
     DocDeclStr(
-        virtual int , FindString(const wxString& s) const,
+        virtual int , FindString(const wxString& s, bool bCase = false) const,
         "Finds an item whose label matches the given string.  Returns the
 zero-based position of the item, or ``wx.NOT_FOUND`` if the string was not
 found.", "");

@@ -55081,17 +55081,21 @@ SWIGINTERN PyObject *_wrap_ItemContainer_FindString(PyObject *SWIGUNUSEDPARM(sel
   PyObject *resultobj = 0;
   wxItemContainer *arg1 = (wxItemContainer *) 0 ;
   wxString *arg2 = 0 ;
+  bool arg3 = (bool) false ;
   int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
+  bool val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "s", NULL 
+    (char *) "self",(char *) "s",(char *) "bCase", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ItemContainer_FindString",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:ItemContainer_FindString",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxItemContainer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ItemContainer_FindString" "', expected argument " "1"" of type '" "wxItemContainer const *""'"); 
@@ -55102,9 +55106,16 @@ SWIGINTERN PyObject *_wrap_ItemContainer_FindString(PyObject *SWIGUNUSEDPARM(sel
     if (arg2 == NULL) SWIG_fail;
     temp2 = true;
   }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ItemContainer_FindString" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxItemContainer const *)arg1)->FindString((wxString const &)*arg2);
+    result = (int)((wxItemContainer const *)arg1)->FindString((wxString const &)*arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

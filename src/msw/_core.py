@@ -12980,7 +12980,7 @@ class ItemContainer(object):
 
     def FindString(*args, **kwargs):
         """
-        FindString(self, String s) -> int
+        FindString(self, String s, bool bCase=False) -> int
 
         Finds an item whose label matches the given string.  Returns the
         zero-based position of the item, or ``wx.NOT_FOUND`` if the string was not
