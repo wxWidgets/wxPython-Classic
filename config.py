@@ -1109,6 +1109,8 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
             portcfg = os.popen('pkg-config gtk+-3.0 --cflags', 'r').read()[:-1]
         elif WXPORT == 'x11':
             WXPLAT = '__WXX11__'
+            WXPLAT2 = '__WXUNIVERSAL__'
+            BUILD_GLCANVAS = 0 # Cannot build GLCanvas with x11 backend
             portcfg = ''
             BUILD_BASE = BUILD_BASE + '-' + WXPORT
         elif WXPORT == 'msw':

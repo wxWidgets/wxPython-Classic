@@ -80,11 +80,13 @@ public:
     // return the item above/below/to the left/right of the given one
     int GetNextItem(int item, wxDirection dir, long style) const;
 
+#ifndef __WXUNIVERSAL__
     // set the tooltip text for a radio item, empty string unsets any tooltip
     void SetItemToolTip(unsigned int item, const wxString& text);
 
     // get the individual items tooltip; returns NULL if none
     wxToolTip *GetItemToolTip(unsigned int item) const;
+#endif
 
     // set helptext for a particular item, pass an empty string to erase it
     void SetItemHelpText(unsigned int n, const wxString& helpText);

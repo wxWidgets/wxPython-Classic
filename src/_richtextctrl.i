@@ -201,6 +201,7 @@ during sizing.", "");
     bool GetDragging() const;
     void SetDragging(bool dragging);
 
+#ifndef __WXUNIVERSAL__
     /**
         Are we trying to start Drag'n'Drop?
     */
@@ -230,6 +231,7 @@ during sizing.", "");
         Set the possible Drag'n'Drop start time
     */
     void SetDragStartTime(wxDateTime st) { m_dragStartTime = st; }
+#endif
 
 
     

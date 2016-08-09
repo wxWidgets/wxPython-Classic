@@ -144,6 +144,7 @@ the combobox text field.", "",
     virtual void Dismiss();
 
 
+#ifndef __WXUNIVERSAL__
     DocDeclStr(
         int , GetCurrentSelection() const,
         "Unlike `GetSelection` which only returns the accepted selection value,
@@ -152,6 +153,7 @@ list, this function returns the current selection.  That is, while the
 dropdown list is shown, it returns the currently selected item in
 it. When it is not shown, its result is the same as for the other
 function.", "");
+#endif
     
     DocDeclStr(
         bool , SetStringSelection(const wxString& string),
@@ -167,7 +169,9 @@ function.", "");
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
+#ifndef __WXUNIVERSAL__
     %property(CurrentSelection, GetCurrentSelection);
+#endif
     %property(Mark, GetMark, SetMark);
 
 };

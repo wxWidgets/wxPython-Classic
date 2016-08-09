@@ -258,7 +258,9 @@ public:
     wxFontStyle GetStyle() const;
     wxFontWeight GetWeight() const;
     bool GetUnderlined() const;
+#ifndef __WXUNIVERSAL__
     bool GetStrikethrough() const;
+#endif
     wxString GetFaceName() const;
     wxFontFamily GetFamily() const;
     wxFontEncoding GetEncoding() const;

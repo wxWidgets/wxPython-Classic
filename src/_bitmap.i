@@ -89,6 +89,7 @@ enum wxBitmapBufferFormat {
 };
 
 
+#ifndef __WXUNIVERSAL__
     void wxPyCopyBitmapFromBuffer(wxBitmap* bmp,
                                   buffer data, int DATASIZE,
                                   wxBitmapBufferFormat format, int stride=-1)
@@ -393,6 +394,7 @@ enum wxBitmapBufferFormat {
             }
         }
     }
+#endif
     
 %}
 
@@ -669,6 +671,7 @@ the ``type`` parameter.", "");
 #endif
 
     
+#ifndef __WXUNIVERSAL__
     %extend {
         DocStr(CopyFromBuffer,
                "Copy data from a buffer object to replace the bitmap pixel data.
@@ -716,11 +719,14 @@ format details.", "");
             wxPyCopyBitmapToBuffer(self, data, DATASIZE, format, stride);
         }
     }
+#endif
 
     
     // (these functions are internal and shouldn't be used, they risk to
     // disappear in the future)
+#ifndef __WXUNIVERSAL__
     bool HasAlpha() const;
+#endif
     
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
@@ -747,6 +753,7 @@ format details.", "");
 // the wxBitmap's pixel buffer.
 
 
+#ifndef __WXUNIVERSAL__
 %newobject _BitmapFromBufferAlpha;
 %newobject _BitmapFromBuffer;
 %inline %{
@@ -1125,6 +1132,7 @@ PIXELDATA(wxAlphaPixelData)
         return rv;            
     }
 }
+#endif
 
 
 //---------------------------------------------------------------------------

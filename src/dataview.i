@@ -2488,8 +2488,10 @@ public:
     virtual void EditItem(const wxDataViewItem& item, const wxDataViewColumn *column);
 //    virtual void StartEditor( const wxDataViewItem & item, unsigned int column );
     
+#ifndef __WXUNIVERSAL__
     virtual bool EnableDragSource(const wxDataFormat& format);
     virtual bool EnableDropTarget(const wxDataFormat& format);
+#endif
 
     %property(Model, GetModel, AssociateModel);
     %property(ColumnCount, GetColumnCount);
@@ -2541,9 +2543,12 @@ public:
     
     // For drag operations
     %disownarg( wxDataObject *obj );
+#ifndef __WXUNIVERSAL__
     void SetDataObject( wxDataObject *obj );
+#endif
     %cleardisown( wxDataObject *obj );
 
+#ifndef __WXUNIVERSAL__
     wxDataObject *GetDataObject() const;
 
     // For drop operations
@@ -2559,6 +2564,7 @@ public:
 
     void SetDragFlags(int flags);
     int GetDragFlags() const;
+#endif
 
     
     %property(Column, GetColumn, SetColumn);

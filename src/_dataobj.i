@@ -104,10 +104,12 @@ name.", "",
     bool operator!=(const wxDataFormat& format) const;
 
     
+#ifndef __WXUNIVERSAL__
     DocDeclStr(
         void , SetType(wxDataFormatId format),
         "Sets the format to the given value, which should be one of wx.DF_XXX
 constants.", "");
+#endif
     
     DocDeclStr(
         wxDataFormatId , GetType() const,
@@ -128,7 +130,9 @@ standard format)."""
         "Sets the format to be the custom format identified by the given name.", "");    
 
     %property(Id, GetId, SetId, doc="See `GetId` and `SetId`");
+#ifndef __WXUNIVERSAL__
     %property(Type, GetType, SetType, doc="See `GetType` and `SetType`");
+#endif
 };
 
 

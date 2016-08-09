@@ -2362,7 +2362,9 @@ opaque.", "");
     %property(ContainingSizer, GetContainingSizer, SetContainingSizer, doc="See `GetContainingSizer` and `SetContainingSizer`");
     %property(Cursor, GetCursor, SetCursor, doc="See `GetCursor` and `SetCursor`");
     %property(DefaultAttributes, GetDefaultAttributes, doc="See `GetDefaultAttributes`");
+#ifndef __WXUNIVERSAL__
     %property(DropTarget, GetDropTarget, SetDropTarget, doc="See `GetDropTarget` and `SetDropTarget`");
+#endif
     %property(EventHandler, GetEventHandler, SetEventHandler, doc="See `GetEventHandler` and `SetEventHandler`");
     %property(ExtraStyle, GetExtraStyle, SetExtraStyle, doc="See `GetExtraStyle` and `SetExtraStyle`");
     %property(Font, GetFont, SetFont, doc="See `GetFont` and `SetFont`");
@@ -2389,7 +2391,9 @@ opaque.", "");
     %property(Size, GetSize, SetSize, doc="See `GetSize` and `SetSize`");
     %property(Sizer, GetSizer, SetSizer, doc="See `GetSizer` and `SetSizer`");
     %property(ThemeEnabled, GetThemeEnabled, SetThemeEnabled, doc="See `GetThemeEnabled` and `SetThemeEnabled`");
+#ifndef __WXUNIVERSAL__
     %property(ToolTip, GetToolTip, SetToolTip, doc="See `GetToolTip` and `SetToolTip`");
+#endif
     %property(UpdateClientRect, GetUpdateClientRect, doc="See `GetUpdateClientRect`");
     %property(UpdateRegion, GetUpdateRegion, doc="See `GetUpdateRegion`");
     %property(Validator, GetValidator, SetValidator, doc="See `GetValidator` and `SetValidator`");

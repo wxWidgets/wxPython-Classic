@@ -38,8 +38,10 @@ enum wxTaskBarIconType
 class wxTaskBarIcon : public wxEvtHandler
 {
 public:
+#ifndef __WXUNIVERSAL__
     wxTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE)
     { wxPyRaiseNotImplemented(); }
+#endif
 };
 
 
@@ -80,8 +82,10 @@ class wxPyTaskBarIcon : public wxTaskBarIcon
 {
     DECLARE_ABSTRACT_CLASS(wxPyTaskBarIcon)
 public:
+#ifndef __WXUNIVERSAL__
     wxPyTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE) :
         wxTaskBarIcon(iconType) {}
+#endif
     
     wxMenu* CreatePopupMenu() {
         wxMenu *rval = NULL;
@@ -128,7 +132,9 @@ class wxPyTaskBarIcon : public wxEvtHandler
 public:
     %pythonAppend wxPyTaskBarIcon   "self._setOORInfo(self);" setCallbackInfo(TaskBarIcon)
 
+#ifndef __WXUNIVERSAL__
     wxPyTaskBarIcon(wxTaskBarIconType iconType=wxTBI_DEFAULT_TYPE);
+#endif
     ~wxPyTaskBarIcon();
 
     void _setCallbackInfo(PyObject* self, PyObject* _class, int incref=0);

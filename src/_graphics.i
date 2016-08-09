@@ -308,11 +308,13 @@ public:
         return NULL;
     }
 
+#ifndef __WXUNIVERSAL__
     static wxGraphicsContext* Create( const wxEnhMetaFileDC& )  {
         PyErr_SetString(PyExc_NotImplementedError,
                         "wx.GraphicsContext is not available on this platform.");
         return NULL;
     }
+#endif
 
     static wxGraphicsContext* Create( const wxWindowDC& )  {
         PyErr_SetString(PyExc_NotImplementedError,
@@ -490,7 +492,9 @@ public :
         return NULL;
     }   
 
+#ifndef __WXUNIVERSAL__
     virtual wxGraphicsContext * CreateContext( const wxEnhMetaFileDC& ) { return NULL; }
+#endif
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxMemoryDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& ) { return NULL; }

@@ -74,6 +74,7 @@ public:
     String name=ChoiceNameStr) -> bool",
         "Actually create the GUI Choice control for 2-phase creation", "");
 
+#ifndef __WXUNIVERSAL__
     DocDeclStr(
         int , GetCurrentSelection() const,
         "Unlike `GetSelection` which only returns the accepted selection value,
@@ -82,13 +83,16 @@ list, this function returns the current selection.  That is, while the
 dropdown list is shown, it returns the currently selected item in
 it. When it is not shown, its result is the same as for the other
 function.", "");
+#endif
     
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
 
+#ifndef __WXUNIVERSAL__
     %property(CurrentSelection, GetCurrentSelection, doc="See `GetCurrentSelection`");
+#endif
     
 };
 

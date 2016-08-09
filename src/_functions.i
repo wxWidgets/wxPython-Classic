@@ -116,7 +116,7 @@ bool wxIsPlatform64Bit();
     %#endif
 }
 
-#if defined(__WXMSW__) || defined(__WXMAC__)
+#if defined(__WXMSW__) || defined(__WXMAC__) || defined(__WXUNIVERSAL__)
 wxMemorySize wxGetFreeMemory();
 #else
 %inline %{

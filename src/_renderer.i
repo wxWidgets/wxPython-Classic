@@ -332,7 +332,7 @@ button only) because there is no way to render standard title bar
 buttons under the other platforms, the best can be done is to use
 normal (only) images which wxArtProvider provides for wxART_HELP and
 wxART_CLOSE (but not any other title bar buttons)", "");
-#ifdef __WXGTK__
+#if defined(__WXGTK__) || defined(__WXUNIVERSAL__)
     %extend {
         void DrawTitleBarBitmap(wxWindow *win,
                                 wxDC& dc,
