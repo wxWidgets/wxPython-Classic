@@ -137,7 +137,7 @@ class _Listener:
         wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
 
         # XMLTree events
-        tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
+        # tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
         tree.Bind(wx.EVT_RIGHT_DOWN, self.OnTreeRightDown)
         tree.Bind(wx.EVT_TREE_SEL_CHANGING, self.OnTreeSelChanging)
         tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnTreeSelChanged)
