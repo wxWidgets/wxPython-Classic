@@ -3958,7 +3958,7 @@ public:
             return ret;
     }
 
-    virtual bool GetValueFromEditorCtrl(wxControl * editor,
+    virtual bool GetValueFromEditorCtrl(wxWindow * editor,
                                         wxVariant& value)
     {
         // The wxPython version of this method returns the variant as
@@ -5487,6 +5487,42 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataViewItemAttr_SetBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewItemAttr *arg1 = (wxDataViewItemAttr *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "colour", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DataViewItemAttr_SetBackgroundColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewItemAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewItemAttr_SetBackgroundColour" "', expected argument " "1"" of type '" "wxDataViewItemAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewItemAttr * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBackgroundColour((wxColour const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DataViewItemAttr_HasColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDataViewItemAttr *arg1 = (wxDataViewItemAttr *) 0 ;
@@ -5629,6 +5665,67 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetItalic(PyObject *SWIGUNUSEDPARM(s
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataViewItemAttr_HasBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDataViewItemAttr *arg1 = (wxDataViewItemAttr *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewItemAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewItemAttr_HasBackgroundColour" "', expected argument " "1"" of type '" "wxDataViewItemAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewItemAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxDataViewItemAttr const *)arg1)->HasBackgroundColour();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDataViewItemAttr *arg1 = (wxDataViewItemAttr *) 0 ;
+  wxColour *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewItemAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewItemAttr_GetBackgroundColour" "', expected argument " "1"" of type '" "wxDataViewItemAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewItemAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxColour const &_result_ref = ((wxDataViewItemAttr const *)arg1)->GetBackgroundColour();
+      result = (wxColour *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -20484,11 +20581,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewItemAttr_SetColour", (PyCFunction) _wrap_DataViewItemAttr_SetColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewItemAttr_SetBold", (PyCFunction) _wrap_DataViewItemAttr_SetBold, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewItemAttr_SetItalic", (PyCFunction) _wrap_DataViewItemAttr_SetItalic, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewItemAttr_SetBackgroundColour", (PyCFunction) _wrap_DataViewItemAttr_SetBackgroundColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewItemAttr_HasColour", (PyCFunction)_wrap_DataViewItemAttr_HasColour, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_GetColour", (PyCFunction)_wrap_DataViewItemAttr_GetColour, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_HasFont", (PyCFunction)_wrap_DataViewItemAttr_HasFont, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_GetBold", (PyCFunction)_wrap_DataViewItemAttr_GetBold, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_GetItalic", (PyCFunction)_wrap_DataViewItemAttr_GetItalic, METH_O, NULL},
+	 { (char *)"DataViewItemAttr_HasBackgroundColour", (PyCFunction)_wrap_DataViewItemAttr_HasBackgroundColour, METH_O, NULL},
+	 { (char *)"DataViewItemAttr_GetBackgroundColour", (PyCFunction)_wrap_DataViewItemAttr_GetBackgroundColour, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_IsDefault", (PyCFunction)_wrap_DataViewItemAttr_IsDefault, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_GetEffectiveFont", (PyCFunction) _wrap_DataViewItemAttr_GetEffectiveFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewItemAttr_swigregister", DataViewItemAttr_swigregister, METH_VARARGS, NULL},

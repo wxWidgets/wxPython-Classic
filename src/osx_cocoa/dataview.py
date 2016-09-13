@@ -342,6 +342,10 @@ class DataViewItemAttr(object):
         """SetItalic(self, bool set)"""
         return _dataview.DataViewItemAttr_SetItalic(*args, **kwargs)
 
+    def SetBackgroundColour(*args, **kwargs):
+        """SetBackgroundColour(self, Colour colour)"""
+        return _dataview.DataViewItemAttr_SetBackgroundColour(*args, **kwargs)
+
     def HasColour(*args, **kwargs):
         """HasColour(self) -> bool"""
         return _dataview.DataViewItemAttr_HasColour(*args, **kwargs)
@@ -362,6 +366,14 @@ class DataViewItemAttr(object):
         """GetItalic(self) -> bool"""
         return _dataview.DataViewItemAttr_GetItalic(*args, **kwargs)
 
+    def HasBackgroundColour(*args, **kwargs):
+        """HasBackgroundColour(self) -> bool"""
+        return _dataview.DataViewItemAttr_HasBackgroundColour(*args, **kwargs)
+
+    def GetBackgroundColour(*args, **kwargs):
+        """GetBackgroundColour(self) -> Colour"""
+        return _dataview.DataViewItemAttr_GetBackgroundColour(*args, **kwargs)
+
     def IsDefault(*args, **kwargs):
         """IsDefault(self) -> bool"""
         return _dataview.DataViewItemAttr_IsDefault(*args, **kwargs)
@@ -373,6 +385,7 @@ class DataViewItemAttr(object):
     Colour = property(GetColour,SetColour) 
     Bold = property(GetBold,SetBold) 
     Italic = property(GetItalic,SetItalic) 
+    BackgroundColour = property(GetBackgroundColour,SetBackgroundColour) 
 _dataview.DataViewItemAttr_swigregister(DataViewItemAttr)
 
 #---------------------------------------------------------------------------
