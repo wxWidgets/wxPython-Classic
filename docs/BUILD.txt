@@ -25,7 +25,7 @@ See the README.txt in the wxPython/SWIG dir for details about each
 patch.  You can also get a pre-patched version of the SWIG sources
 plus a Windows binary at::
 
-    http://wxpython.kosoftworks.com/tools/
+    http://wxpython.org/tools/
 
 If you install this build of SWIG to a location that is not on the
 PATH (so it doesn't interfere with an existing SWIG install for

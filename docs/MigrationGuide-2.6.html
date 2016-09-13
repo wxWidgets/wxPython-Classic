@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
 <title>wxPython 2.6 Migration Guide</title>
 <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
@@ -214,7 +214,7 @@ class MyFrame(wx.Frame):
     def JustDoIt(self, evt):
         print &quot;It's done!&quot;
 
-app = wx.PySimpleApp()
+app = wx.App()
 f = MyFrame(None, &quot;What's up?&quot;)
 f.Show()
 app.MainLoop()
@@ -625,7 +625,7 @@ fully transparent.</li>
 <p><strong>[Changed in 2.5.2.x]</strong></p>
 <p>The wx.ogl module was deprecated in version 2.5.2 in favor of the new
 Python port of the OGL library located at wx.lib.ogl contributed by
-Pierre Hjälm.  Starting in version 2.5.5 the old ogl is no longer
+Pierre Hj&#65533;lm.  Starting in version 2.5.5 the old ogl is no longer
 being built in the distributed binaries, however the source code is
 still in the source tree so people can built it themselves if desired.</p>
 <p>The reason this changes was done was to greatly extend the life of OGL
