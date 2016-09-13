@@ -19,17 +19,19 @@ import cPickle, urllib
 RCPTDIR = "/Library/Receipts"
 RSRCDIR = "Contents/Resources"
 
-# Only completly clean out dirs that have one of these as a prefix.
+# Only completely clean out dirs that have one of these as a prefix.
 # We do this because the file list returned from lsbom will include /,
 # /usr, /usr/local, etc.
 PREFIXES = [ '/Library/Python/2.3/',
              '/Library/Python/2.4/',
              '/Library/Python/2.5/',
              '/Library/Python/2.6/',
+             '/Library/Python/2.7/',
              '/Library/Frameworks/Python.framework/Versions/2.3/lib/python2.3/site-packages/',
              '/Library/Frameworks/Python.framework/Versions/2.4/lib/python2.4/site-packages/',
              '/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/site-packages/',
              '/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages/',
+             '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.6/site-packages/',
              '/usr/local/lib/',
              ]
 

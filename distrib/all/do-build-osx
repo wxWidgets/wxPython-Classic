@@ -181,7 +181,7 @@ EOF
     $PYTHON $WXROOT/wxPython/distrib/mac/zappycfiles.py $INSTALLROOT > /dev/null
     popd
 
-    # Set premissions for files in $INSTALLROOT
+    # Set permissions for files in $INSTALLROOT
     if [ "$UID" = "0" ]; then
         chown -R root:admin $INSTALLROOT
         chmod -R g+w        $INSTALLROOT

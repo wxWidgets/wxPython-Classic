@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/env python
 #----------------------------------------------------------------------
 # Name:        build-all.py
 # Purpose:     Master build script for building all the wxPython
@@ -21,6 +21,8 @@ import sys
 import os
 import time
 from taskrunner import Job, Task, TaskRunner, Config
+
+#import mydbstub
 
 #----------------------------------------------------------------------
 # Configuration items
@@ -87,14 +89,23 @@ def getTasks(config_env):
         Job("lenny",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny",   "lenny"], env=config_env),
         Job("lenny64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny64", "lenny64"], env=config_env),
         ])
-    
-    buildTasks = [ carbonTask,
-                   cocoaTask,
-                   cyclopsTask0,
-                   #cyclopsTask1,
-                   ##cyclopsTask2,
-                   #cyclopsTask3,
-                   ]
+
+
+    localBuild = Task([
+        Job("local", "distrib/all/local-build", ["2.7", "cocoa"], env=config_env)
+    ])
+
+    if config_env['KIND'] == "local":
+        buildTasks = [ localBuild ]
+    else:
+
+        buildTasks = [ carbonTask,
+                       cocoaTask,
+                       cyclopsTask0,
+                       #cyclopsTask1,
+                       ##cyclopsTask2,
+                       #cyclopsTask3,
+                       ]
     
     # Finalization.  This is for things that must wait until all the
     # builds are done, such as copying the installers someplace, sending
@@ -113,7 +124,7 @@ def usage():
     print "build types:"
     print "   dryrun       Do the build, but don't copy anywhere (default)"
     print "   daily        Do a daily build, copy to starship"
-    print "   release      Do a normal release (cantidate) build, copy to starship"
+    print "   release      Do a normal release (candidate) build, copy to starship"
     print ""
     print "optional command flags:"
     print "   skipsource   Don't build the source archives, use the ones"
@@ -141,12 +152,11 @@ def main(args):
     if not os.path.isdir("distrib") or not os.path.isdir("wx"):
         print "Please run this script from the root wxPython directory."
         sys.exit(1)
-        
-    
+
 
     # Check command line flags
     for flag in args:
-        if flag in ["dryrun", "daily", "release"]:
+        if flag in ["dryrun", "daily", "release", "local"]:
             config.KIND = flag
 
         elif flag == "skipsource":
@@ -187,7 +197,6 @@ def main(args):
             usage()
             sys.exit(2)
 
-
     # ensure the staging area exists
     if not os.path.exists(config.STAGING_DIR):
         os.makedirs(config.STAGING_DIR)
@@ -196,11 +205,18 @@ def main(args):
     if config.KIND == "daily":
         t = time.localtime()
         config.DAILY = time.strftime("%Y%m%d")   # should it include the hour too?  2-digit year?
-        file("DAILY_BUILD", "w").write(config.DAILY)
+        open("DAILY_BUILD", "w").write(config.DAILY)
     sys.path.append('.')
+    #import imp
+    #print imp.find_module('setup')
     import setup
     v = config.VERSION = setup.VERSION
     config.VER2 = '.'.join(v.split('.')[:2])
+
+    # Save the sys.platform and executable values in the environment too,
+    # which will be used for local builds.
+    config.PY_SYS_PLATFORM = sys.platform
+    config.PY_EXECUTABLE = sys.executable
 
     config_env = config.asDict()
     config_env.update(os.environ)
