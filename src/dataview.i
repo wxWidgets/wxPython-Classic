@@ -794,6 +794,7 @@ public:
     void SetColour(const wxColour& colour);
     void SetBold( bool set );
     void SetItalic( bool set );
+    void SetBackgroundColour(const wxColour& colour);
 
     bool HasColour() const;
     const wxColour GetColour() const;
@@ -801,6 +802,9 @@ public:
     bool HasFont() const;
     bool GetBold() const;
     bool GetItalic() const;
+
+    bool HasBackgroundColour() const;
+    const wxColour& GetBackgroundColour() const;
 
     bool IsDefault() const;
 
@@ -810,6 +814,8 @@ public:
     %property(Colour, GetColour, SetColour);
     %property(Bold, GetBold, SetBold);
     %property(Italic, GetItalic, SetItalic);
+    %property(BackgroundColour, GetBackgroundColour, SetBackgroundColour);
+
 };
 
 //---------------------------------------------------------------------------
