@@ -9,7 +9,7 @@ W = 2000
 H = 2000
 SW = 150
 SH = 150
-SHAPE_COUNT = 2500
+SHAPE_COUNT = 20
 hitradius = 5
 
 #---------------------------------------------------------------------------
@@ -168,7 +168,7 @@ class MyCanvas(wx.ScrolledWindow):
         for i in range(SHAPE_COUNT):
             id = wx.NewId()
             dc.SetId(id)
-            choice = random.randint(0,8)
+            choice = 7 # random.randint(0,8)
             if choice in (0,1):
                 x = random.randint(0, W)
                 y = random.randint(0, H)

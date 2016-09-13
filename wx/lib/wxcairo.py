@@ -65,7 +65,7 @@ cairoLib = None
 pycairoAPI = None
 
 
-# a convenience funtion, just to save a bit of typing below
+# a convenience function, just to save a bit of typing below
 def voidp(ptr):
     """Convert a SWIGged void* type to a ctypes c_void_p"""
     return ctypes.c_void_p(long(ptr))
