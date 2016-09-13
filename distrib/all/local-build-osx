@@ -317,41 +317,32 @@ productbuild --distribution distribution.xml \
 
 
 
-# Now let's make the DMG
+# Now let's make the DMG, starting with a README
 cat > "$DMGROOT/README 1st.txt" <<EOF
 Welcome to wxPython!
 
 This disk image contains the following items:
 
-    wxPython${SHORTVER}-osx-$VERSION-$PORT
+    wxPython${SHORTVER}-osx-$VERSION-$PORT.pkg
 
         This Installer contains the wxPython runtime version $VERSION.
         It includes all the Python modules and extension modules for
-        wxPython, as well as the wxWidgets libraries.
-
-        It is possible to have more than one version of the runtime
-        installed at once if you wish.  The most recently installed
-        version will be the default wxPython, but you can choose
-        another by setting the PYTHONPATH or by using the wxversion
-        module.  For more details see:
-        http://wiki.wxpython.org/index.cgi/MultiVersionInstalls
+        wxPython, as well as the wxWidgets libraries and headers.
 
 
-    uninstall_wxPython.py
+    How to Uninstall.txt
 
-        A simple tool to help you manage your installed versions of
-        wxPython.  It will allow you to choose from the currently
-        installed wxPython packages and to select one for
-        uninstallation.  It is a text-mode tool so you can either run
-        it from a Terminal command line, or you can open it with
-        PythonLauncher and let it create a Terminal to run it in.
+        This document contains information on how to remove wxPython from your
+        system.  If you have a prior version of wxPython installed for the
+        same Python that this installer uses, then it is recommended that you
+        remove the old version before installing.  Please read this document
+        for more details.
 
-        NOTE: If you have versions prior to 2.5.3.1 installed, please
-        do run this uninstall tool to remove the older version.
 
 EOF
 
-cp $PROGDIR/uninstall_wxPython.py $DMGROOT
+#cp $PROGDIR/uninstall_wxPython.py $DMGROOT
+cp "$PROGDIR/How to Uninstall.txt" $DMGROOT
 
 # Make a disk image to hold these files
 dmgname=wxPython${SHORTVER}-osx-$VERSION-$PORT-py$PYVER
@@ -362,7 +353,7 @@ $PROGDIR/create-dmg --volname $dmgname \
                     --icon-size 64 \
                     --icon "README 1st.txt"        540  50 \
                     --icon $PKGNAME.pkg            540 200 \
-                    --icon "uninstall_wxPython.py" 540 350 \
+                    --icon "How to Uninstall.txt"  540 350 \
                     $DMGDIR/$dmgname.dmg $DMGROOT
 
 echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
