@@ -27,11 +27,12 @@ installed by the installer::
 Review this list very, very carefully. If you are satisfied that none of those
 files would cause problems if they are removed then you can either manually
 remove the listed files.  There are a ton of them however, so if you would
-like to automate it you can remove them all like this::
+like to automate it you can remove them all like this, where VERSION is set to
+the version number of wxPython you are wanting to remove::
 
     $ cd /
-    $ pkgutil --only-files --files org.wxpython.classic | tr '\n' '\0' | xargs -0 sudo rm
-    $ pkgutil --only-dirs --files org.wxpython.classic | tr '\n' '\0' | xargs -0 sudo rm -r
+    $ pkgutil --only-files --files org.wxpython.classic | xargs sudo rm
+    $ sudo rm -r usr/local/lib/wxPython-$VERSION
 
 
 The final step is to cause OSX to forget about the old installation using this
