@@ -45,11 +45,11 @@ sleep 3
 # modified to build a new format OSX installer package, and should be ported
 # back to the other script after it is working properly. Only the installer
 # package portions are copied here for now. The building of the demo/sample
-# application bundles and documentation are not currently included.
+# application bundles and documentation are not currently implemented.
 #
-# Eventually this should be moved back to do-build-osx, and this script should
-# change to just call that one with appropriate parameters to do a local build
-# instead of one using the remote build host.
+# Eventually this should be moved back to do-build-osx, and most of this
+# script should be refactored to just call that one with appropriate
+# parameters to do a local build instead of one using the remote build host.
 
 HOMEBASE=$PWD
 
