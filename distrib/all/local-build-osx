@@ -328,9 +328,10 @@ This disk image contains the following items:
 
     wxPython${SHORTVER}-osx-$VERSION-$PORT.pkg
 
-        This Installer package contains the wxPython runtime version $VERSION.
-        It includes all the Python modules and extension modules for wxPython,
-        as well as the wxWidgets libraries and headers.
+        This Installer package contains the wxPython runtime version
+        $VERSION. It includes all the Python modules and extension
+        modules for wxPython, as well as the wxWidgets libraries and
+        headers.
 
 
     How to Uninstall.txt

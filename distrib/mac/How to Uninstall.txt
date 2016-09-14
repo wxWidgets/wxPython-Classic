@@ -57,8 +57,8 @@ the full list before trying this, to ensure that you are not going to removed
 anything important.::
 
     $ cd /
-    $ lsbom -sf $BASE/Contents/Resources/*.bom | tr '\n' '\0' | xargs -0 sudo rm
-    $ lsbom -sf $BASE/Contents/Resources/*.bom | tr '\n' '\0' | xargs -0 sudo rm
+    $ lsbom -sf $BASE/Contents/Resources/*.bom | xargs sudo rm
+    $ sudo rm -r usr/local/lib/wxPython-$VERSION
 
 And the final step in this case is to remove the pkg folder from
 `/Library/Receipts`, like this::
