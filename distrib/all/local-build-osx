@@ -10,10 +10,13 @@ set -o errexit
 
 
 echo "Copying tarballs to build folder"
-cp $STAGING_DIR/wxPython-src-$VERSION.tar.bz2 \
-   $STAGING_DIR/wxPython-docs-$VERSION.tar.bz2 \
-   $STAGING_DIR/wxPython-demo-$VERSION.tar.bz2 \
-   $OSX_BUILD
+for f in $STAGING_DIR/wxPython-src-$VERSION.tar.bz2 \
+         $STAGING_DIR/wxPython-docs-$VERSION.tar.bz2 \
+         $STAGING_DIR/wxPython-demo-$VERSION.tar.bz2;  do
+    if [ -e $f ]; then
+        cp -v $f $OSX_BUILD
+    fi
+done
 
 WXDIR=$OSX_BUILD/wxPython-src-$VERSION
 DESTDIR=$OSX_BUILD
