@@ -8,6 +8,16 @@ script no longer works. This document describes how to manually remove the
 files installed by the wxPython installer, if there is ever a need to do so.
 
 
+WARNING!!  WARNING!!  WARNING!!  WARNING!!  WARNING!!  WARNING!!
+
+Be VERY careful when removing files and folders, especially when the
+names are coming from a tool like pkgutil or lsbom. Carefully examine
+the names in a dry-run before doing the actual removal. If you are
+not careful you may blow away something important, like I did while
+testing the previous version of these instructions!  (Thankfully, Time
+Machine saved the day once again!)
+
+
 Using pkgutil
 -------------
 
@@ -25,10 +35,10 @@ installed by the installer::
     $ pkgutil --files org.wxpython.classic
 
 Review this list very, very carefully. If you are satisfied that none of those
-files would cause problems if they are removed then you can either manually
-remove the listed files.  There are a ton of them however, so if you would
-like to automate it you can remove them all like this, where VERSION is set to
-the version number of wxPython you are wanting to remove::
+files would cause problems if they are removed then you can manually remove
+the listed files.  There are a ton of them however, so if you would like to
+automate it you can remove them all like this, where VERSION is set to the
+version number of wxPython you are wanting to remove::
 
     $ cd /
     $ pkgutil --only-files --files org.wxpython.classic | xargs sudo rm
@@ -46,11 +56,11 @@ Older installations
 -------------------
 
 Look in `/Library/Receipts` for a `*.pkg` folder for wxPython, such as
-`/LibraryReceipts/wxPython3.0-osx-cocoa-py2.7.pkg`.  Let's call this
-folder $BASE.  Similar to the above, you can get a listing of files that were
+`/LibraryReceipts/wxPython3.0-osx-cocoa-py2.7.pkg`.  Let's call this folder
+$PKGBASE.  Similar to the above, you can get a listing of files that were
 installed by that installer using commands like this::
 
-    $ lsbom -s $BASE/Contents/Resources/*.bom
+    $ lsbom -s $PKGBASE/Contents/Resources/*.bom
 
 And those files and folders can be removed like the following. Please review
 the full list before trying this, to ensure that you are not going to removed
@@ -63,7 +73,7 @@ anything important.::
 And the final step in this case is to remove the pkg folder from
 `/Library/Receipts`, like this::
 
-    $ sudo rm -r $BASE
+    $ sudo rm -r $PKGBASE
 
 
 Fully manual uninstall
