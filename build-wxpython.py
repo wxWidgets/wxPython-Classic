@@ -89,6 +89,7 @@ option_dict = {
     "installdir"    : ("", "Installation root for wxWidgets, files will go to {installdir}/{prefix}"),
     "build_dir"     : ("", "Directory to store wx build files. (Not used on Windows)"),
     "wxpy_installdir":("", "Installation root for wxPython, defaults to Python's site-packages."),
+    "multiversion"  : (False, "Use the old-style multi-version install option."),
     "extra_setup"   : ("", "Extra args to pass on setup.py's command line."),
     "extra_make"    : ("", "Extra args to pass on [n]make's command line."),
 }
@@ -374,7 +375,9 @@ if options.mac_framework and sys.platform.startswith("darwin"):
         build_options.append("--install")
 
     PREFIX = wxbuild.getPrefixInFramework(options, WXWIN)
-    
+
+if options.multiversion:
+    wxpy_build_options.append("INSTALL_MULTIVERSION=1")
         
 if not sys.platform.startswith("win"):
     build_options.append('--builddir=%s' % WXPY_BUILD_DIR)
@@ -397,11 +400,11 @@ else:
 #-----------------------------------------------------------------------
 # wxPython build
 
-
 def macFixupInstallNames2(destprefix, # prefix where the files are currently located
                           instprefix, # prefix to write into the files
                           oldprefix   # the prefix to be replaced, defaults to destprefix 
                          ):
+    return  # TODO: is this function still needed?
     print "**** macFixupInstallNames2(%s, %s, %s)" % ( destprefix, instprefix, oldprefix)
     pwd = os.getcwd()
     os.chdir(destprefix+'/lib')
@@ -421,6 +424,7 @@ def macFixupInstallNames2(destprefix, # prefix where the files are currently loc
     
 
 def macFixDependencyInstallName(destdir, prefix, extension, buildDir):
+    return  # TODO: is this function still needed?
     print "**** macFixDependencyInstallName(%s, %s, %s, %s)" % (destdir, prefix, extension, buildDir)
     pwd = os.getcwd()
     os.chdir(destdir+prefix+'/lib')

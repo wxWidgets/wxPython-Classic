@@ -7,9 +7,9 @@ set -o errexit
 
 chmod a+r $STAGING_DIR/*
 
-if [ $KIND = dryrun ]; then
+if [ $KIND = dryrun -o $KIND = local ]; then
     # we're done, leave the files in the staging dir and quit
-    echo "Not uploading dryrun."
+    echo "Not uploading dryrun or local build."
     exit 0
 fi
 

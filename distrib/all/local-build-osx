@@ -1,0 +1,386 @@
+#!/bin/bash
+#--------------------------------------------------------------------------
+# Build wxPython on the local system, without using the rest of the
+# build environment, remote build machines, etc.  This is the worker
+# script for OSX.
+#--------------------------------------------------------------------------
+
+set -o errexit
+#set -o xtrace
+
+
+echo "Copying tarballs to build folder"
+for f in $STAGING_DIR/wxPython-src-$VERSION.tar.bz2 \
+         $STAGING_DIR/wxPython-docs-$VERSION.tar.bz2 \
+         $STAGING_DIR/wxPython-demo-$VERSION.tar.bz2;  do
+    if [ -e $f ]; then
+        cp -v $f $OSX_BUILD
+    fi
+done
+
+WXDIR=$OSX_BUILD/wxPython-src-$VERSION
+DESTDIR=$OSX_BUILD
+SKIPCLEAN=$skipclean
+PYVER=$1
+PORT=$2
+
+PYTHON=$(which python$PYVER)
+
+echo ""
+echo "WARNING: Verify that PYTHON is the correct version and path for this local build"
+echo ""
+
+echo "PYTHON:    $PYTHON"
+echo "WXDIR:     $WXDIR"
+echo "DESTDIR:   $DESTDIR"
+echo "SKIPCLEAN: $SKIPCLEAN"
+echo "VERSION:   $VERSION"
+echo "PYVER:     $PYVER"
+echo "PORT:      $PORT"
+
+sleep 3
+
+#--------------------------------------------------------------------------
+# NOTE: This stuff was copied and adapted from do-build-osx. It has been
+# modified to build a new format OSX installer package, and should be ported
+# back to the other script after it is working properly. Only the installer
+# package portions are copied here for now. The building of the demo/sample
+# application bundles and documentation are not currently implemented.
+#
+# Eventually this should be moved back to do-build-osx, and most of this
+# script should be refactored to just call that one with appropriate
+# parameters to do a local build instead of one using the remote build host.
+
+HOMEBASE=$PWD
+
+# Unpack
+echo "Unarchiving wxPython-src-$VERSION.tar.bz2"
+cd $DESTDIR
+tar xjf wxPython-src-$VERSION.tar.bz2
+rm wxPython-src-$VERSION.tar.bz2
+
+cd $WXDIR/wxPython
+export TARBALLDIR=$DESTDIR
+mkdir -p dist
+
+
+# Do a universal build of wxWidgets and wxPython.
+OSX_VERSION=`sw_vers -productVersion`
+#OSX_VERSION=${OSX_VERSION:0:4}
+OSX_VERSION=$($PYTHON -c "print '.'.join('$OSX_VERSION'.split('.')[:2])")
+if [ "$PORT" = "cocoa" ]; then
+    PORTFLAG="--osx_cocoa"
+else
+    PORTFLAG="--osx_carbon"
+fi
+
+#PYTHON=python$PYVER  # Already set above
+#PYTHONW=pythonw$PYVER
+SHORTVER=${VERSION:0:3}
+PYSYSEXE=`$PYTHON -c "import sys; print sys.executable"`
+
+TARBALL=$TARBALLDIR/wxPython-src-$VERSION.tar.bz2
+
+PYUNICODEOPT="--unicode"
+PREFIX=/usr/local/lib/wxPython-$VERSION
+PREFIX_LINK=/usr/local/lib/wxPython
+SITEPACKAGES=$PREFIX/lib/python$PYVER/site-packages
+BINPREFIX=/usr/local/bin
+WXROOT=$WXDIR
+##TMPDIR=$DESTDIR/_build_
+TMPDIR=$DESTDIR
+BUILDROOT=$TMPDIR/bld
+INSTALLROOT=$TMPDIR/install-root
+INSTALLAPPS=$TMPDIR/install-apps
+INSTALLSCRIPTS=$TMPDIR/install-scipts
+INSTALLRESOURCES=$TMPDIR/install-resources
+
+DMGDIR=$TMPDIR/dmg
+DMGROOT=$DMGDIR/root
+DMGAPPS=$DMGDIR/apps
+
+PROGDIR=$WXDIR/wxPython/distrib/mac
+RESOURCEDIR=$PROGDIR/resources
+
+
+# Setup build dirs
+mkdir -p $BUILDROOT
+mkdir -p $INSTALLROOT
+mkdir -p $INSTALLAPPS
+mkdir -p $INSTALLSCRIPTS
+mkdir -p $INSTALLROOT$SITEPACKAGES
+mkdir -p $INSTALLRESOURCES
+
+rm -rf $DMGDIR
+mkdir -p $DMGROOT
+mkdir -p $DMGAPPS/Docs
+mkdir -p $DMGAPPS/Samples
+
+pushd $BUILDROOT
+
+# Call the new fangled handy dandy build script to build both
+# wxWidgets and wxPython.
+pushd $WXROOT/wxPython
+export PYTHONPATH=$INSTALLROOT$SITEPACKAGES
+echo $PYTHON -u ./build-wxpython.py \
+    $PYUNICODEOPT \
+    --mac_universal_binary $PORTFLAG \
+    --build_dir=$BUILDROOT \
+    --multiversion \
+    --install \
+    --prefix=$PREFIX \
+    --installdir=$INSTALLROOT \
+    --wxpy_installdir=$INSTALLROOT$PREFIX
+
+$PYTHON -u ./build-wxpython.py \
+    $PYUNICODEOPT \
+    --mac_universal_binary $PORTFLAG \
+    --build_dir=$BUILDROOT \
+    --multiversion \
+    --install \
+    --prefix=$PREFIX \
+    --installdir=$INSTALLROOT \
+    --wxpy_installdir=$INSTALLROOT$PREFIX
+
+popd
+
+
+# setup.py is importing setuptools now, and it has changed default behaviors
+# in ways that break some of the following code, so let's undo that by moving
+# the contents of the wxPython_common egg dir back to the site-packages dir.
+mv $INSTALLROOT$SITEPACKAGES/wxPython_common*.egg/wx* $INSTALLROOT$SITEPACKAGES
+rm -r $INSTALLROOT$SITEPACKAGES/wxPython_common*.egg
+rm -r $INSTALLROOT$SITEPACKAGES/site.py
+rm -r $INSTALLROOT$SITEPACKAGES/easy-install.pth
+
+
+# Hack the .pth files
+PKGDIR=`cat $INSTALLROOT$SITEPACKAGES/wx.pth`
+rm $INSTALLROOT$SITEPACKAGES/wx.pth
+cd $WXROOT/wxPython
+cp distrib/wxhack.py $INSTALLROOT$SITEPACKAGES/..
+cat > $INSTALLROOT$SITEPACKAGES/../wxhack.pth <<EOF
+site-packages
+site-packages/$PKGDIR
+# Move these new paths from the end of the list up to before the stock
+# paths, but after any PYTHONPATH settings.
+import wxhack; wxhack.fixpath('$PYVER', 2)
+EOF
+
+# install wxPython's tool scripts
+mkdir -p $INSTALLROOT$BINPREFIX
+cd $WXROOT/wxPython/scripts
+$PYTHON CreateMacScripts.py $INSTALLROOT $BINPREFIX
+
+
+# Remove the .pyc/.pyo files, they just take up space and can be recreated
+# during the install.
+pushd $WXROOT/wxPython
+$PYTHON $WXROOT/wxPython/distrib/mac/zappycfiles.py $INSTALLROOT > /dev/null
+popd
+
+# Set permissions for files in $INSTALLROOT
+if [ "$UID" = "0" ]; then
+    chown -R root:admin $INSTALLROOT
+    chmod -R g+w        $INSTALLROOT
+fi
+
+
+# make the preflight script
+cat > $INSTALLSCRIPTS/preinstall <<EOF
+#!/bin/sh
+# Cleanup any old install of the wxPython package
+rm -rf \$2$SITEPACKAGES/wxPython
+rm -rf \$2$SITEPACKAGES/wx
+rm -rf \$2$SITEPACKAGES/$PKGDIR
+exit 0
+EOF
+chmod +x $INSTALLSCRIPTS/preinstall
+
+
+
+# make the postflight script
+cat > $INSTALLSCRIPTS/postinstall <<EOF
+#!/bin/sh -e
+
+# Make a link to the newest install of wxMac/wxPython
+rm -f $PREFIX_LINK
+ln -s `basename $PREFIX` $PREFIX_LINK
+
+# find a Python $PYVER binary
+for dir in /usr/bin \
+           /usr/local/bin \
+           /Library/Frameworks/Python.framework/Versions/$PYVER/bin \
+           /System/Library/Frameworks/Python.framework/Versions/$PYVER/bin; do
+    if [ -e \$dir/python$PYVER ]; then
+	PYTHON=\$dir/python$PYVER
+	break
+    fi
+done
+
+if [ -z \$PYTHON ]; then
+    echo ERROR: Unable to find a Python $PYVER binary
+    exit 1
+fi
+
+# Byte-compile the .py files to .pyc and .pyo
+\$PYTHON    -m compileall \$2$SITEPACKAGES/$PKGDIR
+\$PYTHON -O -m compileall \$2$SITEPACKAGES/$PKGDIR
+
+# and all of the wxPython package should be group writable
+chgrp -R admin \$2$SITEPACKAGES/$PKGDIR
+chmod -R g+w \$2$SITEPACKAGES/$PKGDIR
+
+# install a .pth file in any Python $PYVER installs we can find
+for dir in /Library/Python/$PYVER/site-packages \
+           /Library/Frameworks/Python.framework/Versions/$PYVER/lib/python$PYVER/site-packages; do
+    if [ -d \$dir ]; then
+        echo Writing wxredirect.pth in \$dir
+        DEST=\`dirname $SITEPACKAGES\`
+        cat > \$dir/wxredirect.pth <<pthEOF
+import site; site.addsitedir('\$DEST')
+pthEOF
+    fi
+done
+
+exit 0
+EOF
+chmod +x $INSTALLSCRIPTS/postinstall
+
+
+# Build the basic Installer Package...
+PKGNAME=wxPython${SHORTVER}-osx-$PORT-py$PYVER
+PKGID=org.wxpython.classic
+PKGVER=$(date +%Y%m%d)
+pkgbuild --root        $INSTALLROOT \
+         --scripts     $INSTALLSCRIPTS \
+         --identifier  $PKGID \
+         --version     $PKGVER \
+         $PKGNAME.pkg
+
+
+
+# Build the distribution package
+
+# first some resource files
+cat > $INSTALLRESOURCES/Welcome.txt <<EOF
+Welcome!
+
+This Installer package will install the wxPython runtime $VERSION for the Universal version of MacPython $PYVER.  This includes:
+
+    * The wxPython extension modules and library packages
+    * The wxWidgets shared libraries and headers
+    * Some command line tool scripts, installed to /usr/local/bin.
+
+You must install onto your current boot disk, even though the installer does not enforce this, otherwise things will not work.
+
+You can install more than one version of the wxPython runtime if you desire.  The most recently installed version will be the default wxPython, but you can choose another by setting the PYTHONPATH or by using the wxversion module.  See http://wiki.wxpython.org/index.cgi/MultiVersionInstalls for more details.
+
+Build date:   `date`
+EOF
+
+# License file to display in the installer
+cp $WXROOT/wxPython/distrib/mac/resources/License.rtf $INSTALLRESOURCES
+
+# IMage to display on the background of the installer
+cp $WXROOT/wxPython/distrib/mac/resources/pkg-background.png $INSTALLRESOURCES
+
+# Distribution info file
+cat > distribution.xml <<EOF
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+
+    <title>$PKGNAME</title>
+    <welcome file="Welcome.txt" mime-type="text/plain" />
+    <license file="License.rtf" mime-type="text/rtf" />
+    <background file="pkg-background.png" mime-type="image/png" />
+
+    <pkg-ref id="$PKGID"/>
+    <options customize="never" require-scripts="false"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="$PKGID"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="$PKGID" visible="false">
+        <pkg-ref id="$PKGID"/>
+    </choice>
+    <pkg-ref id="$PKGID" version="$PKGVER" onConclusion="none">$PKGNAME.pkg</pkg-ref>
+</installer-gui-script>
+EOF
+
+set -o xtrace
+
+# And then build a new copy of the installer package
+productbuild --distribution distribution.xml \
+             --resources $INSTALLRESOURCES \
+             --package-path $PKGNAME.pkg \
+             $DMGROOT/$PKGNAME.pkg
+
+
+
+# Now let's make the DMG, starting with a README
+cat > "$DMGROOT/README 1st.txt" <<EOF
+Welcome to wxPython!
+
+This disk image contains the following items:
+
+    wxPython${SHORTVER}-osx-$VERSION-$PORT.pkg
+
+        This Installer package contains the wxPython runtime version
+        $VERSION. It includes all the Python modules and extension
+        modules for wxPython, as well as the wxWidgets libraries and
+        headers.
+
+
+    How to Uninstall.txt
+
+        This document contains information on how to remove wxPython from your
+        system.  If you have a prior version of wxPython installed for the
+        same Python that this installer uses, then it is recommended that you
+        remove the old version before installing.  Please read this document
+        for more details.
+
+
+EOF
+
+#cp $PROGDIR/uninstall_wxPython.py $DMGROOT
+cp "$PROGDIR/How to Uninstall.txt" $DMGROOT
+
+# Make a disk image to hold these files
+dmgname=wxPython${SHORTVER}-osx-$VERSION-$PORT-py$PYVER
+
+$PROGDIR/create-dmg --volname $dmgname \
+                    --background $WXROOT/wxPython/distrib/mac/resources/dmg-background.png \
+                    --window-size 620 480 \
+                    --icon-size 64 \
+                    --icon "README 1st.txt"        540  50 \
+                    --icon $PKGNAME.pkg            540 200 \
+                    --icon "How to Uninstall.txt"  540 350 \
+                    $DMGDIR/$dmgname.dmg $DMGROOT
+
+echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
+mv $DMGDIR/$dmgname.dmg  $DESTDIR/$dmgname.dmg
+
+
+
+# Cleanup
+if [ $SKIPCLEAN != yes ]; then
+    echo "Cleaning up..."
+    cd $DESTDIR
+    rm -rf $BUILDROOT || true
+    rm -rf $INSTALLROOT || true
+    rm -rf $INSTALLAPPS || true
+    rm -rf $DMGDIR || true
+    rm -r $WXDIR || true
+    rm wxPython-docs-$VERSION.tar.bz2 || true
+    rm wxPython-demo-$VERSION.tar.bz2 || true
+fi
+
+#--------------------------------------------------------------------------
+
+echo "Fetching the results..."
+cd $HOMEBASE
+cp $OSX_BUILD/wxPython*-osx*  $STAGING_DIR
+

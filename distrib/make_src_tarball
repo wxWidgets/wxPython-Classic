@@ -171,46 +171,46 @@ $cmd ${distdir}/${tarver}.tar
 popd > /dev/null
 
 
-#----------------------------------------------------------------------
-# Make the SRPM 
-
-echo "*** Building SRPM..."
-
-rpmtop=${builddir}/rpmtop
-for dir in SOURCES SPECS BUILD RPMS SRPMS; do
-    if [ ! -d ${rpmtop}/${dir} ]; then
-	mkdir -p ${rpmtop}/${dir}
-    fi
-done
-
-cp ${distdir}/${tarver}.tar.bz2 ${rpmtop}/SOURCES
-	rpmbuild -bs \
-	    --define "_topdir ${rpmtop}" \
-	    --define "_tmppath ${builddir}" \
-	    --define "release 1" \
-	    ${distdir}/wxPython.spec
-
-echo "*** Moving RPM to ${distdir}"
-mv -f `find ${rpmtop} -name "wxPython*.rpm"` ${distdir}
-
-
-#----------------------------------------------------------------------
-# Make another tarball with only the things needed for the Debian build
-
-echo "*** Making trimmed tarball for Debian builds"
-pushd ${builddir} > /dev/null
-
-mv ${tarver} wxwidgets${ver2}-${version}
-
-# remove some of the platform specific dirs
-for dir in msw msdos msvc mac cocoa osx dfb palmos; do
-    find . -name ${dir} -type d -print | xargs rm -rf
-done
-
-tar cf ${distdir}/wxwidgets${ver2}_${version}.orig.tar wxwidgets${ver2}-${version}
-gzip -9 ${distdir}/wxwidgets${ver2}_${version}.orig.tar
-
-popd > /dev/null
+##----------------------------------------------------------------------
+## Make the SRPM
+#
+#echo "*** Building SRPM..."
+#
+#rpmtop=${builddir}/rpmtop
+#for dir in SOURCES SPECS BUILD RPMS SRPMS; do
+#    if [ ! -d ${rpmtop}/${dir} ]; then
+#	mkdir -p ${rpmtop}/${dir}
+#    fi
+#done
+#
+#cp ${distdir}/${tarver}.tar.bz2 ${rpmtop}/SOURCES
+#	rpmbuild -bs \
+#	    --define "_topdir ${rpmtop}" \
+#	    --define "_tmppath ${builddir}" \
+#	    --define "release 1" \
+#	    ${distdir}/wxPython.spec
+#
+#echo "*** Moving RPM to ${distdir}"
+#mv -f `find ${rpmtop} -name "wxPython*.rpm"` ${distdir}
+#
+#
+##----------------------------------------------------------------------
+## Make another tarball with only the things needed for the Debian build
+#
+#echo "*** Making trimmed tarball for Debian builds"
+#pushd ${builddir} > /dev/null
+#
+#mv ${tarver} wxwidgets${ver2}-${version}
+#
+## remove some of the platform specific dirs
+#for dir in msw msdos msvc mac cocoa osx dfb palmos; do
+#    find . -name ${dir} -type d -print | xargs rm -rf
+#done
+#
+#tar cf ${distdir}/wxwidgets${ver2}_${version}.orig.tar wxwidgets${ver2}-${version}
+#gzip -9 ${distdir}/wxwidgets${ver2}_${version}.orig.tar
+#
+#popd > /dev/null
 
 #----------------------------------------------------------------------
 # Cleanup

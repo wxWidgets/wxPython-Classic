@@ -1,0 +1,131 @@
+How to Uninstall wxPython Classic
+=================================
+
+In the past wxPython provided a script to mostly automate the removal of
+installed versions of wxPython, however newer versions of OSX and also the
+installer package format have changed things enough that the old uninstall
+script no longer works. This document describes how to manually remove the
+files installed by the wxPython installer, if there is ever a need to do so.
+
+
+WARNING!!  WARNING!!  WARNING!!  WARNING!!  WARNING!!  WARNING!!
+
+Be VERY careful when removing files and folders, especially when the
+names are coming from a tool like pkgutil or lsbom. Carefully examine
+the names in a dry-run before doing the actual removal. If you are
+not careful you may blow away something important, like I did while
+testing the previous version of these instructions!  (Thankfully, Time
+Machine saved the day once again!)
+
+
+Using pkgutil
+-------------
+
+Apple's pkgutil command can be used to assist with the uninstallation.  The
+first thing that needs to be done is to locate the package name::
+
+    $ pkgutil --pkgs
+
+Look for a package name containing "wxpython", like "org.wxpython.classic".
+If there isn't one then try following the instructions in the next section.
+
+This command will give you a list of all the files and folders that were
+installed by the installer::
+
+    $ pkgutil --files org.wxpython.classic
+
+Review this list very, very carefully. If you are satisfied that none of those
+files would cause problems if they are removed then you can manually remove
+the listed files.  There are a ton of them however, so if you would like to
+automate it you can remove them all like this, where VERSION is set to the
+version number of wxPython you are wanting to remove::
+
+    $ cd /
+    $ pkgutil --only-files --files org.wxpython.classic | xargs sudo rm
+    $ sudo rm -r usr/local/lib/wxPython-$VERSION
+
+
+The final step is to cause OSX to forget about the old installation using this
+command::
+
+    $ sudo pkgutil --forget org.wxpython.classic
+
+
+
+Older installations
+-------------------
+
+Look in `/Library/Receipts` for a `*.pkg` folder for wxPython, such as
+`/LibraryReceipts/wxPython3.0-osx-cocoa-py2.7.pkg`.  Let's call this folder
+$PKGBASE.  Similar to the above, you can get a listing of files that were
+installed by that installer using commands like this::
+
+    $ lsbom -s $PKGBASE/Contents/Resources/*.bom
+
+And those files and folders can be removed like the following. Please review
+the full list before trying this, to ensure that you are not going to removed
+anything important.::
+
+    $ cd /
+    $ lsbom -sf $BASE/Contents/Resources/*.bom | xargs sudo rm
+    $ sudo rm -r usr/local/lib/wxPython-$VERSION
+
+And the final step in this case is to remove the pkg folder from
+`/Library/Receipts`, like this::
+
+    $ sudo rm -r $PKGBASE
+
+
+Fully manual uninstall
+----------------------
+
+If the above are not working for you then you can manually remove the
+installed files and folders.  The majority of the files are in this location,
+go ahead and remove this folder, (substituting the appropriate VERSION
+number)::
+
+    /usr/local/lib/wxPython-$VERSION
+
+In the same place there is likely a "wxPython" symbolic link pointing to the
+folder you just removed.  You can either remove the link, or set it to point
+to a different versioned wxPython folder that may already be in
+/usr/local/lib.
+
+The next thing to clean up are the tool launchers in /usr/local/bin::
+
+    /usr/local/bin/editra
+    /usr/local/bin/editra.py
+    /usr/local/bin/genaxmodule
+    /usr/local/bin/helpviewer
+    /usr/local/bin/helpviewer.py
+    /usr/local/bin/img2png
+    /usr/local/bin/img2py
+    /usr/local/bin/img2xpm
+    /usr/local/bin/pyalacarte
+    /usr/local/bin/pyalacarte.py
+    /usr/local/bin/pyalamode
+    /usr/local/bin/pyalamode.py
+    /usr/local/bin/pycrust
+    /usr/local/bin/pycrust.py
+    /usr/local/bin/pyshell
+    /usr/local/bin/pyshell.py
+    /usr/local/bin/pyslices
+    /usr/local/bin/pyslices.py
+    /usr/local/bin/pysliceshell
+    /usr/local/bin/pysliceshell.py
+    /usr/local/bin/pywrap
+    /usr/local/bin/pywrap.py
+    /usr/local/bin/pywxrc
+    /usr/local/bin/xrced
+    /usr/local/bin/xrced.py
+
+Finally, there is a .pth file created by the installers that help multiple
+pythons find the wxPython installation that was just removed.  These files are
+named `wxredirect.pth` and will be located under the following locations::
+
+    /Library/Python
+    /Library/Frameworks/Python.framework/Versions
+
+Search for wxredirect.pth in these locations and remove the ones that match
+the version Python you are removing wxPython from.
+

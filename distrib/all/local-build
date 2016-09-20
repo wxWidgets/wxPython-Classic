@@ -1,0 +1,19 @@
+#!/bin/bash
+#--------------------------------------------------------------------------
+# Build wxPython on the local system, without using the rest of the 
+# build environment, remote build machines, etc.  Shells out from here
+# to a platform specific script to do the actual work.
+#--------------------------------------------------------------------------
+
+echo Doing a LOCAL BUILD...
+
+if [ $PY_SYS_PLATFORM = darwin ]; then
+    script=distrib/all/local-build-osx
+else
+    echo Local builds on $PY_SYS_PLATFORM not yet supported
+    exit 1
+fi
+
+$script $@
+exit $?
+

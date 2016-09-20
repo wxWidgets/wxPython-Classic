@@ -1040,6 +1040,7 @@ if __name__ == "__main__":
 
                       cmdclass = { 'install_data':    wx_smart_install_data,
                                    },
+                      zip_safe = False
                       )
 
         setup(name             = 'wxPython',
@@ -1073,6 +1074,7 @@ if __name__ == "__main__":
                            'install_headers': wx_install_headers,
                            'clean':           wx_extra_clean,
                            },
+              zip_safe = False,
 
               **other_kw
               )
