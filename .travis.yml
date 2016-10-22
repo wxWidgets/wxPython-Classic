@@ -1,0 +1,3 @@
+language: c
+script:
+- python build-wxpython.py --build_dir=../bld
